@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>今までのAIとの違い｜「答えるAI」から「業務を前に進めるAI」へ｜株式会社いざない IZANAI</title>
+<meta name="description" content="従来の対話型AI（ChatGPT・Gemini）と、自律型AIエージェントClaude Codeの違い。「答えるAI」から、「業務を前に進めるAI」へ。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@600;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/cc.css" />
+</head>
+<body>
+
+<header id="header"><div class="wrap nav">
+  <a href="claude-code.html" class="brand"><img class="brand-logo" src="assets/izanai-logo-transparent.png" alt="IZANAI"/><span class="bsub">Claude Code<br>導入基盤設計支援</span></a>
+  <nav class="menu">
+    <a class="link" href="claude-code.html">ホーム</a>
+    <a class="link" href="cc-about.html">Claude Codeとは</a>
+    <a class="link active" href="cc-diff.html">AIとの違い</a>
+    <a class="link" href="cc-demo.html">実演動画</a>
+    <a class="link" href="cc-cases.html">活用事例</a>
+    <a class="link" href="cc-pricing.html">料金</a>
+    <a class="link" href="cc-pricing.html#faq">FAQ</a>
+    <a class="btn btn-cta" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener">無料相談を申し込む<span class="arr">→</span></a>
+  </nav>
+  <button class="burger" id="burger" aria-label="メニュー"><span></span><span></span><span></span></button>
+</div></header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="claude-code.html">ホーム</a><a href="cc-about.html">Claude Codeとは</a><a href="cc-diff.html">AIとの違い</a><a href="cc-demo.html">実演動画</a><a href="cc-cases.html">活用事例</a><a href="cc-pricing.html">料金</a><a href="cc-pricing.html#faq">FAQ</a><a href="index_rebuild.html">IZANAIトップ</a>
+  <a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="assets/logos/line.svg" alt="LINE"/>公式LINEで無料相談</a>
+</div>
+
+<!-- COMPARE -->
+<section class="pad" style="background:linear-gradient(180deg,#eef3f1,var(--bg) 50%);padding-top:120px"><div class="wrap">
+  <div class="sec-head reveal"><h2 class="sec-title">今までの<span class="u">AIとの違い</span></h2><p class="sec-lead">「答えるAI」から、「業務を前に進めるAI」へ。</p></div>
+  <div class="compare reveal">
+    <div class="ccol old">
+      <span class="tag">従来の対話型AI</span>
+      <h3>従来の対話型AI<small>ChatGPT・Gemini など</small></h3>
+      <div class="bubble">今月のGoogle広告の成果を分析して</div>
+      <p class="body">Google広告の成果を分析するには、まずGoogle広告の管理画面にログインし、対象期間のキャンペーン・広告グループごとのデータをエクスポートします。<br>次にCTR・CVR・CPA・ROASなどの主要指標を確認し、前月比で改善・悪化した項目を洗い出します。<br>さらにGA4の計測データと照合すれば、広告流入後のコンバージョン結果も把握できます。詳しい手順が必要であればご相談ください。</p>
+      <div class="bubble" style="margin-bottom:0;background:var(--bg-2);color:var(--muted);font-weight:500;font-size:12.5px">💬 テキストで説明するだけ。実際の作業は人間がやる必要がある。</div>
+    </div>
+    <div class="carrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+    <div class="ccol new">
+      <span class="tag">✳ 自律型AIエージェント</span>
+      <h3>Claude Code<small>自律型 AI エージェント</small></h3>
+      <div class="bubble">今月のGoogle広告の成果を分析して</div>
+      <ul>
+        <li>Google広告 API からキャンペーンデータを取得</li>
+        <li>GA4 でコンバージョンを照合</li>
+        <li>前月比の変化率を算出</li>
+      </ul>
+      <div style="margin-top:14px"><b style="font-size:13px;color:var(--navy)">今月の主要KPI</b>
+        <div class="kpi"><span>・CTR: <b>2.4%</b>（前月比 +0.3pt）</span><span>・CVR: <b>3.1%</b>（+1.1pt）</span><span>・CPA: <b>¥840</b>（-15%）</span><span>・ROAS: <b>412%</b>（+28%）</span></div>
+        <table class="minitable"><tr><th>キャンペーン</th><th>予算</th><th>CV</th><th>ROAS</th></tr><tr><td>A 一認知</td><td>¥320,000</td><td>42</td><td>198%</td></tr><tr><td>B 一獲得</td><td>¥80,000</td><td>128</td><td>512%</td></tr></table>
+      </div>
+      <div class="bubble" style="margin:14px 0 0;background:linear-gradient(120deg,var(--gold-soft),#fff);color:var(--cc);border:1px solid var(--gold-soft);font-size:13px">✳ AIがタスクを整理し、業務を前に進める。</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- Claude Codeの違い -->
+<section class="pad" style="background:#fff"><div class="wrap">
+  <div class="sec-head reveal"><h2 class="sec-title">Claude Codeの違い</h2></div>
+  <div class="cardgrid cols-4">
+    <div class="icard reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="m8 12 2 2 4-4"/></svg></div><h4>既存業務を簡略化</h4><p>これまで手作業で行っていた情報収集・整理・集計・資料作成などを自動化・簡素化します。</p></div>
+    <div class="icard reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M7.5 7.5 11 16M16.5 7.5 13 16"/></svg></div><h4>複数ツールを横断</h4><p>ブラウザやSaaS、社内システムなどを横断的に連携し、業務の流れをスムーズにします。</p></div>
+    <div class="icard reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M21 4v4h-4M3 20v-4h4"/></svg></div><h4>再現性のあるワークフロー</h4><p>タスクを標準化・自動化することで、誰でも同じ品質で繰り返し実行できる体制を構築します。</p></div>
+    <div class="icard reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="7" cy="8" r="2.4"/><circle cx="17" cy="8" r="2.4"/><path d="M3 18a4 4 0 0 1 8 0M13 18a4 4 0 0 1 8 0"/></svg></div><h4>人と分担して効率化</h4><p>AIがタスクの実行を担い、人は判断や戦略に集中。チーム全体の生産性を大きく高めます。</p></div>
+  </div>
+</div></section>
+
+<!-- banner -->
+<section class="pad" style="background:var(--bg-2)"><div class="wrap">
+  <div class="bannercta reveal">
+    <h3>Claude Codeの具体的な使い方や<br>事例を見てみませんか？</h3>
+    <div class="r"><a class="btn btn-ghost" href="cc-demo.html">実演動画・デモを見る ▶</a><a class="btn btn-cta" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener">無料相談を申し込む<span class="arr">→</span></a></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="foot-top">
+    <div class="foot-brand"><img class="foot-logo" src="assets/izanai-logo-white.png" alt="IZANAI"/><p>Claude Codeと共に、業務を変える。人・基盤・ルールを整え、現場の生産性向上を支援します。</p></div>
+    <div class="foot-nav">
+      <div class="col"><h5>サービス</h5><a href="cc-about.html">Claude Codeとは</a><a href="cc-diff.html">AIとの違い</a><a href="cc-demo.html">実演動画</a><a href="cc-cases.html">活用事例</a></div>
+      <div class="col"><h5>サポート</h5><a href="cc-pricing.html">料金</a><a href="cc-pricing.html#faq">FAQ</a><a href="https://lin.ee/8upkUmI" target="_blank" rel="noopener">無料相談</a><a href="index_rebuild.html">IZANAIトップ</a></div>
+      <div class="col"><h5>会社情報</h5><span>運営会社：株式会社いざない</span><span>代表：栗田 啓介</span><span>所在地：登記完了後に掲載予定</span></div>
+    </div>
+  </div>
+  <div class="foot-bottom">© 2026 株式会社いざない（IZANAI）All rights reserved.</div>
+</div></footer>
+
+<div class="floatcta" id="floatcta"><a class="btn btn-cta" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener">無料相談を申し込む<span class="arr">→</span></a></div>
+<script src="assets/cc.js"></script>
+</body>
+</html>

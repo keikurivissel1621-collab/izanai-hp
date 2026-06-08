@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Google Chat">
+  <rect width="64" height="64" rx="14" fill="#fff"/>
+  <path d="M17 15h30a6 6 0 0 1 6 6v19a6 6 0 0 1-6 6H34l-10 8v-8h-7a6 6 0 0 1-6-6V21a6 6 0 0 1 6-6z" fill="#34a853"/>
+  <path d="M21 26h22M21 34h16" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+  <path d="M17 15h30a6 6 0 0 1 6 6" fill="none" stroke="#fbbc04" stroke-width="5" stroke-linecap="round"/>
+  <path d="M11 40V21a6 6 0 0 1 6-6" fill="none" stroke="#4285f4" stroke-width="5" stroke-linecap="round"/>
+</svg>

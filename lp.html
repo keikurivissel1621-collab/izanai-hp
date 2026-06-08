@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>3分AIセキュリティ診断｜株式会社いざない IZANAI</title>
+<meta name="description" content="無料・3分。あなたの会社のAIセキュリティ・利用リスクを20の観点でセルフチェック。情報漏えい・ガイドライン・個人情報・社員教育・法務・権限管理まで。診断後は御社向けのAIセキュリティ対策ガイドを公式LINEで無料配布。"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@600;700;900&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --navy:#0f2742;--navy-2:#13315c;--navy-deep:#091b30;
+  --teal:#1f6f78;--teal-2:#2b8a94;--teal-soft:#e3f0f1;
+  --gold:#c8a24a;--ink:#1a2b3c;--muted:#5a6b7b;--line:#e6e0d4;
+  --bg:#faf8f3;--bg-2:#f3efe6;--card:#fff;--maxw:880px;
+  --shadow:0 18px 40px -18px rgba(15,39,66,.22);--shadow-lg:0 30px 70px -28px rgba(15,39,66,.32);
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Noto Sans JP",system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:16px;border-radius:999px;padding:16px 30px;cursor:pointer;border:none;transition:transform .25s var(--ease),box-shadow .25s var(--ease);position:relative;overflow:hidden}
+.btn-line{color:#fff;background:linear-gradient(120deg,#06c755,#04a847);box-shadow:0 14px 30px -12px rgba(6,199,85,.6)}
+.btn-line::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 20%,rgba(255,255,255,.5) 50%,transparent 80%);transform:translateX(-120%)}
+.btn-line:hover{transform:translateY(-3px)}
+.btn-line:hover::after{animation:shine 1s var(--ease) forwards}
+@keyframes shine{to{transform:translateX(120%)}}
+.btn-ghost{color:var(--navy);background:#fff;border:1.5px solid var(--line)}
+.btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
+.ico{width:20px;height:20px;flex:0 0 auto}
+.linelogo{width:21px;height:21px;flex:0 0 auto;filter:brightness(0) invert(1)}
+
+/* top bar */
+.bar{position:fixed;top:0;left:0;right:0;z-index:40;background:rgba(250,248,243,.9);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(15,39,66,.08);padding:12px 0}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between}
+.bar .brand{display:flex;align-items:center}
+.bar .brand img{height:26px;width:auto;display:block}
+.bar a.back{font-size:13px;color:var(--muted)}
+
+/* hero */
+.lp-hero{padding:120px 0 70px;background:radial-gradient(1200px 500px at 70% -10%,rgba(43,138,148,.12),transparent),linear-gradient(180deg,var(--bg),#fff);text-align:center}
+.pill{display:inline-flex;align-items:center;gap:8px;background:var(--teal-soft);color:var(--teal);font-weight:700;font-size:13px;letter-spacing:.06em;padding:8px 18px;border-radius:999px}
+.pill .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(43,138,148,.2)}
+.lp-hero h1{font-family:"Noto Serif JP";font-weight:900;color:var(--navy);font-size:clamp(30px,5.4vw,52px);line-height:1.28;margin:24px 0 18px}
+.lp-hero h1 .mark{background:linear-gradient(transparent 60%,rgba(200,162,74,.4) 60%)}
+.lp-hero p.lead{font-size:clamp(15px,2vw,18px);color:var(--muted);max-width:620px;margin:0 auto}
+.meta{margin-top:28px;display:inline-flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.meta span{background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:13px;font-weight:700;color:var(--navy);box-shadow:var(--shadow)}
+.meta span b{color:var(--teal)}
+
+/* check */
+.check{padding:20px 0 40px}
+.progress{position:sticky;top:60px;z-index:30;background:var(--bg);padding:14px 0;text-align:center}
+.progress .barbg{max-width:520px;margin:0 auto;height:10px;background:var(--bg-2);border-radius:999px;overflow:hidden;border:1px solid var(--line)}
+.progress .fill{height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--teal-2));border-radius:999px;transition:width .4s var(--ease)}
+.progress .label{margin-top:10px;font-size:13px;font-weight:700;color:var(--muted)}
+.progress .label b{color:var(--teal)}
+.qcard{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px 26px;margin-bottom:18px;box-shadow:var(--shadow);transition:.3s}
+.qcard.done{border-color:var(--teal-2);background:#fbfdfd}
+.qcard .qhead{display:flex;gap:14px;align-items:flex-start}
+.qcard .qn{flex:0 0 auto;width:36px;height:36px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-family:"Noto Serif JP";font-weight:700}
+.qcard h3{font-size:17px;color:var(--navy);font-weight:700;line-height:1.5}
+.qcard .opts{margin-top:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.qcard .opt{border:1.5px solid var(--line);background:var(--bg);border-radius:12px;padding:13px 10px;font-size:14px;font-weight:700;cursor:pointer;transition:.2s;text-align:center;color:var(--ink)}
+.qcard .opt:hover{border-color:var(--teal-2);transform:translateY(-2px)}
+.qcard .opt.sel{background:var(--teal);border-color:var(--teal);color:#fff;box-shadow:0 10px 22px -10px rgba(31,111,120,.6)}
+
+/* result */
+.result{display:none;margin-top:14px;background:linear-gradient(160deg,var(--navy-deep),var(--navy));color:#fff;border-radius:24px;padding:clamp(30px,5vw,52px);box-shadow:var(--shadow-lg);text-align:center}
+.result.show{display:block;animation:pop .5s var(--ease)}
+@keyframes pop{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.result .scorebig{font-family:"Noto Serif JP";font-weight:900;font-size:clamp(54px,12vw,92px);line-height:1}
+.result .scorebig small{font-size:26px;color:var(--gold)}
+.result .gauge{max-width:420px;margin:18px auto;height:14px;background:rgba(255,255,255,.12);border-radius:999px;overflow:hidden}
+.result .gauge .g{height:100%;border-radius:999px;transition:width .8s var(--ease)}
+.result h2{font-family:"Noto Serif JP";font-size:clamp(22px,4vw,30px);margin:18px 0 12px}
+.result p{color:rgba(255,255,255,.82);font-size:15px;max-width:540px;margin:0 auto}
+.result .offer{display:flex;gap:14px;text-align:left;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:20px 22px;margin:26px auto 0;max-width:560px;align-items:flex-start}
+.result .offer .offer-ic{font-size:26px;flex:0 0 auto;line-height:1.2}
+.result .offer b{display:block;font-size:15.5px;color:#fff;line-height:1.6;margin-bottom:6px}
+.result .offer span{font-size:13px;color:rgba(255,255,255,.78);line-height:1.7}
+.result .cta{margin-top:24px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.result .cta .btn-ghost{background:transparent;border-color:rgba(255,255,255,.4);color:#fff}
+
+/* why */
+.why{padding:70px 0;background:#fff;border-top:1px solid var(--line)}
+.why h2{font-family:"Noto Serif JP";text-align:center;color:var(--navy);font-size:clamp(24px,4vw,34px);margin-bottom:36px}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.why-card{background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:28px 24px}
+.why-card .ic{font-size:30px;margin-bottom:12px}
+.why-card h4{color:var(--navy);font-size:17px;margin-bottom:8px}
+.why-card p{font-size:14px;color:var(--muted)}
+
+/* final cta */
+.final{padding:80px 0;background:linear-gradient(160deg,var(--navy-deep),var(--navy));color:#fff;text-align:center}
+.final h2{font-family:"Noto Serif JP";font-size:clamp(24px,4.4vw,38px);line-height:1.4;margin-bottom:16px}
+.final p{color:rgba(255,255,255,.8);max-width:560px;margin:0 auto 30px}
+footer{background:var(--navy-deep);color:rgba(255,255,255,.6);text-align:center;padding:30px 0;font-size:12.5px}
+
+@media(max-width:680px){
+  .qcard .opts{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
+  .meta{flex-direction:column;align-items:center}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="bar"><div class="wrap"><a class="brand" href="index_rebuild.html" aria-label="IZANAI 株式会社いざない"><img src="assets/izanai-logo-transparent.png" alt="IZANAI 株式会社いざない"/></a><a class="back" href="index_rebuild.html">← トップへ戻る</a></div></div>
+
+<section class="lp-hero">
+  <div class="wrap">
+    <span class="pill"><span class="dot"></span>無料・3分・登録不要</span>
+    <h1>あなたの会社のAI、<br><span class="mark">どこにリスクが潜んでいるか</span><br>3分でわかります。</h1>
+    <p class="lead">20の質問に答えるだけ。情報漏えい・ガイドライン・個人情報・社員教育・法務・権限管理まで、御社のAIセキュリティ状況をまるごとセルフチェック。診断後は、回答に基づく対策ガイドを無料でお渡しします。</p>
+    <div class="meta"><span>⏱ 所要 <b>約3分</b></span><span>📝 全 <b>20問</b></span><span>💰 完全 <b>無料</b></span></div>
+  </div>
+</section>
+
+<section class="check">
+  <div class="progress"><div class="wrap"><div class="barbg"><div class="fill" id="fill"></div></div><div class="label">回答済み <b id="ans">0</b> / 20問</div></div></div>
+  <div class="wrap" id="quiz"></div>
+</section>
+
+<section class="why">
+  <div class="wrap">
+    <h2>なぜ「3分セキュリティ診断」が必要なのか</h2>
+    <div class="why-grid">
+      <div class="why-card"><div class="ic">🕳</div><h4>リスクは“見えない”ところに</h4><p>多くのAI事故は、現場の何気ない入力から起きます。まず自社の穴を可視化することが第一歩です。</p></div>
+      <div class="why-card"><div class="ic">🧭</div><h4>何から手をつけるか分かる</h4><p>診断結果から、ガイドライン・研修・ツール選定のどこを優先すべきかが見えてきます。</p></div>
+      <div class="why-card"><div class="ic">📋</div><h4>対策ガイドが受け取れる</h4><p>診断結果に基づいた「御社向けAIセキュリティ対策ガイド」を、公式LINEで無料でお渡しします。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>御社の「AIセキュリティ対策ガイド」を<br>無料でお渡しします。</h2>
+    <p>「うちは何点だった」で終わらせないために。診断結果をもとに、御社が優先して対策すべきポイントをまとめたガイドを、公式LINEで無料配布しています。受け取った後の個別相談ももちろん無料です。</p>
+    <a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener">
+      <img class="linelogo" src="assets/logos/line.svg" alt="LINE"/>
+      公式LINEで対策ガイドを受け取る
+    </a>
+  </div>
+</section>
+
+<footer>© 2026 株式会社いざない（IZANAI）｜AI導入の不安を、先回りして取り除く。</footer>
+
+<script>
+const QUESTIONS=[
+  {q:"社員が、どのAIツールに何を入力しているかを会社として把握できていますか？",opts:["把握できている","一部だけ","把握していない"]},
+  {q:"AI利用に関する社内ガイドライン（禁止事項・利用範囲）は整備されていますか？",opts:["整備済み","作成中","未整備"]},
+  {q:"顧客情報・個人情報をAIに入力してよいか、明確なルールがありますか？",opts:["明確にある","曖昧","ルールなし"]},
+  {q:"社員に対してAIの安全な使い方の研修・教育を実施していますか？",opts:["実施済み","予定あり","未実施"]},
+  {q:"著作権・個人情報保護など、AI関連の法務観点を確認できる体制がありますか？",opts:["体制あり","検討中","なし"]},
+  {q:"利用中のAIツールが、入力データを学習に使わない設定になっているか確認していますか？",opts:["確認・設定済み","一部のみ","未確認"]},
+  {q:"機密情報の取り扱い区分（社外秘・極秘など）は明文化されていますか？",opts:["明文化済み","一部のみ","なし"]},
+  {q:"AIツールへのアクセス権限は、役割や部署に応じて管理されていますか？",opts:["管理している","一部のみ","全員自由"]},
+  {q:"誰がいつAIに何を入力したか、利用ログを記録・確認できますか？",opts:["できる","一部のみ","できない"]},
+  {q:"業務で使う生成AIツールは、会社として承認・選定していますか？",opts:["承認制で運用","一部のみ","各自任せ"]},
+  {q:"無料版・個人アカウントでの業務利用を制限していますか？",opts:["制限している","一部のみ","制限なし"]},
+  {q:"AIの出力をそのまま使わず、人による確認・チェックの工程がありますか？",opts:["ある","一部のみ","ない"]},
+  {q:"外部委託先・取引先のAI利用についてもルールを定めていますか？",opts:["定めている","検討中","なし"]},
+  {q:"AIに関するインシデント（誤情報・漏えい等）発生時の対応手順はありますか？",opts:["ある","検討中","なし"]},
+  {q:"経営層はAI活用・リスクについて関与し、意思決定していますか？",opts:["関与している","一部のみ","現場任せ"]},
+  {q:"AI活用の責任者・推進担当は明確に決まっていますか？",opts:["決まっている","兼任で曖昧","いない"]},
+  {q:"部門ごとに、AIで何をどこまでやってよいか整理されていますか？",opts:["整理済み","一部のみ","未整理"]},
+  {q:"社内データをAIに連携する際のセキュリティ対策はありますか？",opts:["ある","検討中","なし"]},
+  {q:"最新のAI法規制・ガイドラインの動きを継続的に把握していますか？",opts:["把握している","ときどき","していない"]},
+  {q:"全社的なAI活用方針・ロードマップはありますか？",opts:["ある","検討中","ない"]},
+];
+const SCORE=[2,1,0]; // good=2, mid=1, bad=0
+const answers=Array(QUESTIONS.length).fill(null);
+const quiz=document.getElementById('quiz'),fill=document.getElementById('fill'),ansEl=document.getElementById('ans');
+
+QUESTIONS.forEach((item,i)=>{
+  const card=document.createElement('div');card.className='qcard';card.id='q'+i;
+  card.innerHTML=`<div class="qhead"><div class="qn">${i+1}</div><h3>${item.q}</h3></div>
+    <div class="opts">${item.opts.map((o,j)=>`<button class="opt" data-q="${i}" data-o="${j}">${o}</button>`).join('')}</div>`;
+  quiz.appendChild(card);
+});
+// result placeholder
+const res=document.createElement('div');res.className='result';res.id='result';quiz.appendChild(res);
+
+quiz.addEventListener('click',e=>{
+  const b=e.target.closest('.opt');if(!b)return;
+  const qi=+b.dataset.q,oi=+b.dataset.o;
+  answers[qi]=oi;
+  document.querySelectorAll(`.opt[data-q="${qi}"]`).forEach(x=>x.classList.remove('sel'));
+  b.classList.add('sel');
+  document.getElementById('q'+qi).classList.add('done');
+  update();
+});
+
+function update(){
+  const done=answers.filter(a=>a!==null).length;
+  fill.style.width=(done/QUESTIONS.length*100)+'%';
+  ansEl.textContent=done;
+  if(done===QUESTIONS.length)showResult();
+}
+function showResult(){
+  const raw=answers.reduce((s,a)=>s+SCORE[a],0);       // 0..10
+  const pct=Math.round(raw/(QUESTIONS.length*2)*100);  // 0..100 (健全度)
+  let level,color,msg;
+  if(pct>=80){level="リスク低";color="#2bb673";msg="基盤はかなり整っています。さらに全社定着・運用の磨き込みでAIを“競争力”に変えられます。";}
+  else if(pct>=50){level="リスク中";color="#e0a82e";msg="使い始めてはいるものの、ルールや教育に穴があります。事故が起きる前に、優先順位をつけて整備しましょう。";}
+  else{level="リスク高";color="#d9534f";msg="情報漏えい・法務リスクが高い状態です。まずガイドライン策定と社員教育から、早急に手を打つことをおすすめします。";}
+  res.innerHTML=`
+    <div class="pill" style="background:rgba(255,255,255,.12);color:#fff">あなたの会社のAIセキュリティ健全度</div>
+    <div class="scorebig">${pct}<small>/100</small></div>
+    <div class="gauge"><div class="g" style="width:0;background:${color}"></div></div>
+    <h2>判定：${level}</h2>
+    <p>${msg}</p>
+    <div class="offer">
+      <div class="offer-ic">📋</div>
+      <div>
+        <b>あなたの回答をもとにした「御社向けAIセキュリティ対策ガイド」を無料でお渡しします。</b>
+        <span>優先して対策すべきポイントと進め方を、診断結果に沿って整理してお送りします。受け取り後の個別相談も無料です。</span>
+      </div>
+    </div>
+    <div class="cta">
+      <a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="assets/logos/line.svg" alt="LINE"/>公式LINEで対策ガイドを受け取る</a>
+      <a class="btn btn-ghost" href="index_rebuild.html#service">サービス内容を見る</a>
+    </div>`;
+  res.classList.add('show');
+  requestAnimationFrame(()=>{setTimeout(()=>{res.querySelector('.g').style.width=pct+'%';},80);});
+  res.scrollIntoView({behavior:'smooth',block:'center'});
+}
+</script>
+</body>
+</html>

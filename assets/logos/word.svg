@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Word">
+  <rect width="64" height="64" rx="14" fill="#fff"/>
+  <rect x="23" y="15" width="30" height="34" rx="5" fill="#185abd"/>
+  <rect x="11" y="19" width="28" height="26" rx="4" fill="#2b579a"/>
+  <text x="17" y="38" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="800" fill="#fff">W</text>
+</svg>

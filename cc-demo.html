@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>実演動画でわかる Claude Code｜既存タスクを簡略化｜株式会社いざない IZANAI</title>
+<meta name="description" content="実演動画でわかるClaude Code。会計・メール・広告・資料作成・調査・バックオフィスまで、既存タスクを簡略化する様子を画面録画で紹介。タスクごとの自動化の流れと効果も解説。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@600;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/cc.css" />
+</head>
+<body>
+
+<header id="header"><div class="wrap nav">
+  <a href="claude-code.html" class="brand"><img class="brand-logo" src="assets/izanai-logo-transparent.png" alt="IZANAI"/><span class="bsub">Claude Code<br>導入基盤設計支援</span></a>
+  <nav class="menu">
+    <a class="link" href="claude-code.html">ホーム</a>
+    <a class="link" href="cc-about.html">Claude Codeとは</a>
+    <a class="link" href="cc-diff.html">AIとの違い</a>
+    <a class="link active" href="cc-demo.html">実演動画</a>
+    <a class="link" href="cc-cases.html">活用事例</a>
+    <a class="link" href="cc-pricing.html">料金</a>
+    <a class="link" href="cc-pricing.html#faq">FAQ</a>
+    <a class="btn btn-cta" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener">無料相談を申し込む<span class="arr">→</span></a>
+  </nav>
+  <button class="burger" id="burger" aria-label="メニュー"><span></span><span></span><span></span></button>
+</div></header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="claude-code.html">ホーム</a><a href="cc-about.html">Claude Codeとは</a><a href="cc-diff.html">AIとの違い</a><a href="cc-demo.html">実演動画</a><a href="cc-cases.html">活用事例</a><a href="cc-pricing.html">料金</a><a href="cc-pricing.html#faq">FAQ</a><a href="index_rebuild.html">IZANAIトップ</a>
+  <a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="assets/logos/line.svg" alt="LINE"/>公式LINEで無料相談</a>
+</div>
+
+<!-- DEMO -->
+<section class="pad" style="background:linear-gradient(180deg,#eef3f1,var(--bg) 40%);padding-top:118px"><div class="wrap">
+  <div class="sec-head reveal"><h2 class="sec-title">実演動画でわかる <span class="ac">Claude Code</span></h2><p class="sec-lead">会計・メール・広告・資料作成・調査・バックオフィスまで、既存タスクを簡略化。</p></div>
+
+  <div class="tabs reveal">
+    <button class="tab" data-k="ad" onclick="ccDemoSelect('ad')">広告運用</button>
+    <button class="tab" data-k="mail" onclick="ccDemoSelect('mail')">メール対応</button>
+    <button class="tab" data-k="accounting" onclick="ccDemoSelect('accounting')">経理処理</button>
+    <button class="tab" data-k="spreadsheet" onclick="ccDemoSelect('spreadsheet')">スプレッドシート</button>
+    <button class="tab" data-k="doc" onclick="ccDemoSelect('doc')">資料作成</button>
+    <button class="tab" style="opacity:.6">リサーチ</button>
+    <button class="tab" style="opacity:.6">財務分析</button>
+    <button class="tab" style="opacity:.6">SNS運用</button>
+    <button class="tab" style="opacity:.6">顧客対応</button>
+    <button class="tab" style="opacity:.6">人事採用</button>
+    <button class="tab" style="opacity:.6">EC・物販</button>
+    <button class="tab" style="opacity:.6">予定管理</button>
+  </div>
+
+  <div class="demo-stage reveal" id="demoStage">
+    <div class="videobox"></div>
+    <div class="demo-side"></div>
+  </div>
+
+  <div class="demo-thumbs reveal">
+    <div class="thumb on" data-k="ad" onclick="ccDemoSelect('ad')"><div class="pl"></div><div class="lab">広告運用・最適化</div></div>
+    <div class="thumb" data-k="mail" onclick="ccDemoSelect('mail')"><div class="pl"></div><div class="lab">メール対応・自動化</div></div>
+    <div class="thumb" data-k="accounting" onclick="ccDemoSelect('accounting')"><div class="pl"></div><div class="lab">経理処理・自動仕訳</div></div>
+    <div class="thumb" data-k="spreadsheet" onclick="ccDemoSelect('spreadsheet')"><div class="pl"></div><div class="lab">スプレッドシート分析</div></div>
+    <div class="thumb" data-k="doc" onclick="ccDemoSelect('doc')"><div class="pl"></div><div class="lab">資料作成・提案書</div></div>
+  </div>
+  <p class="logo-note" style="margin-top:18px">※ 動画は順次追加予定です。各タスクの「画面録画（MP4）」を <code>assets/videos/</code> に配置すると、ここで再生されます。</p>
+</div></section>
+
+<!-- 業務フローに組み込む -->
+<section class="pad" style="background:#fff"><div class="wrap">
+  <div class="sec-head reveal"><h2 class="sec-title">既存の業務フローに<span class="u">自然に組み込みます</span></h2></div>
+  <div class="flowdiag reveal">
+    <div class="frow"><div class="cat"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V10m5 10V4m5 16v-7m5 7V8"/></svg></span>営業</div><div class="fchain"><span class="fnode">見込み</span><span class="fsep">›</span><span class="fnode">商談</span><span class="fsep">›</span><span class="fnode">提案</span><span class="fsep">→</span><span class="fmid">チャットで指示を実行<br>Claude Code</span><span class="fsep">→</span><span class="fnode">受注</span><span class="fsep">›</span><span class="fnode">フォロー</span></div></div>
+    <div class="frow"><div class="cat"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V12m5 8V6m5 14v-6m5 6V9"/></svg></span>マーケティング</div><div class="fchain"><span class="fnode">分析</span><span class="fsep">›</span><span class="fnode">戦略立案</span><span class="fsep">›</span><span class="fnode">施策実行</span><span class="fsep">→</span><span class="fmid">Claude Code</span><span class="fsep">→</span><span class="fnode">効果測定</span><span class="fsep">›</span><span class="fnode">改善</span></div></div>
+    <div class="frow"><div class="cat"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>カスタマー対応</div><div class="fchain"><span class="fnode">問い合わせ</span><span class="fsep">›</span><span class="fnode">受付</span><span class="fsep">›</span><span class="fnode">対応</span><span class="fsep">→</span><span class="fmid">Claude Code</span><span class="fsep">→</span><span class="fnode">解決・案内</span><span class="fsep">›</span><span class="fnode">フォロー</span></div></div>
+    <div class="frow"><div class="cat"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m8 6-5 6 5 6M16 6l5 6-5 6"/></svg></span>開発・IT</div><div class="fchain"><span class="fnode">要件定義</span><span class="fsep">›</span><span class="fnode">設計</span><span class="fsep">›</span><span class="fnode">実装</span><span class="fsep">→</span><span class="fmid">Claude Code</span><span class="fsep">→</span><span class="fnode">テスト</span><span class="fsep">›</span><span class="fnode">リリース</span></div></div>
+    <div class="frow"><div class="cat"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5a2 2 0 0 1 2-2h9l5 5v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/></svg></span>バックオフィス</div><div class="fchain"><span class="fnode">受注・申請</span><span class="fsep">›</span><span class="fnode">処理</span><span class="fsep">›</span><span class="fnode">データ入力</span><span class="fsep">→</span><span class="fmid">Claude Code</span><span class="fsep">→</span><span class="fnode">確認・照合</span><span class="fsep">›</span><span class="fnode">月次処理</span></div></div>
+  </div>
+  <p class="logo-note" style="margin-top:20px">既存のツールや業務の流れはそのまま。Claude Code が“間に入って”自動化・効率化を実現します。</p>
+</div></section>
+
+<!-- 外部ツール連携 -->
+<section class="pad" style="background:var(--bg)"><div class="wrap">
+  <div class="sec-head reveal"><h2 class="sec-title">外部ツール・SaaS / API連携</h2></div>
+  <div class="logo-grid reveal" style="grid-template-columns:repeat(6,1fr)" id="toolGrid"></div>
+</div></section>
+
+<!-- 部門別活用事例7選 -->
+<section class="pad" style="background:#fff"><div class="wrap">
+  <div class="sec-head reveal"><h2 class="sec-title">部門別の活用事例 <span class="ac">7選</span></h2></div>
+  <div class="case-grid reveal" style="grid-template-columns:repeat(4,1fr)">
+    <div class="case"><div class="h"><span class="n">1</span><h4>営業・提案</h4></div><ul><li>提案書のドラフト作成</li><li>顧客情報の要点まとめ</li><li>商談メモの整理</li></ul><span class="res">提案準備時間を60%短縮</span></div>
+    <div class="case"><div class="h"><span class="n">2</span><h4>マーケ・SNS運用</h4></div><ul><li>投稿案の大量生成</li><li>分析レポートの要約</li><li>キーワード調査</li></ul><span class="res">運用工数を70%削減</span></div>
+    <div class="case"><div class="h"><span class="n">3</span><h4>EC・物販</h4></div><ul><li>商品説明文の作成</li><li>競合価格の調査</li><li>売上データの集計</li></ul><span class="res">運営時間を50%短縮</span></div>
+    <div class="case"><div class="h"><span class="n">4</span><h4>コンテンツ制作</h4></div><ul><li>記事構成の作成</li><li>原稿のリライト</li><li>編集チェック補助</li></ul><span class="res">制作スピードが2倍に</span></div>
+    <div class="case"><div class="h"><span class="n">5</span><h4>リサーチ・情報収集</h4></div><ul><li>市場調査の要約</li><li>レポートの要約</li><li>最新情報の収集</li></ul><span class="res">調査時間を80%削減</span></div>
+    <div class="case"><div class="h"><span class="n">6</span><h4>人事採用</h4></div><ul><li>求人票の作成</li><li>応募者情報の要約</li><li>面接メモの要約</li></ul><span class="res">採用業務を40%効率化</span></div>
+    <div class="case"><div class="h"><span class="n">7</span><h4>バックオフィス</h4></div><ul><li>請求書の作成・送付</li><li>経費データの集計</li><li>書類整理・管理</li></ul><span class="res">定型業務を60%削減</span></div>
+  </div>
+  <p class="logo-note" style="margin-top:16px">※ 効果は一例です。業務内容や前提により変動します。</p>
+</div></section>
+
+<!-- banner -->
+<section class="pad" style="background:var(--bg-2)"><div class="wrap">
+  <div class="bannercta reveal">
+    <h3>あなたの業務に合わせた活用方法をご提案します。<br>まずは無料相談から。</h3>
+    <div class="r"><a class="btn btn-cta" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener">無料相談を申し込む<span class="arr">→</span></a></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="foot-top">
+    <div class="foot-brand"><img class="foot-logo" src="assets/izanai-logo-white.png" alt="IZANAI"/><p>会計・メール・広告・資料作成まで。既存タスクを簡略化し、現場の生産性向上を支援します。</p></div>
+    <div class="foot-nav">
+      <div class="col"><h5>サービス</h5><a href="cc-about.html">Claude Codeとは</a><a href="cc-diff.html">AIとの違い</a><a href="cc-demo.html">実演動画</a><a href="cc-cases.html">活用事例</a></div>
+      <div class="col"><h5>サポート</h5><a href="cc-pricing.html">料金</a><a href="cc-pricing.html#faq">FAQ</a><a href="https://lin.ee/8upkUmI" target="_blank" rel="noopener">無料相談</a><a href="index_rebuild.html">IZANAIトップ</a></div>
+      <div class="col"><h5>会社情報</h5><span>運営会社：株式会社いざない</span><span>代表：栗田 啓介</span><span>所在地：登記完了後に掲載予定</span></div>
+    </div>
+  </div>
+  <div class="foot-bottom">© 2026 株式会社いざない（IZANAI）All rights reserved.</div>
+</div></footer>
+
+<div class="floatcta" id="floatcta"><a class="btn btn-cta" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener">無料相談を申し込む<span class="arr">→</span></a></div>
+
+<script>
+/* ===== タスク別の自動化データ（ここを編集すれば各タスクの「自動化の流れ・効果」を指定できます） ===== */
+window.CC_DEMO={
+  ad:{title:'広告運用・最適化', video:'ad-optimization.mp4', poster:'ad-optimization.jpg',
+    ph:'Google広告のダッシュボードを読み取り、改善提案までを自動化する様子（画面録画をここに配置）',
+    flow:['広告管理画面 / API からパフォーマンスデータを取得','キャンペーン別に要点を整理・集計','改善ポイントを自動で抽出・提案','改善提案レポート(PDF)とアクションリスト(CSV)を生成'],
+    metrics:[{v:'10分→2分',l:'所要時間'},{v:'▲80%',l:'工数削減'},{v:'エラー減',l:'精度向上'}]},
+  mail:{title:'メール対応・自動化', video:'mail-reply.mp4', poster:'mail-reply.jpg',
+    ph:'問い合わせメールを読み取り、返信ドラフトを自動生成する様子（画面録画をここに配置）',
+    flow:['受信メールと過去のやり取りを読み取り','問い合わせ種別を自動で分類','テンプレートと文脈に沿った返信案を生成','担当者が確認・送信できる状態で提示'],
+    metrics:[{v:'返信 1/3',l:'時短'},{v:'品質均一',l:'標準化'},{v:'漏れ防止',l:'品質'}]},
+  accounting:{title:'経理処理・自動仕訳', video:'accounting.mp4', poster:'accounting.jpg',
+    ph:'証憑・明細を読み取り、勘定科目を提案して仕訳する様子（画面録画をここに配置）',
+    flow:['請求書・領収書・明細データを読み取り','内容から勘定科目を判定・提案','仕訳データを生成し、表計算/会計ソフト形式で出力','担当者が確認・承認できる状態で提示'],
+    metrics:[{v:'入力 1/4',l:'時短'},{v:'転記ミス減',l:'精度'},{v:'月次短縮',l:'締め'}]},
+  spreadsheet:{title:'スプレッドシート分析', video:'spreadsheet.mp4', poster:'spreadsheet.jpg',
+    ph:'スプレッドシートを読み込み、集計・可視化・要点抽出する様子（画面録画をここに配置）',
+    flow:['対象のスプレッドシート/CSVを読み込み','指定の軸で集計・ピボット・関数を適用','グラフ化と異常値・傾向の抽出','要点サマリーと次アクションを提示'],
+    metrics:[{v:'集計自動',l:'工数'},{v:'傾向可視化',l:'示唆'},{v:'再現可能',l:'標準化'}]},
+  doc:{title:'資料作成・提案書', video:'doc-create.mp4', poster:'doc-create.jpg',
+    ph:'社内データをもとに提案書・報告書のドラフトを生成する様子（画面録画をここに配置）',
+    flow:['目的・対象・素材データをインプット','構成案（アウトライン）を自動作成','本文・図解の骨子をドラフト生成','体裁を整え、編集できる形で出力'],
+    metrics:[{v:'作成 1/3',l:'時短'},{v:'品質安定',l:'標準化'},{v:'たたき台即',l:'スピード'}]}
+};
+// 外部ツールロゴ
+(function(){
+  var TOOLS=["slack","chatwork","discord","teams","google-chat","googlemeet","zoom","gmail","outlook","sendgrid","line","google-drive","onedrive","box","googledocs","word","googlesheets","more-apps"];
+  var names={"google-chat":"Google Chat",googlemeet:"Google Meet","google-drive":"Google Drive",googledocs:"Google Docs",googlesheets:"Google Sheets","more-apps":"その他多数"};
+  var g=document.getElementById('toolGrid');
+  if(g)g.innerHTML=TOOLS.map(function(n){return '<div class="logo-cell"><img src="assets/logos/'+n+'.svg" alt="'+(names[n]||n)+'" loading="lazy" onerror="this.style.display=\'none\'"/></div>';}).join('');
+})();
+</script>
+<script src="assets/cc.js"></script>
+</body>
+</html>

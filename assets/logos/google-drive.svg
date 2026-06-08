@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Google Drive">
+  <rect width="64" height="64" rx="14" fill="#fff"/>
+  <path d="M25 10h14l17 30H42L25 10z" fill="#0f9d58"/>
+  <path d="M25 10L8 40l7 12 17-30-7-12z" fill="#f4b400"/>
+  <path d="M15 52h34l7-12H22l-7 12z" fill="#4285f4"/>
+</svg>

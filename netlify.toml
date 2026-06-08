@@ -1,0 +1,9 @@
+# 静的サイト（ビルド不要）。リポジトリ直下をそのまま公開する。
+[build]
+  publish = "."
+
+# ルートアクセスをトップページに振る
+[[redirects]]
+  from = "/"
+  to = "/index_rebuild.html"
+  status = 200

@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>IZANAI｜セキュリティに強いAI伴走支援｜株式会社いざない</title>
+<meta name="description" content="AI導入の不安を、先回りして取り除く。情報漏えい・社内ガイドライン・法規制・社員教育まで、株式会社いざないがAI導入の基盤づくりから全社定着まで伴走支援します。初回相談無料。" />
+<meta property="og:title" content="IZANAI｜セキュリティに強いAI伴走支援" />
+<meta property="og:description" content="AI導入の不安を、先回りして取り除く。導入前の基盤づくりから実装・定着まで伴走します。" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="assets/rebuild/hero.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@500;600;700;900&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --navy:#0f2742; --navy-2:#13315c; --navy-deep:#091b30;
+  --teal:#1f6f78; --teal-2:#2b8a94; --teal-soft:#e3f0f1;
+  --gold:#c8a24a; --gold-soft:#f1e6c9;
+  --ink:#1a2b3c; --muted:#5a6b7b; --line:#e6e0d4;
+  --bg:#faf8f3; --bg-2:#f3efe6; --card:#ffffff;
+  --maxw:1120px; --radius:18px;
+  --shadow-sm:0 2px 10px rgba(15,39,66,.06);
+  --shadow:0 18px 40px -18px rgba(15,39,66,.22);
+  --shadow-lg:0 30px 70px -28px rgba(15,39,66,.32);
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Noto Sans JP",system-ui,sans-serif;
+  color:var(--ink); background:var(--bg);
+  line-height:1.75; -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+.serif{font-family:"Noto Serif JP",serif;}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+section{position:relative}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:700;letter-spacing:.14em;
+  color:var(--teal);text-transform:uppercase;margin-bottom:18px;
+}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--gold)}
+.sec-title{
+  font-family:"Noto Serif JP",serif;font-weight:700;
+  font-size:clamp(26px,4vw,40px);line-height:1.4;color:var(--navy);
+  letter-spacing:.01em;
+}
+.sec-lead{margin-top:18px;color:var(--muted);font-size:16px;max-width:680px}
+.pad{padding:clamp(64px,9vw,118px) 0}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-weight:700;font-size:16px;border-radius:999px;padding:16px 30px;
+  cursor:pointer;border:none;transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .25s;
+  white-space:nowrap;position:relative;overflow:hidden;
+}
+.btn-line{
+  color:#fff;background:linear-gradient(120deg,#06c755,#04a847);
+  box-shadow:0 14px 30px -12px rgba(6,199,85,.6);
+}
+.btn-line::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(120deg,transparent 20%,rgba(255,255,255,.55) 50%,transparent 80%);
+  transform:translateX(-120%);
+}
+.btn-line:hover{transform:translateY(-3px);box-shadow:0 20px 40px -12px rgba(6,199,85,.7)}
+.btn-line:hover::after{animation:shine 1s var(--ease) forwards}
+@keyframes shine{to{transform:translateX(120%)}}
+.btn-ghost{
+  color:var(--navy);background:#fff;border:1.5px solid var(--line);
+  box-shadow:var(--shadow-sm);
+}
+.btn-ghost:hover{transform:translateY(-3px);border-color:var(--teal);color:var(--teal)}
+.btn-gold{color:var(--navy);background:linear-gradient(120deg,#e3c879,#c8a24a);box-shadow:0 14px 30px -12px rgba(200,162,74,.55)}
+.btn-gold:hover{transform:translateY(-3px)}
+.btn .ico{width:20px;height:20px;flex:0 0 auto}
+/* 公式LINEロゴ（緑ボタン上は白く反転して表示） */
+.linelogo{width:21px;height:21px;flex:0 0 auto}
+.btn-line .linelogo{filter:brightness(0) invert(1)}
+
+/* ---------- header ---------- */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:60;
+  transition:background .35s,box-shadow .35s,padding .35s;
+  padding:14px 0;background:rgba(250,248,243,.92);backdrop-filter:blur(14px);
+  box-shadow:0 1px 0 rgba(15,39,66,.06);
+}
+header.scrolled{box-shadow:0 8px 24px -14px rgba(15,39,66,.28);padding:10px 0}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:900}
+.brand .brand-logo{height:30px;width:auto;display:block}
+.brand .name{font-family:"Noto Serif JP",serif;font-size:22px;letter-spacing:.18em;color:var(--navy)}
+.brand .name small{display:block;font-family:"Noto Sans JP";font-size:10px;letter-spacing:.22em;color:var(--teal);font-weight:700;margin-top:-2px}
+.menu{display:flex;align-items:center;gap:22px}
+.menu a.link{font-size:14.5px;font-weight:500;color:var(--ink);position:relative;transition:color .2s;white-space:nowrap}
+.menu a.link::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--gold);transition:width .25s}
+.menu a.link:hover{color:var(--teal)}
+.menu a.link:hover::after{width:100%}
+.menu a.link-cc{color:var(--teal);font-weight:700}
+.menu a.link-cc::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--teal);margin-right:6px;vertical-align:middle}
+.menu .btn{padding:11px 22px;font-size:14.5px}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.burger span{width:26px;height:2.5px;background:var(--navy);border-radius:2px;transition:.3s}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;background:#faf8f3;padding-top:88px}
+/* 文字入り画像をそのまま全幅表示（どの幅でも全文字・CTAが見える） */
+.hero-media{position:relative;line-height:0;font-size:0}
+.hero .heroimg{width:100%;height:auto;display:block}
+/* 画像内CTA上に重ねる発光ホットスポット（クリックでLINE） */
+.hero-hotspot{position:absolute;left:2.5%;top:81%;width:43%;height:11%;border-radius:10px;z-index:3;display:block;box-shadow:0 0 0 0 rgba(43,138,148,.5);animation:hotspotGlow 2.6s var(--ease) infinite}
+@keyframes hotspotGlow{0%,100%{box-shadow:0 0 0 0 rgba(43,138,148,.45)}50%{box-shadow:0 0 0 12px rgba(43,138,148,0)}}
+/* 画像未配置時のみ表示するフォールバック */
+.hero-fallback{display:none}
+.hero-fallback.show{display:flex;align-items:center;min-height:min(80vh,720px);position:relative;background:linear-gradient(110deg,#eaf1f3 0%,#dfeaee 35%,#cdb98f 100%)}
+.hero-fallback.show::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34%;background:linear-gradient(180deg,transparent,rgba(250,248,243,.28));pointer-events:none}
+.hero-fallback .wrap{position:relative;z-index:2;width:100%}
+/* 画像直下の常時サブCTA帯（LP導線確保） */
+.hero-subcta{background:var(--bg-2);border-bottom:1px solid var(--line);padding:24px 0}
+.hero-subcta .wrap{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;align-items:center}
+.hero-subcta a.lp{font-size:18px;font-weight:700;color:var(--teal);display:inline-flex;align-items:center;gap:8px;transition:.2s}
+.hero-subcta a.lp:hover{color:var(--navy)}
+.hero-subcta .btn-line{padding:17px 36px;font-size:17px}
+.hero-subcta .btn-line .linelogo{width:24px;height:24px}
+.hero-copy{max-width:600px}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.72);
+  backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.7);
+  color:var(--navy);font-weight:700;font-size:13px;letter-spacing:.08em;
+  padding:8px 16px;border-radius:999px;box-shadow:var(--shadow-sm);margin-bottom:22px;
+}
+.hero-tag .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(43,138,148,.2)}
+.hero h1{
+  font-family:"Noto Serif JP",serif;font-weight:900;color:var(--navy);
+  font-size:clamp(34px,6.4vw,68px);line-height:1.18;letter-spacing:.01em;
+  text-shadow:0 2px 24px rgba(255,255,255,.55);
+}
+.hero h1 .accent{color:var(--teal-2);position:relative}
+.hero p.sub{
+  margin-top:24px;font-size:clamp(16px,2.2vw,20px);font-weight:500;color:#22384c;
+  max-width:480px;text-shadow:0 1px 14px rgba(255,255,255,.6);
+}
+.hero-cta-row{margin-top:34px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+/* glowing in-image CTA chip */
+.hero-chip{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:"Noto Sans JP";font-weight:700;font-size:clamp(15px,1.8vw,18px);color:#fff;
+  background:linear-gradient(120deg,var(--teal),var(--teal-2));
+  padding:15px 28px;border-radius:14px;position:relative;
+  box-shadow:0 0 0 0 rgba(43,138,148,.55),0 18px 40px -14px rgba(31,111,120,.7);
+  animation:chipGlow 2.6s var(--ease) infinite;
+}
+.hero-chip::before{content:"🛡";font-size:18px}
+@keyframes chipGlow{
+  0%,100%{box-shadow:0 0 0 0 rgba(43,138,148,.5),0 18px 40px -14px rgba(31,111,120,.7)}
+  50%{box-shadow:0 0 0 12px rgba(43,138,148,0),0 22px 50px -14px rgba(31,111,120,.85)}
+}
+.hero-scroll{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:2;color:var(--navy);font-size:11px;letter-spacing:.2em;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:.7}
+.hero-scroll .bar{width:1.5px;height:34px;background:linear-gradient(var(--navy),transparent);animation:scrollbar 1.8s infinite}
+@keyframes scrollbar{0%{transform:scaleY(.2);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}50.1%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(.2);transform-origin:bottom}}
+
+/* ---------- ticker / marquee ---------- */
+.ticker{background:var(--navy);color:#fff;padding:18px 0;overflow:hidden;white-space:nowrap}
+.ticker .track{display:inline-flex;gap:0;animation:marquee 26s linear infinite}
+.ticker .item{display:inline-flex;align-items:center;gap:16px;padding:0 30px;font-weight:700;font-size:16px;letter-spacing:.02em}
+.ticker .item::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);margin-left:30px}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+.logos{background:var(--bg-2);padding:clamp(64px,8vw,96px) 0;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.logos .cap{text-align:center;color:var(--navy);font-family:"Noto Serif JP",serif;font-weight:700;font-size:clamp(22px,3.2vw,32px);letter-spacing:.04em;margin-bottom:clamp(36px,5vw,56px)}
+.logos .cap::after{content:"";display:block;width:48px;height:3px;background:var(--gold);border-radius:2px;margin:16px auto 0}
+.logos .mask{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.logos .track{display:inline-flex;align-items:center;gap:clamp(64px,7vw,96px);animation:marquee 38s linear infinite;will-change:transform}
+.logos img{height:clamp(88px,10vw,112px);width:auto;opacity:.82;filter:grayscale(.12);transition:.3s}
+.logos img:hover{opacity:1;filter:none;transform:scale(1.08)}
+
+/* Claude Code 導入企業（横流れマーキー） */
+.clients{background:var(--bg-2);padding:clamp(56px,7vw,84px) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.clients .cap{text-align:center;color:var(--navy);font-family:"Noto Serif JP",serif;font-weight:700;font-size:clamp(22px,3.2vw,32px);letter-spacing:.04em}
+.clients .cap::after{content:"";display:block;width:48px;height:3px;background:var(--gold);border-radius:2px;margin:16px auto 0}
+.clients .note{text-align:center;color:var(--muted);font-size:12.5px;margin:18px auto 0;max-width:640px;line-height:1.7}
+.clients-marquee{overflow:hidden;margin-top:clamp(34px,4.5vw,48px);-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.clients-row{display:flex;align-items:center}
+.clients-track{display:inline-flex;align-items:center;gap:clamp(44px,5vw,72px);padding-right:clamp(44px,5vw,72px);animation:marquee 60s linear infinite;will-change:transform}
+.clients-track.rev{animation-direction:reverse;animation-duration:72s}
+.clients-marquee:hover .clients-track{animation-play-state:paused}
+.clients-track img{height:clamp(28px,3.4vw,36px);width:auto;flex:0 0 auto;opacity:.9;transition:opacity .3s,transform .3s}
+.clients-track img:hover{opacity:1;transform:scale(1.12)}
+
+/* 調査データ（引用） */
+.data{background:#fff}
+.data-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;margin-top:48px}
+.barchart{width:100%;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px 28px;box-shadow:var(--shadow)}
+.barchart .bc-title{font-size:13.5px;font-weight:700;color:var(--navy);margin-bottom:22px;line-height:1.6}
+.barchart .bc-title small{display:block;color:var(--muted);font-weight:500;font-size:11.5px;margin-top:4px}
+.barrow{margin-bottom:18px}
+.barrow:last-of-type{margin-bottom:0}
+.barrow .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px}
+.barrow .top .ct{font-size:13.5px;font-weight:700;color:var(--navy)}
+.barrow .top .pc{font-family:"Noto Serif JP";font-size:17px;font-weight:700;color:var(--muted)}
+.barrow .track{height:24px;background:var(--bg-2);border-radius:999px;overflow:hidden;border:1px solid var(--line)}
+.barrow .fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#aab9c5,#c8d3db);width:var(--w)}
+.barrow.jp .top .ct{color:var(--teal-2)}
+.barrow.jp .top .ct b{background:var(--teal);color:#fff;font-size:10px;padding:2px 8px;border-radius:999px;margin-left:8px;vertical-align:middle}
+.barrow.jp .top .pc{color:var(--teal-2)}
+.barrow.jp .fill{background:linear-gradient(90deg,var(--teal),var(--teal-2))}
+.data-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:26px}
+.dstat{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:20px 16px;text-align:center}
+.dstat b{font-family:"Noto Serif JP";font-size:clamp(26px,4vw,34px);color:var(--navy);display:block;line-height:1}
+.dstat b small{font-size:16px;color:var(--teal)}
+.dstat span{font-size:12px;color:var(--muted);margin-top:8px;display:block}
+.data-quote{border-left:4px solid var(--gold);background:var(--bg-2);border-radius:0 14px 14px 0;padding:22px 26px;font-size:clamp(15px,2vw,18px);font-weight:700;color:var(--navy);line-height:1.8}
+.data-quote em{color:var(--teal-2);font-style:normal}
+.data-source{margin-top:18px;font-size:12px;color:var(--muted);line-height:1.7}
+.data-source a{color:var(--teal);text-decoration:underline}
+
+/* ---------- anxiety ---------- */
+.anxiety{background:linear-gradient(180deg,var(--bg),#fff)}
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.acard{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:34px 28px;box-shadow:var(--shadow-sm);transition:transform .35s var(--ease),box-shadow .35s var(--ease);
+  position:relative;overflow:hidden;
+}
+.acard::before{content:"";position:absolute;left:0;top:0;width:4px;height:100%;background:linear-gradient(var(--teal),var(--teal-2))}
+.acard:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg)}
+.acard .q{font-family:"Noto Serif JP";font-size:42px;color:var(--gold);font-weight:900;line-height:1}
+.acard h3{font-size:18px;font-weight:700;color:var(--navy);margin:14px 0 10px}
+.acard p{font-size:14.5px;color:var(--muted)}
+.acard .stat{margin-top:16px;font-size:13px;font-weight:700;color:var(--teal);background:var(--teal-soft);display:inline-block;padding:5px 12px;border-radius:8px}
+
+/* ---------- service ---------- */
+.service{background:#fff}
+.scards{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:50px}
+.scard{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+  box-shadow:var(--shadow-sm);transition:transform .35s var(--ease),box-shadow .35s var(--ease);display:flex;flex-direction:column;
+}
+.scard:hover{transform:translateY(-10px);box-shadow:var(--shadow-lg)}
+.scard .ph{height:200px;position:relative;overflow:hidden;background:var(--bg-2)}
+.scard .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.scard:hover .ph img{transform:scale(1.07)}
+.scard .ph .num{position:absolute;left:18px;top:14px;background:rgba(15,39,66,.85);color:#fff;font-family:"Noto Serif JP";font-weight:700;font-size:14px;padding:6px 14px;border-radius:999px;letter-spacing:.05em}
+.scard .body{padding:28px 26px 30px;flex:1;display:flex;flex-direction:column}
+.scard h3{font-size:20px;font-weight:700;color:var(--navy);margin-bottom:12px}
+.scard p{font-size:14.5px;color:var(--muted);flex:1}
+.scard ul{margin-top:16px;list-style:none;display:grid;gap:8px}
+.scard li{font-size:13.5px;color:var(--ink);padding-left:24px;position:relative}
+.scard li::before{content:"";position:absolute;left:0;top:8px;width:14px;height:8px;border-left:2.5px solid var(--teal);border-bottom:2.5px solid var(--teal);transform:rotate(-45deg)}
+
+/* ---------- claude code / ai agent ---------- */
+.agent{background:linear-gradient(180deg,#fff,var(--bg))}
+.agent .badge-cc{display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 16px 8px 10px;font-weight:700;font-size:13px;color:var(--navy);box-shadow:var(--shadow-sm);margin-bottom:18px}
+.agent .badge-cc img{width:22px;height:22px}
+.agent .badge-cc b{color:#c96442}
+.agent-compare{display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:stretch;margin-top:48px}
+.agent-col{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:32px 30px;box-shadow:var(--shadow-sm)}
+.agent-col.old{opacity:.92}
+.agent-col.new{border:1.5px solid var(--teal-2);box-shadow:var(--shadow);position:relative}
+.agent-col .tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.06em;padding:5px 13px;border-radius:999px;margin-bottom:16px}
+.agent-col.old .tag{background:var(--bg-2);color:var(--muted)}
+.agent-col.new .tag{background:var(--teal);color:#fff}
+.agent-col h3{font-family:"Noto Serif JP";font-size:21px;color:var(--navy);margin-bottom:14px;line-height:1.5}
+.agent-col p{font-size:14.5px;color:var(--muted)}
+.agent-col ul{margin-top:16px;list-style:none;display:grid;gap:10px}
+.agent-col li{font-size:14px;color:var(--ink);padding-left:26px;position:relative}
+.agent-col.old li::before{content:"–";position:absolute;left:6px;top:-1px;color:var(--muted);font-weight:700}
+.agent-col.new li::before{content:"";position:absolute;left:0;top:7px;width:14px;height:8px;border-left:2.5px solid var(--teal);border-bottom:2.5px solid var(--teal);transform:rotate(-45deg)}
+.agent-arrow{display:grid;place-items:center;padding:0 22px;color:var(--teal-2)}
+.agent-arrow svg{width:40px;height:40px}
+.agent-points{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px}
+.apoint{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 24px;box-shadow:var(--shadow-sm);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.apoint:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.apoint .ic{width:46px;height:46px;border-radius:12px;background:var(--teal-soft);color:var(--teal);display:grid;place-items:center;margin-bottom:14px}
+.apoint .ic svg{width:24px;height:24px}
+.apoint h4{font-size:16px;color:var(--navy);font-weight:700;margin-bottom:8px}
+.apoint p{font-size:13.5px;color:var(--muted)}
+/* Claude Code 全社導入セットアップ */
+.cc-setup{margin-top:30px;background:linear-gradient(160deg,var(--navy-deep),var(--navy));color:#fff;border-radius:22px;padding:clamp(30px,4.5vw,48px);box-shadow:var(--shadow-lg);position:relative;overflow:hidden}
+.cc-setup::after{content:"";position:absolute;right:-80px;top:-80px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(43,138,148,.35),transparent 70%)}
+.cc-setup .head{position:relative;z-index:1;max-width:660px}
+.cc-setup .badge-cc{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:#fff}
+.cc-setup .badge-cc b{color:#e6a07a}
+.cc-setup h3{font-family:"Noto Serif JP";font-size:clamp(22px,3.2vw,30px);margin:6px 0 12px;line-height:1.4}
+.cc-setup .head p{color:rgba(255,255,255,.8);font-size:14.5px}
+.cc-steps{position:relative;z-index:1;list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+.cc-steps li{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:20px 20px 22px;transition:.3s}
+.cc-steps li:hover{background:rgba(255,255,255,.09);transform:translateY(-4px)}
+.cc-steps .n{font-family:"Noto Serif JP";font-size:13px;font-weight:700;color:var(--navy);background:var(--gold);width:30px;height:30px;border-radius:8px;display:grid;place-items:center;margin-bottom:14px}
+.cc-steps h4{font-size:15.5px;font-weight:700;color:#fff;margin-bottom:7px}
+.cc-steps p{font-size:13px;color:rgba(255,255,255,.72);line-height:1.7}
+.cc-setup .foot{position:relative;z-index:1;margin-top:26px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;color:rgba(255,255,255,.85);font-size:13.5px}
+.cc-setup .foot .pill2{background:rgba(43,138,148,.25);border:1px solid var(--teal-2);color:#bfe9ee;font-weight:700;padding:7px 16px;border-radius:999px;font-size:13px}
+
+/* ---------- pricing ---------- */
+.pricing{background:linear-gradient(160deg,var(--navy-deep),var(--navy) 60%,var(--navy-2));color:#fff;overflow:hidden}
+.pricing .eyebrow{color:var(--gold)}
+.pricing .eyebrow::before{background:var(--gold)}
+.pricing .sec-title{color:#fff}
+.pcard{
+  margin-top:48px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);
+  border-radius:24px;padding:clamp(34px,5vw,56px);display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;
+  box-shadow:var(--shadow-lg);backdrop-filter:blur(6px);position:relative;
+}
+.pcard .badge{position:absolute;top:24px;right:24px;background:var(--gold);color:var(--navy);font-weight:700;font-size:13px;padding:7px 16px;border-radius:999px}
+.pcard h3{font-family:"Noto Serif JP";font-size:26px;font-weight:700;margin-bottom:10px}
+.pcard .price{font-family:"Noto Serif JP";font-weight:900;font-size:clamp(48px,8vw,76px);line-height:1;color:#fff;display:flex;align-items:baseline;gap:6px}
+.pcard .price small{font-size:24px;font-weight:700;color:var(--gold)}
+.pcard .free{display:inline-block;margin-top:18px;background:rgba(43,138,148,.25);border:1px solid var(--teal-2);color:#bfe9ee;font-weight:700;font-size:14px;padding:8px 18px;border-radius:999px}
+.pcard .desc{color:rgba(255,255,255,.78);font-size:15px;margin-top:20px}
+.plist{list-style:none;display:grid;gap:14px}
+.plist li{display:flex;gap:12px;font-size:15px;align-items:flex-start}
+.plist li b{color:#fff}
+.plist .ck{flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:var(--teal-2);display:grid;place-items:center;margin-top:2px}
+.plist .ck::after{content:"";width:10px;height:6px;border-left:2.5px solid #fff;border-bottom:2.5px solid #fff;transform:rotate(-45deg);margin-top:-2px}
+.pnote{margin-top:30px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pnote div{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:18px 20px;font-size:13.5px;color:rgba(255,255,255,.82)}
+.pnote b{color:var(--gold);display:block;font-size:15px;margin-bottom:4px;font-family:"Noto Serif JP"}
+
+/* ---------- law ---------- */
+.law{background:var(--bg)}
+.law-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-top:42px}
+.law-list{display:grid;gap:14px}
+.law-item{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px;display:flex;gap:16px;align-items:flex-start;box-shadow:var(--shadow-sm);transition:.3s}
+.law-item:hover{transform:translateX(6px);border-color:var(--teal)}
+.law-item .ic{flex:0 0 auto;width:46px;height:46px;border-radius:12px;background:var(--teal-soft);display:grid;place-items:center;color:var(--teal)}
+.law-item .ic svg{width:24px;height:24px}
+.law-item h4{font-size:16px;color:var(--navy);font-weight:700;margin-bottom:4px}
+.law-item p{font-size:13.5px;color:var(--muted)}
+.law-note{background:var(--navy);color:#fff;border-radius:20px;padding:38px 36px;box-shadow:var(--shadow-lg)}
+.law-note h3{font-family:"Noto Serif JP";font-size:22px;margin-bottom:16px;line-height:1.5}
+.law-note p{color:rgba(255,255,255,.8);font-size:14.5px}
+.law-note .tag{display:inline-block;margin-top:18px;font-size:12px;color:var(--gold);border:1px solid rgba(200,162,74,.4);padding:6px 14px;border-radius:999px}
+
+/* ---------- flow ---------- */
+.flow{background:#fff}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:54px;position:relative}
+.step{padding:0 18px;position:relative;text-align:center}
+.step:not(:last-child)::after{content:"";position:absolute;top:34px;right:-0px;width:100%;height:2px;background:repeating-linear-gradient(90deg,var(--line) 0 8px,transparent 8px 16px);z-index:0}
+.step .circle{width:68px;height:68px;border-radius:50%;margin:0 auto 22px;background:linear-gradient(135deg,var(--navy),var(--teal));color:#fff;display:grid;place-items:center;font-family:"Noto Serif JP";font-weight:900;font-size:24px;position:relative;z-index:1;box-shadow:0 14px 30px -12px rgba(31,111,120,.55)}
+.step h4{font-size:17px;color:var(--navy);font-weight:700;margin-bottom:10px}
+.step p{font-size:13.5px;color:var(--muted)}
+
+/* ---------- company + ceo ---------- */
+.about{background:var(--bg-2)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;margin-top:42px;align-items:start}
+.info-table{width:100%;border-collapse:collapse;background:#fff;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm)}
+.info-table th,.info-table td{text-align:left;padding:18px 22px;border-bottom:1px solid var(--line);font-size:14.5px;vertical-align:top}
+.info-table th{width:38%;background:var(--navy);color:#fff;font-weight:700;border-bottom:1px solid rgba(255,255,255,.08)}
+.info-table tr:last-child th,.info-table tr:last-child td{border-bottom:none}
+.info-table td{color:var(--ink)}
+.ceo{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}
+.ceo .photo{aspect-ratio:1/1;background:#f0892f;position:relative;overflow:hidden}
+.ceo .photo img{width:100%;height:100%;object-fit:cover;object-position:center 18%}
+.ceo .photo .swap{position:absolute;bottom:12px;right:12px;background:rgba(15,39,66,.7);color:#fff;font-size:11px;padding:5px 12px;border-radius:8px;letter-spacing:.04em}
+.ceo .body{padding:30px 32px 36px}
+.ceo .role{font-size:13px;color:var(--teal);font-weight:700;letter-spacing:.1em}
+.ceo h3{font-family:"Noto Serif JP";font-size:26px;color:var(--navy);margin:6px 0 18px}
+.ceo ul{list-style:none;display:grid;gap:12px}
+.ceo li{font-size:14.5px;color:var(--ink);padding-left:26px;position:relative}
+.ceo li::before{content:"";position:absolute;left:0;top:9px;width:10px;height:10px;border-radius:50%;border:2.5px solid var(--gold)}
+
+/* ---------- contact ---------- */
+.contact{background:linear-gradient(160deg,var(--navy-deep),var(--navy));color:#fff}
+.contact .sec-title{color:#fff}
+.contact .eyebrow{color:var(--gold)}.contact .eyebrow::before{background:var(--gold)}
+.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:50px;margin-top:46px;align-items:start}
+.contact-left p{color:rgba(255,255,255,.8);font-size:15px;margin-top:18px}
+.contact-left .linecard{margin-top:30px;background:rgba(6,199,85,.12);border:1px solid rgba(6,199,85,.4);border-radius:18px;padding:28px}
+.contact-left .linecard h4{font-size:18px;margin-bottom:8px;display:flex;align-items:center;gap:10px}
+.contact-left .linecard p{margin-top:4px;font-size:14px}
+.contact-left .linecard .btn{margin-top:18px;width:100%}
+form{background:#fff;border-radius:20px;padding:clamp(28px,4vw,40px);box-shadow:var(--shadow-lg)}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field{display:flex;flex-direction:column;gap:7px;margin-bottom:18px}
+.field.full{grid-column:1/-1}
+.field label{font-size:13px;font-weight:700;color:var(--navy)}
+.field label .req{color:#d9534f;margin-left:4px}
+.field input,.field select,.field textarea{
+  font-family:inherit;font-size:15px;color:var(--ink);background:var(--bg);
+  border:1.5px solid var(--line);border-radius:10px;padding:13px 14px;transition:.25s;
+}
+.field textarea{resize:vertical;min-height:110px}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--teal-2);background:#fff;box-shadow:0 0 0 4px rgba(43,138,148,.14)}
+form .submit{margin-top:8px}
+form .submit .btn{width:100%}
+form .note{margin-top:16px;font-size:12.5px;color:var(--muted);text-align:center}
+
+/* ---------- privacy ---------- */
+.privacy{background:var(--bg)}
+.privacy .box{margin-top:36px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:clamp(28px,4vw,44px);box-shadow:var(--shadow-sm)}
+.privacy h4{color:var(--navy);font-size:16px;margin:24px 0 8px}
+.privacy h4:first-child{margin-top:0}
+.privacy p,.privacy li{font-size:14px;color:var(--muted)}
+.privacy ul{margin:8px 0 0 20px}
+
+/* ---------- footer ---------- */
+footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:60px 0 30px}
+.foot-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.1)}
+.foot-brand .foot-logo{height:34px;width:auto;display:block}
+.foot-brand p{margin-top:16px;font-size:13.5px;max-width:320px}
+.foot-nav{display:flex;gap:48px;flex-wrap:wrap}
+.foot-nav .col h5{color:#fff;font-size:13px;letter-spacing:.08em;margin-bottom:14px}
+.foot-nav .col a{display:block;font-size:13.5px;margin-bottom:9px;transition:.2s}
+.foot-nav .col a:hover{color:var(--gold)}
+.foot-bottom{padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px}
+
+/* ---------- floating CTA ---------- */
+.floatcta{position:fixed;right:22px;bottom:22px;z-index:55;display:flex;flex-direction:column;gap:10px;opacity:0;transform:translateY(20px);transition:.4s var(--ease);pointer-events:none}
+.floatcta.show{opacity:1;transform:none;pointer-events:auto}
+.floatcta .btn{box-shadow:var(--shadow-lg)}
+
+/* ---------- reveal anim ---------- */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- responsive ---------- */
+@media(max-width:920px){
+  .menu .link{display:none}
+  .burger{display:flex}
+  .cards3,.scards{grid-template-columns:1fr}
+  .pcard,.law-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:32px}
+  .steps{grid-template-columns:1fr 1fr;gap:36px 12px}
+  .step:not(:last-child)::after{display:none}
+  .pnote{grid-template-columns:1fr}
+  .fgrid{grid-template-columns:1fr}
+  .agent-compare{grid-template-columns:1fr;gap:18px}
+  .agent-arrow{padding:0;transform:rotate(90deg)}
+  .agent-points{grid-template-columns:1fr}
+  .cc-steps{grid-template-columns:1fr}
+  .data-grid{grid-template-columns:1fr;gap:36px}
+}
+@media(max-width:560px){
+  .data-stats{grid-template-columns:1fr;text-align:left}
+  .dstat{display:flex;align-items:baseline;gap:12px;text-align:left;padding:16px 18px}
+  .dstat b{font-size:26px}
+  .dstat span{margin-top:0}
+  header{padding:9px 0}
+  .menu .btn{padding:9px 15px;font-size:13px}
+  .burger{padding:4px}
+  .hero{padding-top:60px}
+  .hero-copy{max-width:100%}
+  .logos img{height:58px}
+  .logos .track{gap:40px}
+  .logos .cap{font-size:20px}
+  .steps{grid-template-columns:1fr}
+  .menu{gap:10px}
+  .brand .brand-logo{height:26px}
+  .hero-subcta .wrap{flex-direction:column;gap:12px}
+}
+/* mobile slide-down menu */
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;z-index:59;background:var(--bg);box-shadow:var(--shadow-lg);padding:90px 24px 30px;transform:translateY(-110%);transition:transform .4s var(--ease)}
+.mobile-menu.open{transform:none}
+.mobile-menu a{display:block;padding:16px 4px;font-size:17px;font-weight:700;color:var(--navy);border-bottom:1px solid var(--line)}
+.mobile-menu .btn{margin-top:22px;width:100%}
+@media(max-width:920px){.mobile-menu{display:block}}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none;transition:none}
+  .ticker .track,.logos .track,.clients-track{animation:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header id="header">
+  <div class="wrap nav">
+    <a href="#top" class="brand" aria-label="IZANAI 株式会社いざない ホーム">
+      <img class="brand-logo" src="assets/izanai-logo-transparent.png" alt="IZANAI 株式会社いざない"/>
+    </a>
+    <nav class="menu">
+      <a class="link" href="#service">サービス</a>
+      <a class="link link-cc" href="claude-code.html">Claude Code実装支援</a>
+      <a class="link" href="#pricing">料金</a>
+      <a class="link" href="#flow">支援の流れ</a>
+      <a class="link" href="#about">会社概要</a>
+      <a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener">
+        <img class="linelogo" src="assets/logos/line.svg" alt="LINE"/>
+        無料相談
+      </a>
+    </nav>
+    <button class="burger" id="burger" aria-label="メニュー"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#service">サービス</a>
+  <a href="claude-code.html" style="color:var(--teal)">Claude Code実装支援 →</a>
+  <a href="#anxiety">こんな不安</a>
+  <a href="#pricing">料金</a>
+  <a href="#flow">支援の流れ</a>
+  <a href="#about">会社概要</a>
+  <a href="#ceo">代表者</a>
+  <a href="#contact">お問い合わせ</a>
+  <a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="assets/logos/line.svg" alt="LINE"/>公式LINEで無料相談</a>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <!-- 文字入りヒーロー画像（assets/rebuild/hero.png）。未配置時は下のフォールバックを自動表示 -->
+  <div class="hero-media" id="heroMedia">
+    <img class="heroimg" src="assets/rebuild/hero.png" alt="AI導入の不安を、先回りして取り除く。セキュリティに強いAI伴走支援"
+      onerror="document.getElementById('heroFallback').classList.add('show');var m=document.getElementById('heroMedia');if(m)m.remove();"/>
+    <!-- 画像内CTA「セキュリティに強いAI伴走支援」の位置に重ねる発光クリック領域 -->
+    <a class="hero-hotspot" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener" aria-label="セキュリティに強いAI伴走支援｜公式LINEで無料相談"></a>
+  </div>
+  <!-- フォールバック（画像が無いときだけ表示） -->
+  <div class="hero-fallback" id="heroFallback">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="hero-tag"><span class="dot"></span>セキュリティに強いAI伴走支援</span>
+        <h1>AI導入の不安を、<br><span class="accent">先回り</span>して<br>取り除く。</h1>
+        <p class="sub">情報漏えい・社内ルール・法規制。<br>リスクを整理しながら、全社で“使える状態”まで伴走します。</p>
+        <div class="hero-cta-row">
+          <a class="hero-chip" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener">セキュリティに強いAI伴走支援</a>
+          <a class="btn btn-ghost" href="lp.html">3分AIリスクチェック →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- サブCTA帯（LP導線を常時確保） -->
+<div class="hero-subcta">
+  <div class="wrap">
+    <a class="lp" href="lp.html">▶ 無料・3分「AIリスクチェック」を見る</a>
+    <a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="assets/logos/line.svg" alt="LINE"/>公式LINEで無料相談</a>
+  </div>
+</div>
+
+<!-- ============ SERVICE TICKER ============ -->
+<div class="ticker" aria-hidden="true">
+  <div class="track">
+    <span class="item">AI利用診断</span><span class="item">ガイドライン策定</span><span class="item">個人情報リスク整理</span><span class="item">社員研修</span><span class="item">部門別AI活用設計</span><span class="item">全社定着支援</span>
+    <span class="item">AI利用診断</span><span class="item">ガイドライン策定</span><span class="item">個人情報リスク整理</span><span class="item">社員研修</span><span class="item">部門別AI活用設計</span><span class="item">全社定着支援</span>
+  </div>
+</div>
+
+<!-- ============ TOOL LOGOS ============ -->
+<div class="logos">
+  <p class="cap">AIが接続可能なサービス</p>
+  <div class="mask">
+    <div class="track" id="logoTrack"></div>
+  </div>
+</div>
+
+<!-- ============ ANXIETY ============ -->
+<section class="anxiety pad" id="anxiety">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">YOUR ANXIETY</span>
+      <h2 class="sec-title">こんな不安は、ありませんか？</h2>
+      <p class="sec-lead">「とりあえず使ってみよう」で始めたAIが、いつの間にか情報漏えいやトラブルの火種に。多くの経営者が、同じ不安で導入の一歩を踏み出せずにいます。</p>
+    </div>
+    <div class="cards3">
+      <div class="acard reveal">
+        <div class="q">Q.</div>
+        <h3>社員が、機密情報をAIに<br>入れていないか不安</h3>
+        <p>誰が・どのツールに・何を入力したか。把握できないまま使われると、顧客情報や見積もりが外部に学習される恐れがあります。</p>
+        <span class="stat">国内の情報漏えい事故の約8割は内部要因</span>
+      </div>
+      <div class="acard reveal">
+        <div class="q">Q.</div>
+        <h3>個人情報や顧客情報が<br>漏れないか怖い</h3>
+        <p>無料AIツールの多くは入力データを学習に利用。利用規約を読み解き、安全な設定・ツールを選ばなければ、知らぬ間にリスクを抱えます。</p>
+        <span class="stat">1件の漏えいで平均数百万〜の損害も</span>
+      </div>
+      <div class="acard reveal">
+        <div class="q">Q.</div>
+        <h3>ガイドラインを作りたいが<br>何を決めればいいか分からない</h3>
+        <p>禁止事項・利用範囲・承認フロー・教育。決めるべき項目は数十に及びます。雛形コピーでは現場で守られず、形だけのルールになりがちです。</p>
+        <span class="stat">ルール未整備の企業ほど“野良AI”が増殖</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICE ============ -->
+<section class="service pad" id="service">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">OUR SERVICE</span>
+      <h2 class="sec-title">導入前の基盤づくりから、<br>実装・全社定着まで伴走します。</h2>
+      <p class="sec-lead">「研修して終わり」ではありません。御社の業務を理解し、安全なルールと仕組みを一緒に設計。現場が当たり前にAIを使う状態まで、伴走しきります。</p>
+    </div>
+    <div class="scards">
+      <div class="scard reveal">
+        <div class="ph"><span class="num">01</span><img src="assets/photos/office-consulting.jpg" alt="ガイドライン策定の打ち合わせ" onerror="this.parentNode.style.background='linear-gradient(135deg,#13315c,#1f6f78)'"/></div>
+        <div class="body">
+          <h3>社内ガイドライン策定</h3>
+          <p>経産省・総務省のAI事業者ガイドラインを踏まえ、御社の業種・体制に合わせた実用的な社内ルールを策定。現場で守られる粒度に落とし込みます。</p>
+          <ul><li>利用可否・禁止事項の線引き</li><li>個人情報・機密情報の取り扱い</li><li>承認フロー・責任範囲の明確化</li></ul>
+        </div>
+      </div>
+      <div class="scard reveal">
+        <div class="ph"><span class="num">02</span><img src="assets/photos/training-workshop.jpg" alt="AIツール選定とリスク診断" onerror="this.parentNode.style.background='linear-gradient(135deg,#13315c,#1f6f78)'"/></div>
+        <div class="body">
+          <h3>AIツール選定・リスク診断</h3>
+          <p>現状のAI利用状況を診断し、データの扱い・契約条件・セキュリティ面から最適なツールを選定。安全な設定とデータベース構築まで支援します。</p>
+          <ul><li>AI利用診断・リスクの可視化</li><li>業務に合うツール・契約の選定</li><li>社内データベース構築の伴走</li></ul>
+        </div>
+      </div>
+      <div class="scard reveal">
+        <div class="ph"><span class="num">03</span><img src="assets/photos/office-consulting.jpg" alt="社員研修と業務実装" onerror="this.parentNode.style.background='linear-gradient(135deg,#13315c,#1f6f78)'"/></div>
+        <div class="body">
+          <h3>社員研修・業務実装・資産化</h3>
+          <p>部門別にAI活用を設計し、研修で底上げ。御社専用の活用マニュアル・研修動画を作成し、ノウハウを“資産”として社内に残します。</p>
+          <ul><li>部門別AI活用設計・社員研修</li><li>御社限定の活用マニュアル作成</li><li>AI研修動画・AI人材の育成</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLAUDE CODE / AI AGENT ============ -->
+<section class="agent pad" id="agent">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="badge-cc"><img src="assets/logos/anthropic.svg" alt="Anthropic Claude"/>Powered by <b>Claude Code</b></span>
+      <span class="eyebrow">AI AGENT</span>
+      <h2 class="sec-title">“質問に答えるAI”から、<br>“自ら業務をやり切るAIエージェント”へ。</h2>
+      <p class="sec-lead">いま注目されている「AIエージェント」とは、指示を待つだけのチャットAIではありません。<b>目的を伝えると、自分で計画し・調べ・手を動かし、業務を最後までやり切る</b>AIです。私たちはその最前線である <b>Claude Code</b> の導入を、御社の環境に合わせて支援します。</p>
+    </div>
+
+    <div class="agent-compare reveal">
+      <div class="agent-col old">
+        <span class="tag">これまで：チャットAI</span>
+        <h3>聞いたことに、<br>答えてくれるだけ</h3>
+        <p>便利だが、結局すべて人が指示し、コピペし、組み立てる必要がある。</p>
+        <ul>
+          <li>1回1回、人が指示を出す</li>
+          <li>調べる・作る・直すは人の手作業</li>
+          <li>ツールをまたぐ作業は自動化されない</li>
+        </ul>
+      </div>
+      <div class="agent-arrow" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </div>
+      <div class="agent-col new">
+        <span class="tag">これから：AIエージェント（Claude Code）</span>
+        <h3>目的を伝えれば、<br>自分で考えてやり切る</h3>
+        <p>調査から資料作成、データ整理、システム化までを一気通貫で実行。人は“確認と判断”に集中できる。</p>
+        <ul>
+          <li>目的を渡すと、手順を自分で計画</li>
+          <li>調べる・作る・直すを自動で実行</li>
+          <li>社内ツール・データと安全に連携</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="agent-points reveal">
+      <div class="apoint">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3m0 12v3M3 12h3m12 0h3M5.6 5.6l2.1 2.1m8.6 8.6 2.1 2.1m0-12.8-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3.5"/></svg></div>
+        <h4>業務をやり切る実行力</h4>
+        <p>「資料を作って」「データをまとめて」を、人の代わりに最後まで遂行します。</p>
+      </div>
+      <div class="apoint">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h10"/><circle cx="19" cy="17" r="2.2"/></svg></div>
+        <h4>御社の業務に合わせて設計</h4>
+        <p>権限・フォルダ・連携ツールを御社専用に設計し、現場で使える形に落とし込みます。</p>
+      </div>
+      <div class="apoint">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h4>セキュリティを前提に導入</h4>
+        <p>情報の扱い・操作範囲を制御し、暴走させない“ガードレール”付きで安全に運用します。</p>
+      </div>
+    </div>
+
+    <div class="cc-setup reveal">
+      <div class="head">
+        <span class="badge-cc"><img src="assets/logos/anthropic.svg" alt="Anthropic Claude"/><b>Claude Code</b> 全社導入セットアップ</span>
+        <h3>「入れたけど使われない」を防ぐ、<br>全社導入セットアップまで伴走します。</h3>
+        <p>ツールを契約して終わり、ではありません。御社の環境に合わせて初期構築から運用ルール・セキュリティ・自走化までを一式でセットアップ。現場が初日から安全に使える状態をつくります。</p>
+      </div>
+      <ul class="cc-steps">
+        <li><div class="n">1</div><h4>環境構築・権限設計</h4><p>アカウント発行、アクセス権限・利用範囲の設計、初期環境のセットアップ。</p></li>
+        <li><div class="n">2</div><h4>プロジェクト・フォルダ設計</h4><p>業務単位のフォルダ構成と、AIが迷わず動ける情報の置き方を設計。</p></li>
+        <li><div class="n">3</div><h4>運用ルール（CLAUDE.md等）整備</h4><p>部門・役割ごとの指示ルールやガイドラインをファイル化し、品質を標準化。</p></li>
+        <li><div class="n">4</div><h4>社内ツール・データ連携</h4><p>普段お使いの業務ツール・社内データと安全に接続し、実務で動く形に。</p></li>
+        <li><div class="n">5</div><h4>セキュリティ・ガードレール</h4><p>機密情報の扱いと操作範囲を制御し、暴走・情報漏えいを防ぐ設定を実装。</p></li>
+        <li><div class="n">6</div><h4>社員オンボーディング・自走化</h4><p>研修と御社専用マニュアルで、担当者が自分たちで回せる状態まで定着支援。</p></li>
+      </ul>
+      <div class="foot">
+        <span class="pill2">初期導入支援に含まれます</span>
+        <span>導入後の運用・改善も、月額伴走支援で継続サポートします。</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Claude Code 導入企業（横流れマーキー・2段） -->
+<div class="clients">
+  <p class="cap">Claude Codeを導入している主な企業</p>
+  <p class="note">国内外で導入が進んでいます。<br>※ 各社が公表している導入・活用事例に基づく一般情報です（IZANAIの取引実績ではありません）。</p>
+  <div class="clients-marquee">
+    <div class="clients-row"><div class="clients-track" id="clientsTrackA"></div></div>
+  </div>
+  <div class="clients-marquee">
+    <div class="clients-row"><div class="clients-track rev" id="clientsTrackB"></div></div>
+  </div>
+</div>
+
+<!-- ============ 調査データ ============ -->
+<section class="data pad" id="data">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">DATA</span>
+      <h2 class="sec-title">世界が走り出す中、日本の<br>AI活用は後れを取っています。</h2>
+      <p class="sec-lead">総務省の最新調査では、日本の生成AI利用率は主要国の中で最も低い水準。「とりあえず様子見」の間に、差は広がり続けています。“安全に・確実に使える組織”への転換が、これからの競争力を左右します。</p>
+    </div>
+
+    <div class="data-grid">
+      <div class="reveal">
+        <div class="barchart" role="img" aria-label="生成AI利用率の国際比較：中国81.2%、米国68.8%、ドイツ59.2%、日本26.7%">
+          <p class="bc-title">個人の生成AI利用経験率（国際比較）<small>出典：総務省「令和7年版 情報通信白書」（2025年7月公表）</small></p>
+          <div class="barrow"><div class="top"><span class="ct">🇨🇳 中国</span><span class="pc">81.2%</span></div><div class="track"><div class="fill" style="--w:81.2%"></div></div></div>
+          <div class="barrow"><div class="top"><span class="ct">🇺🇸 米国</span><span class="pc">68.8%</span></div><div class="track"><div class="fill" style="--w:68.8%"></div></div></div>
+          <div class="barrow"><div class="top"><span class="ct">🇩🇪 ドイツ</span><span class="pc">59.2%</span></div><div class="track"><div class="fill" style="--w:59.2%"></div></div></div>
+          <div class="barrow jp"><div class="top"><span class="ct">🇯🇵 日本<b>主要国で最下位</b></span><span class="pc">26.7%</span></div><div class="track"><div class="fill" style="--w:26.7%"></div></div></div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="data-stats">
+          <div class="dstat"><b>約50<small>%</small></b><span>日本企業の生成AI活用方針策定率<br>（海外は約90%）</span></div>
+          <div class="dstat"><b>56→34<small>%</small></b><span>大企業 vs 中小企業<br>活用方針の策定率の差</span></div>
+          <div class="dstat"><b>最大40<small>%</small></b><span>人材戦略の不備で失う<br>AIの生産性向上効果（EY）</span></div>
+        </div>
+        <blockquote class="data-quote">
+          日本の生成AI利用率は、<em>中国の約3分の1</em>。さらにAIは「入れれば効く」ものではなく、人材戦略が伴わなければ<em>効果を最大40%取りこぼす</em>と指摘されています。<br>“安全に使える組織づくり”こそが、出遅れないための第一歩です。
+        </blockquote>
+        <p class="data-source">
+          出典：<a href="https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/r07/html/nd112220.html" target="_blank" rel="noopener">総務省「令和7年版 情報通信白書」</a>（個人の生成AI利用経験率・企業の活用方針策定状況）／<a href="https://www.ey.com/ja_jp/newsroom/2025/12/ey-japan-news-release-2025-12-18" target="_blank" rel="noopener">EY「2025 Work Reimagined Survey」</a>（29の国・地域、従業員15,000名・ビジネスリーダー1,500名）。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="pricing pad" id="pricing">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">PRICE</span>
+      <h2 class="sec-title">料金</h2>
+      <p class="sec-lead" style="color:rgba(255,255,255,.78)">まずは無料相談から。御社の状況をヒアリングした上で、最適なプランをご提案します。</p>
+    </div>
+    <div class="pcard reveal">
+      <span class="badge">初回相談 無料</span>
+      <div>
+        <h3>AI伴走支援</h3>
+        <div class="price"><small>¥</small>500,000<small>〜</small></div>
+        <span class="free">＼ まずは初回相談 無料 ／</span>
+        <p class="desc">社内ガイドライン・研修・実装・定着までを一体で支援。ヒアリング後に、御社に最適なプランを個別設計します。</p>
+      </div>
+      <ul class="plist">
+        <li><span class="ck"></span><span><b>初期導入支援</b>：50万円〜で個別設計</span></li>
+        <li><span class="ck"></span><span><b>月額伴走支援</b>：50万円〜で継続サポート</span></li>
+        <li><span class="ck"></span><span><b>一体支援</b>：ガイドライン・研修・実装・定着までワンストップ</span></li>
+        <li><span class="ck"></span><span><b>柔軟設計</b>：規模・課題に応じて範囲を調整</span></li>
+      </ul>
+    </div>
+    <div class="pnote reveal">
+      <div><b>5〜100名</b>中小・成長企業に最適化した導入設計</div>
+      <div><b>伴走型</b>「作って終わり」にしない定着までの並走</div>
+      <div><b>安全第一</b>セキュリティ・法務観点を踏まえた設計</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LAW ============ -->
+<section class="law pad" id="law">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">LAW & GUIDELINE</span>
+      <h2 class="sec-title">法律・ガイドラインの動きを、<br>社内ルールへ落とし込みます。</h2>
+    </div>
+    <div class="law-grid">
+      <div class="law-list reveal">
+        <div class="law-item"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 21 8H3l9-5Z"/><path d="M4 8v10m4-10v10m4-10v10m4-10v10m4-10v10"/><path d="M3 21h18"/></svg></div><div><h4>AI事業者ガイドライン</h4><p>経済産業省・総務省が示す指針を踏まえ、自社ルールに反映します。</p></div></div>
+        <div class="law-item"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M14.7 9.4a3.6 3.6 0 1 0 0 5.2"/></svg></div><div><h4>著作権法</h4><p>生成物の権利・引用・学習データの観点を整理し、トラブルを未然に防ぎます。</p></div></div>
+        <div class="law-item"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.6-3 7.7-7 9-4-1.3-7-4.4-7-9V6l7-3Z"/><rect x="9" y="11" width="6" height="5" rx="1"/><path d="M10.5 11V9.5a1.5 1.5 0 0 1 3 0V11"/></svg></div><div><h4>個人情報保護</h4><p>顧客情報・社員情報の入力可否を明確化。漏えいリスクを設計段階で潰します。</p></div></div>
+        <div class="law-item"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M8 21h8M3 8h18M7.5 4.5 5 8m0 0-2.5 5a2.8 2.8 0 0 0 5 0L5 8Zm14 0-2.5 5a2.8 2.8 0 0 0 5 0L19 8Zm-2.5-3.5L19 8"/></svg></div><div><h4>不法行為・責任範囲</h4><p>誰が責任を負うのか。利用範囲と責任の所在を明文化します。</p></div></div>
+      </div>
+      <div class="law-note reveal">
+        <h3>「知らなかった」では済まされない時代へ。最新の動きを継続インプットします。</h3>
+        <p>AI関連ニュースや法規制のアップデートを継続的に反映。判断が難しい論点は専門家ネットワークに確認しながら、御社のルールを最新の状態に保ちます。</p>
+        <span class="tag">※ 弁護士資格に基づく法律判断ではなく、法務観点を踏まえた整理・専門家確認を行います</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FLOW ============ -->
+<section class="flow pad" id="flow">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center">
+      <span class="eyebrow" style="justify-content:center">FLOW</span>
+      <h2 class="sec-title">支援の流れ</h2>
+      <p class="sec-lead" style="margin:18px auto 0">現状把握からスタートし、無理なく全社定着まで。4つのステップで伴走します。</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="circle">1</div><h4>現状把握</h4><p>AI利用状況・業務・課題をヒアリングし、リスクと可能性を洗い出します。</p></div>
+      <div class="step reveal"><div class="circle">2</div><h4>リスク整理</h4><p>情報漏えい・法務・個人情報の観点でリスクを可視化し、優先順位を整理します。</p></div>
+      <div class="step reveal"><div class="circle">3</div><h4>ルールと業務設計</h4><p>社内ガイドラインを策定し、部門別のAI活用と業務実装を設計します。</p></div>
+      <div class="step reveal"><div class="circle">4</div><h4>研修・定着</h4><p>社員研修・マニュアル作成・人材育成で、現場に“使える状態”を根付かせます。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT + CEO ============ -->
+<section class="about pad" id="about">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">COMPANY</span>
+      <h2 class="sec-title">会社概要</h2>
+    </div>
+    <div class="about-grid">
+      <table class="info-table reveal">
+        <tr><th>会社名</th><td>株式会社 いざない</td></tr>
+        <tr><th>代表者</th><td>代表　栗田 啓介</td></tr>
+        <tr><th>資本金</th><td>100万円</td></tr>
+        <tr><th>所在地</th><td>登記完了後に掲載予定</td></tr>
+        <tr><th>メインサービス</th><td>AI伴走支援</td></tr>
+        <tr><th>事業内容</th><td>社内AIガイドライン策定／社員AI研修／AIツール選定・データベース構築／業務へのAI導入／Claude Code全社導入セットアップ／AI法規制対策アップデート／AI研修動画／御社限定AI活用マニュアル作成／AI人材育成</td></tr>
+        <tr><th>対象企業</th><td>従業員5〜100名規模の中小企業・成長企業</td></tr>
+      </table>
+
+      <div class="ceo reveal" id="ceo">
+        <div class="photo">
+          <img src="assets/photos/keisuke-portrait.png" alt="代表 栗田啓介" onerror="this.parentNode.style.background='linear-gradient(135deg,#13315c,#1f6f78)'"/>
+        </div>
+        <div class="body">
+          <span class="role">REPRESENTATIVE ／ 代表者</span>
+          <h3>栗田 啓介</h3>
+          <ul>
+            <li>法学部で<b>法律領域</b>を学び、ルール・責任の視点を持つ</li>
+            <li><b>2022年からAI活用</b>に継続的に触れ続けている</li>
+            <li>AIを<b>統計学</b>に応用し、スポーツの勝率計算機などを自作</li>
+            <li>技術活用だけでなく、企業が<b>安全にAIを使い続けるルール・責任範囲・社内定着</b>を重視</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact pad" id="contact">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">CONTACT</span>
+      <h2 class="sec-title">まずは、無料でご相談ください。</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-left reveal">
+        <p>「何から手をつければいいか分からない」——その状態からで大丈夫です。御社の状況をお聞きし、AI導入の不安を一つずつ整理します。</p>
+        <div class="linecard">
+          <h4>
+            <img class="linelogo" src="assets/logos/line.svg" alt="LINE" style="width:24px;height:24px"/>
+            公式LINEで無料相談
+          </h4>
+          <p>所要1分。LINEで友だち追加して、気軽にメッセージを送ってください。最短で当日中にご返信します。</p>
+          <a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="assets/logos/line.svg" alt="LINE"/>公式LINEを友だち追加</a>
+        </div>
+      </div>
+
+      <form id="contactForm" onsubmit="return toLine(event)">
+        <div class="fgrid">
+          <div class="field"><label>会社名<span class="req">*</span></label><input name="company" required placeholder="株式会社○○"/></div>
+          <div class="field"><label>お名前<span class="req">*</span></label><input name="name" required placeholder="山田 太郎"/></div>
+          <div class="field"><label>役職</label><input name="title" placeholder="代表取締役"/></div>
+          <div class="field"><label>従業員数</label>
+            <select name="size"><option value="">選択してください</option><option>5名以下</option><option>6〜20名</option><option>21〜50名</option><option>51〜100名</option><option>100名以上</option></select>
+          </div>
+          <div class="field"><label>メールアドレス<span class="req">*</span></label><input type="email" name="email" required placeholder="info@example.com"/></div>
+          <div class="field"><label>電話番号</label><input name="tel" placeholder="090-0000-0000"/></div>
+        </div>
+        <div class="field full"><label>相談内容<span class="req">*</span></label>
+          <select name="topic" required>
+            <option value="">選択してください</option>
+            <option>AI導入前のリスクを相談したい</option>
+            <option>社内ガイドラインを作りたい</option>
+            <option>社員研修を依頼したい</option>
+            <option>業務にAIを導入したい</option>
+            <option>法規制・著作権・個人情報の観点を整理したい</option>
+            <option>その他</option>
+          </select>
+        </div>
+        <div class="field full"><label>詳細・ご相談内容</label><textarea name="detail" placeholder="現状の課題やご相談内容をご記入ください（任意）"></textarea></div>
+        <div class="submit"><button type="submit" class="btn btn-line">入力内容を確認してLINEで相談する</button></div>
+        <p class="note">※ 現在フォーム送信は公式LINEへの誘導となります。送信ボタンを押すとLINEが開きます。</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRIVACY ============ -->
+<section class="privacy pad" id="privacy">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">PRIVACY POLICY</span>
+      <h2 class="sec-title">プライバシーポリシー</h2>
+    </div>
+    <div class="box reveal">
+      <h4>1. 取得する情報</h4>
+      <p>当社は、お問い合わせ時に、会社名・氏名・役職・メールアドレス・電話番号・従業員数・ご相談内容などの個人情報を取得します。</p>
+      <h4>2. 利用目的</h4>
+      <ul>
+        <li>お問い合わせ・ご相談への対応のため</li>
+        <li>サービスのご提案・ご連絡のため</li>
+        <li>サービス品質向上のための分析のため</li>
+      </ul>
+      <h4>3. 第三者提供</h4>
+      <p>当社は、法令に基づく場合を除き、ご本人の同意なく個人情報を第三者に提供することはありません。</p>
+      <h4>4. 開示・訂正・削除のお問い合わせ先</h4>
+      <p>取得した個人情報の開示・訂正・削除をご希望の場合は、公式LINE、または後日掲載する連絡窓口までご連絡ください。内容を確認の上、速やかに対応いたします。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img class="foot-logo" src="assets/izanai-logo-white.png" alt="IZANAI 株式会社いざない"/>
+        <p>株式会社いざない｜AI導入の不安を、先回りして取り除く。セキュリティに強いAI伴走支援。</p>
+      </div>
+      <div class="foot-nav">
+        <div class="col"><h5>サービス</h5>
+          <a href="#service">AI伴走支援</a><a href="claude-code.html">Claude Code実装支援</a><a href="#pricing">料金</a><a href="#flow">支援の流れ</a><a href="lp.html">3分AIリスクチェック</a>
+        </div>
+        <div class="col"><h5>会社情報</h5>
+          <a href="#about">会社概要</a><a href="#ceo">代表者</a><a href="#privacy">プライバシーポリシー</a>
+        </div>
+        <div class="col"><h5>お問い合わせ</h5>
+          <a href="https://lin.ee/8upkUmI" target="_blank" rel="noopener">公式LINEで無料相談</a><a href="#contact">お問い合わせフォーム</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 株式会社いざない（IZANAI）</span>
+      <span>AI導入の不安を、先回りして取り除く。</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ FLOATING CTA ============ -->
+<div class="floatcta" id="floatcta">
+  <a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener">
+    <img class="linelogo" src="assets/logos/line.svg" alt="LINE"/>
+    無料相談
+  </a>
+</div>
+
+<script>
+// header scroll state + float cta
+const header=document.getElementById('header'),floatcta=document.getElementById('floatcta');
+addEventListener('scroll',()=>{
+  const y=scrollY;
+  header.classList.toggle('scrolled',y>40);
+  floatcta.classList.toggle('show',y>600);
+});
+
+// mobile menu
+const burger=document.getElementById('burger'),mm=document.getElementById('mobileMenu');
+burger.addEventListener('click',()=>{mm.classList.toggle('open');});
+mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mm.classList.remove('open')));
+
+// reveal on scroll
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// tool logos (duplicated for seamless marquee)
+const LOGOS=["anthropic","slack","notion","teams","salesforce","zapier","gmail","google-drive","googledocs","googlesheets","googlemeet","box","asana","hubspot","line","outlook","word","powerpoint","onedrive","figma","canva","zoom","chatwork"];
+const names={anthropic:"Claude (Anthropic)","google-drive":"Google Drive",googledocs:"Google Docs",googlesheets:"Google Sheets",googlemeet:"Google Meet"};
+const track=document.getElementById('logoTrack');
+const build=()=>LOGOS.map(n=>`<img src="assets/logos/${n}.svg" alt="${names[n]||n}" loading="lazy" onerror="this.style.display='none'"/>`).join('');
+track.innerHTML=build()+build();
+
+// Claude Code 導入企業（2段マーキー・全社フルカラー社名入り）
+const CLIENTS=["rakuten","microsoft","netflix","uber","shopify","goldmansachs","deloitte","salesforce","sap","gitlab","stripe","coinbase","doordash","instacart","intercom","figma","notion","slack","zoom","dropbox","atlassian","cognizant"];
+const cnames={rakuten:"楽天 Rakuten",goldmansachs:"Goldman Sachs",doordash:"DoorDash",gitlab:"GitLab",sap:"SAP",notion:"Notion",salesforce:"Salesforce"};
+const fillTrack=(el,arr)=>{ if(!el)return; const h=()=>arr.map(n=>`<img src="assets/claude-clients/${n}.svg" alt="${cnames[n]||n}" loading="lazy" onerror="this.style.display='none'"/>`).join(''); el.innerHTML=h()+h(); };
+const _half=Math.ceil(CLIENTS.length/2);
+fillTrack(document.getElementById('clientsTrackA'),CLIENTS.slice(0,_half));
+fillTrack(document.getElementById('clientsTrackB'),CLIENTS.slice(_half));
+
+// contact form -> open LINE
+function toLine(e){
+  e.preventDefault();
+  window.open('https://lin.ee/8upkUmI','_blank','noopener');
+  return false;
+}
+</script>
+</body>
+</html>
