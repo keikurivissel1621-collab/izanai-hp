@@ -460,58 +460,17 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:60px 0 30p
 .mobile-menu .btn{margin-top:22px;width:100%}
 @media(max-width:920px){.mobile-menu{display:block}}
 
+/* ===== CTAボタンの発光 ===== */
+@keyframes ctaPulseLine{0%,100%{box-shadow:0 14px 30px -12px rgba(6,199,85,.6),0 0 0 0 rgba(6,199,85,.55)}50%{box-shadow:0 16px 38px -12px rgba(6,199,85,.72),0 0 0 11px rgba(6,199,85,0)}}
+@keyframes ctaPulseGold{0%,100%{box-shadow:0 14px 30px -12px rgba(200,162,74,.55),0 0 0 0 rgba(200,162,74,.5)}50%{box-shadow:0 16px 38px -12px rgba(200,162,74,.7),0 0 0 11px rgba(200,162,74,0)}}
+.btn-line{animation:ctaPulseLine 2.8s var(--ease) infinite}
+.btn-gold{animation:ctaPulseGold 2.8s var(--ease) infinite}
+.btn-line:hover,.btn-gold:hover{animation-play-state:paused}
+
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;scroll-behavior:auto!important}
   .reveal{opacity:1;transform:none;transition:none}
   .ticker .track,.logos .track,.clients-track{animation:none}
-}
-
-/* ============ 仕上げ：多彩アニメ＋背景デザイン ============ */
-.reveal{transition:opacity .8s var(--ease),transform .8s var(--ease)}
-.reveal.in{opacity:1!important;transform:none!important}
-/* セクションごとに“動きの型”を変える（連鎖の遅延はJSが付与） */
-.anxiety .acard.reveal{transform:translateY(46px) scale(.96)}
-.service .scard.reveal:nth-child(odd){transform:translateY(28px) translateX(-34px)}
-.service .scard.reveal:nth-child(even){transform:translateY(28px) translateX(34px)}
-.data .reveal{transform:translateY(44px)}
-.law .reveal{transform:translateX(-42px)}
-.law .law-note.reveal{transform:translateX(42px)}
-.flow .reveal{transform:translateY(40px) scale(.97)}
-.about .reveal{transform:translateY(38px)}
-
-/* コンテンツを背景装飾より前面に */
-.pad>.wrap{position:relative;z-index:1}
-
-/* ---- 背景デザイン（無地セクションへ：ブランド色の漂うブロブ＋ドット） ---- */
-.service,.data,.law,.flow,.about{overflow:hidden}
-@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(18px,-22px)}}
-.service::before,.data::before,.law::before,.flow::before,.about::before,
-.service::after,.data::after,.law::after,.flow::after,.about::after{content:"";position:absolute;pointer-events:none;z-index:0}
-.service::before{top:-90px;right:-70px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(43,138,148,.13),transparent 70%);animation:drift 16s ease-in-out infinite}
-.data::before{bottom:-100px;left:-80px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(200,162,74,.14),transparent 70%);animation:drift 19s ease-in-out infinite}
-.law::before{top:-70px;left:-60px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(43,138,148,.11),transparent 70%);animation:drift 17s ease-in-out infinite}
-.flow::before{top:-80px;right:-60px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(200,162,74,.13),transparent 70%);animation:drift 15s ease-in-out infinite}
-.about::before{bottom:-90px;right:-70px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(43,138,148,.12),transparent 70%);animation:drift 20s ease-in-out infinite}
-.service::after{left:-30px;bottom:24px;width:240px;height:240px;background-image:radial-gradient(rgba(15,39,66,.10) 1.4px,transparent 1.4px);background-size:22px 22px;-webkit-mask-image:radial-gradient(circle,#000,transparent 72%);mask-image:radial-gradient(circle,#000,transparent 72%)}
-.data::after{top:24px;right:-20px;width:240px;height:240px;background-image:radial-gradient(rgba(15,39,66,.08) 1.4px,transparent 1.4px);background-size:22px 22px;-webkit-mask-image:radial-gradient(circle,#000,transparent 72%);mask-image:radial-gradient(circle,#000,transparent 72%)}
-.law::after{bottom:18px;right:-20px;width:220px;height:220px;background-image:radial-gradient(rgba(15,39,66,.08) 1.4px,transparent 1.4px);background-size:22px 22px;-webkit-mask-image:radial-gradient(circle,#000,transparent 72%);mask-image:radial-gradient(circle,#000,transparent 72%)}
-.flow::after{bottom:18px;left:-20px;width:220px;height:220px;background-image:radial-gradient(rgba(15,39,66,.08) 1.4px,transparent 1.4px);background-size:22px 22px;-webkit-mask-image:radial-gradient(circle,#000,transparent 72%);mask-image:radial-gradient(circle,#000,transparent 72%)}
-.about::after{top:18px;left:-20px;width:220px;height:220px;background-image:radial-gradient(rgba(15,39,66,.08) 1.4px,transparent 1.4px);background-size:22px 22px;-webkit-mask-image:radial-gradient(circle,#000,transparent 72%);mask-image:radial-gradient(circle,#000,transparent 72%)}
-
-/* ---- カードの光沢ホバー ---- */
-.acard,.apoint,.law-item{position:relative;overflow:hidden}
-.acard::after,.apoint::after,.law-item::after{content:"";position:absolute;top:0;left:-75%;width:48%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);transform:skewX(-18deg);opacity:0;transition:left .7s var(--ease),opacity .3s;pointer-events:none;z-index:2}
-.acard:hover::after,.apoint:hover::after,.law-item:hover::after{left:150%;opacity:1}
-
-/* ---- セクション見出しの金下線をrevealで描画 ---- */
-.reveal .sec-title::after{content:"";display:block;width:0;height:3px;margin-top:14px;background:linear-gradient(90deg,var(--gold),var(--teal-2));border-radius:2px;transition:width .9s .2s var(--ease)}
-.reveal.in .sec-title::after{width:64px}
-.flow .reveal .sec-title::after{margin-left:auto;margin-right:auto}
-
-@media(prefers-reduced-motion:reduce){
-  .service::before,.data::before,.law::before,.flow::before,.about::before,.about::after{animation:none}
-  .acard::after,.apoint::after,.law-item::after{display:none}
-  .reveal .sec-title::after{transition:none;width:64px}
 }
 </style>
 </head>
@@ -1021,33 +980,9 @@ const burger=document.getElementById('burger'),mm=document.getElementById('mobil
 burger.addEventListener('click',()=>{mm.classList.toggle('open');});
 mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mm.classList.remove('open')));
 
-// reveal on scroll（スクロール監視・連鎖stagger・取りこぼし安全策つき）
-(function(){
-  function reveal(el){
-    if(el.dataset.rvDone) return;
-    el.dataset.rvDone="1";
-    var p=el.parentElement;
-    if(p){
-      var sibs=Array.prototype.filter.call(p.children,function(c){return c.classList.contains('reveal');});
-      var i=sibs.indexOf(el);
-      if(i>0) el.style.transitionDelay=(i*90)+"ms";   // 同じ親内のカードを順番に
-    }
-    el.classList.add('in');
-  }
-  var items=Array.prototype.slice.call(document.querySelectorAll('.reveal'));
-  function sweep(){
-    var vh=window.innerHeight||document.documentElement.clientHeight;
-    for(var i=items.length-1;i>=0;i--){
-      var el=items[i],r=el.getBoundingClientRect();
-      if(r.top < vh*0.9 && r.bottom > 0){ reveal(el); items.splice(i,1); }
-    }
-  }
-  sweep();
-  addEventListener('scroll',sweep,{passive:true});
-  addEventListener('resize',sweep);
-  addEventListener('load',sweep);
-  setTimeout(function(){items.slice().forEach(reveal);items.length=0;},3000);  // 不可視のまま残さない
-})();
+// reveal on scroll
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
 // tool logos (duplicated for seamless marquee)
 const LOGOS=["anthropic","slack","notion","teams","salesforce","zapier","gmail","google-drive","googledocs","googlesheets","googlemeet","box","asana","hubspot","line","outlook","word","powerpoint","onedrive","figma","canva","zoom","chatwork"];

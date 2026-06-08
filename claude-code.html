@@ -8,25 +8,26 @@
 <meta property="og:type" content="website" />
 <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@600;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/cc.css?v=6" />
+<link rel="stylesheet" href="assets/cc.css?v=8" />
 </head>
 <body>
 
 <header id="header"><div class="wrap nav">
-  <a href="claude-code.html" class="brand"><img class="brand-logo" src="assets/izanai-logo-transparent.png" alt="IZANAI"/><span class="bsub">Claude Code<br>導入基盤設計支援</span></a>
+  <a href="index_rebuild.html" class="brand" aria-label="IZANAIホームへ"><img class="brand-logo" src="assets/izanai-logo-transparent.png" alt="IZANAI"/><span class="bsub">Claude Code<br>導入基盤設計支援</span></a>
   <nav class="menu">
+    <a class="link home-link" href="index_rebuild.html">← ホーム</a>
     <a class="link" href="#whatis">Claude Codeとは</a>
     <a class="link" href="#diff">AIとの違い</a>
     <a class="link" href="#demo">実演動画</a>
     <a class="link" href="#cases">活用事例</a>
     <a class="link" href="#price">料金</a>
-    <a class="link" href="#faq">FAQ</a>
     <a class="btn btn-cta" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener">無料相談を申し込む<span class="arr">→</span></a>
   </nav>
   <button class="burger" id="burger" aria-label="メニュー"><span></span><span></span><span></span></button>
 </div></header>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#whatis">Claude Codeとは</a><a href="#diff">AIとの違い</a><a href="#demo">実演動画</a><a href="#cases">活用事例</a><a href="#support">支援領域</a><a href="#flow">導入の流れ</a><a href="#price">料金</a><a href="#faq">FAQ</a><a href="index_rebuild.html">IZANAIトップ</a>
+  <a href="index_rebuild.html" class="mm-home">← ホームに戻る</a>
+  <a href="#whatis">Claude Codeとは</a><a href="#diff">AIとの違い</a><a href="#demo">実演動画</a><a href="#cases">活用事例</a><a href="#support">支援領域</a><a href="#flow">導入の流れ</a><a href="#price">料金</a><a href="#faq">FAQ</a>
   <a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="assets/logos/line.svg" alt="LINE"/>公式LINEで無料相談</a>
 </div>
 
@@ -134,14 +135,7 @@
     <button class="tab" style="opacity:.6">リサーチ</button><button class="tab" style="opacity:.6">財務分析</button><button class="tab" style="opacity:.6">SNS運用</button><button class="tab" style="opacity:.6">顧客対応</button><button class="tab" style="opacity:.6">人事採用</button>
   </div>
   <div class="demo-stage rv rv-zoom" id="demoStage"><div class="videobox"></div><div class="demo-side"></div></div>
-  <div class="demo-thumbs stagger" style="margin-top:22px">
-    <div class="thumb on" data-k="ad" onclick="ccDemoSelect('ad')"><div class="pl"></div><div class="lab">広告運用・最適化</div></div>
-    <div class="thumb" data-k="mail" onclick="ccDemoSelect('mail')"><div class="pl"></div><div class="lab">メール対応・自動化</div></div>
-    <div class="thumb" data-k="accounting" onclick="ccDemoSelect('accounting')"><div class="pl"></div><div class="lab">経理処理・自動仕訳</div></div>
-    <div class="thumb" data-k="spreadsheet" onclick="ccDemoSelect('spreadsheet')"><div class="pl"></div><div class="lab">スプレッドシート分析</div></div>
-    <div class="thumb" data-k="doc" onclick="ccDemoSelect('doc')"><div class="pl"></div><div class="lab">資料作成・提案書</div></div>
-  </div>
-  <p class="logo-note" style="margin-top:16px">※ 動画は順次追加予定です。各タスクの画面録画(MP4)を <code>assets/videos/</code> に配置するとここで再生されます。</p>
+  <p class="logo-note" style="margin-top:16px">※ 上のタブで再生する映像が切り替わります。各タスクの画面録画(MP4)を <code>assets/videos/</code> に配置すると、この1つのフレームで再生されます。</p>
 
   <div class="sec-head rv rv-up" style="margin-top:60px"><h3 class="sec-title" style="font-size:clamp(20px,2.8vw,28px)">既存の業務フローに<span class="u">自然に組み込みます</span></h3></div>
   <div class="flowdiag rv rv-blur">
@@ -153,13 +147,13 @@
   <p class="logo-note" style="margin-top:16px">既存のツールや業務の流れはそのまま。Claude Code が“間に入って”自動化・効率化を実現します。</p>
 
   <div class="sec-head rv rv-up" style="margin-top:56px"><h3 class="sec-title" style="font-size:clamp(20px,2.8vw,28px)">外部ツール・SaaS / API連携</h3></div>
-  <div class="logo-grid stagger" style="grid-template-columns:repeat(6,1fr)" id="toolGrid"></div>
+  <div class="toolmq" style="margin-top:30px"><div class="track" id="toolTrack"></div></div>
 </div></section>
 
 <!-- ============ 活用事例 ============ -->
 <section class="pad" id="cases" style="background:var(--bg)"><div class="wrap">
   <div class="sec-head rv rv-up"><span class="eyebrow">USE CASES</span><h2 class="sec-title">部門別の<span class="u">活用事例</span></h2><p class="sec-lead">既存タスクをどう簡略化し、どんな成果につながるか。御社の業務に合わせて設計します。</p></div>
-  <div class="case-grid stagger side" style="grid-template-columns:repeat(4,1fr)">
+  <div class="case-grid stagger side">
     <div class="case"><div class="h"><span class="n">1</span><h4>営業・提案</h4></div><ul><li>提案書のドラフト作成</li><li>顧客情報の要点まとめ</li><li>商談メモの整理</li></ul><span class="res">提案準備を60%短縮</span></div>
     <div class="case"><div class="h"><span class="n">2</span><h4>マーケ・SNS</h4></div><ul><li>投稿案の大量生成</li><li>分析レポートの要約</li><li>キーワード調査</li></ul><span class="res">運用工数を70%削減</span></div>
     <div class="case"><div class="h"><span class="n">3</span><h4>EC・物販</h4></div><ul><li>商品説明文の作成</li><li>競合価格の調査</li><li>売上データ集計</li></ul><span class="res">運営時間を50%短縮</span></div>
@@ -330,9 +324,10 @@ window.CC_DEMO={
 (function(){
   var TOOLS=["slack","chatwork","discord","teams","google-chat","googlemeet","zoom","gmail","outlook","sendgrid","line","google-drive","onedrive","box","googledocs","word","googlesheets","more-apps"];
   var names={"google-chat":"Google Chat",googlemeet:"Google Meet","google-drive":"Google Drive",googledocs:"Google Docs",googlesheets:"Google Sheets","more-apps":"その他多数"};
-  var g=document.getElementById('toolGrid'); if(g)g.innerHTML=TOOLS.map(function(n){return '<div class="logo-cell"><img src="assets/logos/'+n+'.svg" alt="'+(names[n]||n)+'" loading="lazy" onerror="this.style.display=\'none\'"/></div>';}).join('');
+  var t=document.getElementById('toolTrack');
+  if(t){ var one=function(){return TOOLS.map(function(n){return '<img src="assets/logos/'+n+'.svg" alt="'+(names[n]||n)+'" loading="lazy" onerror="this.style.display=\'none\'"/>';}).join('');}; t.innerHTML=one()+one(); }
 })();
 </script>
-<script src="assets/cc.js?v=3"></script>
+<script src="assets/cc.js?v=4"></script>
 </body>
 </html>

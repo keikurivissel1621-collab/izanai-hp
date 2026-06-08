@@ -416,8 +416,29 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:54px 0 28p
   .hero .featrow{grid-template-columns:1fr 1fr}
   .term-body{font-size:11.5px;min-height:230px}
 }
+/* ===== CTAボタンの発光（全ページ共通） ===== */
+@keyframes ctaPulse{0%,100%{box-shadow:0 14px 30px -12px rgba(31,111,120,.6),0 0 0 0 rgba(43,138,148,.55)}50%{box-shadow:0 16px 38px -12px rgba(31,111,120,.72),0 0 0 11px rgba(43,138,148,0)}}
+@keyframes ctaPulseLine{0%,100%{box-shadow:0 14px 30px -12px rgba(6,199,85,.6),0 0 0 0 rgba(6,199,85,.55)}50%{box-shadow:0 16px 38px -12px rgba(6,199,85,.72),0 0 0 11px rgba(6,199,85,0)}}
+.btn-cta{animation:ctaPulse 2.8s var(--ease) infinite}
+.btn-line{animation:ctaPulseLine 2.8s var(--ease) infinite}
+.btn-cta:hover,.btn-line:hover{animation-play-state:paused}
+
+/* ハンバーガー内 LINEボタン：白文字を明示／ホーム導線 */
+.mobile-menu .btn-line{color:#fff!important;font-weight:700}
+.mobile-menu .btn-line .linelogo{filter:brightness(0) invert(1)}
+.mobile-menu a.mm-home{color:var(--teal);font-weight:700}
+.menu a.home-link{color:var(--teal);font-weight:700}
+.menu a.home-link::after{background:var(--teal)}
+
+/* 外部ツール：透過ロゴが右→左に流れるマーキー（カードなし・大きめ） */
+.toolmq{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.toolmq .track{display:inline-flex;align-items:center;gap:clamp(40px,5vw,72px);padding-right:clamp(40px,5vw,72px);animation:marquee 40s linear infinite;will-change:transform}
+.toolmq:hover .track{animation-play-state:paused}
+.toolmq img{height:clamp(40px,5.2vw,54px);width:auto;flex:0 0 auto;opacity:.95;transition:transform .3s}
+.toolmq img:hover{transform:scale(1.12)}
+
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;scroll-behavior:auto!important}
   .reveal,.rv,.stagger>*{opacity:1!important;transform:none!important;filter:none!important;transition:none!important}
-  .tmq .track,.laptop,.cursor,.hero.photo .bgwrap img{animation:none}
+  .tmq .track,.laptop,.cursor,.hero.photo .bgwrap img,.btn-cta,.btn-line,.toolmq .track{animation:none}
 }
