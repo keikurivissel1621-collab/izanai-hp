@@ -105,6 +105,21 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.6);text-align:center;
   .why-grid{grid-template-columns:1fr}
   .meta{flex-direction:column;align-items:center}
 }
+/* 診断結果を見るボタン＋未回答演出 */
+.quiz-action{text-align:center;margin-top:10px}
+.see-result{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:16px;border-radius:999px;padding:16px 36px;border:none;cursor:pointer;color:#fff;background:linear-gradient(120deg,var(--teal),var(--teal-2));box-shadow:0 14px 30px -12px rgba(31,111,120,.6);transition:transform .25s var(--ease),box-shadow .25s;animation:srGlow 2.8s var(--ease) infinite}
+@keyframes srGlow{0%,100%{box-shadow:0 14px 30px -12px rgba(31,111,120,.6),0 0 0 0 rgba(43,138,148,.5)}50%{box-shadow:0 16px 38px -12px rgba(31,111,120,.72),0 0 0 11px rgba(43,138,148,0)}}
+.see-result:hover{transform:translateY(-3px);animation-play-state:paused}
+.qa-note{margin-top:14px;font-size:13.5px;color:#d9534f;font-weight:700;min-height:1.2em}
+.qcard.flash{animation:flashCard 1.1s ease}
+@keyframes flashCard{0%,100%{box-shadow:var(--shadow)}30%,60%{box-shadow:0 0 0 3px #e0a82e}}
+/* 結果内：弱点（重点領域）ボックス */
+.result .focus{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:18px 20px;margin:22px auto 0;max-width:520px;text-align:left}
+.result .focus-h{font-size:13px;font-weight:700;color:#7fe0d8;margin-bottom:10px}
+.result .focus ul{list-style:none;display:grid;gap:8px}
+.result .focus li{font-size:14px;color:#fff;padding-left:24px;position:relative}
+.result .focus li::before{content:"";position:absolute;left:4px;top:7px;width:8px;height:8px;border-radius:2px;background:var(--gold)}
+
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -124,6 +139,10 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.6);text-align:center;
 <section class="check">
   <div class="progress"><div class="wrap"><div class="barbg"><div class="fill" id="fill"></div></div><div class="label">回答済み <b id="ans">0</b> / 20問</div></div></div>
   <div class="wrap" id="quiz"></div>
+  <div class="wrap quiz-action">
+    <button id="seeResult" class="see-result" type="button">診断結果を見る →</button>
+    <p class="qa-note" id="qaNote"></p>
+  </div>
 </section>
 
 <section class="why">
@@ -186,13 +205,22 @@ QUESTIONS.forEach((item,i)=>{
 // result placeholder
 const res=document.createElement('div');res.className='result';res.id='result';quiz.appendChild(res);
 
+// 各設問の短い領域ラベル（QUESTIONSと同順）
+const TOPICS=[
+  "AI利用状況の把握","社内ガイドラインの整備","個人情報の入力ルール","社員教育・研修","法務観点の確認体制",
+  "学習に使わせない設定","機密情報の区分","アクセス権限の管理","利用ログの記録・確認","ツールの承認・選定",
+  "無料版・個人利用の制限","出力の人によるチェック","委託先・取引先のルール","インシデント対応手順","経営層の関与",
+  "推進責任者の明確化","部門別の利用範囲","社内データ連携の対策","法規制の継続把握","全社方針・ロードマップ"
+];
+
 quiz.addEventListener('click',e=>{
   const b=e.target.closest('.opt');if(!b)return;
   const qi=+b.dataset.q,oi=+b.dataset.o;
   answers[qi]=oi;
   document.querySelectorAll(`.opt[data-q="${qi}"]`).forEach(x=>x.classList.remove('sel'));
   b.classList.add('sel');
-  document.getElementById('q'+qi).classList.add('done');
+  const card=document.getElementById('q'+qi); card.classList.add('done'); card.classList.remove('flash');
+  document.getElementById('qaNote').textContent='';
   update();
 });
 
@@ -200,35 +228,60 @@ function update(){
   const done=answers.filter(a=>a!==null).length;
   fill.style.width=(done/QUESTIONS.length*100)+'%';
   ansEl.textContent=done;
-  if(done===QUESTIONS.length)showResult();
+  if(done===QUESTIONS.length) showResult(true);
 }
-function showResult(){
-  const raw=answers.reduce((s,a)=>s+SCORE[a],0);       // 0..10
-  const pct=Math.round(raw/(QUESTIONS.length*2)*100);  // 0..100 (健全度)
+
+// 「診断結果を見る」ボタン：未回答があれば誘導、完答なら結果表示
+document.getElementById('seeResult').addEventListener('click',function(){
+  const done=answers.filter(a=>a!==null).length;
+  const note=document.getElementById('qaNote');
+  if(done<QUESTIONS.length){
+    const firstUn=answers.indexOf(null);
+    note.textContent='未回答が '+(QUESTIONS.length-done)+' 問あります。すべてお答えください。';
+    const card=document.getElementById('q'+firstUn);
+    if(card){card.classList.add('flash');card.scrollIntoView({behavior:'smooth',block:'center'});setTimeout(()=>card.classList.remove('flash'),1200);}
+    return;
+  }
+  note.textContent='';
+  showResult(true);
+}, false);
+
+function showResult(scroll){
+  const raw=answers.reduce((s,a)=>s+SCORE[a],0);
+  const pct=Math.round(raw/(QUESTIONS.length*2)*100);  // 0..100（健全度）
   let level,color,msg;
-  if(pct>=80){level="リスク低";color="#2bb673";msg="基盤はかなり整っています。さらに全社定着・運用の磨き込みでAIを“競争力”に変えられます。";}
+  if(pct>=80){level="リスク低";color="#2bb673";msg="基盤はかなり整っています。あとは全社定着と運用の磨き込みで、AIを“競争力”に変えていけます。";}
   else if(pct>=50){level="リスク中";color="#e0a82e";msg="使い始めてはいるものの、ルールや教育に穴があります。事故が起きる前に、優先順位をつけて整備しましょう。";}
   else{level="リスク高";color="#d9534f";msg="情報漏えい・法務リスクが高い状態です。まずガイドライン策定と社員教育から、早急に手を打つことをおすすめします。";}
+  // 弱点領域（スコア0→1の順で最大4つ）
+  const w0=[],w1=[];
+  answers.forEach((a,i)=>{ const s=SCORE[a]; if(s===0)w0.push(TOPICS[i]); else if(s===1)w1.push(TOPICS[i]); });
+  const focus=w0.concat(w1).slice(0,4);
+  const focusHtml = focus.length
+    ? '<div class="focus"><div class="focus-h">▼ あなたの会社が優先的に整備すべき領域</div><ul>'+focus.map(t=>'<li>'+t+'</li>').join('')+'</ul></div>'
+    : '<div class="focus"><div class="focus-h">▼ 現状、大きな穴は見当たりません</div><p style="color:rgba(255,255,255,.82);font-size:13px;margin:0">運用ルールの磨き込みと全社定着で、さらに強い体制にできます。</p></div>';
   res.innerHTML=`
     <div class="pill" style="background:rgba(255,255,255,.12);color:#fff">あなたの会社のAIセキュリティ健全度</div>
     <div class="scorebig">${pct}<small>/100</small></div>
     <div class="gauge"><div class="g" style="width:0;background:${color}"></div></div>
     <h2>判定：${level}</h2>
     <p>${msg}</p>
+    ${focusHtml}
     <div class="offer">
       <div class="offer-ic">📋</div>
       <div>
-        <b>あなたの回答をもとにした「御社向けAIセキュリティ対策ガイド」を無料でお渡しします。</b>
-        <span>優先して対策すべきポイントと進め方を、診断結果に沿って整理してお送りします。受け取り後の個別相談も無料です。</span>
+        <b>この診断結果をもとに、御社だけの「AIガイドラインMVP（たたき台）」を作成してお渡しします。</b>
+        <span>上の重点領域に沿って、“まず決めるべきルールの方向性”を1枚に整理したたたき台を、公式LINEで無料配布。受け取り後の個別相談も無料です。</span>
       </div>
     </div>
     <div class="cta">
-      <a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="assets/logos/line.svg" alt="LINE"/>公式LINEで対策ガイドを受け取る</a>
-      <a class="btn btn-ghost" href="index_rebuild.html#service">サービス内容を見る</a>
+      <a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="assets/logos/line.svg" alt="LINE"/>LINEでガイドラインMVPを受け取る</a>
+      <a class="btn btn-ghost" href="claude-code.html">導入支援を見る</a>
     </div>`;
   res.classList.add('show');
-  requestAnimationFrame(()=>{setTimeout(()=>{res.querySelector('.g').style.width=pct+'%';},80);});
-  res.scrollIntoView({behavior:'smooth',block:'center'});
+  const sr=document.getElementById('seeResult'); if(sr) sr.style.display='none';
+  requestAnimationFrame(()=>{setTimeout(()=>{const g=res.querySelector('.g'); if(g) g.style.width=pct+'%';},80);});
+  if(scroll!==false) res.scrollIntoView({behavior:'smooth',block:'start'});
 }
 </script>
 </body>
