@@ -467,6 +467,43 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:60px 0 30p
 .btn-gold{animation:ctaPulseGold 2.8s var(--ease) infinite}
 .btn-line:hover,.btn-gold:hover{animation-play-state:paused}
 
+/* ===== 追加：選ばれる理由 ===== */
+.reasons{background:linear-gradient(180deg,#fff,var(--bg))}
+.reason-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:48px}
+.rcard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow-sm);display:flex;gap:18px;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.rcard:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.rcard .rn{flex:0 0 auto;width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--navy),var(--teal));color:#fff;display:grid;place-items:center;font-family:"Noto Serif JP";font-weight:700;font-size:17px}
+.rcard h3{font-size:17.5px;color:var(--navy);font-weight:700;margin-bottom:8px;line-height:1.5}
+.rcard p{font-size:14px;color:var(--muted)}
+/* ===== 追加：無料で始められる（オファー集約） ===== */
+.offer-sec{background:linear-gradient(160deg,var(--navy-deep),var(--navy) 60%,var(--navy-2));color:#fff;overflow:hidden}
+.offer-sec .eyebrow{color:var(--gold)}.offer-sec .eyebrow::before{background:var(--gold)}
+.offer-sec .sec-title{color:#fff}
+.offerbox{margin-top:44px;display:grid;grid-template-columns:1.1fr .9fr;gap:42px;align-items:center;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:24px;padding:clamp(30px,4.5vw,52px);box-shadow:var(--shadow-lg)}
+.offerlist{list-style:none;display:grid;gap:16px}
+.offerlist li{display:flex;gap:14px;align-items:flex-start;font-size:15px}
+.offerlist li b{color:#fff;display:block}.offerlist li em{color:rgba(255,255,255,.78);font-size:13px;display:block;margin-top:3px;font-style:normal}
+.offerlist .ck{flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:var(--teal-2);display:grid;place-items:center;margin-top:1px}
+.offerlist .ck::after{content:"";width:11px;height:6px;border-left:2.5px solid #fff;border-bottom:2.5px solid #fff;transform:rotate(-45deg);margin-top:-2px}
+.offer-cta{display:flex;flex-direction:column;gap:13px}
+.offer-cta .btn{width:100%}
+.offer-cta .rr{font-size:12.5px;color:rgba(255,255,255,.78);text-align:center;margin-top:2px}
+/* ===== 追加：ホームFAQ ===== */
+.hfaq{background:var(--bg)}
+.hfaq-list{margin-top:44px;display:grid;gap:13px;max-width:840px;margin-left:auto;margin-right:auto}
+.hqa{background:#fff;border:1px solid var(--line);border-radius:14px;padding:2px 24px;box-shadow:var(--shadow-sm);transition:.25s}
+.hqa[open]{border-color:var(--teal-2)}
+.hqa summary{list-style:none;cursor:pointer;padding:20px 0;font-weight:700;color:var(--navy);font-size:15.5px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.hqa summary::-webkit-details-marker{display:none}
+.hqa summary::after{content:"";width:11px;height:11px;border-right:2.5px solid var(--teal);border-bottom:2.5px solid var(--teal);transform:rotate(45deg);transition:.3s;flex:0 0 auto;margin-top:-4px}
+.hqa[open] summary::after{transform:rotate(-135deg);margin-top:2px}
+.hqa .a{padding:0 0 20px;font-size:14px;color:var(--muted);line-height:1.85}
+/* ===== 追加：代表ストーリー ===== */
+.ceo .story{margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
+.ceo .story p{font-size:13.5px;color:var(--ink);line-height:1.85}
+.ceo .story .promise{margin-top:12px;background:var(--teal-soft);border-radius:10px;padding:12px 15px;font-size:13px;color:var(--teal);font-weight:700;line-height:1.7}
+@media(max-width:920px){.reason-grid{grid-template-columns:1fr}.offerbox{grid-template-columns:1fr;gap:26px}}
+
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;scroll-behavior:auto!important}
   .reveal{opacity:1;transform:none;transition:none}
@@ -620,6 +657,23 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:60px 0 30p
           <ul><li>部門別AI活用設計・社員研修</li><li>御社限定の活用マニュアル作成</li><li>AI研修動画・AI人材の育成</li></ul>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 選ばれる理由 ============ -->
+<section class="reasons pad" id="reasons">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">WHY IZANAI</span>
+      <h2 class="sec-title">“ツール導入屋”とは違う。<br>IZANAIが選ばれる理由。</h2>
+      <p class="sec-lead">AIは「入れること」ではなく「使える状態にすること」が本番です。御社の本質的な課題から逆算して設計します。</p>
+    </div>
+    <div class="reason-grid">
+      <div class="rcard reveal"><div class="rn">01</div><div><h3>「機能」ではなく「本質課題」から設計</h3><p>流行のツールを入れるのが目的ではありません。御社の本当のボトルネックを特定し、解決ステップから組み立てます。</p></div></div>
+      <div class="rcard reveal"><div class="rn">02</div><div><h3>セキュリティを最優先に</h3><p>情報漏えい・法務リスクを“設計段階で潰す”のが前提。攻めの活用と守りの体制を同時に整えます。</p></div></div>
+      <div class="rcard reveal"><div class="rn">03</div><div><h3>「作って終わり」にしない伴走</h3><p>導入支援だけで離れません。現場が自分たちで回せる“自走状態”になるまで並走します。</p></div></div>
+      <div class="rcard reveal"><div class="rn">04</div><div><h3>AI人材を社内に残す</h3><p>外注に依存させません。御社の中に“AIで動ける人”を育て、ノウハウを資産として残します。</p></div></div>
     </div>
   </div>
 </section>
@@ -851,8 +905,51 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:60px 0 30p
             <li>AIを<b>統計学</b>に応用し、スポーツの勝率計算機などを自作</li>
             <li>技術活用だけでなく、企業が<b>安全にAIを使い続けるルール・責任範囲・社内定着</b>を重視</li>
           </ul>
+          <div class="story">
+            <p>「便利だから」で広まったAIが、いつの間にか会社のリスクになる——その現実を、法律とテクノロジーの両面から見てきました。だからこそ私は、“導入して終わり”ではなく、企業が安全にAIを使い続けられる土台づくりにこだわっています。</p>
+            <div class="promise">お客様への約束：難しい言葉で煙に巻きません。御社の現場が「自分たちで使える」状態になるまで、責任を持って伴走します。</div>
+          </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 無料で始められる ============ -->
+<section class="offer-sec pad" id="freestart">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">START FREE</span>
+      <h2 class="sec-title">いきなり契約は、ありません。</h2>
+      <p class="sec-lead" style="color:rgba(255,255,255,.78)">まずは「現状を知る」ところから。すべて無料で、ここまで受け取れます。</p>
+    </div>
+    <div class="offerbox reveal">
+      <ul class="offerlist">
+        <li><span class="ck"></span><span><b>初回相談 無料</b><em>御社の状況をヒアリングし、何から始めるべきかを整理します。</em></span></li>
+        <li><span class="ck"></span><span><b>3分AIリスク診断 無料</b><em>20問で自社のAIセキュリティ健全度を、その場で数値化。</em></span></li>
+        <li><span class="ck"></span><span><b>AIガイドラインMVP（たたき台）無料</b><em>診断結果をもとに、まず決めるべきルールの方向性を1枚で。</em></span></li>
+        <li><span class="ck"></span><span><b>無理な営業は一切なし</b><em>合わなければ断ってOK。情報収集だけのご利用も歓迎です。</em></span></li>
+      </ul>
+      <div class="offer-cta">
+        <a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="assets/logos/line.svg" alt="LINE"/>公式LINEで無料相談</a>
+        <a class="btn btn-ghost" href="lp.html">まず3分診断をやってみる →</a>
+        <span class="rr">※ 丁寧に伴走するため、月にお受けできる社数には限りがあります。</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="hfaq pad" id="faq">
+  <div class="wrap">
+    <div class="reveal"><span class="eyebrow">FAQ</span><h2 class="sec-title">よくあるご質問</h2></div>
+    <div class="hfaq-list reveal">
+      <details class="hqa"><summary>うちのような小さな会社でも依頼できますか？</summary><div class="a">はい。従業員5〜100名規模の中小・成長企業を主な対象にしています。規模に合わせて範囲を調整し、無理のない形で導入できます。</div></details>
+      <details class="hqa"><summary>AIにくわしい人が社内にいなくても大丈夫？</summary><div class="a">問題ありません。前提知識がない状態を想定し、ルール整備から研修・運用まで伴走します。最終的には御社の担当者が自走できる状態を目指します。</div></details>
+      <details class="hqa"><summary>50万円〜は高くないですか？</summary><div class="a">ガイドライン策定・基盤設計・研修・定着までを一体で行う費用です。情報漏えい1件の損害や、AI活用の遅れによる機会損失と比べてご判断ください。まずは無料相談で費用感をすり合わせます。</div></details>
+      <details class="hqa"><summary>何から始めればいいか分かりません。</summary><div class="a">それで大丈夫です。まずは無料の3分診断と初回相談で現状を可視化し、優先順位の高いところから着手します。</div></details>
+      <details class="hqa"><summary>導入したあと、放置されませんか？</summary><div class="a">「作って終わり」にはしません。月額の伴走支援で運用・改善を継続し、現場に定着するまで並走します。</div></details>
+      <details class="hqa"><summary>セキュリティ面が不安です。</summary><div class="a">むしろそこが私たちの強みです。情報の取り扱い・権限・操作範囲を設計段階で制御し、安全に使える状態を前提に導入します。</div></details>
     </div>
   </div>
 </section>
