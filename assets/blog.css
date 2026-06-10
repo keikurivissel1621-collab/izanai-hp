@@ -108,6 +108,9 @@ img{max-width:100%;display:block}
 .prose a:hover{color:var(--teal-2)}
 .prose strong{font-weight:800;color:var(--navy);background:linear-gradient(transparent 62%,var(--gold-soft) 62%);padding:0 1px}
 .prose em{font-style:normal;color:var(--teal);font-weight:700}
+.prose u{text-decoration:none;border-bottom:2.5px solid var(--teal-2);padding-bottom:1px;font-weight:600}
+.prose .point{display:block;background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);
+  border-radius:0 12px 12px 0;padding:14px 18px;font-size:15.5px;box-shadow:0 8px 22px -16px rgba(15,39,66,.25)}
 .prose ul,.prose ol{padding-left:1.4em;margin-top:1.2em}
 .prose li{margin:.5em 0;padding-left:.2em}
 .prose ul>li::marker{color:var(--teal)}
@@ -148,7 +151,10 @@ img{max-width:100%;display:block}
 .cta-3 a{display:flex;flex-direction:column;gap:6px;background:var(--card);border:1px solid var(--line);
   border-radius:14px;padding:18px 18px;transition:.25s var(--ease)}
 .cta-3 a:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--teal)}
-.cta-3 .ic{font-size:20px}
+.cta-3 .ic{display:inline-flex;width:34px;height:34px;align-items:center;justify-content:center;
+  background:var(--teal-soft);color:var(--teal);border-radius:10px}
+.cta-3 .ic svg{width:19px;height:19px}
+.cta-3 a:hover .ic{background:var(--teal);color:#fff}
 .cta-3 .t{font-weight:800;color:var(--navy);font-size:14.5px}
 .cta-3 .d{font-size:12px;color:var(--muted);line-height:1.6}
 

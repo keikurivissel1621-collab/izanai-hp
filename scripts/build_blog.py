@@ -222,7 +222,7 @@ def head(title, desc, canonical, ogimg, og_type="article", extra=""):
 <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png"/>
 <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
 <link rel="icon" href="/favicon.ico" sizes="any"/>
-<link rel="stylesheet" href="/assets/blog.css"/>
+<link rel="stylesheet" href="/assets/blog.css?v=2"/>
 {extra}
 </head>
 <body>'''
@@ -424,9 +424,9 @@ def render_article(a, others):
         <a class="btn" href="{LINE_URL}" target="_blank" rel="noopener"><img class="linelogo" src="{LINE_SVG}" alt="LINE"/>公式LINEで無料相談する</a>
       </div>
       <div class="cta-3">
-        <a href="/index_rebuild.html"><span class="ic">🏠</span><span class="t">トップページへ</span><span class="d">IZANAIのサービス全体を見る</span></a>
-        <a href="/index_rebuild.html#about"><span class="ic">🧭</span><span class="t">私たちについて</span><span class="d">{ORG}の想い・実績を知る</span></a>
-        <a href="/claude-code.html"><span class="ic">⚡</span><span class="t">Claude Code実装支援</span><span class="d">全社AI自動化の導入支援</span></a>
+        <a href="/index_rebuild.html"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9.5 21v-6h5v6"/></svg></span><span class="t">トップページへ</span><span class="d">IZANAIのサービス全体を見る</span></a>
+        <a href="/index_rebuild.html#about"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg></span><span class="t">私たちについて</span><span class="d">{ORG}の想い・実績を知る</span></a>
+        <a href="/claude-code.html"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="m7.5 9 3 3-3 3"/><path d="M12.5 15h4"/></svg></span><span class="t">Claude Code実装支援</span><span class="d">全社AI自動化の導入支援</span></a>
       </div>
     </div>
 
