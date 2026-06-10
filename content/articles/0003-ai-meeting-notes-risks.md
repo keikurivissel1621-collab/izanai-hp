@@ -6,7 +6,7 @@ date: 2026-06-08
 updated: 2026-06-08
 category: AI活用
 tags: [AI議事録, 情報セキュリティ, 業務効率化]
-thumbnail: /assets/hero/office-meeting.jpg
+thumbnail: /assets/hero/desk-work.jpg
 ---
 
 会議を録音するだけで議事録が完成する——。AI議事録ツールは、いま中小企業で最も導入が進んでいるAI活用のひとつです。
