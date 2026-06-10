@@ -6,7 +6,8 @@ date: 2026-06-10
 updated: 2026-06-10
 category: AIセキュリティ
 tags: [AI導入, 情報セキュリティ, 社内ルール, ガイドライン]
-thumbnail: /assets/hero/office-meeting.jpg
+thumbnail: auto
+image_keywords: [cybersecurity business office, data protection team, business strategy meeting]
 ---
 
 「全社でAIを使いたい。でも、情報漏えいが怖い」——。中小企業の経営者から、いま最も多く寄せられる相談がこれです。

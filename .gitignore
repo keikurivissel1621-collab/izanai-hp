@@ -15,3 +15,8 @@ Desktop.ini
 # Logs / temp
 *.log
 tmp_*
+
+# APIキー（絶対にコミットしない）
+scripts/pexels_key.txt
+scripts/.pexels_key
+.env

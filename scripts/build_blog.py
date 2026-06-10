@@ -41,6 +41,20 @@ try:
 except ImportError:
     sys.exit("markdown が必要です:  pip install markdown")
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import fetch_images
+
+# 画像自動取得の設定
+REFRESH_IMAGES = "--refresh-images" in sys.argv   # 付けると既存画像も取り直す
+IMG_WEB = "/assets/blog-img"
+DEFAULT_KW = ["business office team", "corporate teamwork meeting", "modern office workspace"]
+LOCAL_FALLBACK = ["/assets/hero/business-team.jpg", "/assets/hero/modern-office.jpg",
+                  "/assets/hero/desk-work.jpg", "/assets/hero/laptop-desk.jpg",
+                  "/assets/hero/office-meeting.jpg", "/assets/hero/laptop-code.jpg"]
+_fb = [0]
+def _fallback():
+    p = LOCAL_FALLBACK[_fb[0] % len(LOCAL_FALLBACK)]; _fb[0] += 1; return p
+
 # ============ frontmatter パーサ ============
 def parse_front(text):
     text = text.lstrip("﻿")
@@ -213,6 +227,79 @@ def head(title, desc, canonical, ogimg, og_type="article", extra=""):
 </head>
 <body>'''
 
+# ============ 画像の自動取得（カバー＋本文挿絵） ============
+def prepare_images(slug, meta, body):
+    """記事ごとに無料画像を取得。カバー(サムネ)＋本文挿絵を用意し、bodyを書き換えて返す。"""
+    imgdir = os.path.join(ROOT, "assets", "blog-img", slug)
+    os.makedirs(imgdir, exist_ok=True)
+    cfile = os.path.join(imgdir, "_credits.json")
+    try:
+        credits = json.load(open(cfile, encoding="utf-8")) if os.path.exists(cfile) else {}
+    except Exception:
+        credits = {}
+
+    kw = meta.get("image_keywords")
+    if not isinstance(kw, list) or not kw:
+        kw = list(DEFAULT_KW)
+    kw = [str(k).strip() for k in kw if str(k).strip()] or list(DEFAULT_KW)
+
+    req_credits = []
+    def grab(query, fname, offset):
+        dest = os.path.join(imgdir, fname)
+        web = f"{IMG_WEB}/{slug}/{fname}"
+        info = None
+        if os.path.exists(dest) and not REFRESH_IMAGES:
+            info = credits.get(fname)
+        else:
+            info = fetch_images.fetch(query, dest, offset=offset)
+            if info:
+                credits[fname] = info
+        if info:
+            if info.get("req") and info.get("credit"):
+                req_credits.append(info["credit"])
+            return web
+        return None
+
+    # カバー（サムネ）: thumbnail未指定 or "auto" のとき取得
+    th = str(meta.get("thumbnail", "")).strip()
+    if not th or th.lower() == "auto":
+        meta["thumbnail"] = grab(kw[0] + " business", "cover.jpg", 0) or _fallback()
+
+    # 本文プレースホルダ  ![alt](auto[:keyword])  を画像に置換
+    pat = re.compile(r'!\[([^\]]*)\]\(\s*auto(?::\s*([^)]*))?\s*\)')
+    cnt = [0]
+    def repl(m):
+        cnt[0] += 1
+        q = (m.group(2) or "").strip() or kw[cnt[0] % len(kw)]
+        web = grab(q + " business", f"body-{cnt[0]}.jpg", cnt[0] + 1)
+        return f'![{m.group(1)}]({web or _fallback()})'
+    body = pat.sub(repl, body)
+
+    # プレースホルダが無い記事には、2番目・4番目のH2直後に自動で挿絵
+    if cnt[0] == 0:
+        out, h2, ins = [], 0, 0
+        for ln in body.split("\n"):
+            out.append(ln)
+            if ln.startswith("## "):
+                h2 += 1
+                if h2 in (2, 4):
+                    ins += 1
+                    web = grab(kw[ins % len(kw)] + " business", f"body-{ins}.jpg", ins + 1)
+                    out.append("")
+                    out.append(f'![{ln[3:].strip()}]({web or _fallback()})')
+        body = "\n".join(out)
+
+    try:
+        json.dump(credits, open(cfile, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    except Exception:
+        pass
+
+    seen, uniq = set(), []
+    for c in req_credits:
+        if c and c not in seen:
+            seen.add(c); uniq.append(c)
+    return body, uniq
+
 # ============ 記事ロード ============
 def load_articles():
     arts = []
@@ -224,6 +311,7 @@ def load_articles():
         if meta.get("draft") in ("true", "True", True):
             continue
         slug = meta.get("slug") or os.path.splitext(os.path.basename(path))[0]
+        body, img_credits = prepare_images(slug, meta, body)  # 画像を自動取得・本文に挿入
         md = markdown.Markdown(extensions=["extra", "sane_lists", "toc"],
                                extension_configs={"toc": {"toc_depth": "2-4"}})
         body_html = md.convert(body)
@@ -231,6 +319,7 @@ def load_articles():
         disp_date, iso_date = jp_date(meta.get("date", ""))
         arts.append({
             "slug": slug, "meta": meta, "body_html": body_html, "plain": plain,
+            "img_credits": img_credits,
             "toc": getattr(md, "toc_tokens", []),
             "title": meta.get("title", slug),
             "desc": excerpt(meta, plain),
@@ -296,6 +385,12 @@ def render_article(a, others):
 
     tags_html = ("".join(f'<span class="chip" style="background:var(--gold-soft);color:#8a6d1f;margin-right:6px">#{html.escape(t)}</span>' for t in a["tags"]))
 
+    # 画像クレジット（表示が必要なライセンスのときだけ）
+    credit_html = ""
+    if a.get("img_credits"):
+        items = " ／ ".join(html.escape(c) for c in a["img_credits"])
+        credit_html = f'<p style="font-size:11px;color:var(--muted);margin-top:16px">画像：{items}</p>'
+
     out = head(f'{a["title"]}｜{ORG} {ORG_EN}', a["desc"], canonical, ogimg, "article", ld)
     out += header("blog")
     out += f'''
@@ -319,6 +414,7 @@ def render_article(a, others):
 {body_html}
     </div>
     <div style="margin-top:28px">{tags_html}</div>
+    {credit_html}
 
     <!-- ===== 記事末CTA（自動） ===== -->
     <div class="a-cta">
@@ -440,6 +536,7 @@ def main():
 
     write_sitemap(arts)
 
+    print(f"🖼  画像ソース: {fetch_images.source_name()}（記事ごとに自動取得・キャッシュ）")
     print(f"✅ 記事 {len(arts)} 本を生成")
     for a in arts:
         print(f"   - /blog/{a['slug']}/  「{a['title']}」({a['rt']}分)")
