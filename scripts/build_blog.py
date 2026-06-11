@@ -201,6 +201,7 @@ def head(title, desc, canonical, ogimg, og_type="article", extra=""):
 <html lang="ja">
 <head>
 <meta charset="UTF-8"/>
+<script defer src="/assets/ga.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>{html.escape(title)}</title>
 <meta name="description" content="{html.escape(desc)}"/>
