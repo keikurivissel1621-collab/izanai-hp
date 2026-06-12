@@ -1,0 +1,14 @@
+{
+ "cover.jpg": {
+  "credit": "Photo by Mikael Blomkvist on Pexels",
+  "req": false
+ },
+ "body-1.jpg": {
+  "credit": "Photo by Tima Miroshnichenko on Pexels",
+  "req": false
+ },
+ "body-2.jpg": {
+  "credit": "Photo by RDNE Stock project on Pexels",
+  "req": false
+ }
+}
