@@ -36,7 +36,7 @@ def _load_pexels_key():
     return ""
 
 PEXELS_KEY = _load_pexels_key()
-UA = "Mozilla/5.0 (compatible; IZANAI-blog-bot/1.0)"
+UA = "Mozilla/5.0 (compatible; MUKIAI-blog-bot/1.0)"
 _cache = {}
 
 def _get(url, headers=None, timeout=30):

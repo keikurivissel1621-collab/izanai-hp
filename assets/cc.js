@@ -1,4 +1,4 @@
-/* ===== IZANAI / Claude Code 共通スクリプト ===== */
+/* ===== MUKIAI / Claude Code 共通スクリプト ===== */
 (function(){
   var header=document.getElementById('header'),floatcta=document.getElementById('floatcta');
   addEventListener('scroll',function(){var y=scrollY;if(header)header.classList.toggle('scrolled',y>40);if(floatcta)floatcta.classList.toggle('show',y>700);});

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-IZANAI ブログ生成エンジン
+MUKIAI ブログ生成エンジン
   content/articles/*.md  →  blog/<slug>/index.html ＋ blog/index.html ＋ sitemap.xml
 
 特徴:
@@ -23,16 +23,16 @@ except Exception:
 # ============ 設定 ============
 SITE       = "https://shirubeai.com"
 LINE_URL   = "https://lin.ee/8upkUmI"
-ORG        = "株式会社いざない"
-ORG_EN     = "IZANAI"
+ORG        = "株式会社むきあい"
+ORG_EN     = "MUKIAI"
 AUTHOR     = "栗田 啓介"
 ROOT       = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # izanai-hp/
 ART_DIR    = os.path.join(ROOT, "content", "articles")
 BLOG_DIR   = os.path.join(ROOT, "blog")
 DEFAULT_OG = "/assets/og-image.jpg"
-LOGO_TRANS = "/assets/izanai-logo-transparent.png"
-LOGO_WHITE = "/assets/izanai-logo-white.png"
-LOGO_PUB   = SITE + "/assets/izanai-logo.png"
+LOGO_TRANS = "/assets/mukiai-logo-transparent.png"
+LOGO_WHITE = "/assets/mukiai-logo-white.png"
+LOGO_PUB   = SITE + "/assets/mukiai-logo.png"
 LINE_SVG   = "/assets/logos/line.svg"
 PORTRAIT   = "/assets/photos/profile-keisuke.jpg"
 
@@ -425,7 +425,7 @@ def render_article(a, others):
         <a class="btn" href="{LINE_URL}" target="_blank" rel="noopener"><img class="linelogo" src="{LINE_SVG}" alt="LINE"/>公式LINEで無料相談する</a>
       </div>
       <div class="cta-3">
-        <a href="/index_rebuild.html"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9.5 21v-6h5v6"/></svg></span><span class="t">トップページへ</span><span class="d">IZANAIのサービス全体を見る</span></a>
+        <a href="/index_rebuild.html"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9.5 21v-6h5v6"/></svg></span><span class="t">トップページへ</span><span class="d">MUKIAIのサービス全体を見る</span></a>
         <a href="/index_rebuild.html#about"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg></span><span class="t">私たちについて</span><span class="d">{ORG}の想い・実績を知る</span></a>
         <a href="/claude-code.html"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="m7.5 9 3 3-3 3"/><path d="M12.5 15h4"/></svg></span><span class="t">Claude Code実装支援</span><span class="d">全社AI自動化の導入支援</span></a>
       </div>
@@ -477,7 +477,7 @@ def card_html(a):
 def render_index(arts):
     canonical = f"{SITE}/blog/"
     title = f"ブログ｜AI導入のお役立ち記事｜{ORG} {ORG_EN}"
-    desc = "AI導入のセキュリティ・社内ルール・法規制・全社活用のリアルなノウハウを、実務目線で発信。中小企業のAI伴走支援を行う株式会社いざない（IZANAI）公式ブログ。"
+    desc = "AI導入のセキュリティ・社内ルール・法規制・全社活用のリアルなノウハウを、実務目線で発信。中小企業のAI伴走支援を行う株式会社むきあい（MUKIAI）公式ブログ。"
     cards = "".join(card_html(a) for a in arts) if arts else '<p class="blog-empty">記事を準備中です。近日公開します。</p>'
     ld = {
         "@context": "https://schema.org", "@type": "Blog",
@@ -489,7 +489,7 @@ def render_index(arts):
     out += header("blog")
     out += f'''
 <section class="blog-hero"><div class="wrap">
-  <span class="eyebrow">IZANAI BLOG</span>
+  <span class="eyebrow">MUKIAI BLOG</span>
   <h1>AI導入の“つまずき”を、先回りで解く。</h1>
   <p>セキュリティ・社内ルール・法規制・全社活用まで。中小企業のAI伴走支援で見えてきた実務ノウハウを発信します。</p>
 </div></section>

@@ -84,7 +84,7 @@ image_keywords: [japanese business owner calculating cost, office finance planni
 
 このうち、軽視されがちで最も効くのが**3の伴走**です。AIは「入れて終わり」では定着しません。最初の3か月、現場の業務に合わせて使い方を一緒に設計し、つまずきを潰していく工程が、利用率を左右します。
 
-私たちIZANAIの[AI伴走支援](/index_rebuild.html#service)でも、ツール選定よりむしろ「どの業務に・誰が・どう使うか」を設計し、社内ルールを整えるところに時間をかけています。具体的な[料金プラン](/index_rebuild.html#pricing)もそのまま公開しています。
+私たちMUKIAIの[AI伴走支援](/index_rebuild.html#service)でも、ツール選定よりむしろ「どの業務に・誰が・どう使うか」を設計し、社内ルールを整えるところに時間をかけています。具体的な[料金プラン](/index_rebuild.html#pricing)もそのまま公開しています。
 
 <span class="point">ポイント：ツール代は「入口」、人の費用（研修・ルール・伴走）が「成果」を生む。予算配分はむしろ後者を厚く。</span>
 

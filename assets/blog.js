@@ -1,4 +1,4 @@
-/* IZANAI Blog — UI挙動（進捗バー / モバイルメニュー / 目次ハイライト） */
+/* MUKIAI Blog — UI挙動（進捗バー / モバイルメニュー / 目次ハイライト） */
 (function(){
   "use strict";
 
