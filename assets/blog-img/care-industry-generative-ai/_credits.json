@@ -1,0 +1,14 @@
+{
+ "cover.jpg": {
+  "credit": "Photo by Cedric Fauntleroy on Pexels",
+  "req": false
+ },
+ "body-1.jpg": {
+  "credit": "Photo by Kampus Production on Pexels",
+  "req": false
+ },
+ "body-2.jpg": {
+  "credit": "Photo by Laura James on Pexels",
+  "req": false
+ }
+}
