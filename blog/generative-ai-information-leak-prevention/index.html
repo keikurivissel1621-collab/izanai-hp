@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<script defer src="/assets/ga.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>生成AIの情報漏洩対策｜会社の機密が漏れる仕組みと防ぎ方｜株式会社むきあい MUKIAI</title>
+<meta name="description" content="生成AIの情報漏洩対策を経営者向けに解説。機密が漏れる3つの仕組み、サムスンの実例、ChatGPTの法人版と個人版で異なる学習設定、入力してはいけない情報、今すぐできる対策5ステップまで網羅します。"/>
+<link rel="canonical" href="https://shirubeai.com/blog/generative-ai-information-leak-prevention/"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="生成AIの情報漏洩対策｜会社の機密が漏れる仕組みと防ぎ方｜株式会社むきあい MUKIAI"/>
+<meta property="og:description" content="生成AIの情報漏洩対策を経営者向けに解説。機密が漏れる3つの仕組み、サムスンの実例、ChatGPTの法人版と個人版で異なる学習設定、入力してはいけない情報、今すぐできる対策5ステップまで網羅します。"/>
+<meta property="og:url" content="https://shirubeai.com/blog/generative-ai-information-leak-prevention/"/>
+<meta property="og:image" content="https://shirubeai.com/assets/blog-img/generative-ai-information-leak-prevention/cover.jpg"/>
+<meta property="og:site_name" content="株式会社むきあい MUKIAI"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="生成AIの情報漏洩対策｜会社の機密が漏れる仕組みと防ぎ方｜株式会社むきあい MUKIAI"/>
+<meta name="twitter:description" content="生成AIの情報漏洩対策を経営者向けに解説。機密が漏れる3つの仕組み、サムスンの実例、ChatGPTの法人版と個人版で異なる学習設定、入力してはいけない情報、今すぐできる対策5ステップまで網羅します。"/>
+<meta name="twitter:image" content="https://shirubeai.com/assets/blog-img/generative-ai-information-leak-prevention/cover.jpg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@500;600;700;900&display=swap" rel="stylesheet"/>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+<link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png"/>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+<link rel="icon" href="/favicon.ico" sizes="any"/>
+<link rel="stylesheet" href="/assets/blog.css?v=2"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "生成AIの情報漏洩対策｜会社の機密が漏れる仕組みと防ぎ方", "description": "生成AIの情報漏洩対策を経営者向けに解説。機密が漏れる3つの仕組み、サムスンの実例、ChatGPTの法人版と個人版で異なる学習設定、入力してはいけない情報、今すぐできる対策5ステップまで網羅します。", "image": ["https://shirubeai.com/assets/blog-img/generative-ai-information-leak-prevention/cover.jpg"], "datePublished": "2026-06-19T09:00:00+09:00", "dateModified": "2026-06-19T09:00:00+09:00", "author": {"@type": "Organization", "name": "株式会社むきあい", "url": "https://shirubeai.com"}, "publisher": {"@type": "Organization", "name": "株式会社むきあい", "logo": {"@type": "ImageObject", "url": "https://shirubeai.com/assets/mukiai-logo.png"}}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://shirubeai.com/blog/generative-ai-information-leak-prevention/"}, "inLanguage": "ja", "keywords": "情報漏洩対策, AIセキュリティ, 生成AIリスク, ChatGPT"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shirubeai.com/"}, {"@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://shirubeai.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "生成AIの情報漏洩対策｜会社の機密が漏れる仕組みと防ぎ方", "item": "https://shirubeai.com/blog/generative-ai-information-leak-prevention/"}]}</script>
+</head>
+<body><div class="progress" id="progress"></div>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="/index_rebuild.html" aria-label="株式会社むきあい ホーム"><img class="brand-logo" src="/assets/mukiai-logo-transparent.png" alt="MUKIAI 株式会社むきあい"/></a>
+    <nav class="menu">
+      <a class="link" href="/index_rebuild.html#service">サービス</a>
+      <a class="link link-cc" href="/claude-code.html">Claude Code実装支援</a>
+      <a class="link" href="/index_rebuild.html#pricing">料金</a>
+      <a class="link current" href="/blog/">ブログ</a>
+      <a class="link" href="/index_rebuild.html#about">会社概要</a>
+      <a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="/assets/logos/line.svg" alt="LINE"/>無料相談</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="メニュー"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/index_rebuild.html#service">サービス</a>
+  <a href="/claude-code.html" style="color:var(--teal)">Claude Code実装支援 →</a>
+  <a href="/index_rebuild.html#pricing">料金</a>
+  <a href="/blog/">ブログ</a>
+  <a href="/index_rebuild.html#about">会社概要</a>
+  <a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="/assets/logos/line.svg" alt="LINE"/>公式LINEで無料相談</a>
+</div>
+<div class="wrap">
+  <div class="crumb"><a href="/index_rebuild.html">ホーム</a><span>›</span><a href="/blog/">ブログ</a><span>›</span>AIセキュリティ</div>
+</div>
+<main class="article"><div class="wrap"><div class="article-grid">
+  <article class="article-main">
+    <div class="a-head">
+      <span class="chip">AIセキュリティ</span>
+      <h1 class="a-title">生成AIの情報漏洩対策｜会社の機密が漏れる仕組みと防ぎ方</h1>
+      <div class="a-meta">
+        <span class="who"><img src="/assets/photos/profile-keisuke.jpg" alt="栗田 啓介" onerror="this.style.display='none'"/>株式会社むきあい</span>
+        <span class="dot"></span><time datetime="2026-06-19">2026年6月19日</time>
+        <span class="dot"></span><span>約12分で読めます</span>
+      </div>
+    </div>
+    <div class="a-cover"><img src="/assets/blog-img/generative-ai-information-leak-prevention/cover.jpg" alt="生成AIの情報漏洩対策｜会社の機密が漏れる仕組みと防ぎ方" loading="eager"/></div>
+    <nav class="toc-inline"><div class="toc-ttl">目次</div><ul class="toc-list"><li class="lv2"><a href="#ai">なぜ今、生成AIの情報漏洩が経営リスクなのか</a></li><li class="lv3"><a href="#_1">「使う」は進み「守る」は遅れている</a></li><li class="lv3"><a href="#_2">漏れたら、経営に何が起きるか</a></li><li class="lv2"><a href="#ai3">生成AIで情報が漏れる3つの仕組み</a></li><li class="lv3"><a href="#1ai">仕組み①：入力した情報がAIの学習データになる</a></li><li class="lv3"><a href="#2ai">仕組み②：社員が個人アカウントで勝手に使う（シャドーAI）</a></li><li class="lv3"><a href="#3">仕組み③：履歴・出力・拡張機能からの間接漏洩</a></li><li class="lv2"><a href="#_3">実際に起きた情報漏洩の事例と、規制の動き</a></li><li class="lv3"><a href="#203">20日で3件——半導体大手サムスンの教訓</a></li><li class="lv3"><a href="#_4">国も動いた——個人情報保護委員会の注意喚起</a></li><li class="lv2"><a href="#chatgpt">ChatGPTは「学習される版」と「されない版」がある</a></li><li class="lv3"><a href="#_5">プラン別・学習に使われるかどうか（早見表）</a></li><li class="lv3"><a href="#on">個人版は初期設定で「学習ON」</a></li><li class="lv3"><a href="#_6">法人版は標準で「学習されない」</a></li><li class="lv3"><a href="#_7">設定で防げること・防げないこと</a></li><li class="lv2"><a href="#ngok">入力してはいけない情報リスト（NG/OK）</a></li><li class="lv2"><a href="#5">今すぐできる情報漏洩対策5ステップ</a></li><li class="lv2"><a href="#_8">まとめ：禁止ではなく「仕組み」で守る</a></li></ul></nav>
+    <div class="prose">
+<p>「生成AIを使えば仕事が速くなるのは分かる。でも、入力した情報が外に漏れたらと思うと、社員に使わせる踏ん切りがつかない」——AI導入をためらう経営者の不安は、ほとんどがこの一点に集約されます。</p>
+<p>実際、この不安は気のせいではありません。生成AIは<strong>使い方を間違えると、本当に会社の機密が外へ流れます</strong>。半導体大手のサムスンでは、社員がソースコードをChatGPTに入力し、わずか20日で3件の情報漏洩が起きました。</p>
+<p>ただし、ここで知っておいてほしいことがあります。生成AIの情報漏洩は、<strong>「仕組み」を理解すれば、設定とルールでほぼ防げる</strong>ということです。やみくもに禁止する必要も、丸腰で使わせる必要もありません。</p>
+<p>この記事では、AI導入を考える経営者・決裁者に向けて、<strong>なぜ情報が漏れるのか・どんな事例があったのか・ChatGPTのどの設定で防げるのか・何を入力してはいけないのか・今日から何をすればいいのか</strong>を、実例と数字つきで、忖度なく整理します。</p>
+<h2 id="ai">なぜ今、生成AIの情報漏洩が経営リスクなのか</h2>
+<p>結論から言えば、<strong>社員はすでにAIを使い始めているのに、会社側のルール整備が決定的に遅れている</strong>からです。「禁止しているから大丈夫」ではなく、「気づかないうちに使われている」状態こそが、いちばん危ない。</p>
+<h3 id="_1">「使う」は進み「守る」は遅れている</h3>
+<p>数字を見ると、このギャップがはっきりします。2026年6月時点の各種調査から、現状はこう整理できます。</p>
+<table>
+<thead>
+<tr>
+<th>指標</th>
+<th>数値</th>
+<th>出典の主旨</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>業務で生成AIを利用している企業</td>
+<td><strong>約55%</strong></td>
+<td>総務省 令和7年版 情報通信白書</td>
+</tr>
+<tr>
+<td>生成AIの業務利用率（別調査）</td>
+<td><strong>82%</strong></td>
+<td>A10ネットワークス調査</td>
+</tr>
+<tr>
+<td>「情報漏洩」を最大の懸念とする情報セキュリティ部門</td>
+<td><strong>62%</strong></td>
+<td>同上</td>
+</tr>
+<tr>
+<td>明確なAIポリシー＋研修を導入している組織（日本）</td>
+<td><strong>わずか19%</strong></td>
+<td>アクセンチュア 2025年調査</td>
+</tr>
+</tbody>
+</table>
+<p>注目すべきは最後の行です。<strong>日本企業でAIの利用ルールと研修まで整えているのは5社に1社</strong>。つまり、8割の会社は「社員が使っているのに、守りの仕組みがない」状態で走っています。</p>
+<blockquote>
+<p>「うちは生成AIを禁止しているから関係ない」と考える経営者ほど危ない。禁止しても社員は個人のスマホで使います。見えないところで使われるより、ルールを決めて安全に使わせるほうが、はるかにリスクは低いのです。</p>
+</blockquote>
+<h3 id="_2">漏れたら、経営に何が起きるか</h3>
+<p>情報が一度漏れると、被害は「恥ずかしい」では済みません。</p>
+<ul>
+<li><strong>顧客・取引先の信用喪失</strong> … 取引先の機密を漏らせば、取引停止や契約解除に直結します</li>
+<li><strong>損害賠償・法的責任</strong> … 個人情報を漏えいすれば、個人情報保護法上の責任を問われる可能性があります</li>
+<li><strong>競争力の流出</strong> … 価格表・設計図・営業リストが外に出れば、競合に塩を送ることになります</li>
+</ul>
+<p>しかも生成AIの漏洩は、ハッキングのような「攻撃された被害」ではなく、<strong>社員が善意で便利に使った結果</strong>として起きます。だからこそ、技術ではなく仕組みで防ぐ必要があるのです。</p>
+<p><span class="point">ポイント：生成AIの情報漏洩は「攻撃されて漏れる」のではなく「便利に使って漏れる」。だから禁止ではなく、正しい設定とルールで守るのが正解です。</span></p>
+<p>では、具体的にどういう経路で漏れるのか。次でその「仕組み」を3つに分けて見ていきます。</p>
+<div class="cta-mid"><h4>AI導入、自己流で進めて大丈夫ですか？</h4><p>情報漏えい・社内ルール・法規制のリスクを整理し、全社で“使える状態”まで伴走します。まずは無料相談で、御社の状況に合わせた最初の一歩をお伝えします。</p><a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="/assets/logos/line.svg" alt="LINE"/>公式LINEで無料相談する</a></div><h2 id="ai3">生成AIで情報が漏れる3つの仕組み</h2>
+<p><img alt="生成AIで情報が漏れる3つの仕組み" src="/assets/blog-img/generative-ai-information-leak-prevention/body-1.jpg" /></p>
+<p>漏洩の経路は、大きく<strong>「入力の学習化」「シャドーAI」「履歴・拡張機能」</strong>の3つです。この3つさえ押さえれば、対策の8割は見えてきます。</p>
+<h3 id="1ai">仕組み①：入力した情報がAIの学習データになる</h3>
+<p>いちばん基本的な経路がこれです。<strong>無料版や個人向けの生成AIに入力した内容は、AIの性能を上げる「学習データ」として使われることがあります</strong>。</p>
+<p>学習に使われると、その情報はAIの“知識”の一部になります。理論上は、別の誰かが似た質問をしたときに、あなたが入力した情報を下敷きにした答えが返る可能性が出てきます。顧客名簿や見積書をそのまま貼り付ければ、その情報が会社の外に出る入り口になるわけです。</p>
+<p>専門的には、これを「学習（トレーニング）への利用」と呼びます。<em>ここを止められるかどうかが、最初の分かれ目</em>です。後述するように、<strong>法人向けプランや設定変更で、この学習をオフにできます</strong>。</p>
+<h3 id="2ai">仕組み②：社員が個人アカウントで勝手に使う（シャドーAI）</h3>
+<p>実は、最も多くの会社で起きているのがこれです。会社が許可していないのに、<strong>社員が自分の判断で個人のChatGPTアカウントを業務に使ってしまう</strong>——これを「シャドーAI（シャドーIT）」と呼びます。</p>
+<p>たとえば、こんな場面です。</p>
+<ul>
+<li>議事録を早く仕上げたくて、会議の録音メモを個人のChatGPTに貼り付ける</li>
+<li>提案書のたたき台がほしくて、顧客情報を入れてしまう</li>
+<li>英訳のために、未公開の契約書を丸ごと貼り付ける</li>
+</ul>
+<p>本人に悪気はありません。むしろ「仕事を速くしよう」とした結果です。しかし個人アカウントは初期設定で学習がオンのことが多く、<strong>会社が把握も制御もできないまま情報が流れ出します</strong>。禁止ルールだけでは、この善意の利用は止められません。</p>
+<blockquote>
+<p>「禁止しているのに、なぜ漏れるのか」——答えは単純です。禁止は“見えないところでの利用”を増やすだけだから。多くの漏洩は、ルール違反ではなく「ルールがないこと」から起きています。</p>
+</blockquote>
+<h3 id="3">仕組み③：履歴・出力・拡張機能からの間接漏洩</h3>
+<p>3つ目は、入力以外からの“間接的”な漏れです。見落とされがちですが、ここも穴になります。</p>
+<ul>
+<li><strong>会話履歴の保存</strong> … 入力した内容はサーバーに会話履歴として残ります。アカウントが乗っ取られれば、過去の入力がすべて見られます</li>
+<li><strong>出力のコピペ流出</strong> … AIが作った文章を、宛先を間違えて社外に送ってしまうヒューマンエラー</li>
+<li><strong>怪しい拡張機能・無料アプリ</strong> … 「便利なAIツール」を名乗るブラウザ拡張やアプリの中には、入力内容を外部に送るものがあります</li>
+</ul>
+<p><span class="point">ポイント：漏れる経路は「入力の学習化」「シャドーAI」「履歴・拡張機能」の3つ。このうちシャドーAIが最も多く、最も見えにくい。まずここを潰すのが先決です。</span></p>
+<p>仕組みが分かったところで、これが「実際に起きた事件」としてどう現れたのかを見ていきます。</p>
+<h2 id="_3">実際に起きた情報漏洩の事例と、規制の動き</h2>
+<p>「理論上は危ない」では経営者は動けません。ここでは、世界的に知られた実例と、それを受けた日本政府の対応を紹介します。</p>
+<h3 id="203">20日で3件——半導体大手サムスンの教訓</h3>
+<p>最も有名な事例が、2023年3月に起きた<strong>サムスン電子のChatGPT情報漏洩</strong>です。半導体を担うDS部門がChatGPTの社内利用を許可したところ、<strong>わずか20日ほどの間に3件の機密漏洩</strong>が発生しました（出典：報道各社）。</p>
+<table>
+<thead>
+<tr>
+<th>件</th>
+<th>漏れた内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1件目</td>
+<td>半導体設備の測定データベースに関する<strong>ソースコード</strong>を、エラー解決のため入力</td>
+</tr>
+<tr>
+<td>2件目</td>
+<td>不良設備を把握するプログラムの<strong>ソースコード</strong>を、最適化のため入力</td>
+</tr>
+<tr>
+<td>3件目</td>
+<td>社内会議の<strong>録音データ</strong>を文字起こしし、議事録作成のため入力</td>
+</tr>
+</tbody>
+</table>
+<p>注目すべきは、3件とも<strong>「サボり」ではなく「仕事を真面目に速くしようとした結果」</strong>だという点です。エンジニアは目の前の課題を解こうとしただけ。それでも機密は外へ出ました。サムスンはこの後、社内での生成AI利用を全面的に禁止する措置を取りました。</p>
+<p>この事例が教えてくれるのは、<u>優秀で真面目な社員ほど、便利なツールを使ってしまう</u>という現実です。だからこそ、個人の注意力に頼るのではなく、会社の仕組みで守る必要があります。</p>
+<h3 id="_4">国も動いた——個人情報保護委員会の注意喚起</h3>
+<p>日本でも、政府が早い段階で警鐘を鳴らしています。<strong>個人情報保護委員会は2023年6月2日、「生成AIサービスの利用に関する注意喚起」を公表しました</strong>（出典：個人情報保護委員会の公表資料）。</p>
+<p>要点は、利用者に対してこう促した点です。</p>
+<blockquote>
+<p>生成AIサービスに個人情報を含むプロンプトを入力する場合、その情報が機械学習に利用される可能性があることを十分に理解すること。</p>
+</blockquote>
+<p>あわせてOpenAIに対しても、要配慮個人情報（病歴など特に機微な情報）を原則として機械学習のために取得しないこと、日本語で利用目的を本人に通知・公表することを求めました。<strong>国が公式に「入力情報は学習に使われ得る」と注意喚起している</strong>——この事実は、社内でAI利用ルールを作る強い根拠になります。</p>
+<p>なお、個別の法的責任の判断は事案によります。自社の状況が心配な場合は、最新の制度や個別事情を弁護士・提供元へ確認してください。</p>
+<p>法人として安全に使うには、まず「どのプランなら学習されないのか」を正しく知ることが出発点です。次でChatGPTを例に整理します。</p>
+<h2 id="chatgpt">ChatGPTは「学習される版」と「されない版」がある</h2>
+<p><img alt="ChatGPTは「学習される版」と「されない版」がある" src="/assets/blog-img/generative-ai-information-leak-prevention/body-2.jpg" /></p>
+<p>ここが、多くの記事が曖昧にしている肝心なところです。ひとくちにChatGPTと言っても、<strong>プランによって「入力が学習に使われるかどうか」が真逆</strong>です。これを知らずに「ChatGPTは危ない」と決めつけるのは、もったいない。</p>
+<h3 id="_5">プラン別・学習に使われるかどうか（早見表）</h3>
+<p>2026年6月時点での整理は、次のとおりです（各社公表情報より）。</p>
+<table>
+<thead>
+<tr>
+<th>プラン区分</th>
+<th>入力の学習利用</th>
+<th>想定ユーザー</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>個人版（Free / Plus / Pro / Go）</td>
+<td><strong>初期設定で学習ON</strong></td>
+<td>個人利用</td>
+</tr>
+<tr>
+<td>法人版 ChatGPT Business</td>
+<td><strong>標準でオフ（学習されない）</strong></td>
+<td>中小企業・チーム</td>
+</tr>
+<tr>
+<td>法人版 Enterprise</td>
+<td><strong>標準でオフ（学習されない）</strong></td>
+<td>大企業</td>
+</tr>
+<tr>
+<td>Azure OpenAI Service 経由</td>
+<td>OpenAIにデータが送信されない</td>
+<td>自社環境で厳格管理したい企業</td>
+</tr>
+</tbody>
+</table>
+<p>※「Team」プランは2025年8月に「ChatGPT Business」へ名称変更されました。学習に使われない点は変わりません。</p>
+<h3 id="on">個人版は初期設定で「学習ON」</h3>
+<p>問題は個人版です。Free・Plus・Pro・Goは、<strong>何もしなければ入力が学習に使われる設定</strong>になっています。社員が自分のアカウントで業務利用すれば、本人がオフにしない限り、入力は学習され続けます。</p>
+<p>個人版でどうしても使う場合は、設定画面の「データコントロール」から学習利用をオフにするか、OpenAIのプライバシーポータルで「自分のコンテンツを学習に使わないでください」という申請ができます。ただし、これを<strong>全社員に徹底させるのは現実には困難</strong>です。</p>
+<h3 id="_6">法人版は標準で「学習されない」</h3>
+<p>一方、法人向けの<strong>ChatGPT BusinessやEnterpriseは、標準で入力が学習に使われません</strong>。さらにSSO（シングルサインオン）や利用ログの管理など、会社として統制するための機能が揃っています。</p>
+<p>費用の目安は、ChatGPT Businessで<strong>1人あたり月25〜30ドル前後（2026年6月時点）</strong>。社員数人〜数十人の中小企業なら、現実的な投資です。「個人版を黙認して漏れるリスク」と「法人版の月額」を天秤にかければ、答えははっきりしています。</p>
+<p>私たちのAI導入支援でも、まず<strong>全社で使う生成AIを“学習されない法人プランに一本化”する</strong>ことを最初の打ち手としてご提案しています。どのツールをどう統制するかの設計は<a href="/index_rebuild.html#service">AI伴走支援の詳細</a>で具体的に支援しています（料金は<a href="/index_rebuild.html#pricing">こちら</a>）。</p>
+<p>ただし、設定だけで全部が防げるわけではありません。次にその限界を押さえます。</p>
+<h3 id="_7">設定で防げること・防げないこと</h3>
+<p>法人プランで「学習されない」状態にしても、<strong>残るリスクがあります</strong>。ここを誤解すると油断につながります。</p>
+<ul>
+<li>防げること … 入力が学習データになること、第三者の回答に流用されること</li>
+<li>防げないこと … 社員がそもそも入力してはいけない情報を入れること、宛先ミスで出力を社外へ送ること、シャドーAIで個人アカウントを使い続けること</li>
+</ul>
+<p>つまり、<strong>設定は「土台」であって「ゴール」ではない</strong>。最後はやはり「何を入力していいか」のルールと教育が要ります。次の章で、その線引きを具体的に示します。</p>
+<h2 id="ngok">入力してはいけない情報リスト（NG/OK）</h2>
+<p>社員に配れる粒度まで落とすと、判断はぐっと速くなります。<strong>「特定の個人や自社・取引先が識別できる情報は入れない」</strong>——これが基本原則です。</p>
+<table>
+<thead>
+<tr>
+<th>入れてはいけない（NG）</th>
+<th>入れてよい（OK）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>顧客・社員の氏名、住所、電話番号</td>
+<td>匿名化した情報（「A社」「40代男性」など）</td>
+</tr>
+<tr>
+<td>マイナンバー、口座番号、カード情報</td>
+<td>一般的な業界知識・公開情報</td>
+</tr>
+<tr>
+<td>未公開の財務数値、価格表、見積原価</td>
+<td>一般化した相談（「値引き交渉の進め方は？」）</td>
+</tr>
+<tr>
+<td>設計図・ソースコード・製造ノウハウ</td>
+<td>公開済みの自社サービス説明文</td>
+</tr>
+<tr>
+<td>取引先から受け取った機密文書</td>
+<td>自分で考えた文章の添削・要約</td>
+</tr>
+<tr>
+<td>病歴・障害など要配慮個人情報</td>
+<td>架空の例に置き換えたケース</td>
+</tr>
+</tbody>
+</table>
+<p>コツは、<strong>「固有名詞を伏せる」「数字をぼかす」</strong>だけでも、実用性を保ったまま大半のリスクを消せることです。たとえば「B社向けの提案書を、予算800万円で」ではなく「ある中堅企業向けの提案書を、一般的な予算感で」と書けば、AIは十分に使えます。</p>
+<blockquote>
+<p>完璧な匿名化は難しくても、「これは取引先に見られて困るか?」と一呼吸おくだけで、ほとんどの事故は防げます。判断に迷ったら入れない——この習慣が最後の砦です。</p>
+</blockquote>
+<p>このリストを「自社版」にして配るところまでやると、現場は安全に速くなります。では、会社として今日から何をすべきか、5ステップにまとめます。</p>
+<h2 id="5">今すぐできる情報漏洩対策5ステップ</h2>
+<p>難しいシステムは要りません。順番に進めれば、中小企業でも1〜2週間で守りの形が作れます。</p>
+<ol>
+<li><strong>実態を把握する</strong> … まず「誰が・どのAIを・何に使っているか」を聞き取る。多くの場合、すでにシャドーAIが存在します</li>
+<li><strong>会社で使うAIを法人プランに一本化する</strong> … 学習されないChatGPT BusinessやEnterpriseなどを正式採用し、「これを使ってよい」と明示する</li>
+<li><strong>入力ルールを1枚で配る</strong> … 前章のNG/OK表を自社版にして全社員へ。「迷ったら入れない」を合言葉にする</li>
+<li><strong>短い研修をする</strong> … サムレベルの事例を共有し、「なぜ危ないか」を腹落ちさせる。30分で十分です</li>
+<li><strong>定期的に見直す</strong> … AIのプランや機能は頻繁に変わります。半年に一度、設定とルールを点検する</li>
+</ol>
+<p>このうち<strong>最も効くのは2と3</strong>です。学習されないプランに統一し、入れてよい情報を明確にする。この2つだけで、漏洩リスクの大半は消えます。</p>
+<p>自社にどのルールが必要か、まず現状のリスクを知りたい方は<a href="/lp.html">3分AIリスクチェック</a>で簡易診断ができます。ルールの作り方そのものは、関連記事の<a href="/blog/generative-ai-company-rules/">生成AIの社内ルールの作り方</a>でも具体的に解説しています。</p>
+<h2 id="_8">まとめ：禁止ではなく「仕組み」で守る</h2>
+<p>最後に、要点を3つに絞ります。</p>
+<ul>
+<li><strong>漏れる仕組みは3つ</strong> … 「入力の学習化」「シャドーAI（個人アカウントの無断利用）」「履歴・拡張機能」。中でもシャドーAIが最多かつ最も見えにくい</li>
+<li><strong>設定で大半は防げる</strong> … ChatGPTは法人版（Business / Enterprise）なら標準で学習されない。個人版は初期設定で学習ON。まずは法人プランへの一本化が最初の一手（2026年6月時点）</li>
+<li><strong>最後はルールと教育</strong> … 設定は土台にすぎない。「入力してはいけない情報」を1枚で配り、短い研修で腹落ちさせれば、現場は安全に速くなる</li>
+</ul>
+<p>生成AIは、正しく使えば中小企業の強力な武器になります。怖いのはAIそのものではなく、<strong>ルールがないまま放置すること</strong>です。禁止して機会を逃すより、仕組みを整えて安全に使い倒す——それが、これからの経営判断です。</p>
+<p>自社の場合は何から手をつければいいか、現状のリスクを踏まえて相談したい方は、お気軽にどうぞ。</p>
+    </div>
+    <div style="margin-top:28px"><span class="chip" style="background:var(--gold-soft);color:#8a6d1f;margin-right:6px">#情報漏洩対策</span><span class="chip" style="background:var(--gold-soft);color:#8a6d1f;margin-right:6px">#AIセキュリティ</span><span class="chip" style="background:var(--gold-soft);color:#8a6d1f;margin-right:6px">#生成AIリスク</span><span class="chip" style="background:var(--gold-soft);color:#8a6d1f;margin-right:6px">#ChatGPT</span></div>
+    
+
+    <!-- ===== 記事末CTA（自動） ===== -->
+    <div class="a-cta">
+      <div class="cta-line-box">
+        <div class="lead">AI導入の不安、ひとりで抱えていませんか？</div>
+        <p>「何から始めればいいか分からない」段階こそ相談どき。御社の状況に合わせた最初の一歩を、無料でお伝えします。</p>
+        <a class="btn" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="/assets/logos/line.svg" alt="LINE"/>公式LINEで無料相談する</a>
+      </div>
+      <div class="cta-3">
+        <a href="/index_rebuild.html"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9.5 21v-6h5v6"/></svg></span><span class="t">トップページへ</span><span class="d">MUKIAIのサービス全体を見る</span></a>
+        <a href="/index_rebuild.html#about"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg></span><span class="t">私たちについて</span><span class="d">株式会社むきあいの想い・実績を知る</span></a>
+        <a href="/claude-code.html"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="m7.5 9 3 3-3 3"/><path d="M12.5 15h4"/></svg></span><span class="t">Claude Code実装支援</span><span class="d">全社AI自動化の導入支援</span></a>
+      </div>
+    </div>
+
+    <!-- 執筆者 -->
+    <div class="author-box">
+      <img src="/assets/photos/profile-keisuke.jpg" alt="栗田 啓介" onerror="this.style.visibility='hidden'"/>
+      <div>
+        <div class="nm">株式会社むきあい（MUKIAI）／ 栗田 啓介</div>
+        <div class="bio">「AI導入の不安を、先回りして取り除く」をミッションに、セキュリティに強いAI伴走支援を提供。情報漏えい・社内ルール・法規制のリスクを整理しながら、全社で“使える状態”まで伴走します。<a href="/index_rebuild.html#about">会社概要を見る →</a></div>
+      </div>
+    </div>
+
+    <section class="related"><h3>あわせて読みたい</h3><div class="rel-grid"><a class="post-card" href="/blog/ai-sales-utilization/">
+  <div class="post-thumb"><img src="/assets/blog-img/ai-sales-utilization/cover.jpg" alt="AI営業の活用法｜中小企業の使い方・ツール・費用・始め方" loading="lazy"/><span class="ph-cat">AI活用</span></div>
+  <div class="post-body">
+    <h2>AI営業の活用法｜中小企業の使い方・ツール・費用・始め方</h2>
+    <p class="ex">営業にAIを使う方法を経営者向けに解説。自動化できる業務、主要ツールの料金を実数で比較、活用事例・効果、情報漏洩などのリスク、月3千円から始める手順まで網羅します。</p>
+    <div class="pm"><time datetime="2026-06-18">2026年6月18日</time>・約10分</div>
+  </div>
+</a><a class="post-card" href="/blog/care-industry-generative-ai/">
+  <div class="post-thumb"><img src="/assets/blog-img/care-industry-generative-ai/cover.jpg" alt="介護の生成AI活用｜人手不足を救う使い方・費用・補助金・始め方" loading="lazy"/><span class="ph-cat">業種別AI</span></div>
+  <div class="post-body">
+    <h2>介護の生成AI活用｜人手不足を救う使い方・費用・補助金・始め方</h2>
+    <p class="ex">介護の生成AI活用を施設運営者向けに解説。人手不足の現状、記録・ケアプラン作成での使い方、汎用AIと特化型の費用、介護テクノロジー導入支援事業の補助率、個人情報リスク、始め方5ステップまで網羅します。</p>
+    <div class="pm"><time datetime="2026-06-18">2026年6月18日</time>・約10分</div>
+  </div>
+</a><a class="post-card" href="/blog/manufacturing-industry-generative-ai/">
+  <div class="post-thumb"><img src="/assets/blog-img/manufacturing-industry-generative-ai/cover.jpg" alt="製造業の生成AI活用｜中小工場の使い方・費用・補助金・始め方" loading="lazy"/><span class="ph-cat">業種別AI</span></div>
+  <div class="post-body">
+    <h2>製造業の生成AI活用｜中小工場の使い方・費用・補助金・始め方</h2>
+    <p class="ex">製造業の生成AI活用を経営者向けに解説。人手不足と技能継承の現状、マニュアル作成や暗黙知のFAQ化など具体的な使い方、ツール別の費用、ものづくり補助金など使える補助金、情報漏えいの注意点、始め方5ステップまで網羅します。</p>
+    <div class="pm"><time datetime="2026-06-17">2026年6月17日</time>・約9分</div>
+  </div>
+</a></div></section>
+  </article>
+
+  <aside class="rail">
+    <div class="toc-card"><div class="toc-ttl">目次</div><ul class="toc-list"><li class="lv2"><a href="#ai">なぜ今、生成AIの情報漏洩が経営リスクなのか</a></li><li class="lv3"><a href="#_1">「使う」は進み「守る」は遅れている</a></li><li class="lv3"><a href="#_2">漏れたら、経営に何が起きるか</a></li><li class="lv2"><a href="#ai3">生成AIで情報が漏れる3つの仕組み</a></li><li class="lv3"><a href="#1ai">仕組み①：入力した情報がAIの学習データになる</a></li><li class="lv3"><a href="#2ai">仕組み②：社員が個人アカウントで勝手に使う（シャドーAI）</a></li><li class="lv3"><a href="#3">仕組み③：履歴・出力・拡張機能からの間接漏洩</a></li><li class="lv2"><a href="#_3">実際に起きた情報漏洩の事例と、規制の動き</a></li><li class="lv3"><a href="#203">20日で3件——半導体大手サムスンの教訓</a></li><li class="lv3"><a href="#_4">国も動いた——個人情報保護委員会の注意喚起</a></li><li class="lv2"><a href="#chatgpt">ChatGPTは「学習される版」と「されない版」がある</a></li><li class="lv3"><a href="#_5">プラン別・学習に使われるかどうか（早見表）</a></li><li class="lv3"><a href="#on">個人版は初期設定で「学習ON」</a></li><li class="lv3"><a href="#_6">法人版は標準で「学習されない」</a></li><li class="lv3"><a href="#_7">設定で防げること・防げないこと</a></li><li class="lv2"><a href="#ngok">入力してはいけない情報リスト（NG/OK）</a></li><li class="lv2"><a href="#5">今すぐできる情報漏洩対策5ステップ</a></li><li class="lv2"><a href="#_8">まとめ：禁止ではなく「仕組み」で守る</a></li></ul></div>
+    <div class="line-card">
+      <div class="t">まずは無料相談</div>
+      <div class="d">AI導入の最初の一歩を、御社に合わせてご提案します。</div>
+      <a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="/assets/logos/line.svg" alt="LINE"/>公式LINE</a>
+    </div>
+  </aside>
+</div></div></main>
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img class="foot-logo" src="/assets/mukiai-logo-white.png" alt="MUKIAI 株式会社むきあい"/>
+        <p>株式会社むきあい｜AI導入の不安を、先回りして取り除く。セキュリティに強いAI伴走支援。</p>
+      </div>
+      <div class="foot-nav">
+        <div class="col"><h5>サービス</h5>
+          <a href="/index_rebuild.html#service">AI伴走支援</a><a href="/claude-code.html">Claude Code実装支援</a><a href="/index_rebuild.html#pricing">料金</a><a href="/blog/">ブログ</a><a href="/lp.html">3分AIリスクチェック</a>
+        </div>
+        <div class="col"><h5>会社情報</h5>
+          <a href="/index_rebuild.html#about">会社概要</a><a href="/index_rebuild.html#ceo">代表者</a><a href="/index_rebuild.html#privacy">プライバシーポリシー</a><a href="/tokushoho.html">特定商取引法に基づく表記</a>
+        </div>
+        <div class="col"><h5>お問い合わせ</h5>
+          <a href="https://lin.ee/8upkUmI" target="_blank" rel="noopener">公式LINEで無料相談</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 株式会社むきあい（MUKIAI）</span><span>AI導入の不安を、先回りして取り除く。</span></div>
+  </div>
+</footer>
+<script src="/assets/blog.js"></script>
+</body>
+</html>
