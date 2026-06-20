@@ -1,0 +1,10 @@
+{
+ "cover.jpg": {
+  "credit": "Photo by Tima Miroshnichenko on Pexels",
+  "req": false
+ },
+ "body-1.jpg": {
+  "credit": "Photo by Anna Shvets on Pexels",
+  "req": false
+ }
+}
