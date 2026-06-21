@@ -1,0 +1,14 @@
+{
+ "cover.jpg": {
+  "credit": "Photo by Pham Ngoc Anh on Pexels",
+  "req": false
+ },
+ "body-1.jpg": {
+  "credit": "Photo by EqualStock IN on Pexels",
+  "req": false
+ },
+ "body-2.jpg": {
+  "credit": "Photo by SHVETS production on Pexels",
+  "req": false
+ }
+}
