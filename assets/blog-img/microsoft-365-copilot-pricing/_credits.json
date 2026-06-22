@@ -1,0 +1,14 @@
+{
+ "cover.jpg": {
+  "credit": "Photo by Christina Morillo on Pexels",
+  "req": false
+ },
+ "body-1.jpg": {
+  "credit": "Photo by Engin Akyurt on Pexels",
+  "req": false
+ },
+ "body-2.jpg": {
+  "credit": "Photo by Thirdman on Pexels",
+  "req": false
+ }
+}
