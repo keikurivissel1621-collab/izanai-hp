@@ -10,7 +10,7 @@
   var GA_MEASUREMENT_ID = "G-B5J7XPC7L3"; // ← ここを実IDに差し替える
 
   // プレースホルダのままなら計測しない（誤送信・エラー防止）
-  if (!GA_MEASUREMENT_ID || GA_MEASUREMENT_ID === "G-B5J7XPC7L3") return;
+  if (!GA_MEASUREMENT_ID || GA_MEASUREMENT_ID === "G-XXXXXXXXXX") return;
 
   // gtag.js 本体を読み込み
   var s = document.createElement("script");
