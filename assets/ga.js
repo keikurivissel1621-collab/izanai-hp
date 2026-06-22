@@ -2,15 +2,15 @@
    MUKIAI サイト共通：Google Analytics 4（GA4）ローダー
    ------------------------------------------------------------
    ★測定IDはこの1ファイルだけを書き換えればOK★
-   下の GA_MEASUREMENT_ID を、GA4で取得した「G-XXXXXXXXXX」に
+   下の GA_MEASUREMENT_ID を、GA4で取得した「G-B5J7XPC7L3」に
    差し替えると、サイト全ページの計測が一斉に有効になります。
    未設定（プレースホルダのまま）の間は何も送信しません。
    ============================================================ */
 (function () {
-  var GA_MEASUREMENT_ID = "G-XXXXXXXXXX"; // ← ここを実IDに差し替える
+  var GA_MEASUREMENT_ID = "G-B5J7XPC7L3"; // ← ここを実IDに差し替える
 
   // プレースホルダのままなら計測しない（誤送信・エラー防止）
-  if (!GA_MEASUREMENT_ID || GA_MEASUREMENT_ID === "G-XXXXXXXXXX") return;
+  if (!GA_MEASUREMENT_ID || GA_MEASUREMENT_ID === "G-B5J7XPC7L3") return;
 
   // gtag.js 本体を読み込み
   var s = document.createElement("script");
