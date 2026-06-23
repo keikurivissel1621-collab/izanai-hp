@@ -1,0 +1,14 @@
+{
+ "cover.jpg": {
+  "credit": "Photo by Kampus Production on Pexels",
+  "req": false
+ },
+ "body-1.jpg": {
+  "credit": "Photo by Iban Lopez Luna on Pexels",
+  "req": false
+ },
+ "body-2.jpg": {
+  "credit": "Photo by Kampus Production on Pexels",
+  "req": false
+ }
+}
