@@ -23,7 +23,7 @@ except Exception:
 # ============ 設定 ============
 SITE       = "https://shirubeai.com"
 LINE_URL   = "https://lin.ee/8upkUmI"
-ORG        = "株式会社むきあい"
+ORG        = "株式会社MUKIAI"
 ORG_EN     = "MUKIAI"
 AUTHOR     = "栗田 啓介"
 ROOT       = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # izanai-hp/
@@ -150,7 +150,7 @@ def header(active=""):
     return f'''<div class="progress" id="progress"></div>
 <header class="site-header">
   <div class="wrap nav">
-    <a class="brand" href="/index_rebuild.html" aria-label="{ORG} ホーム"><img class="brand-logo" src="{LOGO_TRANS}" alt="{ORG_EN} {ORG}"/></a>
+    <a class="brand" href="/index_rebuild.html" aria-label="{ORG} ホーム"><img class="brand-logo" src="{LOGO_TRANS}" alt="{ORG}"/></a>
     <nav class="menu">
       <a class="link" href="/index_rebuild.html#service">サービス</a>
       <a class="link link-cc" href="/claude-code.html">Claude Code実装支援</a>
@@ -176,7 +176,7 @@ def footer():
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-brand">
-        <img class="foot-logo" src="{LOGO_WHITE}" alt="{ORG_EN} {ORG}"/>
+        <img class="foot-logo" src="{LOGO_WHITE}" alt="{ORG}"/>
         <p>{ORG}｜AI導入の不安を、先回りして取り除く。セキュリティに強いAI伴走支援。</p>
       </div>
       <div class="foot-nav">
@@ -191,7 +191,7 @@ def footer():
         </div>
       </div>
     </div>
-    <div class="foot-bottom"><span>© 2026 {ORG}（{ORG_EN}）</span><span>AI導入の不安を、先回りして取り除く。</span></div>
+    <div class="foot-bottom"><span>© 2026 {ORG}</span><span>AI導入の不安を、先回りして取り除く。</span></div>
   </div>
 </footer>
 <script src="/assets/blog.js"></script>'''
@@ -211,7 +211,7 @@ def head(title, desc, canonical, ogimg, og_type="article", extra=""):
 <meta property="og:description" content="{html.escape(desc)}"/>
 <meta property="og:url" content="{canonical}"/>
 <meta property="og:image" content="{og_url(ogimg)}"/>
-<meta property="og:site_name" content="{ORG} {ORG_EN}"/>
+<meta property="og:site_name" content="{ORG}"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="{html.escape(title)}"/>
 <meta name="twitter:description" content="{html.escape(desc)}"/>
@@ -392,7 +392,7 @@ def render_article(a, others):
         items = " ／ ".join(html.escape(c) for c in a["img_credits"])
         credit_html = f'<p style="font-size:11px;color:var(--muted);margin-top:16px">画像：{items}</p>'
 
-    out = head(f'{a["title"]}｜{ORG} {ORG_EN}', a["desc"], canonical, ogimg, "article", ld)
+    out = head(f'{a["title"]}｜{ORG}', a["desc"], canonical, ogimg, "article", ld)
     out += header("blog")
     out += f'''
 <div class="wrap">
@@ -435,7 +435,7 @@ def render_article(a, others):
     <div class="author-box">
       <img src="{PORTRAIT}" alt="{AUTHOR}" onerror="this.style.visibility='hidden'"/>
       <div>
-        <div class="nm">{ORG}（{ORG_EN}）／ {AUTHOR}</div>
+        <div class="nm">{ORG}／ {AUTHOR}</div>
         <div class="bio">「AI導入の不安を、先回りして取り除く」をミッションに、セキュリティに強いAI伴走支援を提供。情報漏えい・社内ルール・法規制のリスクを整理しながら、全社で“使える状態”まで伴走します。<a href="/index_rebuild.html#about">会社概要を見る →</a></div>
       </div>
     </div>
@@ -476,8 +476,8 @@ def card_html(a):
 # ============ 一覧ページ ============
 def render_index(arts):
     canonical = f"{SITE}/blog/"
-    title = f"ブログ｜AI導入のお役立ち記事｜{ORG} {ORG_EN}"
-    desc = "AI導入のセキュリティ・社内ルール・法規制・全社活用のリアルなノウハウを、実務目線で発信。中小企業のAI伴走支援を行う株式会社むきあい（MUKIAI）公式ブログ。"
+    title = f"ブログ｜AI導入のお役立ち記事｜{ORG}"
+    desc = "AI導入のセキュリティ・社内ルール・法規制・全社活用のリアルなノウハウを、実務目線で発信。中小企業のAI伴走支援を行う株式会社MUKIAI公式ブログ。"
     cards = "".join(card_html(a) for a in arts) if arts else '<p class="blog-empty">記事を準備中です。近日公開します。</p>'
     ld = {
         "@context": "https://schema.org", "@type": "Blog",
