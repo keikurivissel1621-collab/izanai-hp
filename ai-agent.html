@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script defer src="/assets/ga.js"></script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AIエージェント開発支援｜面倒な業務を“考えて動くAI”に任せる｜株式会社MUKIAI</title>
+<meta name="description" content="御社の面倒な繰り返し業務を、自分で考えて動くAIエージェントが代行。ヒアリングで課題を特定し、自動化を設計・開発して納品します。中小企業の社長・決裁者向け。初回相談・セキュリティ研修は無料。" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="AIエージェント開発支援｜株式会社MUKIAI" />
+<meta property="og:description" content="面倒な繰り返し業務を、考えて動くAIエージェントに任せる。課題特定から開発・納品まで御社仕様で。" />
+<meta property="og:url" content="https://shirubeai.com/ai-agent.html" />
+<meta property="og:image" content="https://shirubeai.com/assets/og-image.jpg" />
+<meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://shirubeai.com/assets/og-image.jpg" />
+<link rel="canonical" href="https://shirubeai.com/ai-agent.html" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@500;600;700;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="favicon-32x32.png" sizes="32x32" type="image/png" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<link rel="icon" href="favicon.ico" sizes="any" />
+<style>
+:root{
+  --navy:#0f2742;--navy-2:#13315c;--navy-deep:#091b30;
+  --teal:#1f6f78;--teal-2:#2b8a94;--teal-soft:#e3f0f1;
+  --gold:#c8a24a;--gold-soft:#f1e6c9;
+  --ink:#1a2b3c;--muted:#5a6b7b;--line:#e6e0d4;--bg:#faf8f3;--card:#fff;
+  --shadow:0 18px 40px -18px rgba(15,39,66,.18);
+  --shadow-lg:0 34px 70px -26px rgba(15,39,66,.32);
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:"Noto Sans JP",system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.85;-webkit-font-smoothing:antialiased}
+.serif{font-family:"Noto Serif JP",serif}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.18em;color:var(--teal);text-transform:uppercase}
+.sec{padding:84px 0}
+.sec-head{max-width:760px;margin:0 auto 44px;text-align:center}
+.sec-title{font-family:"Noto Serif JP",serif;font-weight:900;color:var(--navy);font-size:clamp(25px,3.4vw,38px);line-height:1.42;margin:12px 0 14px}
+.sec-lead{color:var(--muted);font-size:15.5px}
+.ac{color:var(--teal)}
+.mark{background:linear-gradient(transparent 60%,var(--gold-soft) 60%);padding:0 2px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:9px;border-radius:999px;font-weight:800;font-size:15px;padding:15px 30px;cursor:pointer;border:none;transition:.25s var(--ease)}
+.btn-line{background:linear-gradient(120deg,#06c755,#04a847);color:#fff;box-shadow:0 12px 28px -10px rgba(6,199,85,.6);animation:glow 2.6s ease-in-out infinite}
+.btn-line:hover{transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--navy);border:1.5px solid var(--line)}
+.btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
+.linelogo{height:19px;width:19px;filter:brightness(0) invert(1)}
+@keyframes glow{0%,100%{box-shadow:0 12px 28px -10px rgba(6,199,85,.55)}50%{box-shadow:0 12px 36px -6px rgba(6,199,85,.85)}}
+
+/* header */
+.site-header{position:sticky;top:0;z-index:60;background:rgba(250,248,243,.9);backdrop-filter:blur(14px);border-bottom:1px solid rgba(15,39,66,.07)}
+.site-header .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+.brand-logo{height:30px}
+.menu{display:flex;align-items:center;gap:22px}
+.menu a{font-size:14px;font-weight:700;color:var(--navy);white-space:nowrap}
+.menu a:hover{color:var(--teal)}
+.menu .now{color:var(--teal)}
+.menu .btn{padding:11px 20px;font-size:14px}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.burger span{width:24px;height:2px;background:var(--navy);border-radius:2px}
+.mobile-menu{display:none;position:fixed;inset:0 0 auto 0;z-index:59;background:var(--bg);box-shadow:var(--shadow-lg);padding:84px 24px 30px;transform:translateY(-110%);transition:transform .4s var(--ease)}
+.mobile-menu.open{transform:none}
+.mobile-menu a{display:block;padding:15px 4px;font-size:17px;font-weight:700;color:var(--navy);border-bottom:1px solid var(--line)}
+.mobile-menu .btn-line{margin-top:20px;width:100%;justify-content:center;color:#fff}
+@media(max-width:900px){.menu{display:none}.burger{display:flex}.mobile-menu{display:block}}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:linear-gradient(160deg,var(--navy-deep),var(--navy) 55%,var(--navy-2))}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(900px 420px at 78% -10%,rgba(43,138,148,.42),transparent 60%),radial-gradient(700px 380px at 10% 110%,rgba(200,162,74,.18),transparent 60%);pointer-events:none}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding-top:74px;padding-bottom:74px}
+.hero .tag{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:#dbe7e8;font-size:12.5px;font-weight:700;padding:7px 15px;border-radius:999px}
+.hero .tag .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(200,162,74,.25)}
+.hero h1{font-family:"Noto Serif JP",serif;font-weight:900;color:#fff;font-size:clamp(30px,4.4vw,52px);line-height:1.34;margin:20px 0 18px;letter-spacing:.01em}
+.hero h1 .y{color:var(--gold)}
+.hero h1 .c{color:#5fd0dc}
+.hero .sub{color:#c4d2dc;font-size:clamp(15px,1.7vw,17px);max-width:520px}
+.hero .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+.hero .micro{margin-top:16px;color:#8fa6b4;font-size:12.5px}
+/* hero visual: agent panel */
+.agentcard{background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:22px;box-shadow:var(--shadow-lg);backdrop-filter:blur(6px)}
+.agentcard .ahead{display:flex;align-items:center;gap:10px;color:#cfe0e4;font-size:12.5px;font-weight:700;border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:14px;margin-bottom:14px}
+.agentcard .ahead .ico{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--teal),var(--teal-2));display:grid;place-items:center}
+.agentcard .ahead .ico svg{width:18px;height:18px;stroke:#fff}
+.step{display:flex;gap:11px;align-items:flex-start;padding:9px 0;color:#dde7ec;font-size:13.5px}
+.step .n{flex:none;width:22px;height:22px;border-radius:50%;background:rgba(95,208,220,.16);color:#7fe0ea;font-size:12px;font-weight:800;display:grid;place-items:center;margin-top:1px}
+.step.done .n{background:var(--teal);color:#fff}
+.step b{color:#fff;font-weight:700}
+.step .meta{color:#8fb6bd;font-size:11.5px}
+@media(max-width:900px){.hero .wrap{grid-template-columns:1fr;gap:34px}.agentcard{max-width:460px}}
+
+/* pains */
+.pain-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.pain{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 22px;box-shadow:0 10px 30px -24px rgba(15,39,66,.4)}
+.pain .pi{width:42px;height:42px;border-radius:12px;background:var(--teal-soft);display:grid;place-items:center;margin-bottom:14px}
+.pain .pi svg{width:22px;height:22px;stroke:var(--teal)}
+.pain h3{font-size:16px;color:var(--navy);font-weight:800;margin-bottom:7px}
+.pain p{font-size:13.5px;color:var(--muted);line-height:1.8}
+@media(max-width:900px){.pain-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.pain-grid{grid-template-columns:1fr}}
+
+/* what is agent */
+.whatis{background:var(--navy);color:#e7eef2}
+.whatis .sec-title{color:#fff}
+.whatis .sec-lead{color:#b9c8d2}
+.metaphor{max-width:780px;margin:0 auto 40px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:30px 32px}
+.metaphor p{font-size:16.5px;line-height:2;color:#dbe6ec}
+.metaphor .big{font-family:"Noto Serif JP",serif;font-size:clamp(19px,2.4vw,24px);color:#fff;font-weight:700;margin-bottom:10px;line-height:1.5}
+.metaphor .big .y{color:var(--gold)}
+.cmp{max-width:880px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.cmp .col{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:24px 24px}
+.cmp .col.hl{background:linear-gradient(180deg,rgba(95,208,220,.14),rgba(95,208,220,.04));border-color:rgba(95,208,220,.4)}
+.cmp h4{font-size:14px;font-weight:800;letter-spacing:.04em;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.cmp .col h4{color:#9fb3bf}
+.cmp .col.hl h4{color:#7fe0ea}
+.cmp li{list-style:none;font-size:14px;color:#cdd9e0;padding:8px 0 8px 26px;position:relative;line-height:1.7}
+.cmp li::before{content:"";position:absolute;left:2px;top:14px;width:12px;height:12px;border-radius:50%}
+.cmp .col li::before{background:rgba(255,255,255,.18)}
+.cmp .col.hl li::before{background:var(--teal-2)}
+@media(max-width:760px){.cmp{grid-template-columns:1fr}}
+
+/* can-do grid */
+.do-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.do{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;transition:.25s var(--ease)}
+.do:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--teal-2)}
+.do .di{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--navy),var(--teal));display:grid;place-items:center;margin-bottom:14px}
+.do .di svg{width:22px;height:22px;stroke:#fff}
+.do h3{font-size:16px;color:var(--navy);font-weight:800;margin-bottom:7px}
+.do p{font-size:13.5px;color:var(--muted);line-height:1.8}
+@media(max-width:900px){.do-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.do-grid{grid-template-columns:1fr}}
+
+/* flow */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:s}
+.fstep{position:relative;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px 22px;box-shadow:0 10px 30px -24px rgba(15,39,66,.4)}
+.fstep .num{font-family:"Noto Serif JP",serif;font-size:13px;font-weight:800;color:var(--gold);letter-spacing:.1em}
+.fstep h3{font-size:16.5px;color:var(--navy);font-weight:800;margin:8px 0 8px}
+.fstep p{font-size:13.5px;color:var(--muted);line-height:1.8}
+.fstep .when{display:inline-block;margin-top:12px;font-size:11.5px;font-weight:700;color:var(--teal);background:var(--teal-soft);padding:4px 11px;border-radius:999px}
+.flow .fstep::after{content:"→";position:absolute;right:-13px;top:50%;transform:translateY(-50%);color:var(--line);font-weight:800;z-index:2}
+.flow .fstep:last-child::after{display:none}
+@media(max-width:900px){.flow{grid-template-columns:1fr 1fr}.flow .fstep:nth-child(2)::after,.flow .fstep::after{display:none}}
+@media(max-width:560px){.flow{grid-template-columns:1fr}}
+
+/* pricing */
+.price-wrap{max-width:720px;margin:0 auto}
+.price-card{background:linear-gradient(160deg,var(--navy),var(--navy-2));color:#fff;border-radius:24px;padding:42px 40px;box-shadow:var(--shadow-lg);position:relative;overflow:hidden}
+.price-card::after{content:"";position:absolute;right:-40px;top:-40px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(95,208,220,.25),transparent 70%)}
+.price-card .ttl{font-size:15px;font-weight:700;color:#9fd6dd;position:relative}
+.price-card .amount{font-family:"Noto Serif JP",serif;font-weight:900;font-size:clamp(38px,6vw,60px);margin:6px 0 4px;position:relative}
+.price-card .amount small{font-size:.4em;font-weight:700;color:#c4d2dc;margin-left:8px}
+.price-card .note{color:#aebecb;font-size:13px;position:relative}
+.price-card ul{list-style:none;margin:24px 0 0;position:relative}
+.price-card li{font-size:14.5px;padding:9px 0 9px 30px;position:relative;color:#e3edf2;border-top:1px solid rgba(255,255,255,.09)}
+.price-card li::before{content:"";position:absolute;left:2px;top:15px;width:16px;height:9px;border-left:2.4px solid var(--gold);border-bottom:2.4px solid var(--gold);transform:rotate(-45deg)}
+.price-card .pcta{margin-top:28px;position:relative}
+
+/* why */
+.why{background:#fff}
+.why-grid{max-width:880px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.wcol{border-radius:16px;padding:26px 26px;border:1px solid var(--line)}
+.wcol.bad{background:#fbfaf6}
+.wcol.good{background:var(--teal-soft);border-color:var(--teal-2)}
+.wcol h4{font-size:15px;font-weight:800;margin-bottom:14px;color:var(--navy)}
+.wcol.bad h4{color:var(--muted)}
+.wcol li{list-style:none;font-size:14px;padding:8px 0 8px 26px;position:relative;line-height:1.7;color:var(--ink)}
+.wcol.bad li{color:var(--muted)}
+.wcol li::before{position:absolute;left:4px;top:7px;font-weight:900}
+.wcol.bad li::before{content:"×";color:#b9a06a}
+.wcol.good li::before{content:"○";color:var(--teal)}
+@media(max-width:760px){.why-grid{grid-template-columns:1fr}}
+
+/* scenario */
+.scn-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.scn{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 10px 30px -24px rgba(15,39,66,.4)}
+.scn .top{padding:20px 22px 0}
+.scn .chip{display:inline-block;background:var(--gold-soft);color:#8a6d1f;font-size:11.5px;font-weight:800;padding:4px 11px;border-radius:999px;margin-bottom:12px}
+.scn h3{font-size:16px;color:var(--navy);font-weight:800;line-height:1.5;margin-bottom:8px}
+.scn .body{padding:0 22px 22px}
+.scn .body p{font-size:13px;color:var(--muted);line-height:1.8}
+.scn .res{margin-top:14px;background:var(--teal-soft);border-radius:10px;padding:12px 14px;font-size:13px;color:#205057;font-weight:700}
+@media(max-width:900px){.scn-grid{grid-template-columns:1fr}}
+
+/* faq */
+.faq{max-width:780px;margin:0 auto}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden}
+.faq summary{list-style:none;cursor:pointer;padding:20px 24px;font-weight:700;color:var(--navy);font-size:15.5px;display:flex;justify-content:space-between;gap:16px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .pm{flex:none;width:22px;height:22px;border-radius:50%;background:var(--teal-soft);color:var(--teal);display:grid;place-items:center;font-weight:800;transition:.3s}
+.faq details[open] summary .pm{transform:rotate(45deg)}
+.faq .ans{padding:0 24px 22px;color:var(--muted);font-size:14px;line-height:1.9}
+
+/* final CTA */
+.final{background:linear-gradient(160deg,var(--navy-deep),var(--navy));color:#fff;text-align:center}
+.final h2{font-family:"Noto Serif JP",serif;font-weight:900;font-size:clamp(24px,3.6vw,40px);line-height:1.4}
+.final p{color:#c4d2dc;font-size:15.5px;margin:16px auto 0;max-width:560px}
+.final .cta-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+.final .btn-ghost{color:#fff;border-color:rgba(255,255,255,.3)}
+.final .btn-ghost:hover{border-color:#fff;color:#fff}
+.final .micro{color:#8fa6b4;font-size:12.5px;margin-top:18px}
+
+/* footer */
+footer{background:var(--navy-deep);color:rgba(255,255,255,.66)}
+footer .wrap{padding:46px 24px 26px}
+.foot-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.1)}
+.foot-brand{max-width:300px}.foot-logo{height:30px;margin-bottom:14px}.foot-brand p{font-size:12.5px;line-height:1.9}
+.foot-nav{display:flex;gap:48px;flex-wrap:wrap}.foot-nav h5{color:#fff;font-size:13px;margin-bottom:12px}
+.foot-nav a{display:block;color:rgba(255,255,255,.66);font-size:12.5px;padding:4px 0}.foot-nav a:hover{color:#fff}
+.foot-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:20px;font-size:12px}
+
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="site-header"><div class="wrap nav">
+  <a class="brand" href="index_rebuild.html" aria-label="株式会社MUKIAI ホーム"><img class="brand-logo" src="assets/mukiai-logo-transparent.png" alt="MUKIAI"/></a>
+  <nav class="menu">
+    <a href="index_rebuild.html#service">サービス</a>
+    <a class="now" href="ai-agent.html">AIエージェント開発</a>
+    <a href="claude-code.html">Claude Code実装支援</a>
+    <a href="blog/">ブログ</a>
+    <a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="assets/logos/line.svg" alt="LINE"/>無料相談</a>
+  </nav>
+  <button class="burger" id="burger" aria-label="メニュー"><span></span><span></span><span></span></button>
+</div></header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index_rebuild.html#service">サービス</a>
+  <a href="ai-agent.html" style="color:var(--teal)">AIエージェント開発支援</a>
+  <a href="claude-code.html">Claude Code実装支援</a>
+  <a href="blog/">ブログ</a>
+  <a href="index_rebuild.html#about">会社概要</a>
+  <a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="assets/logos/line.svg" alt="LINE"/>公式LINEで無料相談</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="tag"><span class="dot"></span>中小企業の社長・決裁者向け</span>
+      <h1>その<span class="y">“面倒な繰り返し業務”</span>、<br>考えて動く<span class="c">AIエージェント</span>に<br>任せませんか。</h1>
+      <p class="sub">「人がやらなくていい作業」を洗い出し、御社専用のAIを設計・開発して納品。チャットに指示するだけで、議事録・資料・リサーチ・入力作業が自動で片づく状態をつくります。</p>
+      <div class="cta-row">
+        <a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="assets/logos/line.svg" alt="LINE"/>無料で相談する</a>
+        <a class="btn btn-ghost" href="#flow" style="color:#fff;border-color:rgba(255,255,255,.3)">進め方を見る</a>
+      </div>
+      <p class="micro">初回ヒアリング相談は無料／オンライン可。まず「どの業務を自動化できるか」だけでもお話しします。</p>
+    </div>
+    <div class="agentcard" aria-hidden="true">
+      <div class="ahead"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="4" y="7" width="16" height="12" rx="2"/><path d="M12 7V4M8 12h0M16 12h0M9 16h6"/></svg></span>御社専属AIエージェント<span style="margin-left:auto;color:#7fe0ea;font-size:11px">稼働中</span></div>
+      <div class="step done"><span class="n">✓</span><div><b>毎朝の売上データを集計</b><div class="meta">スプレッドシートを自動更新しました</div></div></div>
+      <div class="step done"><span class="n">✓</span><div><b>問い合わせメールを下書き</b><div class="meta">12件の返信案を作成しました</div></div></div>
+      <div class="step"><span class="n">3</span><div><b>競合の最新情報をリサーチ中…</b><div class="meta">要点を3行にまとめます</div></div></div>
+      <div class="step"><span class="n">4</span><div><b>会議の議事録を整形</b><div class="meta">決定事項とToDoを抽出します</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PAINS -->
+<section class="sec"><div class="wrap">
+  <div class="sec-head">
+    <span class="eyebrow">SUCH PROBLEMS?</span>
+    <h2 class="sec-title">その作業、<span class="ac">毎回ぜんぶ手作業</span>でやっていませんか？</h2>
+    <p class="sec-lead">下のような「繰り返し」「人手頼み」の業務こそ、AIエージェントが最も得意とする領域です。</p>
+  </div>
+  <div class="pain-grid">
+    <div class="pain"><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 4v5h5"/></svg></div><h3>毎日の繰り返し作業</h3><p>データ入力・集計・転記・定型メール。同じ作業に毎日時間が溶けている。</p></div>
+    <div class="pain"><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M12 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/><path d="M5 21v-1a7 7 0 0 1 14 0v1"/></svg></div><h3>業務の属人化</h3><p>「あの人しか分からない」状態。担当が抜けると業務が止まる不安。</p></div>
+    <div class="pain"><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg></div><h3>人手不足・採用難</h3><p>人を増やせない。でも仕事量は減らない。今の人数で回したい。</p></div>
+    <div class="pain"><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div><h3>AIを入れたいが何から？</h3><p>便利らしいのは分かる。でも「うちの何に使えるか」が分からない。</p></div>
+  </div>
+</div></section>
+
+<!-- WHAT IS AGENT -->
+<section class="sec whatis"><div class="wrap">
+  <div class="sec-head">
+    <span class="eyebrow" style="color:#7fe0ea">WHAT IS AN AI AGENT</span>
+    <h2 class="sec-title">そもそも「AIエージェント」とは？</h2>
+    <p class="sec-lead">ChatGPTのような“質問に答えるAI”とは、決定的に違います。一言でいうと——</p>
+  </div>
+  <div class="metaphor">
+    <p class="big">AIエージェントは、<span class="y">「自分で考えて動く、AIの部下」</span>です。</p>
+    <p>普通のAIは、こちらが質問して初めて答える“受け身の道具”。一方でAIエージェントは、<b style="color:#fff">「この作業をやっておいて」と任せるだけで、手順を自分で考え、複数のツールをまたいで作業を進め、結果まで出してくれる</b>——いわば指示待ちではなく、段取りして動く新人スタッフのような存在です。</p>
+  </div>
+  <div class="cmp">
+    <div class="col">
+      <h4><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 10h8M8 14h5"/><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 18v3l4-3"/></svg>ふつうのAIチャット</h4>
+      <li>質問されたことに答える（単発）</li>
+      <li>その都度、人が指示と確認をする</li>
+      <li>ツールをまたぐ作業は人がつなぐ</li>
+      <li>“便利な相談相手”どまり</li>
+    </div>
+    <div class="col hl">
+      <h4><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="7" width="16" height="12" rx="2"/><path d="M12 7V4M9 16h6"/></svg>AIエージェント</h4>
+      <li>任せた仕事の手順を自分で考える</li>
+      <li>複数ツールをまたいで自動で実行</li>
+      <li>集計・リサーチ・作成まで通しでやる</li>
+      <li>“作業を片づける部下”として働く</li>
+    </div>
+  </div>
+</div></section>
+
+<!-- CAN DO -->
+<section class="sec"><div class="wrap">
+  <div class="sec-head">
+    <span class="eyebrow">USE CASES</span>
+    <h2 class="sec-title">MUKIAIのAIエージェント開発で<br><span class="ac">できること</span></h2>
+    <p class="sec-lead">「うちのこの業務、任せられる？」——ヒアリングで見つけた課題に合わせて、御社専用に設計・開発します。</p>
+  </div>
+  <div class="do-grid">
+    <div class="do"><div class="di"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></div><h3>議事録・要約の自動化</h3><p>会議の録音や文字起こしから、決定事項とToDoを自動で抽出・整形。</p></div>
+    <div class="do"><div class="di"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12l3 3 5-5"/></svg></div><h3>資料・レポート作成</h3><p>数字や情報をもとに、報告書・提案資料のたたき台を自動で作成。</p></div>
+    <div class="do"><div class="di"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M3 6h18M3 12h18M3 18h12"/></svg></div><h3>データ入力・集計</h3><p>転記・集計・スプレッドシート更新などの単純作業をまるごと代行。</p></div>
+    <div class="do"><div class="di"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div><h3>リサーチ・情報収集</h3><p>競合・市場・最新情報をWebから集め、要点を数行にまとめて報告。</p></div>
+    <div class="do"><div class="di"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M4 4h16v12H7l-3 3V4Z"/></svg></div><h3>問い合わせ・メール対応</h3><p>定型の返信や一次対応の下書きを自動生成し、確認するだけに。</p></div>
+    <div class="do"><div class="di"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><circle cx="6" cy="6" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M7.5 7.5 11 16M16.5 7.5 13 16"/></svg></div><h3>複数ツールの連携自動化</h3><p>メール・チャット・表計算・社内システムをまたいだ作業を自動でつなぐ。</p></div>
+  </div>
+  <p style="text-align:center;margin-top:26px;color:var(--muted);font-size:13.5px">※ 上記は一例です。「これって自動化できる？」という相談からはじめてOKです。</p>
+</div></section>
+
+<!-- FLOW -->
+<section class="sec" id="flow" style="background:#fff"><div class="wrap">
+  <div class="sec-head">
+    <span class="eyebrow">HOW IT WORKS</span>
+    <h2 class="sec-title">進め方｜<span class="ac">約4ヶ月</span>で、課題発見から納品まで</h2>
+    <p class="sec-lead">いきなり開発はしません。まず御社の業務を深く聞き、本当に効く自動化を見極めてから作ります。</p>
+  </div>
+  <div class="flow">
+    <div class="fstep"><div class="num">STEP 01</div><h3>ヒアリング・課題発見</h3><p>業務の流れを丁寧に伺い、時間を奪っているボトルネック業務を一緒に特定します。</p><span class="when">1ヶ月目</span></div>
+    <div class="fstep"><div class="num">STEP 02</div><h3>自動化の設計・提案</h3><p>「どの業務を・どうAIエージェント化するか」を設計し、効果と進め方をご提案します。</p><span class="when">1〜2ヶ月目</span></div>
+    <div class="fstep"><div class="num">STEP 03</div><h3>開発</h3><p>御社専用のAIエージェントを構築。実際の業務で試しながら、使える形に調整します。</p><span class="when">2〜4ヶ月目</span></div>
+    <div class="fstep"><div class="num">STEP 04</div><h3>納品・定着</h3><p>完成した仕組みを納品。現場が迷わず使えるよう、使い方の定着までサポートします。</p><span class="when">4ヶ月目</span></div>
+  </div>
+  <p style="text-align:center;margin-top:26px;color:var(--muted);font-size:13.5px">期間は対象業務の規模により前後します。まずは無料相談で、御社に合った範囲をすり合わせます。</p>
+</div></section>
+
+<!-- PRICING -->
+<section class="sec"><div class="wrap">
+  <div class="sec-head">
+    <span class="eyebrow">PRICE</span>
+    <h2 class="sec-title">料金</h2>
+    <p class="sec-lead">業務をひとつ、AIエージェントとして「使える状態」で納品するまでの一式料金です。</p>
+  </div>
+  <div class="price-wrap"><div class="price-card">
+    <div class="ttl">AIエージェント開発支援（オーダーメイド）</div>
+    <div class="amount">60<small>万円〜（税別／一式）</small></div>
+    <div class="note">ヒアリング・設計・開発・納品・定着サポートまで込み（約4ヶ月）。対象業務の規模により個別お見積り。</div>
+    <ul>
+      <li>業務ヒアリングと課題の特定</li>
+      <li>自動化の設計・ご提案</li>
+      <li>御社専用AIエージェントの開発</li>
+      <li>実業務でのテスト・調整</li>
+      <li>納品と、現場への定着サポート</li>
+    </ul>
+    <div class="pcta"><a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="assets/logos/line.svg" alt="LINE"/>まずは無料で相談する</a></div>
+  </div></div>
+</div></section>
+
+<!-- WHY -->
+<section class="sec why"><div class="wrap">
+  <div class="sec-head">
+    <span class="eyebrow">WHY MUKIAI</span>
+    <h2 class="sec-title">「ツールを買う」のではなく、<br><span class="ac">課題から作る</span>から効く</h2>
+    <p class="sec-lead">市販ツールを入れて終わり、ではありません。御社の業務に合わせてオーダーメイドで設計します。</p>
+  </div>
+  <div class="why-grid">
+    <div class="wcol bad"><h4>ありがちな“ツール導入”</h4>
+      <li>多機能だが、自社の業務には合わない</li>
+      <li>結局、現場が使いこなせず放置</li>
+      <li>「何に使えるか」は自分で考える前提</li>
+      <li>カスタマイズしづらく中途半端</li>
+    </div>
+    <div class="wcol good"><h4>MUKIAIのオーダーメイド開発</h4>
+      <li>本質的なボトルネック業務から逆算</li>
+      <li>御社の業務フローに合わせて構築</li>
+      <li>「使える状態」まで伴走して定着</li>
+      <li>セキュリティ・社内ルールも踏まえて設計</li>
+    </div>
+  </div>
+  <p style="text-align:center;margin-top:26px;color:var(--muted);font-size:13.5px">AIの安全な使い方（情報漏えい・社内ルール）も重視するなら <a href="claude-code.html" style="color:var(--teal);font-weight:700">Claude Code実装支援</a> や <a href="lp.html" style="color:var(--teal);font-weight:700">3分AIリスクチェック</a> もご覧ください。</p>
+</div></section>
+
+<!-- SCENARIOS -->
+<section class="sec"><div class="wrap">
+  <div class="sec-head">
+    <span class="eyebrow">SCENARIOS</span>
+    <h2 class="sec-title">こんな使い方ができます（想定シナリオ）</h2>
+    <p class="sec-lead">※ 業種別の具体的な活用イメージです。御社の状況に合わせて設計します。</p>
+  </div>
+  <div class="scn-grid">
+    <div class="scn"><div class="top"><span class="chip">店舗・サービス業</span><h3>毎日の売上・在庫の集計を自動化</h3></div><div class="body"><p>各店舗のデータをAIが毎朝集計し、レポート化。店長の集計作業をゼロに。</p><div class="res">→ 月20時間の集計作業を削減</div></div></div>
+    <div class="scn"><div class="top"><span class="chip">士業・管理部門</span><h3>問い合わせ一次対応の下書き</h3></div><div class="body"><p>よくある問い合わせにAIが返信案を自動作成。担当は確認して送るだけに。</p><div class="res">→ 返信スピードと品質を両立</div></div></div>
+    <div class="scn"><div class="top"><span class="chip">営業・経営</span><h3>競合・市場リサーチの自動化</h3></div><div class="body"><p>気になる業界の最新情報をAIが定期収集し、要点を3行で報告。</p><div class="res">→ 意思決定のための情報を毎週自動で</div></div></div>
+  </div>
+</div></section>
+
+<!-- FAQ -->
+<section class="sec" style="background:#fff"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">FAQ</span><h2 class="sec-title">よくあるご質問</h2></div>
+  <div class="faq">
+    <details><summary>AIにくわしくないのですが、大丈夫ですか？<span class="pm">+</span></summary><div class="ans">はい、まったく問題ありません。むしろ「何ができるか分からない」段階からのご相談が中心です。専門用語は使わず、御社の業務に当てはめてご説明します。難しい設定はすべてこちらで行います。</div></details>
+    <details><summary>どんな業務を自動化できますか？<span class="pm">+</span></summary><div class="ans">繰り返しの多い作業（集計・入力・転記）、文章をつくる作業（議事録・資料・メール下書き）、情報を集める作業（リサーチ）などが得意領域です。まずは「これって任せられる？」というご相談からで大丈夫です。</div></details>
+    <details><summary>料金はなぜ一式なのですか？<span class="pm">+</span></summary><div class="ans">市販ツールの月額課金とは違い、御社専用に「ヒアリング→設計→開発→納品→定着」まで行うオーダーメイドのため、業務ひとつを仕上げる一式料金（60万円〜・税別）としています。規模に応じて個別にお見積りします。</div></details>
+    <details><summary>情報漏えいなどセキュリティが不安です。<span class="pm">+</span></summary><div class="ans">私たちはセキュリティを最重視しています。どの情報を扱ってよいかの整理や、学習に使われない設定など、安全に使える前提で設計します。AIの社内ルールづくりからの伴走も可能です。</div></details>
+    <details><summary>まず何から始めればいいですか？<span class="pm">+</span></summary><div class="ans">無料相談（オンライン可）からどうぞ。現状をお聞きして、「どの業務が自動化できそうか」「どれくらい効果が見込めるか」をその場でお伝えします。いきなり契約をお願いすることはありません。</div></details>
+  </div>
+</div></section>
+
+<!-- FINAL CTA -->
+<section class="sec final"><div class="wrap">
+  <h2>「うちのこの業務、AIに任せられる？」<br>その一言から、はじめましょう。</h2>
+  <p>初回のヒアリング相談は無料です。御社の状況に合わせて、自動化できる業務と進め方をご提案します。</p>
+  <div class="cta-row">
+    <a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="assets/logos/line.svg" alt="LINE"/>公式LINEで無料相談する</a>
+    <a class="btn btn-ghost" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener">無料セキュリティ研修に申し込む</a>
+  </div>
+  <p class="micro">オンライン対応／全国どこでも。まずは話を聞いてみたい、だけでも歓迎です。</p>
+</div></section>
+
+<!-- FOOTER -->
+<footer><div class="wrap">
+  <div class="foot-top">
+    <div class="foot-brand">
+      <img class="foot-logo" src="assets/mukiai-logo-white.png" alt="株式会社MUKIAI"/>
+      <p>株式会社MUKIAI｜AI導入の不安を、先回りして取り除く。セキュリティに強いAI伴走支援。</p>
+    </div>
+    <div class="foot-nav">
+      <div><h5>サービス</h5>
+        <a href="index_rebuild.html#service">AI伴走支援</a><a href="ai-agent.html">AIエージェント開発支援</a><a href="claude-code.html">Claude Code実装支援</a><a href="blog/">ブログ</a><a href="lp.html">3分AIリスクチェック</a>
+      </div>
+      <div><h5>会社情報</h5>
+        <a href="index_rebuild.html#about">会社概要</a><a href="index_rebuild.html#ceo">代表者</a><a href="index_rebuild.html#privacy">プライバシーポリシー</a><a href="tokushoho.html">特定商取引法に基づく表記</a>
+      </div>
+      <div><h5>お問い合わせ</h5>
+        <a href="https://lin.ee/8upkUmI" target="_blank" rel="noopener">公式LINEで無料相談</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bottom"><span>© 2026 株式会社MUKIAI</span><span>AI導入の不安を、先回りして取り除く。</span></div>
+</div></footer>
+
+<script>
+(function(){
+  var b=document.getElementById('burger'),m=document.getElementById('mobileMenu');
+  if(b&&m){b.addEventListener('click',function(){m.classList.toggle('open');document.body.style.overflow=m.classList.contains('open')?'hidden':'';});
+    m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){m.classList.remove('open');document.body.style.overflow='';});});}
+})();
+</script>
+</body>
+</html>
