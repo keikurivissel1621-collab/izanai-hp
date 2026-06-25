@@ -1,0 +1,14 @@
+{
+ "cover.jpg": {
+  "credit": "Photo by Matheus Bertelli on Pexels",
+  "req": false
+ },
+ "body-1.jpg": {
+  "credit": "Photo by Luis Sevilla on Pexels",
+  "req": false
+ },
+ "body-2.jpg": {
+  "credit": "Photo by Matheus Bertelli on Pexels",
+  "req": false
+ }
+}
