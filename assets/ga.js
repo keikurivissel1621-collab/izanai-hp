@@ -23,4 +23,17 @@
   window.gtag = gtag;
   gtag("js", new Date());
   gtag("config", GA_MEASUREMENT_ID);
+
+  /* ====== 成果計測：公式LINE（lin.ee）クリックを line_click イベントで送信 ======
+     GA4の自動計測(outbound click)に加え、明示イベントも送って取りこぼしを防ぐ。
+     GA4管理画面で「line_click」をキーイベントに指定するとCV計測になる。 */
+  document.addEventListener("click", function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a[href*="lin.ee"]') : null;
+    if (!a) return;
+    gtag("event", "line_click", {
+      link_url: a.href,
+      link_text: (a.innerText || a.textContent || "").trim().slice(0, 60),
+      page_path: location.pathname
+    });
+  }, true);
 })();
