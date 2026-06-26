@@ -1,0 +1,10 @@
+{
+ "cover.jpg": {
+  "credit": "Photo by Satoshi Hirayama on Pexels",
+  "req": false
+ },
+ "body-1.jpg": {
+  "credit": "Photo by Aleksandar Pasaric on Pexels",
+  "req": false
+ }
+}
