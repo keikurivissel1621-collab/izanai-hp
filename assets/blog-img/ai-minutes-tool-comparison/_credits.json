@@ -1,0 +1,18 @@
+{
+ "cover.jpg": {
+  "credit": "Photo by Edmond Dantès on Pexels",
+  "req": false
+ },
+ "body-1.jpg": {
+  "credit": "Photo by Yan Krukau on Pexels",
+  "req": false
+ },
+ "body-2.jpg": {
+  "credit": "Photo by Md Jawadur Rahman on Pexels",
+  "req": false
+ },
+ "body-3.jpg": {
+  "credit": "Photo by Christina Morillo on Pexels",
+  "req": false
+ }
+}
