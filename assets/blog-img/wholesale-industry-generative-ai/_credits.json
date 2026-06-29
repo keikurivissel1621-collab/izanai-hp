@@ -1,0 +1,14 @@
+{
+ "cover.jpg": {
+  "credit": "Photo by Tiger Lily on Pexels",
+  "req": false
+ },
+ "body-1.jpg": {
+  "credit": "Photo by cottonbro studio on Pexels",
+  "req": false
+ },
+ "body-2.jpg": {
+  "credit": "Photo by Tima Miroshnichenko on Pexels",
+  "req": false
+ }
+}
