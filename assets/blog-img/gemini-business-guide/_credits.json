@@ -1,0 +1,14 @@
+{
+ "cover.jpg": {
+  "credit": "Photo by Yan Krukau on Pexels",
+  "req": false
+ },
+ "body-1.jpg": {
+  "credit": "Photo by RDNE Stock project on Pexels",
+  "req": false
+ },
+ "body-2.jpg": {
+  "credit": "Photo by Kampus Production on Pexels",
+  "req": false
+ }
+}
