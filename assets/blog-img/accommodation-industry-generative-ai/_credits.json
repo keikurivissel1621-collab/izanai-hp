@@ -1,0 +1,14 @@
+{
+ "cover.jpg": {
+  "credit": "Photo by Cedric Fauntleroy on Pexels",
+  "req": false
+ },
+ "body-1.jpg": {
+  "credit": "Photo by Andrea Piacquadio on Pexels",
+  "req": false
+ },
+ "body-2.jpg": {
+  "credit": "Photo by Sami  Aksu on Pexels",
+  "req": false
+ }
+}
