@@ -135,6 +135,7 @@ MID_CTA = (
     'まずは無料相談で、御社の状況に合わせた最初の一歩をお伝えします。</p>'
     f'<a class="btn btn-line" href="{LINE_URL}" target="_blank" rel="noopener">'
     f'<img class="linelogo" src="{LINE_SVG}" alt="LINE"/>公式LINEで無料相談する</a>'
+    '<a class="sub-cta" href="/lp.html">相談はまだ早い方へ：まず3分AIリスクチェック →</a>'
     '</div>'
 )
 def inject_mid(body_html):
@@ -223,7 +224,7 @@ def head(title, desc, canonical, ogimg, og_type="article", extra=""):
 <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png"/>
 <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
 <link rel="icon" href="/favicon.ico" sizes="any"/>
-<link rel="stylesheet" href="/assets/blog.css?v=2"/>
+<link rel="stylesheet" href="/assets/blog.css?v=3"/>
 {extra}
 </head>
 <body>'''
@@ -423,6 +424,7 @@ def render_article(a, others):
         <div class="lead">AI導入の不安、ひとりで抱えていませんか？</div>
         <p>「何から始めればいいか分からない」段階こそ相談どき。御社の状況に合わせた最初の一歩を、無料でお伝えします。</p>
         <a class="btn" href="{LINE_URL}" target="_blank" rel="noopener"><img class="linelogo" src="{LINE_SVG}" alt="LINE"/>公式LINEで無料相談する</a>
+        <a class="cta-sub" href="/lp.html">相談はまだ早い…という方は、まず「3分AIリスクチェック」で自社の状態を診断 →</a>
       </div>
       <div class="cta-3">
         <a href="/index_rebuild.html"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9.5 21v-6h5v6"/></svg></span><span class="t">トップページへ</span><span class="d">MUKIAIのサービス全体を見る</span></a>

@@ -137,6 +137,9 @@ img{max-width:100%;display:block}
 .cta-mid h4{font-family:"Noto Serif JP",serif;font-size:19px;font-weight:800;color:#fff;margin-bottom:8px}
 .cta-mid p{font-size:14px;color:rgba(255,255,255,.82);margin-bottom:16px}
 .cta-mid .btn-line{color:#fff}
+.cta-mid .sub-cta{display:block;margin-top:14px;color:rgba(255,255,255,.85);font-size:13px;
+  text-decoration:underline;text-underline-offset:3px}
+.cta-mid .sub-cta:hover{color:#fff}
 
 /* ===== 記事末CTA（強）＋3択 ===== */
 .a-cta{margin:48px 0 0}
@@ -147,6 +150,9 @@ img{max-width:100%;display:block}
 .cta-line-box .btn{background:#fff;color:#04a847;font-size:16px;padding:15px 34px;box-shadow:0 10px 26px -8px rgba(0,0,0,.3);animation:none}
 .cta-line-box .btn:hover{transform:translateY(-2px)}
 .cta-line-box .btn .linelogo{filter:none}
+.cta-line-box .cta-sub{display:block;margin-top:16px;color:rgba(255,255,255,.92);font-size:13.5px;
+  text-decoration:underline;text-underline-offset:3px}
+.cta-line-box .cta-sub:hover{color:#fff}
 .cta-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
 .cta-3 a{display:flex;flex-direction:column;gap:6px;background:var(--card);border:1px solid var(--line);
   border-radius:14px;padding:18px 18px;transition:.25s var(--ease)}
