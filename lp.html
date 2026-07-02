@@ -99,7 +99,7 @@ a{color:inherit;text-decoration:none}
 .why h2{font-family:"Noto Serif JP";text-align:center;color:var(--navy);font-size:clamp(24px,4vw,34px);margin-bottom:36px}
 .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .why-card{background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:28px 24px}
-.why-card .ic{font-size:30px;margin-bottom:12px}
+.why-card .ic{margin-bottom:12px;color:var(--teal);display:inline-flex;width:46px;height:46px;align-items:center;justify-content:center;background:var(--teal-soft,#e3f0f1);border-radius:12px}
 .why-card h4{color:var(--navy);font-size:17px;margin-bottom:8px}
 .why-card p{font-size:14px;color:var(--muted)}
 
@@ -128,6 +128,14 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.6);text-align:center;
 .result .focus ul{list-style:none;display:grid;gap:8px}
 .result .focus li{font-size:14px;color:#fff;padding-left:24px;position:relative}
 .result .focus li::before{content:"";position:absolute;left:4px;top:7px;width:8px;height:8px;border-radius:2px;background:var(--gold)}
+.result .codebox{background:#fff;border-radius:14px;padding:20px 22px;margin:22px auto 0;max-width:520px;text-align:left;color:#1a2b3c;box-shadow:0 18px 40px -18px rgba(0,0,0,.35)}
+.result .cb-h{font-size:12.5px;font-weight:800;color:#1f6f78;letter-spacing:.04em;margin-bottom:9px}
+.result .cb-row{display:flex;gap:10px;align-items:stretch}
+.result .cb-row code{flex:1;font-family:ui-monospace,Consolas,monospace;font-size:14.5px;font-weight:700;background:#f1f5f6;border:1.5px dashed #2b8a94;border-radius:8px;padding:10px 12px;color:#0f2742;word-break:break-all;display:flex;align-items:center}
+.result .cb-row button{flex:none;background:#1f6f78;color:#fff;border:none;border-radius:8px;padding:10px 16px;font-weight:700;font-size:13px;cursor:pointer;transition:.2s}
+.result .cb-row button:hover{background:#2b8a94}
+.result .cb-steps{margin:14px 0 0;padding-left:20px;font-size:13px;color:#4a5a68;display:grid;gap:6px}
+.result .cb-steps b{color:#0f2742}
 
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
@@ -158,20 +166,20 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.6);text-align:center;
   <div class="wrap">
     <h2>なぜ「3分セキュリティ診断」が必要なのか</h2>
     <div class="why-grid">
-      <div class="why-card"><div class="ic">🕳</div><h4>リスクは“見えない”ところに</h4><p>多くのAI事故は、現場の何気ない入力から起きます。まず自社の穴を可視化することが第一歩です。</p></div>
-      <div class="why-card"><div class="ic">🧭</div><h4>何から手をつけるか分かる</h4><p>診断結果から、ガイドライン・研修・ツール選定のどこを優先すべきかが見えてきます。</p></div>
-      <div class="why-card"><div class="ic">📋</div><h4>対策ガイドが受け取れる</h4><p>診断結果に基づいた「御社向けAIセキュリティ対策ガイド」を、公式LINEで無料でお渡しします。</p></div>
+      <div class="why-card"><div class="ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/><path d="M11 8v3l2 2"/></svg></div><h4>リスクは“見えない”ところに</h4><p>多くのAI事故は、現場の何気ない入力から起きます。まず自社の穴を可視化することが第一歩です。</p></div>
+      <div class="why-card"><div class="ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg></div><h4>何から手をつけるか分かる</h4><p>診断結果から、ガイドライン・研修・ツール選定のどこを優先すべきかが見えてきます。</p></div>
+      <div class="why-card"><div class="ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h8l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M8 11h8M8 15h8M8 7h4"/></svg></div><h4>詳細レポートが受け取れる</h4><p>全20項目の評価と対策をまとめた「詳細診断レポート」を、公式LINE限定で無料でお渡しします。</p></div>
     </div>
   </div>
 </section>
 
 <section class="final">
   <div class="wrap">
-    <h2>御社の「AIセキュリティ対策ガイド」を<br>無料でお渡しします。</h2>
-    <p>「うちは何点だった」で終わらせないために。診断結果をもとに、御社が優先して対策すべきポイントをまとめたガイドを、公式LINEで無料配布しています。受け取った後の個別相談ももちろん無料です。</p>
+    <h2>あなた専用の「詳細診断レポート」を<br>公式LINE限定で無料お届け。</h2>
+    <p>「うちは何点だった」で終わらせないために。診断後に表示される<b>診断コード</b>をLINEで送るだけで、全20項目の評価・弱点の解説・優先度つき対策ステップをまとめた御社専用レポートをお渡しします。受け取り後の個別相談も無料です。</p>
     <a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener">
       <img class="linelogo" src="assets/logos/line.svg" alt="LINE"/>
-      公式LINEで対策ガイドを受け取る
+      公式LINEで詳細レポートを受け取る
     </a>
   </div>
 </section>
@@ -262,13 +270,18 @@ function showResult(scroll){
   if(pct>=80){level="リスク低";color="#2bb673";msg="基盤はかなり整っています。あとは全社定着と運用の磨き込みで、AIを“競争力”に変えていけます。";}
   else if(pct>=50){level="リスク中";color="#e0a82e";msg="使い始めてはいるものの、ルールや教育に穴があります。事故が起きる前に、優先順位をつけて整備しましょう。";}
   else{level="リスク高";color="#d9534f";msg="情報漏えい・法務リスクが高い状態です。まずガイドライン策定と社員教育から、早急に手を打つことをおすすめします。";}
-  // 弱点領域（スコア0→1の順で最大4つ）
+  // 弱点領域（スコア0→1の順）。画面には2つだけ見せ、残りは詳細レポートへ誘導
   const w0=[],w1=[];
   answers.forEach((a,i)=>{ const s=SCORE[a]; if(s===0)w0.push(TOPICS[i]); else if(s===1)w1.push(TOPICS[i]); });
-  const focus=w0.concat(w1).slice(0,4);
+  const weakAll=w0.concat(w1);
+  const focus=weakAll.slice(0,2);
+  const moreCnt=Math.max(weakAll.length-2,0);
+  const teaser=moreCnt>0?`<li style="opacity:.75">…ほか ${moreCnt} 領域に改善余地（<b>詳細レポート</b>で全20項目を解説）</li>`:'';
   const focusHtml = focus.length
-    ? '<div class="focus"><div class="focus-h">▼ あなたの会社が優先的に整備すべき領域</div><ul>'+focus.map(t=>'<li>'+t+'</li>').join('')+'</ul></div>'
-    : '<div class="focus"><div class="focus-h">▼ 現状、大きな穴は見当たりません</div><p style="color:rgba(255,255,255,.82);font-size:13px;margin:0">運用ルールの磨き込みと全社定着で、さらに強い体制にできます。</p></div>';
+    ? '<div class="focus"><div class="focus-h">▼ 特に優先すべき領域（一部のみ表示）</div><ul>'+focus.map(t=>'<li>'+t+'</li>').join('')+teaser+'</ul></div>'
+    : '<div class="focus"><div class="focus-h">▼ 現状、大きな穴は見当たりません</div><p style="color:rgba(255,255,255,.82);font-size:13px;margin:0">全20項目の評価と、さらに強くする打ち手は詳細レポートでご確認いただけます。</p></div>';
+  // 診断コード（回答を符号化。LINEで送ってもらうと個別レポートを作成できる）
+  const code='MKA-'+pct+'-'+answers.map(a=>'ABC'[a]).join('');
   res.innerHTML=`
     <div class="pill" style="background:rgba(255,255,255,.12);color:#fff">あなたの会社のAIセキュリティ健全度</div>
     <div class="scorebig">${pct}<small>/100</small></div>
@@ -277,16 +290,32 @@ function showResult(scroll){
     <p>${msg}</p>
     ${focusHtml}
     <div class="offer">
-      <div class="offer-ic">📋</div>
+      <div class="offer-ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#7fe0d8" stroke-width="1.8"><path d="M6 3h8l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M8 11h8M8 15h8M8 7h4"/></svg></div>
       <div>
-        <b>この診断結果をもとに、御社だけの「AIガイドラインMVP（たたき台）」を作成してお渡しします。</b>
-        <span>上の重点領域に沿って、“まず決めるべきルールの方向性”を1枚に整理したたたき台を、公式LINEで無料配布。受け取り後の個別相談も無料です。</span>
+        <b>全20項目の「詳細診断レポート」は、公式LINE限定でお届けします（無料）。</b>
+        <span>項目ごとの評価と弱点の解説／優先度つき対策ステップ／御社向け「AIガイドラインMVP（たたき台）」まで入った、あなた専用レポートです。</span>
       </div>
     </div>
+    <div class="codebox">
+      <div class="cb-h">あなたの診断コード（レポート発行に必要です）</div>
+      <div class="cb-row"><code id="diagCode">${code}</code><button id="copyCode" type="button">コピー</button></div>
+      <ol class="cb-steps">
+        <li>上の診断コードを<b>コピー</b></li>
+        <li>下のボタンから<b>公式LINEを友だち追加</b></li>
+        <li>トークに<b>コードを貼り付けて送信</b>すると、詳細レポートが届きます</li>
+      </ol>
+    </div>
     <div class="cta">
-      <a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="assets/logos/line.svg" alt="LINE"/>LINEでガイドラインMVPを受け取る</a>
+      <a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="assets/logos/line.svg" alt="LINE"/>LINEで詳細レポートを受け取る</a>
       <a class="btn btn-ghost" href="claude-code.html">導入支援を見る</a>
     </div>`;
+  const cp=document.getElementById('copyCode');
+  if(cp){cp.addEventListener('click',function(){
+    function ok(){cp.textContent='コピーしました';setTimeout(function(){cp.textContent='コピー';},1800);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(code).then(ok).catch(function(){});}
+    else{var r=document.createRange();r.selectNode(document.getElementById('diagCode'));var s=getSelection();s.removeAllRanges();s.addRange(r);document.execCommand('copy');s.removeAllRanges();ok();}
+  });}
+  if(window.gtag){try{gtag('event','diagnosis_complete',{score:pct,level:level});}catch(e){}}
   res.classList.add('show');
   const sr=document.getElementById('seeResult'); if(sr) sr.style.display='none';
   requestAnimationFrame(()=>{setTimeout(()=>{const g=res.querySelector('.g'); if(g) g.style.width=pct+'%';},80);});
