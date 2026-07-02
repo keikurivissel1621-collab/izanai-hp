@@ -502,6 +502,7 @@ def render_index(arts):
 # ============ サイトマップ ============
 def write_sitemap(arts):
     static = [("/index_rebuild.html", "1.0", "weekly"),
+              ("/ai-agent.html", "0.9", "monthly"),
               ("/claude-code.html", "0.8", "monthly"),
               ("/lp.html", "0.6", "monthly"),
               ("/blog/", "0.9", "daily"),
