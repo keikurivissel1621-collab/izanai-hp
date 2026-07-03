@@ -4,9 +4,9 @@
 <script defer src="/assets/ga.js"></script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>3分AIセキュリティ診断｜株式会社MUKIAI</title>
-<meta name="description" content="無料・3分。あなたの会社のAIセキュリティ・利用リスクを20の観点でセルフチェック。情報漏えい・ガイドライン・個人情報・社員教育・法務・権限管理まで。診断後は御社向けのAIセキュリティ対策ガイドを公式LINEで無料配布。"/>
-<meta property="og:title" content="3分AIセキュリティ診断｜株式会社MUKIAI" />
+<title>3分AI活用力診断｜あなたの会社のAI活用タイプがわかる｜株式会社MUKIAI</title>
+<meta name="description" content="無料・3分・12問。かんたんな質問に答えるだけで、会社のAI活用力を「まもる力・つかう力・いかす力・すすめる力」の4軸で診断。あなたの会社のAI活用タイプも判定。詳細レポートは公式LINE限定で無料配布。"/>
+<meta property="og:title" content="3分AI活用力診断｜あなたの会社のAI活用タイプがわかる" />
 <meta property="og:type" content="website" />
 <meta property="og:image" content="https://shirubeai.com/assets/og-image.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
@@ -128,6 +128,13 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.6);text-align:center;
 .result .focus ul{list-style:none;display:grid;gap:8px}
 .result .focus li{font-size:14px;color:#fff;padding-left:24px;position:relative}
 .result .focus li::before{content:"";position:absolute;left:4px;top:7px;width:8px;height:8px;border-radius:2px;background:var(--gold)}
+.result .axes{max-width:520px;margin:26px auto 0;display:grid;gap:11px;text-align:left}
+.result .axis{display:flex;align-items:center;gap:12px}
+.result .ax-l{flex:none;width:92px;font-size:13.5px;font-weight:800;color:#fff}
+.result .ax-bar{flex:1;height:10px;background:rgba(255,255,255,.14);border-radius:999px;overflow:hidden}
+.result .ax-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#2b8a94,#7fe0d8)}
+.result .ax-v{flex:none;width:44px;font-size:14px;font-weight:800;color:#7fe0d8;text-align:right}
+.result .ax-v small{color:rgba(255,255,255,.5);font-weight:600;font-size:.75em}
 .result .codebox{background:#fff;border-radius:14px;padding:20px 22px;margin:22px auto 0;max-width:520px;text-align:left;color:#1a2b3c;box-shadow:0 18px 40px -18px rgba(0,0,0,.35)}
 .result .cb-h{font-size:12.5px;font-weight:800;color:#1f6f78;letter-spacing:.04em;margin-bottom:9px}
 .result .cb-row{display:flex;gap:10px;align-items:stretch}
@@ -147,14 +154,14 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.6);text-align:center;
 <section class="lp-hero">
   <div class="wrap">
     <span class="pill"><span class="dot"></span>無料・3分・登録不要</span>
-    <h1>あなたの会社のAI、<br><span class="mark">どこにリスクが潜んでいるか</span><br>3分でわかります。</h1>
-    <p class="lead">20の質問に答えるだけ。情報漏えい・ガイドライン・個人情報・社員教育・法務・権限管理まで、御社のAIセキュリティ状況をまるごとセルフチェック。診断後は、回答に基づく対策ガイドを無料でお渡しします。</p>
-    <div class="meta"><span>⏱ 所要 <b>約3分</b></span><span>📝 全 <b>20問</b></span><span>💰 完全 <b>無料</b></span></div>
+    <h1>うちの会社、AI使えてる？<br><span class="mark">4つの力とタイプ</span>が<br>3分でわかります。</h1>
+    <p class="lead">かんたんな12問に、直感でポチポチ答えるだけ。「まもる力・つかう力・いかす力・すすめる力」の4軸で、あなたの会社のAI活用力を診断。最後に<b>AI活用タイプ</b>も判定します。難しい知識は一切不要です。</p>
+    <div class="meta"><span>所要 <b>約3分</b></span><span>全 <b>12問</b></span><span>完全 <b>無料</b></span><span>タイプ判定つき</span></div>
   </div>
 </section>
 
 <section class="check">
-  <div class="progress"><div class="wrap"><div class="barbg"><div class="fill" id="fill"></div></div><div class="label">回答済み <b id="ans">0</b> / 20問</div></div></div>
+  <div class="progress"><div class="wrap"><div class="barbg"><div class="fill" id="fill"></div></div><div class="label">回答済み <b id="ans">0</b> / 12問</div></div></div>
   <div class="wrap" id="quiz"></div>
   <div class="wrap quiz-action">
     <button id="seeResult" class="see-result" type="button">診断結果を見る →</button>
@@ -164,11 +171,11 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.6);text-align:center;
 
 <section class="why">
   <div class="wrap">
-    <h2>なぜ「3分セキュリティ診断」が必要なのか</h2>
+    <h2>この診断でわかる3つのこと</h2>
     <div class="why-grid">
-      <div class="why-card"><div class="ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/><path d="M11 8v3l2 2"/></svg></div><h4>リスクは“見えない”ところに</h4><p>多くのAI事故は、現場の何気ない入力から起きます。まず自社の穴を可視化することが第一歩です。</p></div>
-      <div class="why-card"><div class="ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg></div><h4>何から手をつけるか分かる</h4><p>診断結果から、ガイドライン・研修・ツール選定のどこを優先すべきかが見えてきます。</p></div>
-      <div class="why-card"><div class="ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h8l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M8 11h8M8 15h8M8 7h4"/></svg></div><h4>詳細レポートが受け取れる</h4><p>全20項目の評価と対策をまとめた「詳細診断レポート」を、公式LINE限定で無料でお渡しします。</p></div>
+      <div class="why-card"><div class="ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19h16M7 19V9m5 10V5m5 14v-7"/></svg></div><h4>4つの力のバランス</h4><p>「まもる・つかう・いかす・すすめる」——会社のAI活用力を4軸のスコアで見える化します。</p></div>
+      <div class="why-card"><div class="ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M5 21a7 7 0 0 1 14 0"/></svg></div><h4>あなたの会社のAIタイプ</h4><p>「アクセル全開ノーガード型」「石橋を叩く慎重派」…？ 自社の型と伸ばし方がわかります。</p></div>
+      <div class="why-card"><div class="ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h8l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M8 11h8M8 15h8M8 7h4"/></svg></div><h4>詳細レポート（LINE限定）</h4><p>全12項目の評価と「明日からやること」をまとめた詳細レポートを、公式LINEで無料でお渡しします。</p></div>
     </div>
   </div>
 </section>
@@ -176,7 +183,7 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.6);text-align:center;
 <section class="final">
   <div class="wrap">
     <h2>あなた専用の「詳細診断レポート」を<br>公式LINE限定で無料お届け。</h2>
-    <p>「うちは何点だった」で終わらせないために。診断後に表示される<b>診断コード</b>をLINEで送るだけで、全20項目の評価・弱点の解説・優先度つき対策ステップをまとめた御社専用レポートをお渡しします。受け取り後の個別相談も無料です。</p>
+    <p>「うちは何タイプだった」で終わらせないために。診断後に表示される<b>診断コード</b>をLINEで送るだけで、全12項目の評価・4つの力の伸ばし方・タイプ別の攻略ステップをまとめた御社専用レポートをお渡しします。受け取り後の個別相談も無料です。</p>
     <a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener">
       <img class="linelogo" src="assets/logos/line.svg" alt="LINE"/>
       公式LINEで詳細レポートを受け取る
@@ -187,27 +194,25 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.6);text-align:center;
 <footer>© 2026 株式会社MUKIAI｜AI導入の不安を、先回りして取り除く。</footer>
 
 <script>
+// 12問・4軸（各3問）：まもる力／つかう力／いかす力／すすめる力
+// 選択肢は必ず 左=良い(2点)/中=まあまあ(1点)/右=これから(0点) の順（診断コードの互換性のため）
 const QUESTIONS=[
-  {q:"社員が、どのAIツールに何を入力しているかを会社として把握できていますか？",opts:["把握できている","一部だけ","把握していない"]},
-  {q:"AI利用に関する社内ガイドライン（禁止事項・利用範囲）は整備されていますか？",opts:["整備済み","作成中","未整備"]},
-  {q:"顧客情報・個人情報をAIに入力してよいか、明確なルールがありますか？",opts:["明確にある","曖昧","ルールなし"]},
-  {q:"社員に対してAIの安全な使い方の研修・教育を実施していますか？",opts:["実施済み","予定あり","未実施"]},
-  {q:"著作権・個人情報保護など、AI関連の法務観点を確認できる体制がありますか？",opts:["体制あり","検討中","なし"]},
-  {q:"利用中のAIツールが、入力データを学習に使わない設定になっているか確認していますか？",opts:["確認・設定済み","一部のみ","未確認"]},
-  {q:"機密情報の取り扱い区分（社外秘・極秘など）は明文化されていますか？",opts:["明文化済み","一部のみ","なし"]},
-  {q:"AIツールへのアクセス権限は、役割や部署に応じて管理されていますか？",opts:["管理している","一部のみ","全員自由"]},
-  {q:"誰がいつAIに何を入力したか、利用ログを記録・確認できますか？",opts:["できる","一部のみ","できない"]},
-  {q:"業務で使う生成AIツールは、会社として承認・選定していますか？",opts:["承認制で運用","一部のみ","各自任せ"]},
-  {q:"無料版・個人アカウントでの業務利用を制限していますか？",opts:["制限している","一部のみ","制限なし"]},
-  {q:"AIの出力をそのまま使わず、人による確認・チェックの工程がありますか？",opts:["ある","一部のみ","ない"]},
-  {q:"外部委託先・取引先のAI利用についてもルールを定めていますか？",opts:["定めている","検討中","なし"]},
-  {q:"AIに関するインシデント（誤情報・漏えい等）発生時の対応手順はありますか？",opts:["ある","検討中","なし"]},
-  {q:"経営層はAI活用・リスクについて関与し、意思決定していますか？",opts:["関与している","一部のみ","現場任せ"]},
-  {q:"AI活用の責任者・推進担当は明確に決まっていますか？",opts:["決まっている","兼任で曖昧","いない"]},
-  {q:"部門ごとに、AIで何をどこまでやってよいか整理されていますか？",opts:["整理済み","一部のみ","未整理"]},
-  {q:"社内データをAIに連携する際のセキュリティ対策はありますか？",opts:["ある","検討中","なし"]},
-  {q:"最新のAI法規制・ガイドラインの動きを継続的に把握していますか？",opts:["把握している","ときどき","していない"]},
-  {q:"全社的なAI活用方針・ロードマップはありますか？",opts:["ある","検討中","ない"]},
+  // まもる力
+  {q:"社員がAIに“お客様の情報”をうっかりコピペしてたら——気づけますか？",opts:["気づける仕組みがある","たぶん気づけない…","考えたこともなかった"]},
+  {q:"「これはAIに入れちゃダメ」というルール、会社にありますか？",opts:["ちゃんとある","なんとなく口頭で","ない（自由の国）"]},
+  {q:"AIが入力内容を勝手に学習しない“設定”、していますか？",opts:["バッチリ設定済み","一部だけ／自信ない","設定…？初耳です"]},
+  // つかう力
+  {q:"社内に「AI使いこなしてるな〜」という人、いますか？",opts:["けっこういる（3人以上）","1〜2人ならいる","自分も含めて怪しい"]},
+  {q:"社員のみなさん、AIをどのくらい使ってます？",opts:["ほぼ毎日","週に何回か","ほぼ使っていない"]},
+  {q:"AIへの指示文（プロンプト）を工夫して、答えの質を上げている人はいますか？",opts:["いる","聞いたことはある","プロンプトって何？"]},
+  // いかす力
+  {q:"毎日の繰り返し作業（転記・集計・コピペ）、AIやツールでラクにできていますか？",opts:["かなり自動化できてる","一部だけ","ぜんぶ人力です"]},
+  {q:"議事録・メール・資料づくりにAIを使っていますか？",opts:["がっつり使ってる","たまに使う","ぜんぶ手作業"]},
+  {q:"「この業務、AIでラクにならない？」という会話、社内で出ますか？",opts:["よく出る","たまに出る","出たことがない"]},
+  // すすめる力
+  {q:"AI活用って、会社として“誰かの担当”になっていますか？",opts:["担当が決まっている","詳しい人に何となく任せてる","誰もやっていない"]},
+  {q:"社長（あなた）自身は、AIをどのくらい触っていますか？",opts:["毎日触ってる","たまに触る","部下に任せている"]},
+  {q:"「1年後、AIで会社をこうしたい」というイメージ、ありますか？",opts:["明確にある","ぼんやりある","今日から考えます"]},
 ];
 const SCORE=[2,1,0]; // good=2, mid=1, bad=0
 const answers=Array(QUESTIONS.length).fill(null);
@@ -224,10 +229,17 @@ const res=document.createElement('div');res.className='result';res.id='result';q
 
 // 各設問の短い領域ラベル（QUESTIONSと同順）
 const TOPICS=[
-  "AI利用状況の把握","社内ガイドラインの整備","個人情報の入力ルール","社員教育・研修","法務観点の確認体制",
-  "学習に使わせない設定","機密情報の区分","アクセス権限の管理","利用ログの記録・確認","ツールの承認・選定",
-  "無料版・個人利用の制限","出力の人によるチェック","委託先・取引先のルール","インシデント対応手順","経営層の関与",
-  "推進責任者の明確化","部門別の利用範囲","社内データ連携の対策","法規制の継続把握","全社方針・ロードマップ"
+  "情報の入力管理","AI利用ルール","学習させない設定",
+  "AI人材の層","日常のAI利用度","プロンプトの工夫",
+  "繰り返し作業の自動化","文書業務でのAI活用","改善アイデアの文化",
+  "推進担当の明確さ","経営者のAI体感","AI活用ビジョン"
+];
+// 4軸（各3問）
+const AXES=[
+  {key:"まもる力",desc:"情報漏えい・ルールなどの守り",from:0},
+  {key:"つかう力",desc:"社員のAIスキル・リテラシー",from:3},
+  {key:"いかす力",desc:"業務での実践・効率化",from:6},
+  {key:"すすめる力",desc:"経営・体制・ビジョン",from:9},
 ];
 
 quiz.addEventListener('click',e=>{
@@ -265,35 +277,43 @@ document.getElementById('seeResult').addEventListener('click',function(){
 
 function showResult(scroll){
   const raw=answers.reduce((s,a)=>s+SCORE[a],0);
-  const pct=Math.round(raw/(QUESTIONS.length*2)*100);  // 0..100（健全度）
-  let level,color,msg;
-  if(pct>=80){level="リスク低";color="#2bb673";msg="基盤はかなり整っています。あとは全社定着と運用の磨き込みで、AIを“競争力”に変えていけます。";}
-  else if(pct>=50){level="リスク中";color="#e0a82e";msg="使い始めてはいるものの、ルールや教育に穴があります。事故が起きる前に、優先順位をつけて整備しましょう。";}
-  else{level="リスク高";color="#d9534f";msg="情報漏えい・法務リスクが高い状態です。まずガイドライン策定と社員教育から、早急に手を打つことをおすすめします。";}
+  const pct=Math.round(raw/(QUESTIONS.length*2)*100);  // 0..100（AI活用力スコア）
+  // 4軸スコア（各3問×2点=6点満点）
+  const axes=AXES.map(ax=>{let s=0;for(let i=ax.from;i<ax.from+3;i++)s+=SCORE[answers[i]];return Object.assign({},ax,{score:s,pct:Math.round(s/6*100)});});
+  // タイプ判定：守り（まもる力）×攻め（つかう+いかす+すすめる）
+  const mamoru=axes[0].score;                              // 0-6
+  const seme=axes[1].score+axes[2].score+axes[3].score;    // 0-18
+  let type,color,msg;
+  if(mamoru>=4&&seme>=12){type="AI経営の優等生タイプ";color="#2bb673";msg="攻めも守りもバランスの取れた理想形。あとは“全社の仕組み”に落とし込めば、AIが本物の競争力になります。";}
+  else if(mamoru<4&&seme>=12){type="アクセル全開・ノーガードタイプ";color="#e0a82e";msg="攻めっぷりは一流。ただし守りが無防備で、たった一度の情報漏えいで信用ごと吹き飛ぶリスクも。今のうちに“守り”だけ固めれば最強です。";}
+  else if(mamoru>=4&&seme<12){type="石橋を叩く慎重派タイプ";color="#5b9bd5";msg="守りは固いのに、AIの力が眠っていてもったいない状態。安全基盤があるからこそ、安心して攻めに転じられます。";}
+  else{type="伸びしろMAXタイプ";color="#d9534f";msg="正直、まだ何も始まっていません。でも裏を返せば、正しい順番で始めれば今いちばん伸びるのがこのタイプ。スタートを切るなら今です。";}
+  const axesHtml='<div class="axes">'+axes.map(a=>`<div class="axis"><span class="ax-l">${a.key}</span><div class="ax-bar"><div class="ax-fill" style="width:${a.pct}%"></div></div><span class="ax-v">${a.score}<small>/6</small></span></div>`).join('')+'</div>';
   // 弱点領域（スコア0→1の順）。画面には2つだけ見せ、残りは詳細レポートへ誘導
   const w0=[],w1=[];
   answers.forEach((a,i)=>{ const s=SCORE[a]; if(s===0)w0.push(TOPICS[i]); else if(s===1)w1.push(TOPICS[i]); });
   const weakAll=w0.concat(w1);
   const focus=weakAll.slice(0,2);
   const moreCnt=Math.max(weakAll.length-2,0);
-  const teaser=moreCnt>0?`<li style="opacity:.75">…ほか ${moreCnt} 領域に改善余地（<b>詳細レポート</b>で全20項目を解説）</li>`:'';
+  const teaser=moreCnt>0?`<li style="opacity:.75">…ほか ${moreCnt} 項目に伸びしろあり（<b>詳細レポート</b>で全12項目を解説）</li>`:'';
   const focusHtml = focus.length
-    ? '<div class="focus"><div class="focus-h">▼ 特に優先すべき領域（一部のみ表示）</div><ul>'+focus.map(t=>'<li>'+t+'</li>').join('')+teaser+'</ul></div>'
-    : '<div class="focus"><div class="focus-h">▼ 現状、大きな穴は見当たりません</div><p style="color:rgba(255,255,255,.82);font-size:13px;margin:0">全20項目の評価と、さらに強くする打ち手は詳細レポートでご確認いただけます。</p></div>';
+    ? '<div class="focus"><div class="focus-h">▼ まず伸ばすと効く項目（一部のみ表示）</div><ul>'+focus.map(t=>'<li>'+t+'</li>').join('')+teaser+'</ul></div>'
+    : '<div class="focus"><div class="focus-h">▼ 大きな弱点は見当たりません</div><p style="color:rgba(255,255,255,.82);font-size:13px;margin:0">全12項目の評価と、さらに伸ばす打ち手は詳細レポートでご確認いただけます。</p></div>';
   // 診断コード（回答を符号化。LINEで送ってもらうと個別レポートを作成できる）
-  const code='MKA-'+pct+'-'+answers.map(a=>'ABC'[a]).join('');
+  const code='MKA2-'+pct+'-'+answers.map(a=>'ABC'[a]).join('');
   res.innerHTML=`
-    <div class="pill" style="background:rgba(255,255,255,.12);color:#fff">あなたの会社のAIセキュリティ健全度</div>
+    <div class="pill" style="background:rgba(255,255,255,.12);color:#fff">あなたの会社のAI活用力スコア</div>
     <div class="scorebig">${pct}<small>/100</small></div>
     <div class="gauge"><div class="g" style="width:0;background:${color}"></div></div>
-    <h2>判定：${level}</h2>
+    <h2 style="line-height:1.5">あなたの会社は…<br><span style="color:${color}">「${type}」</span></h2>
     <p>${msg}</p>
+    ${axesHtml}
     ${focusHtml}
     <div class="offer">
       <div class="offer-ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#7fe0d8" stroke-width="1.8"><path d="M6 3h8l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M8 11h8M8 15h8M8 7h4"/></svg></div>
       <div>
-        <b>全20項目の「詳細診断レポート」は、公式LINE限定でお届けします（無料）。</b>
-        <span>項目ごとの評価と弱点の解説／優先度つき対策ステップ／御社向け「AIガイドラインMVP（たたき台）」まで入った、あなた専用レポートです。</span>
+        <b>全12項目＋4つの力の「詳細診断レポート」は、公式LINE限定でお届けします（無料）。</b>
+        <span>項目ごとの評価と伸ばし方／タイプ別の攻略ステップ／御社向け「AIガイドラインMVP（たたき台）」まで入った、あなた専用レポートです。</span>
       </div>
     </div>
     <div class="codebox">
@@ -315,7 +335,7 @@ function showResult(scroll){
     if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(code).then(ok).catch(function(){});}
     else{var r=document.createRange();r.selectNode(document.getElementById('diagCode'));var s=getSelection();s.removeAllRanges();s.addRange(r);document.execCommand('copy');s.removeAllRanges();ok();}
   });}
-  if(window.gtag){try{gtag('event','diagnosis_complete',{score:pct,level:level});}catch(e){}}
+  if(window.gtag){try{gtag('event','diagnosis_complete',{score:pct,ai_type:type});}catch(e){}}
   res.classList.add('show');
   const sr=document.getElementById('seeResult'); if(sr) sr.style.display='none';
   requestAnimationFrame(()=>{setTimeout(()=>{const g=res.querySelector('.g'); if(g) g.style.width=pct+'%';},80);});
