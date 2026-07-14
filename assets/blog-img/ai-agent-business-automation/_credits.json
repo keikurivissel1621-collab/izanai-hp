@@ -1,0 +1,18 @@
+{
+ "cover.jpg": {
+  "credit": "Photo by Mikhail Nilov on Pexels",
+  "req": false
+ },
+ "body-1.jpg": {
+  "credit": "Photo by Felicity Tai on Pexels",
+  "req": false
+ },
+ "body-2.jpg": {
+  "credit": "Photo by Kampus Production on Pexels",
+  "req": false
+ },
+ "body-3.jpg": {
+  "credit": "Photo by Tara Winstead on Pexels",
+  "req": false
+ }
+}
