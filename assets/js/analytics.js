@@ -150,7 +150,7 @@
 
   /* ---------------- Microsoft Clarity ---------------- */
   // 代表がClarityプロジェクト作成後、ここにプロジェクトIDを記入すると有効化される
-  var CLARITY_ID = "";
+  var CLARITY_ID = "xnaqkh3ivw";
 
   function loadClarity() {
     if (!CLARITY_ID) return;
