@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<script defer src="/assets/ga.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ChatGPTを使うと会社にバレる？バレる仕組みと今日からできる対策｜株式会社MUKIAI</title>
+<meta name="description" content="会社に内緒でChatGPTを使うとバレるのか、超初心者向けに解説。バレる経路は実は3つだけ。会社PCの記録・文章のAIっぽさ・情報漏えいの仕組みと、学習オフ設定、上司にそのまま送れる許可の取り方まで紹介します。"/>
+<link rel="canonical" href="https://shirubeai.com/blog/chatgpt-kaisha-bareru/"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="ChatGPTを使うと会社にバレる？バレる仕組みと今日からできる対策｜株式会社MUKIAI"/>
+<meta property="og:description" content="会社に内緒でChatGPTを使うとバレるのか、超初心者向けに解説。バレる経路は実は3つだけ。会社PCの記録・文章のAIっぽさ・情報漏えいの仕組みと、学習オフ設定、上司にそのまま送れる許可の取り方まで紹介します。"/>
+<meta property="og:url" content="https://shirubeai.com/blog/chatgpt-kaisha-bareru/"/>
+<meta property="og:image" content="https://shirubeai.com/assets/blog-img/chatgpt-kaisha-bareru/cover.jpg"/>
+<meta property="og:site_name" content="株式会社MUKIAI"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="ChatGPTを使うと会社にバレる？バレる仕組みと今日からできる対策｜株式会社MUKIAI"/>
+<meta name="twitter:description" content="会社に内緒でChatGPTを使うとバレるのか、超初心者向けに解説。バレる経路は実は3つだけ。会社PCの記録・文章のAIっぽさ・情報漏えいの仕組みと、学習オフ設定、上司にそのまま送れる許可の取り方まで紹介します。"/>
+<meta name="twitter:image" content="https://shirubeai.com/assets/blog-img/chatgpt-kaisha-bareru/cover.jpg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@500;600;700;900&display=swap" rel="stylesheet"/>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+<link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png"/>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+<link rel="icon" href="/favicon.ico" sizes="any"/>
+<link rel="stylesheet" href="/assets/blog.css?v=3"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "ChatGPTを使うと会社にバレる？バレる仕組みと今日からできる対策", "description": "会社に内緒でChatGPTを使うとバレるのか、超初心者向けに解説。バレる経路は実は3つだけ。会社PCの記録・文章のAIっぽさ・情報漏えいの仕組みと、学習オフ設定、上司にそのまま送れる許可の取り方まで紹介します。", "image": ["https://shirubeai.com/assets/blog-img/chatgpt-kaisha-bareru/cover.jpg"], "datePublished": "2026-07-16T09:00:00+09:00", "dateModified": "2026-07-16T09:00:00+09:00", "author": {"@type": "Organization", "name": "株式会社MUKIAI", "url": "https://shirubeai.com"}, "publisher": {"@type": "Organization", "name": "株式会社MUKIAI", "logo": {"@type": "ImageObject", "url": "https://shirubeai.com/assets/mukiai-logo.png"}}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://shirubeai.com/blog/chatgpt-kaisha-bareru/"}, "inLanguage": "ja", "keywords": "ChatGPT, 初心者, 情報漏えい, 社内ルール"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shirubeai.com/"}, {"@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://shirubeai.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "ChatGPTを使うと会社にバレる？バレる仕組みと今日からできる対策", "item": "https://shirubeai.com/blog/chatgpt-kaisha-bareru/"}]}</script>
+</head>
+<body><div class="progress" id="progress"></div>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="/index_rebuild.html" aria-label="株式会社MUKIAI ホーム"><img class="brand-logo" src="/assets/mukiai-logo-transparent.png" alt="株式会社MUKIAI"/></a>
+    <nav class="menu">
+      <a class="link" href="/index_rebuild.html#service">サービス</a>
+      <a class="link link-cc" href="/claude-code.html">Claude Code実装支援</a>
+      <a class="link" href="/index_rebuild.html#pricing">料金</a>
+      <a class="link current" href="/blog/">ブログ</a>
+      <a class="link" href="/index_rebuild.html#about">会社概要</a>
+      <a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="/assets/logos/line.svg" alt="LINE"/>無料相談</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="メニュー"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/index_rebuild.html#service">サービス</a>
+  <a href="/claude-code.html" style="color:var(--teal)">Claude Code実装支援 →</a>
+  <a href="/index_rebuild.html#pricing">料金</a>
+  <a href="/blog/">ブログ</a>
+  <a href="/index_rebuild.html#about">会社概要</a>
+  <a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="/assets/logos/line.svg" alt="LINE"/>公式LINEで無料相談</a>
+</div>
+<div class="wrap">
+  <div class="crumb"><a href="/index_rebuild.html">ホーム</a><span>›</span><a href="/blog/">ブログ</a><span>›</span>AI超入門</div>
+</div>
+<main class="article"><div class="wrap"><div class="article-grid">
+  <article class="article-main">
+    <div class="a-head">
+      <span class="chip">AI超入門</span>
+      <h1 class="a-title">ChatGPTを使うと会社にバレる？バレる仕組みと今日からできる対策</h1>
+      <div class="a-meta">
+        <span class="who"><img src="/assets/photos/profile-keisuke.jpg" alt="栗田 啓介" onerror="this.style.display='none'"/>株式会社MUKIAI</span>
+        <span class="dot"></span><time datetime="2026-07-16">2026年7月16日</time>
+        <span class="dot"></span><span>約4分で読めます</span>
+      </div>
+    </div>
+    <div class="a-cover"><img src="/assets/blog-img/chatgpt-kaisha-bareru/cover.jpg" alt="ChatGPTを使うと会社にバレる？バレる仕組みと今日からできる対策" loading="eager"/></div>
+    <nav class="toc-inline"><div class="toc-ttl">目次</div><ul class="toc-list"><li class="lv2"><a href="#3">バレる経路は3つだけ</a></li><li class="lv2"><a href="#1">経路1：会社のパソコンは「見られている」前提で考える</a></li><li class="lv2"><a href="#2ai">経路2：文章の「AIっぽさ」で気づかれる</a></li><li class="lv2"><a href="#3_1">経路3：入力した情報の「漏えい」から発覚する</a></li><li class="lv2"><a href="#_1">こっそり使うより「許可を取る」が最強の対策</a></li><li class="lv2"><a href="#_2">まとめ：怖がるより、経路を知って正しく使う</a></li></ul></nav>
+    <div class="prose">
+<p>結論から言うと、<strong>会社に内緒でChatGPTを使うと、バレる可能性は十分にあります</strong>。</p>
+<p>ただし、バレ方のパターンは実は<em>たった3つ</em>です。</p>
+<p>この3つの経路（＝バレるまでの道すじ）さえ知っておけば、「何が危なくて、どうすれば安心か」を自分で判断できるようになります。詳しく説明します。</p>
+<h2 id="3">バレる経路は3つだけ</h2>
+<p>「なんとなく怖い」の正体を先に整理します。会社にバレる道すじは、次の3つしかありません。</p>
+<p><span class="point">ポイント：バレる3経路 — (1)会社パソコンの記録 (2)文章のAIっぽさ (3)情報漏えいからの発覚。逆に言えば、ここを押さえれば怖くありません。</span></p>
+<table>
+<thead>
+<tr>
+<th>経路</th>
+<th>何でバレるか</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>経路1：会社パソコンの記録</td>
+<td>会社のPCやネット回線の利用は記録されている</td>
+</tr>
+<tr>
+<td>経路2：文章のAIっぽさ</td>
+<td>提出した文章の雰囲気で気づかれる</td>
+</tr>
+<tr>
+<td>経路3：情報漏えいからの発覚</td>
+<td>入力した内容が問題になって発覚する</td>
+</tr>
+</tbody>
+</table>
+<p>1つずつ、初めての方にも分かるように説明します。</p>
+<div class="cta-mid"><h4>AI導入、自己流で進めて大丈夫ですか？</h4><p>情報漏えい・社内ルール・法規制のリスクを整理し、全社で“使える状態”まで伴走します。まずは無料相談で、御社の状況に合わせた最初の一歩をお伝えします。</p><a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="/assets/logos/line.svg" alt="LINE"/>公式LINEで無料相談する</a><a class="sub-cta" href="/lp.html">相談はまだ早い方へ：まず3分AI活用力診断 →</a></div><h2 id="1">経路1：会社のパソコンは「見られている」前提で考える</h2>
+<p>多くの会社では、会社のパソコンや社内のネット回線に<u>「いつ・誰が・どのサイトにつないだか」の記録（ログ）</u>が残る仕組みが入っています。</p>
+<p>さらに、IT資産管理ツール（＝社員のパソコン操作を記録・管理する会社用ソフト）の中には、<strong>ChatGPTに何を書き込んだかまで記録し、まずい内容なら管理者に自動で知らせる</strong>製品が実際にあります（2026年7月時点、提供元の製品情報より）。</p>
+<blockquote>
+<p>つまり、会社のパソコンで「こっそり」は、そもそも成立しないと考えてください。使った事実は高い確率で記録に残っています。</p>
+</blockquote>
+<p>「じゃあ自分のスマホならバレない？」と思いますよね。自分のスマホ＋自分の回線なら、会社の記録には残りません。</p>
+<p>ただし、それで安心なのは経路1だけです。次の経路2・3は、スマホで使っても残ります。</p>
+<h2 id="2ai">経路2：文章の「AIっぽさ」で気づかれる</h2>
+<p>ChatGPTが書いた文章をそのまま提出すると、普段のあなたの文章との<em>雰囲気の違い</em>で気づかれることがあります。</p>
+<p>妙に丁寧すぎる。言い回しが急に整いすぎる。普段使わない言葉が出てくる。毎日あなたの文章を読んでいる上司ほど、この変化に敏感です。</p>
+<p>対策はシンプルで、<strong>AIの文章は必ず自分の言葉に直してから使う</strong>ことです。丸写しではなく「下書きを作ってもらう道具」として使えば、この経路はほぼ塞げます。</p>
+<p><img alt="パソコンの前で文章を見直す会社員" src="/assets/blog-img/chatgpt-kaisha-bareru/body-1.jpg" /></p>
+<h2 id="3_1">経路3：入力した情報の「漏えい」から発覚する</h2>
+<p>3つの中で、いちばん重大なのがこれです。</p>
+<p>ChatGPTに入力した文章は、あなたのパソコンの中ではなく、<u>運営会社（OpenAI）のコンピューターに送信されます</u>。設定によっては、入力内容がAIの学習（＝AIを賢くするための材料）に使われることもあります。</p>
+<p>ここに会社の機密情報やお客様の名前を入れてしまい、後から問題になって「無断で使っていたこと」ごと発覚する。これが最悪のパターンです。</p>
+<p>最低限の自衛策として、学習に使われない設定に変えておきましょう。手順は2ステップです（2026年7月時点の画面）。</p>
+<ol>
+<li>ChatGPTの「設定」→「データコントロール」を開く</li>
+<li>「すべての人のためにモデルを改善する」を<strong>オフ</strong>にする</li>
+</ol>
+<blockquote>
+<p>注意：この設定をしても「必ず安全」にはなりません。オフにする前の会話は対象外ですし、会社のルール違反が消えるわけでもありません。<strong>会社の機密・個人情報は、設定に関係なく入力しない</strong>が大原則です。</p>
+</blockquote>
+<h2 id="_1">こっそり使うより「許可を取る」が最強の対策</h2>
+<p>ここまで読んで「隠れて使うのは大変そうだな」と感じたなら、その感覚は正しいです。</p>
+<p>私の考えをはっきり言うと、<strong>バレない工夫を積み重ねるより、堂々と許可を取ってしまうのが最も安全で、最もラク</strong>です。バレる3経路はすべて「隠れて使っているから」問題になる話です。許可さえあれば、経路1は問題ですらなくなります。</p>
+<p>言い出しにくい方のために、上司にそのまま送れる相談文を用意しました。コピペして使ってください。</p>
+<blockquote>
+<p>お疲れさまです。〇〇の下書き作成にChatGPTを使ってみたいのですが、会社としてルールはありますでしょうか？機密情報や個人情報は入力せず、出力は必ず自分で確認してから使います。問題ないか一度ご確認いただけると助かります。</p>
+</blockquote>
+<p><span class="point">ポイント：「機密は入れない・出力は自分で確認する」の2点を先に約束するのがコツ。この一言があるだけで、上司側も許可を出しやすくなります。</span></p>
+<p>ちなみに、会社側に「そもそもルールがない」ケースも多いです。ルール作りから始めたい会社さんを、私たちは<a href="/index_rebuild.html#service">AI伴走支援</a>でお手伝いしています。もっと基礎から知りたい方もお気軽にどうぞ。</p>
+<h2 id="_2">まとめ：怖がるより、経路を知って正しく使う</h2>
+<p>この記事の要点です。</p>
+<ul>
+<li>バレる経路は<strong>3つだけ</strong>：会社の記録・文章のAIっぽさ・情報漏えい</li>
+<li>会社のパソコンでの「こっそり」は、記録に残る前提で考える</li>
+<li>学習オフ設定はやっておく。ただし機密・個人情報は入れないが大原則</li>
+<li>いちばんの対策は、相談文テンプレを使って<strong>堂々と許可を取る</strong>こと</li>
+</ul>
+<p>ChatGPTは、正しく使えば仕事の強い味方です。「バレるかも」とビクビク使うより、ルールを整えて安心して使える状態を作りましょう。超初心者さんの素朴な疑問こそ大歓迎です。</p>
+    </div>
+    <div style="margin-top:28px"><span class="chip" style="background:var(--gold-soft);color:#8a6d1f;margin-right:6px">#ChatGPT</span><span class="chip" style="background:var(--gold-soft);color:#8a6d1f;margin-right:6px">#初心者</span><span class="chip" style="background:var(--gold-soft);color:#8a6d1f;margin-right:6px">#情報漏えい</span><span class="chip" style="background:var(--gold-soft);color:#8a6d1f;margin-right:6px">#社内ルール</span></div>
+    
+
+    <!-- ===== 記事末CTA（自動） ===== -->
+    <div class="a-cta">
+      <div class="cta-line-box">
+        <div class="lead">AI導入の不安、ひとりで抱えていませんか？</div>
+        <p>「何から始めればいいか分からない」段階こそ相談どき。御社の状況に合わせた最初の一歩を、無料でお伝えします。</p>
+        <a class="btn" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="/assets/logos/line.svg" alt="LINE"/>公式LINEで無料相談する</a>
+        <a class="cta-sub" href="/lp.html">相談はまだ早い…という方は、まず「3分AI活用力診断」で自社の状態を診断 →</a>
+      </div>
+      <div class="cta-3">
+        <a href="/index_rebuild.html"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9.5 21v-6h5v6"/></svg></span><span class="t">トップページへ</span><span class="d">MUKIAIのサービス全体を見る</span></a>
+        <a href="/index_rebuild.html#about"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg></span><span class="t">私たちについて</span><span class="d">株式会社MUKIAIの想い・実績を知る</span></a>
+        <a href="/claude-code.html"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="m7.5 9 3 3-3 3"/><path d="M12.5 15h4"/></svg></span><span class="t">Claude Code実装支援</span><span class="d">全社AI自動化の導入支援</span></a>
+      </div>
+    </div>
+
+    <!-- 執筆者 -->
+    <div class="author-box">
+      <img src="/assets/photos/profile-keisuke.jpg" alt="栗田 啓介" onerror="this.style.visibility='hidden'"/>
+      <div>
+        <div class="nm">株式会社MUKIAI／ 栗田 啓介</div>
+        <div class="bio">「AI導入の不安を、先回りして取り除く」をミッションに、セキュリティに強いAI伴走支援を提供。情報漏えい・社内ルール・法規制のリスクを整理しながら、全社で“使える状態”まで伴走します。<a href="/index_rebuild.html#about">会社概要を見る →</a></div>
+      </div>
+    </div>
+
+    <section class="related"><h3>あわせて読みたい</h3><div class="rel-grid"><a class="post-card" href="/blog/medical-clinic-generative-ai/">
+  <div class="post-thumb"><img src="/assets/blog-img/medical-clinic-generative-ai/cover.jpg" alt="クリニックの生成AI活用｜受付・問診・電話を軽くする使い方と費用・注意点" loading="lazy"/><span class="ph-cat">業種別AI</span></div>
+  <div class="post-body">
+    <h2>クリニックの生成AI活用｜受付・問診・電話を軽くする使い方と費用・注意点</h2>
+    <p class="ex">クリニックの生成AI活用を院長向けに解説。人手不足に悩む医療機関が、電話一次対応やWEB問診、院内文書で何ができるか、月3千円からの費用、補助金、患者情報の扱いの注意点と始め方を2026年最新で整理します。</p>
+    <div class="pm"><time datetime="2026-07-15">2026年7月15日</time>・約12分</div>
+  </div>
+</a><a class="post-card" href="/blog/privacy-law-2026-amendment-ai/">
+  <div class="post-thumb"><img src="/assets/blog-img/privacy-law-2026-amendment-ai/cover.jpg" alt="個人情報保護法2026改正｜AIに個人情報が同意なしで使える本当の条件と経営者の注意点" loading="lazy"/><span class="ph-cat">AIセキュリティ</span></div>
+  <div class="post-body">
+    <h2>個人情報保護法2026改正｜AIに個人情報が同意なしで使える本当の条件と経営者の注意点</h2>
+    <p class="ex">2026年成立の改正個人情報保護法を経営者向けに解説。「AI開発に個人情報が同意不要で使える」の正確な意味と条件、同時に強化された課徴金・顔データ規制、自社が誤解すると危ない点と今から準備すべきことを最新情報で整理します。</p>
+    <div class="pm"><time datetime="2026-07-15">2026年7月15日</time>・約10分</div>
+  </div>
+</a><a class="post-card" href="/blog/ai-agent-business-automation/">
+  <div class="post-thumb"><img src="/assets/blog-img/ai-agent-business-automation/cover.jpg" alt="AIエージェントとは？中小企業の業務自動化での使い方・費用・リスク" loading="lazy"/><span class="ph-cat">AI活用</span></div>
+  <div class="post-body">
+    <h2>AIエージェントとは？中小企業の業務自動化での使い方・費用・リスク</h2>
+    <p class="ex">ChatGPTと何が違うのか不安な経営者へ。AIエージェント（自分で動くAI）の仕組み、中小企業での使い方、料金の目安、暴走や情報漏洩のリスク、失敗しない始め方5ステップを2026年最新で解説します。</p>
+    <div class="pm"><time datetime="2026-07-14">2026年7月14日</time>・約9分</div>
+  </div>
+</a></div></section>
+  </article>
+
+  <aside class="rail">
+    <div class="toc-card"><div class="toc-ttl">目次</div><ul class="toc-list"><li class="lv2"><a href="#3">バレる経路は3つだけ</a></li><li class="lv2"><a href="#1">経路1：会社のパソコンは「見られている」前提で考える</a></li><li class="lv2"><a href="#2ai">経路2：文章の「AIっぽさ」で気づかれる</a></li><li class="lv2"><a href="#3_1">経路3：入力した情報の「漏えい」から発覚する</a></li><li class="lv2"><a href="#_1">こっそり使うより「許可を取る」が最強の対策</a></li><li class="lv2"><a href="#_2">まとめ：怖がるより、経路を知って正しく使う</a></li></ul></div>
+    <div class="line-card">
+      <div class="t">まずは無料相談</div>
+      <div class="d">AI導入の最初の一歩を、御社に合わせてご提案します。</div>
+      <a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="/assets/logos/line.svg" alt="LINE"/>公式LINE</a>
+    </div>
+  </aside>
+</div></div></main>
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img class="foot-logo" src="/assets/mukiai-logo-white.png" alt="株式会社MUKIAI"/>
+        <p>株式会社MUKIAI｜AI導入の不安を、先回りして取り除く。セキュリティに強いAI伴走支援。</p>
+      </div>
+      <div class="foot-nav">
+        <div class="col"><h5>サービス</h5>
+          <a href="/index_rebuild.html#service">AI伴走支援</a><a href="/claude-code.html">Claude Code実装支援</a><a href="/index_rebuild.html#pricing">料金</a><a href="/blog/">ブログ</a><a href="/lp.html">3分AI活用力診断</a>
+        </div>
+        <div class="col"><h5>会社情報</h5>
+          <a href="/index_rebuild.html#about">会社概要</a><a href="/index_rebuild.html#ceo">代表者</a><a href="/index_rebuild.html#privacy">プライバシーポリシー</a><a href="/tokushoho.html">特定商取引法に基づく表記</a>
+        </div>
+        <div class="col"><h5>お問い合わせ</h5>
+          <a href="https://lin.ee/8upkUmI" target="_blank" rel="noopener">公式LINEで無料相談</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 株式会社MUKIAI</span><span>AI導入の不安を、先回りして取り除く。</span></div>
+  </div>
+</footer>
+<script src="/assets/blog.js"></script>
+</body>
+</html>
