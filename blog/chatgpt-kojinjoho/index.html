@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<script defer src="/assets/ga.js"></script>
+<script defer src="/assets/js/analytics.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ChatGPTに個人情報を入れてしまった…危険？今すぐやるべき2つのこと｜株式会社MUKIAI</title>
+<meta name="description" content="ChatGPTに名前や住所、会社名を入力してしまった人向けに超初心者向けで解説。すぐには漏れない理由と、それでも放置してはいけない3つの理由、3分でできる履歴削除と学習オフの手順、入れてはいけない情報リストまで紹介します。"/>
+<link rel="canonical" href="https://shirubeai.com/blog/chatgpt-kojinjoho/"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="ChatGPTに個人情報を入れてしまった…危険？今すぐやるべき2つのこと｜株式会社MUKIAI"/>
+<meta property="og:description" content="ChatGPTに名前や住所、会社名を入力してしまった人向けに超初心者向けで解説。すぐには漏れない理由と、それでも放置してはいけない3つの理由、3分でできる履歴削除と学習オフの手順、入れてはいけない情報リストまで紹介します。"/>
+<meta property="og:url" content="https://shirubeai.com/blog/chatgpt-kojinjoho/"/>
+<meta property="og:image" content="https://shirubeai.com/assets/blog-img/chatgpt-kojinjoho/cover.jpg"/>
+<meta property="og:site_name" content="株式会社MUKIAI"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="ChatGPTに個人情報を入れてしまった…危険？今すぐやるべき2つのこと｜株式会社MUKIAI"/>
+<meta name="twitter:description" content="ChatGPTに名前や住所、会社名を入力してしまった人向けに超初心者向けで解説。すぐには漏れない理由と、それでも放置してはいけない3つの理由、3分でできる履歴削除と学習オフの手順、入れてはいけない情報リストまで紹介します。"/>
+<meta name="twitter:image" content="https://shirubeai.com/assets/blog-img/chatgpt-kojinjoho/cover.jpg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@500;600;700;900&display=swap" rel="stylesheet"/>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+<link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png"/>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+<link rel="icon" href="/favicon.ico" sizes="any"/>
+<link rel="stylesheet" href="/assets/blog.css?v=3"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "ChatGPTに個人情報を入れてしまった…危険？今すぐやるべき2つのこと", "description": "ChatGPTに名前や住所、会社名を入力してしまった人向けに超初心者向けで解説。すぐには漏れない理由と、それでも放置してはいけない3つの理由、3分でできる履歴削除と学習オフの手順、入れてはいけない情報リストまで紹介します。", "image": ["https://shirubeai.com/assets/blog-img/chatgpt-kojinjoho/cover.jpg"], "datePublished": "2026-07-18T09:00:00+09:00", "dateModified": "2026-07-18T09:00:00+09:00", "author": {"@type": "Organization", "name": "株式会社MUKIAI", "url": "https://shirubeai.com"}, "publisher": {"@type": "Organization", "name": "株式会社MUKIAI", "logo": {"@type": "ImageObject", "url": "https://shirubeai.com/assets/mukiai-logo.png"}}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://shirubeai.com/blog/chatgpt-kojinjoho/"}, "inLanguage": "ja", "keywords": "ChatGPT, 初心者, 個人情報, プライバシー"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shirubeai.com/"}, {"@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://shirubeai.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "ChatGPTに個人情報を入れてしまった…危険？今すぐやるべき2つのこと", "item": "https://shirubeai.com/blog/chatgpt-kojinjoho/"}]}</script>
+</head>
+<body><div class="progress" id="progress"></div>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="/index_rebuild.html" aria-label="株式会社MUKIAI ホーム"><img class="brand-logo" src="/assets/mukiai-logo-transparent.png" alt="株式会社MUKIAI"/></a>
+    <nav class="menu">
+      <a class="link" href="/index_rebuild.html#service">サービス</a>
+      <a class="link link-cc" href="/claude-code.html">Claude Code実装支援</a>
+      <a class="link" href="/index_rebuild.html#pricing">料金</a>
+      <a class="link current" href="/blog/">ブログ</a>
+      <a class="link" href="/index_rebuild.html#about">会社概要</a>
+      <a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="/assets/logos/line.svg" alt="LINE"/>無料相談</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="メニュー"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/index_rebuild.html#service">サービス</a>
+  <a href="/claude-code.html" style="color:var(--teal)">Claude Code実装支援 →</a>
+  <a href="/index_rebuild.html#pricing">料金</a>
+  <a href="/blog/">ブログ</a>
+  <a href="/index_rebuild.html#about">会社概要</a>
+  <a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="/assets/logos/line.svg" alt="LINE"/>公式LINEで無料相談</a>
+</div>
+<div class="wrap">
+  <div class="crumb"><a href="/index_rebuild.html">ホーム</a><span>›</span><a href="/blog/">ブログ</a><span>›</span>AI超入門</div>
+</div>
+<main class="article"><div class="wrap"><div class="article-grid">
+  <article class="article-main">
+    <div class="a-head">
+      <span class="chip">AI超入門</span>
+      <h1 class="a-title">ChatGPTに個人情報を入れてしまった…危険？今すぐやるべき2つのこと</h1>
+      <div class="a-meta">
+        <span class="who"><img src="/assets/photos/profile-keisuke.jpg" alt="栗田 啓介" onerror="this.style.display='none'"/>株式会社MUKIAI</span>
+        <span class="dot"></span><time datetime="2026-07-18">2026年7月18日</time>
+        <span class="dot"></span><span>約12分で読めます</span>
+      </div>
+    </div>
+    <div class="a-cover"><img src="/assets/blog-img/chatgpt-kojinjoho/cover.jpg" alt="ChatGPTに個人情報を入れてしまった…危険？今すぐやるべき2つのこと" loading="eager"/></div>
+    <nav class="toc-inline"><div class="toc-ttl">目次</div><ul class="toc-list"><li class="lv2"><a href="#_1">結論：すぐに漏れることはない。でも「放置」はしない方がいい</a></li><li class="lv3"><a href="#_2">なぜ「すぐには漏れない」と言えるのか</a></li><li class="lv3"><a href="#3">それでも放置がまずい3つの理由</a></li><li class="lv2"><a href="#3_1">入力した個人情報は、どこへ行くのか（行き先は3つ）</a></li><li class="lv3"><a href="#1">行き先1：会話履歴（消すまでずっと残る）</a></li><li class="lv3"><a href="#2ai">行き先2：AIの学習素材（設定で止められる）</a></li><li class="lv3"><a href="#3_2">行き先3：メモリ（実は勝手に覚えられている）</a></li><li class="lv2"><a href="#23">今すぐやるべき2つのこと（3分で終わります）</a></li><li class="lv3"><a href="#1_1">やること1：入れてしまったチャットを削除する</a></li><li class="lv3"><a href="#2">やること2：学習をオフにする</a></li><li class="lv3"><a href="#_3">おまけ：メモリに残っていないか確認する</a></li><li class="lv2"><a href="#_4">削除したら本当に消える？消えるまでの時間</a></li><li class="lv2"><a href="#chatgpt">ChatGPTに入れてはいけない情報リスト</a></li><li class="lv3"><a href="#_5">「名前を伏せれば安全」は半分だけ正解</a></li><li class="lv2"><a href="#5">よくある勘違い5つ</a></li><li class="lv2"><a href="#_6">それでも不安な人へ：よくある質問</a></li><li class="lv3"><a href="#q1">Q1. もう何ヶ月も前に入れてしまいました。今からでも意味はありますか</a></li><li class="lv3"><a href="#q2">Q2. 一時チャットを使えば全部解決しますか</a></li><li class="lv3"><a href="#q3">Q3. 会社の情報を入れてしまいました。上司に報告すべきでしょうか</a></li><li class="lv3"><a href="#q4">Q4. 家族や取引先の情報を入れました。本人に伝えるべきですか</a></li><li class="lv3"><a href="#q5">Q5. アカウントごと削除するのが一番安全ですか</a></li><li class="lv2"><a href="#1_2">まとめ：怖がるより、設定を1回見直すほうが早い</a></li></ul></nav>
+    <div class="prose">
+<p>「しまった、本名で相談しちゃった」「会社の名前、そのまま打ち込んだ気がする」。</p>
+<p>そう思って検索してこの記事にたどり着いた方に、まず結論からお伝えします。</p>
+<p><strong>入力した個人情報が、今日明日にいきなり他人の画面に出てくる可能性は、ほとんどありません</strong>。ただし、<em>そのまま放置するのは避けたほうがいい</em>です。そして、やるべきことは<strong>たった2つ</strong>、時間にして3分で終わります。</p>
+<p>この記事では、入力した情報が実際どこへ行くのか、なぜ放置がまずいのか、今すぐ何をすればいいのかを、AIをほとんど使ったことがない方にも分かる言葉で順番に説明します。</p>
+<h2 id="_1">結論：すぐに漏れることはない。でも「放置」はしない方がいい</h2>
+<p>まず不安を正確なサイズに戻しましょう。ChatGPTに個人情報を打ち込んでも、それが検索結果に出たり、知らない誰かの画面に表示されたりすることは、通常ありません。</p>
+<p><span class="point">ポイント：怖いのは「今すぐ漏れること」ではなく、「あなたのアカウントの中に残り続けること」です。だから対処は"消す"と"止める"の2つになります。</span></p>
+<h3 id="_2">なぜ「すぐには漏れない」と言えるのか</h3>
+<p>ChatGPTは検索エンジンではありません。あなたが打ち込んだ文章がそのままどこかに公開される、という仕組みにはなっていないのです。</p>
+<p>AIは、入力された文章を丸ごと暗記して、誰かに聞かれたら取り出す――そういう作りではありません。膨大な文章から「言葉のつながり方の傾向」を学ぶ道具です。だから、あなたが書いた住所が、そっくりそのまま他人への回答に出てくる可能性は非常に低いと考えられます。</p>
+<blockquote>
+<p>たとえるなら、あなたが投函した手紙が、そのまま街の掲示板に貼り出されるわけではない、ということです。ただし手紙は郵便局の倉庫には残っています。</p>
+</blockquote>
+<h3 id="3">それでも放置がまずい3つの理由</h3>
+<p>「じゃあ気にしなくていいのか」と言うと、そうではありません。放置を勧められない理由は3つあります。</p>
+<ol>
+<li><strong>あなたのアカウントの中に、消すまでずっと残る</strong>。数年後に見返せる状態で残り続けます</li>
+<li><strong>設定によっては、AIの学習素材として使われる</strong>。可能性は低くとも、ゼロと言い切ることはできません</li>
+<li><strong>不具合や乗っ取りが起きたとき、被害の大きさが変わる</strong>。中身が空なら何も失いません</li>
+</ol>
+<p>3つ目は、想像上の話ではありません。<u>2023年3月、ChatGPTで他のユーザーのチャットのタイトルが見えてしまう不具合が実際に発生しました</u>。原因は内部で使われていたデータベース用ライブラリの不具合だったと発表されています。このとき、有料プラン利用者の氏名・メールアドレス・請求先住所・クレジットカード番号の下4桁が、他のユーザーに見えていた可能性があることも公表されました。</p>
+<p>会話の中身までは見えていなかったとされていますが、「システムに不具合は起こりうる」という事実は動きません。だからこそ、<em>残さなくていいものは残さない</em>のが最善の対策になります。</p>
+<p>まずは、あなたが入力した情報が今どこにあるのかを正確に把握しましょう。</p>
+<p><img alt="データの行き先を確認する" src="/assets/blog-img/chatgpt-kojinjoho/body-1.jpg" /></p>
+<div class="cta-mid"><h4>AI導入、自己流で進めて大丈夫ですか？</h4><p>情報漏えい・社内ルール・法規制のリスクを整理し、全社で“使える状態”まで伴走します。まずは無料相談で、御社の状況に合わせた最初の一歩をお伝えします。</p><a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="/assets/logos/line.svg" alt="LINE"/>公式LINEで無料相談する</a><a class="sub-cta" href="/lp.html">相談はまだ早い方へ：まず3分AI活用力診断 →</a></div><h2 id="3_1">入力した個人情報は、どこへ行くのか（行き先は3つ）</h2>
+<p>打ち込んだ文章の行き先は3つあります。多くの方が1つ目しか知らず、3つ目に気づいていません。</p>
+<table>
+<thead>
+<tr>
+<th>行き先</th>
+<th>どこに残るか</th>
+<th>自分で消せるか</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. 会話履歴</td>
+<td>あなたのアカウントの中</td>
+<td>消せる（削除操作）</td>
+</tr>
+<tr>
+<td>2. AIの学習素材</td>
+<td>提供元のシステム</td>
+<td>消せないが、これから先は止められる</td>
+</tr>
+<tr>
+<td>3. メモリ（AIの記憶）</td>
+<td>あなた専用のメモ欄</td>
+<td>消せる（ただし場所が別）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1">行き先1：会話履歴（消すまでずっと残る）</h3>
+<p>画面の左側に並んでいる過去のやりとりです。これは自分で削除するまで残ります。一番分かりやすく、一番簡単に消せる場所です。</p>
+<h3 id="2ai">行き先2：AIの学習素材（設定で止められる）</h3>
+<p>設定によっては、あなたの会話が「AIをより賢くするための材料」として使われます。ただしこれは設定で止められます。手順は次の章で説明します。</p>
+<p>一つだけ正直にお伝えすると、<strong>学習オフの設定は「これから先」にしか効きません</strong>。すでに使われた分をさかのぼって取り消すことはできません。とはいえ、今日から止めれば、明日以降の分は止まります。遅すぎるということはありません。</p>
+<h3 id="3_2">行き先3：メモリ（実は勝手に覚えられている）</h3>
+<p>ここが、多くの方の見落としポイントです。</p>
+<p>ChatGPTには「メモリ」という、<u>会話の中で出てきたあなたの情報を要約して覚えておく機能</u>があります。仕事の役割や好みの文体を覚えてもらえる便利な機能ですが、裏を返すと「あなたが何気なく話した個人的な情報が、要約されて別の場所に保存されている」ということでもあります。</p>
+<p>厄介なのは、<strong>チャットを削除しても、メモリに書き込まれた内容は消えない</strong>点です。履歴だけ消して安心してしまう人が多いのは、この2階建ての構造が知られていないからです。</p>
+<blockquote>
+<p>「履歴を消したから大丈夫」と思っていたのに、後日AIが自分の勤務先を知っていて驚いた――という体験談の正体は、たいていこのメモリです。</p>
+</blockquote>
+<p>3つの行き先が分かったところで、実際の対処に移ります。</p>
+<h2 id="23">今すぐやるべき2つのこと（3分で終わります）</h2>
+<p>やることは2つだけです。<strong>先に「消す」、次に「止める」</strong>。この順番で進めてください（以下は2026年7月時点の画面表示です。アプリの更新で名称が変わる場合があります）。</p>
+<h3 id="1_1">やること1：入れてしまったチャットを削除する</h3>
+<p>まず、個人情報を打ち込んだ会話そのものを消します。</p>
+<p><strong>スマホアプリの場合</strong></p>
+<ol>
+<li>左上のメニューを開き、過去のチャット一覧を表示する</li>
+<li>消したいチャットを長押しする（またはその行の「…」をタップ）</li>
+<li>「削除」を選ぶ</li>
+</ol>
+<p><strong>パソコン（ブラウザ）の場合</strong></p>
+<ol>
+<li>画面左のチャット一覧から、消したいものにカーソルを合わせる</li>
+<li>右端に出る「…」をクリックする</li>
+<li>「削除」を選ぶ</li>
+</ol>
+<p>心当たりのある会話が複数あるなら、面倒でも全部消してください。<em>一度削除すると元に戻せません</em>ので、残しておきたい内容があれば先にコピーしておきましょう。</p>
+<h3 id="2">やること2：学習をオフにする</h3>
+<p>次に、これから先の会話が学習に使われないようにします。</p>
+<ol>
+<li>画面の設定（歯車のマーク、またはプロフィールアイコンから「設定」）を開く</li>
+<li><strong>「データコントロール」</strong>を選ぶ</li>
+<li><strong>「すべての人のためにモデルを改善する」</strong>のスイッチを<strong>オフ</strong>にする</li>
+</ol>
+<p>この設定はアカウント全体に適用されます。パソコンでオフにすればスマホアプリにも反映されるので、両方で作業する必要はありません。</p>
+<p><span class="point">ポイント：スイッチの名前は「すべての人のためにモデルを改善する」。オンのままだと、あなたの会話が今後のAIの改良に使われます。オフにしても、ChatGPTの使い勝手は変わりません。</span></p>
+<h3 id="_3">おまけ：メモリに残っていないか確認する</h3>
+<p>先ほど説明した3つ目の行き先です。ここまでやって、はじめて片付いたと言えます。</p>
+<ol>
+<li>設定を開く</li>
+<li><strong>「パーソナライズ」</strong>を選ぶ</li>
+<li>メモリの欄にある<strong>「メモリを管理」</strong>を開く</li>
+</ol>
+<p>保存されている項目が一覧で出てきます。見覚えのない、あるいは消しておきたい項目があれば、各項目のゴミ箱マークで個別に削除できます。全部消したい場合は「メモリを消去」を選びます。</p>
+<p>一度開いてみると、「そんなことまで覚えていたのか」と驚く方が少なくありません。個人情報を入力した心当たりがあるなら、ここは必ず確認してください。</p>
+<p>では、消したものは本当に消えているのでしょうか。</p>
+<h2 id="_4">削除したら本当に消える？消えるまでの時間</h2>
+<p>答えは「<strong>画面からは即座に、システムからは原則30日以内</strong>」です（2026年7月時点、提供元の公式ヘルプで案内されている保持ポリシーによります）。</p>
+<p>削除操作をすると、そのチャットはすぐにあなたのアカウントから消えます。そのうえで、提供元のシステムからも原則30日以内に完全に削除される、と説明されています。ただし例外があります。</p>
+<table>
+<thead>
+<tr>
+<th>ケース</th>
+<th>扱い</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>通常の削除</td>
+<td>30日以内にシステムから完全削除</td>
+</tr>
+<tr>
+<td>すでに匿名化された会話</td>
+<td>アカウントとの結びつきが切れているため対象外</td>
+</tr>
+<tr>
+<td>法令や安全上の理由で保持が必要な場合</td>
+<td>より長く保持されることがある</td>
+</tr>
+<tr>
+<td>一時チャット</td>
+<td>30日後に削除</td>
+</tr>
+</tbody>
+</table>
+<p>つまり、「削除ボタンを押した瞬間に地球上から消える」わけではありません。ここは正直にお伝えしておきます。とはいえ、放置して残り続ける状態と、30日で消える予定の状態とでは、リスクの大きさがまったく違います。</p>
+<p>なお、削除した会話は<strong>あなた自身も復元できません</strong>。念のためもう一度書いておきます。</p>
+<p>次は、そもそも何を入れなければよかったのか、という話です。</p>
+<h2 id="chatgpt">ChatGPTに入れてはいけない情報リスト</h2>
+<p>今後のために、入力していいものと悪いものを整理しておきましょう。判断に迷ったときの基準は、<u>「これ、社外の人が見ている前でも同じことを言えるか」</u>です。</p>
+<table>
+<thead>
+<tr>
+<th>区分</th>
+<th>具体例</th>
+<th>理由</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>入れてはいけない</td>
+<td>マイナンバー、口座番号、クレジットカード番号、パスワード、保険証番号</td>
+<td>万一の際の被害が金銭に直結する</td>
+</tr>
+<tr>
+<td>入れてはいけない</td>
+<td>顧客・取引先の氏名や連絡先、契約書の中身、未公開の売上数字</td>
+<td>自分だけでなく他人・他社に迷惑がかかる</td>
+</tr>
+<tr>
+<td>入れてはいけない</td>
+<td>診断名などの健康情報、家族の詳しい事情</td>
+<td>取り扱いに特に配慮が必要な情報にあたる</td>
+</tr>
+<tr>
+<td>なるべく避ける</td>
+<td>自分の本名、住所、電話番号、勤務先名</td>
+<td>単体では軽く見えるが、組み合わさると特定につながる</td>
+</tr>
+<tr>
+<td>入れてOK</td>
+<td>一般的な相談、下書き、要約、アイデア出し、公開情報の整理</td>
+<td>本来の得意分野。遠慮なく使ってよい</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_5">「名前を伏せれば安全」は半分だけ正解</h3>
+<p>「A社」「Bさん」と書き換えれば安心、と考える方は多いです。方向性としては正しいのですが、油断はできません。</p>
+<p>たとえば「創業40年、従業員12名、〇〇市で金型加工をしているA社」と書けば、地元の人には一発で分かってしまいます。<strong>個人や会社は、名前ではなく"条件の組み合わせ"で特定される</strong>のです。伏せるときは、名前だけでなく、地域・規模・業種などの具体性も一段ぼかしてください。</p>
+<p>実際、業務での入力が問題になった事例もあります。2023年、サムスン電子では従業員が不具合の解消のために社内のソースコードを入力したり、会議の録音内容を議事録にするために入力したりしたことが判明し、社内での生成AI利用が一時的に禁止されました（その後、法人向けサービスに限定する形で段階的に再開されています）。</p>
+<p><strong>個人が困るだけでなく、会社の方針まで変わってしまう</strong>。これが、業務情報を安易に入力したときの本当のリスクです。</p>
+<p><img alt="入れてよい情報と避けるべき情報" src="/assets/blog-img/chatgpt-kojinjoho/body-2.jpg" /></p>
+<h2 id="5">よくある勘違い5つ</h2>
+<p>ここまでの内容と混同されやすいものを、まとめて整理しておきます。</p>
+<table>
+<thead>
+<tr>
+<th>よくある勘違い</th>
+<th>実際は</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>有料版なら学習されない</td>
+<td>個人向けの有料プランは、無料版と同じく設定次第。<strong>料金ではなく設定で決まります</strong></td>
+</tr>
+<tr>
+<td>履歴をオフにすれば学習もオフ</td>
+<td>別の設定です。学習を止めたいなら「データコントロール」の項目を確認してください</td>
+</tr>
+<tr>
+<td>画像やスクリーンショットなら大丈夫</td>
+<td>画像に写った文字も情報です。書類の撮影データは特に注意</td>
+</tr>
+<tr>
+<td>削除すればAIの記憶からも消える</td>
+<td>チャットは消えても、<strong>メモリに書き込まれた分は別に残ります</strong></td>
+</tr>
+<tr>
+<td>日本語だから読まれない</td>
+<td>言語は関係ありません</td>
+</tr>
+</tbody>
+</table>
+<p>いちばん多いのは1つ目です。「お金を払っているから安全」という感覚は、残念ながら根拠になりません。安全性を決めるのは<strong>プランではなく設定</strong>です。</p>
+<p>最後に、それでも残る細かい不安に答えます。</p>
+<h2 id="_6">それでも不安な人へ：よくある質問</h2>
+<h3 id="q1">Q1. もう何ヶ月も前に入れてしまいました。今からでも意味はありますか</h3>
+<p><strong>あります</strong>。過去に学習に使われた分は取り消せませんが、履歴を消せば「今後アカウント内に残り続けるリスク」はなくなります。学習オフも、今日設定すれば明日以降の会話には効きます。手遅れということはありません。</p>
+<h3 id="q2">Q2. 一時チャットを使えば全部解決しますか</h3>
+<p>かなり有効ですが、万能ではありません。一時チャット（会話が履歴に残らないモード）は、学習にも使われず、メモリにも書き込まれません。ただし提供元のシステムには30日間保持されます。</p>
+<p><em>「残さない」ことはできても、「一切送信しない」ことはできない</em>と理解してください。そもそも入れない、が最強の対策である点は変わりません。</p>
+<h3 id="q3">Q3. 会社の情報を入れてしまいました。上司に報告すべきでしょうか</h3>
+<p>内容によります。契約書の中身や顧客名簿など、社外に出てはいけない情報を入力してしまった場合は、<strong>早めに報告することをおすすめします</strong>。黙っていて後から発覚したときのほうが、事態は確実に大きくなるからです。</p>
+<p>報告のときは「削除済み・学習オフ済み」まで済ませてから伝えると、話がスムーズに進みます。社内にAI利用のルールがあるなら、あわせて確認しておきましょう。</p>
+<h3 id="q4">Q4. 家族や取引先の情報を入れました。本人に伝えるべきですか</h3>
+<p>一般的な相談の範囲（「親の介護について相談した」程度）なら、過度に心配する必要はありません。削除と設定の見直しで十分です。</p>
+<p>一方で、相手の氏名・連絡先・健康状態など、具体的で本人が知られたくないであろう情報を入力した場合は、対応の判断が変わります。取引先の情報であれば、社内の担当部署に相談してください。個別の判断が必要なケースは、社内規程や専門家の確認を取るのが確実です。</p>
+<h3 id="q5">Q5. アカウントごと削除するのが一番安全ですか</h3>
+<p>たしかに最も徹底した方法で、アカウントを削除すれば原則30日以内にデータが削除されると案内されています。ただし、有料プランの契約や過去のやりとりもすべて失われます。</p>
+<p>ここまで説明した「削除＋学習オフ＋メモリ整理」で、実務上は十分に対処できます。<strong>アカウント削除は、それでも不安が残る場合の最終手段</strong>と考えてください。</p>
+<h2 id="1_2">まとめ：怖がるより、設定を1回見直すほうが早い</h2>
+<p>長くなったので、要点を3つに絞ります。</p>
+<ol>
+<li><strong>入力した情報が即座に他人に見られる可能性は低い</strong>。危険なのは、消さずに残り続けること</li>
+<li><strong>やることは2つ。該当チャットを削除し、「データコントロール」で学習をオフにする</strong>。3分で終わります</li>
+<li><strong>見落としがちなのがメモリ</strong>。「パーソナライズ」→「メモリを管理」で中身を必ず確認する</li>
+</ol>
+<p>AIは、正しく怖がって正しく使えば、これほど心強い道具はありません。一度設定を整えてしまえば、あとは安心して使い続けられます。今日この記事を開けたなら、ついでに設定画面まで開いてしまうのが一番です。</p>
+<p>なお、これを会社全体でやろうとすると、「誰が何を入れていいのか」を決めるところから必要になります。私たちの支援でも、まずこの入力ルールを1枚にまとめるところから始めることがほとんどです。もっと基礎から知りたい方、自社の場合はどうすればいいか気になる方は、<a href="/index_rebuild.html#service">AI伴走支援の詳細</a>もご覧ください。お気軽にどうぞ。</p>
+    </div>
+    <div style="margin-top:28px"><span class="chip" style="background:var(--gold-soft);color:#8a6d1f;margin-right:6px">#ChatGPT</span><span class="chip" style="background:var(--gold-soft);color:#8a6d1f;margin-right:6px">#初心者</span><span class="chip" style="background:var(--gold-soft);color:#8a6d1f;margin-right:6px">#個人情報</span><span class="chip" style="background:var(--gold-soft);color:#8a6d1f;margin-right:6px">#プライバシー</span></div>
+    
+
+    <!-- ===== 記事末CTA（自動） ===== -->
+    <div class="a-cta">
+      <div class="cta-line-box">
+        <div class="lead">AI導入の不安、ひとりで抱えていませんか？</div>
+        <p>「何から始めればいいか分からない」段階こそ相談どき。御社の状況に合わせた最初の一歩を、無料でお伝えします。</p>
+        <a class="btn" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="/assets/logos/line.svg" alt="LINE"/>公式LINEで無料相談する</a>
+        <a class="cta-sub" href="/lp.html">相談はまだ早い…という方は、まず「3分AI活用力診断」で自社の状態を診断 →</a>
+      </div>
+      <div class="cta-3">
+        <a href="/index_rebuild.html"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9.5 21v-6h5v6"/></svg></span><span class="t">トップページへ</span><span class="d">MUKIAIのサービス全体を見る</span></a>
+        <a href="/index_rebuild.html#about"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg></span><span class="t">私たちについて</span><span class="d">株式会社MUKIAIの想い・実績を知る</span></a>
+        <a href="/claude-code.html"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="m7.5 9 3 3-3 3"/><path d="M12.5 15h4"/></svg></span><span class="t">Claude Code実装支援</span><span class="d">全社AI自動化の導入支援</span></a>
+      </div>
+    </div>
+
+    <!-- 執筆者 -->
+    <div class="author-box">
+      <img src="/assets/photos/profile-keisuke.jpg" alt="栗田 啓介" onerror="this.style.visibility='hidden'"/>
+      <div>
+        <div class="nm">株式会社MUKIAI／ 栗田 啓介</div>
+        <div class="bio">「AI導入の不安を、先回りして取り除く」をミッションに、セキュリティに強いAI伴走支援を提供。情報漏えい・社内ルール・法規制のリスクを整理しながら、全社で“使える状態”まで伴走します。<a href="/index_rebuild.html#about">会社概要を見る →</a></div>
+      </div>
+    </div>
+
+    <section class="related"><h3>あわせて読みたい</h3><div class="rel-grid"><a class="post-card" href="/blog/chatgpt-kaisha-bareru/">
+  <div class="post-thumb"><img src="/assets/blog-img/chatgpt-kaisha-bareru/cover.jpg" alt="ChatGPTを使うと会社にバレる？バレる仕組みと今日からできる対策" loading="lazy"/><span class="ph-cat">AI超入門</span></div>
+  <div class="post-body">
+    <h2>ChatGPTを使うと会社にバレる？バレる仕組みと今日からできる対策</h2>
+    <p class="ex">会社に内緒でChatGPTを使うとバレるのか、超初心者向けに徹底解説。バレる経路は実は3つだけ。会社PCの操作ログ・文章のAIっぽさ・情報漏えいの仕組みと、学習オフ設定の手順、上司にそのまま送れる許可の取り方まで紹介します。</p>
+    <div class="pm"><time datetime="2026-07-16">2026年7月16日</time>・約12分</div>
+  </div>
+</a><a class="post-card" href="/blog/generative-ai-expense-account-title/">
+  <div class="post-thumb"><img src="/assets/blog-img/generative-ai-expense-account-title/cover.jpg" alt="生成AI利用料の勘定科目｜経費計上・消費税・インボイスの実務【2026年】" loading="lazy"/><span class="ph-cat">補助金・制度</span></div>
+  <div class="post-body">
+    <h2>生成AI利用料の勘定科目｜経費計上・消費税・インボイスの実務【2026年】</h2>
+    <p class="ex">ChatGPTやClaudeの利用料は何費で落とす？勘定科目の選び方、2026年の円建て化・消費税10%開始、インボイス登録番号、税務調査で否認される落とし穴まで、中小企業の経営者向けに実務レベルで解説します。</p>
+    <div class="pm"><time datetime="2026-07-16">2026年7月16日</time>・約14分</div>
+  </div>
+</a><a class="post-card" href="/blog/medical-clinic-generative-ai/">
+  <div class="post-thumb"><img src="/assets/blog-img/medical-clinic-generative-ai/cover.jpg" alt="クリニックの生成AI活用｜受付・問診・電話を軽くする使い方と費用・注意点" loading="lazy"/><span class="ph-cat">業種別AI</span></div>
+  <div class="post-body">
+    <h2>クリニックの生成AI活用｜受付・問診・電話を軽くする使い方と費用・注意点</h2>
+    <p class="ex">クリニックの生成AI活用を院長向けに解説。人手不足に悩む医療機関が、電話一次対応やWEB問診、院内文書で何ができるか、月3千円からの費用、補助金、患者情報の扱いの注意点と始め方を2026年最新で整理します。</p>
+    <div class="pm"><time datetime="2026-07-15">2026年7月15日</time>・約12分</div>
+  </div>
+</a></div></section>
+  </article>
+
+  <aside class="rail">
+    <div class="toc-card"><div class="toc-ttl">目次</div><ul class="toc-list"><li class="lv2"><a href="#_1">結論：すぐに漏れることはない。でも「放置」はしない方がいい</a></li><li class="lv3"><a href="#_2">なぜ「すぐには漏れない」と言えるのか</a></li><li class="lv3"><a href="#3">それでも放置がまずい3つの理由</a></li><li class="lv2"><a href="#3_1">入力した個人情報は、どこへ行くのか（行き先は3つ）</a></li><li class="lv3"><a href="#1">行き先1：会話履歴（消すまでずっと残る）</a></li><li class="lv3"><a href="#2ai">行き先2：AIの学習素材（設定で止められる）</a></li><li class="lv3"><a href="#3_2">行き先3：メモリ（実は勝手に覚えられている）</a></li><li class="lv2"><a href="#23">今すぐやるべき2つのこと（3分で終わります）</a></li><li class="lv3"><a href="#1_1">やること1：入れてしまったチャットを削除する</a></li><li class="lv3"><a href="#2">やること2：学習をオフにする</a></li><li class="lv3"><a href="#_3">おまけ：メモリに残っていないか確認する</a></li><li class="lv2"><a href="#_4">削除したら本当に消える？消えるまでの時間</a></li><li class="lv2"><a href="#chatgpt">ChatGPTに入れてはいけない情報リスト</a></li><li class="lv3"><a href="#_5">「名前を伏せれば安全」は半分だけ正解</a></li><li class="lv2"><a href="#5">よくある勘違い5つ</a></li><li class="lv2"><a href="#_6">それでも不安な人へ：よくある質問</a></li><li class="lv3"><a href="#q1">Q1. もう何ヶ月も前に入れてしまいました。今からでも意味はありますか</a></li><li class="lv3"><a href="#q2">Q2. 一時チャットを使えば全部解決しますか</a></li><li class="lv3"><a href="#q3">Q3. 会社の情報を入れてしまいました。上司に報告すべきでしょうか</a></li><li class="lv3"><a href="#q4">Q4. 家族や取引先の情報を入れました。本人に伝えるべきですか</a></li><li class="lv3"><a href="#q5">Q5. アカウントごと削除するのが一番安全ですか</a></li><li class="lv2"><a href="#1_2">まとめ：怖がるより、設定を1回見直すほうが早い</a></li></ul></div>
+    <div class="line-card">
+      <div class="t">まずは無料相談</div>
+      <div class="d">AI導入の最初の一歩を、御社に合わせてご提案します。</div>
+      <a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="/assets/logos/line.svg" alt="LINE"/>公式LINE</a>
+    </div>
+  </aside>
+</div></div></main>
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img class="foot-logo" src="/assets/mukiai-logo-white.png" alt="株式会社MUKIAI"/>
+        <p>株式会社MUKIAI｜AI導入の不安を、先回りして取り除く。セキュリティに強いAI伴走支援。</p>
+      </div>
+      <div class="foot-nav">
+        <div class="col"><h5>サービス</h5>
+          <a href="/index_rebuild.html#service">AI伴走支援</a><a href="/claude-code.html">Claude Code実装支援</a><a href="/index_rebuild.html#pricing">料金</a><a href="/blog/">ブログ</a><a href="/lp.html">3分AI活用力診断</a>
+        </div>
+        <div class="col"><h5>会社情報</h5>
+          <a href="/index_rebuild.html#about">会社概要</a><a href="/index_rebuild.html#ceo">代表者</a><a href="/index_rebuild.html#privacy">プライバシーポリシー</a><a href="/tokushoho.html">特定商取引法に基づく表記</a>
+        </div>
+        <div class="col"><h5>お問い合わせ</h5>
+          <a href="https://lin.ee/8upkUmI" target="_blank" rel="noopener">公式LINEで無料相談</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 株式会社MUKIAI</span><span>AI導入の不安を、先回りして取り除く。</span></div>
+  </div>
+</footer>
+<script src="/assets/blog.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+ "cover.jpg": {
+  "credit": "Photo by www.kaboompics.com on Pexels",
+  "req": false
+ },
+ "body-1.jpg": {
+  "credit": "Photo by Lisa from Pexels on Pexels",
+  "req": false
+ },
+ "body-2.jpg": {
+  "credit": "Photo by cottonbro studio on Pexels",
+  "req": false
+ }
+}
