@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<script defer src="/assets/ga.js"></script>
+<script defer src="/assets/js/analytics.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ChatGPTはなぜ堂々と嘘をつく？「わかりません」と言わない理由｜株式会社MUKIAI</title>
+<meta name="description" content="ChatGPTがデタラメを自信満々に答える理由を、専門用語なしで解説。嘘が生まれる4つのパターン、信用していい質問・危ない質問の見分け方、嘘を減らす質問のコツ3つを実例つきで紹介します。"/>
+<link rel="canonical" href="https://shirubeai.com/blog/chatgpt-uso/"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="ChatGPTはなぜ堂々と嘘をつく？「わかりません」と言わない理由｜株式会社MUKIAI"/>
+<meta property="og:description" content="ChatGPTがデタラメを自信満々に答える理由を、専門用語なしで解説。嘘が生まれる4つのパターン、信用していい質問・危ない質問の見分け方、嘘を減らす質問のコツ3つを実例つきで紹介します。"/>
+<meta property="og:url" content="https://shirubeai.com/blog/chatgpt-uso/"/>
+<meta property="og:image" content="https://shirubeai.com/assets/blog-img/chatgpt-uso/cover.jpg"/>
+<meta property="og:site_name" content="株式会社MUKIAI"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="ChatGPTはなぜ堂々と嘘をつく？「わかりません」と言わない理由｜株式会社MUKIAI"/>
+<meta name="twitter:description" content="ChatGPTがデタラメを自信満々に答える理由を、専門用語なしで解説。嘘が生まれる4つのパターン、信用していい質問・危ない質問の見分け方、嘘を減らす質問のコツ3つを実例つきで紹介します。"/>
+<meta name="twitter:image" content="https://shirubeai.com/assets/blog-img/chatgpt-uso/cover.jpg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@500;600;700;900&display=swap" rel="stylesheet"/>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+<link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png"/>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+<link rel="icon" href="/favicon.ico" sizes="any"/>
+<link rel="stylesheet" href="/assets/blog.css?v=3"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "ChatGPTはなぜ堂々と嘘をつく？「わかりません」と言わない理由", "description": "ChatGPTがデタラメを自信満々に答える理由を、専門用語なしで解説。嘘が生まれる4つのパターン、信用していい質問・危ない質問の見分け方、嘘を減らす質問のコツ3つを実例つきで紹介します。", "image": ["https://shirubeai.com/assets/blog-img/chatgpt-uso/cover.jpg"], "datePublished": "2026-07-19T09:00:00+09:00", "dateModified": "2026-07-19T09:00:00+09:00", "author": {"@type": "Organization", "name": "株式会社MUKIAI", "url": "https://shirubeai.com"}, "publisher": {"@type": "Organization", "name": "株式会社MUKIAI", "logo": {"@type": "ImageObject", "url": "https://shirubeai.com/assets/mukiai-logo.png"}}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://shirubeai.com/blog/chatgpt-uso/"}, "inLanguage": "ja", "keywords": "ChatGPT, 初心者, ハルシネーション, 使い方"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shirubeai.com/"}, {"@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://shirubeai.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "ChatGPTはなぜ堂々と嘘をつく？「わかりません」と言わない理由", "item": "https://shirubeai.com/blog/chatgpt-uso/"}]}</script>
+</head>
+<body><div class="progress" id="progress"></div>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="/index_rebuild.html" aria-label="株式会社MUKIAI ホーム"><img class="brand-logo" src="/assets/mukiai-logo-transparent.png" alt="株式会社MUKIAI"/></a>
+    <nav class="menu">
+      <a class="link" href="/index_rebuild.html#service">サービス</a>
+      <a class="link link-cc" href="/claude-code.html">Claude Code実装支援</a>
+      <a class="link" href="/index_rebuild.html#pricing">料金</a>
+      <a class="link current" href="/blog/">ブログ</a>
+      <a class="link" href="/index_rebuild.html#about">会社概要</a>
+      <a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="/assets/logos/line.svg" alt="LINE"/>無料相談</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="メニュー"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/index_rebuild.html#service">サービス</a>
+  <a href="/claude-code.html" style="color:var(--teal)">Claude Code実装支援 →</a>
+  <a href="/index_rebuild.html#pricing">料金</a>
+  <a href="/blog/">ブログ</a>
+  <a href="/index_rebuild.html#about">会社概要</a>
+  <a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="/assets/logos/line.svg" alt="LINE"/>公式LINEで無料相談</a>
+</div>
+<div class="wrap">
+  <div class="crumb"><a href="/index_rebuild.html">ホーム</a><span>›</span><a href="/blog/">ブログ</a><span>›</span>AI超入門</div>
+</div>
+<main class="article"><div class="wrap"><div class="article-grid">
+  <article class="article-main">
+    <div class="a-head">
+      <span class="chip">AI超入門</span>
+      <h1 class="a-title">ChatGPTはなぜ堂々と嘘をつく？「わかりません」と言わない理由</h1>
+      <div class="a-meta">
+        <span class="who"><img src="/assets/photos/profile-keisuke.jpg" alt="栗田 啓介" onerror="this.style.display='none'"/>株式会社MUKIAI</span>
+        <span class="dot"></span><time datetime="2026-07-19">2026年7月19日</time>
+        <span class="dot"></span><span>約14分で読めます</span>
+      </div>
+    </div>
+    <div class="a-cover"><img src="/assets/blog-img/chatgpt-uso/cover.jpg" alt="ChatGPTはなぜ堂々と嘘をつく？「わかりません」と言わない理由" loading="eager"/></div>
+    <nav class="toc-inline"><div class="toc-ttl">目次</div><ul class="toc-list"><li class="lv2"><a href="#chatgpt">ChatGPTは「調べている」のではなく「続きを作っている」</a></li><li class="lv3"><a href="#_1">だから「もっともらしい嘘」だけが生まれる</a></li><li class="lv3"><a href="#_2">「ハルシネーション」という言葉の意味</a></li><li class="lv2"><a href="#_3">なぜ「わかりません」と言わないのか</a></li><li class="lv3"><a href="#ai">AIは「白紙で出すより、当てずっぽうで書く」受験生</a></li><li class="lv3"><a href="#ai_1">実際、「答えないAI」は損をしていた</a></li><li class="lv3"><a href="#_4">だから「有料版なら正確」ではない</a></li><li class="lv2"><a href="#chatgpt4">ChatGPTの嘘が生まれる4つのパターン</a></li><li class="lv3"><a href="#1">①存在しないものを、堂々とでっち上げる</a></li><li class="lv3"><a href="#2">②古い情報を、今の情報として答える</a></li><li class="lv3"><a href="#3">③数字や固有名詞だけが、微妙にズレる</a></li><li class="lv3"><a href="#4">④あなたの言い分に、話を合わせてくる</a></li><li class="lv2"><a href="#_5">信用していい場面・してはいけない場面</a></li><li class="lv3"><a href="#1_1">「答えが1つに決まる質問」ほど危ない、という逆説</a></li><li class="lv3"><a href="#_6">特に危ないのは「自分の専門外」の質問</a></li><li class="lv2"><a href="#3_1">嘘を減らす質問のコツ3つ</a></li><li class="lv3"><a href="#1_2">コツ1：「わからないときは、わからないと書いて」と先に伝える</a></li><li class="lv3"><a href="#2_1">コツ2：材料を自分で渡す</a></li><li class="lv3"><a href="#3_2">コツ3：出典を聞く。ただし、出典も疑う</a></li><li class="lv3"><a href="#_7">ビフォー・アフターで見る</a></li><li class="lv2"><a href="#qa">よくある勘違いQ&amp;amp;A</a></li><li class="lv3"><a href="#q">Q. 最近、前より嘘が増えた気がするのですが</a></li><li class="lv3"><a href="#q_1">Q. 「嘘をつかないで」と強く言えば直りますか</a></li><li class="lv3"><a href="#q-ai">Q. 他のAIなら嘘をつかないのですか</a></li><li class="lv3"><a href="#q_2">Q. 嘘をつくなら、使わないほうがいいのでは？</a></li><li class="lv3"><a href="#q_3">Q. 有料版にすれば安心して任せられますか</a></li><li class="lv2"><a href="#_8">まとめ</a></li></ul></nav>
+    <div class="prose">
+<p>ChatGPTに聞いたことが、後から調べたら真っ赤な嘘だった。しかも「本当ですか？」と念を押したのに、平然と「はい、事実です」と返してきた——。</p>
+<p>先に結論を言います。<strong>ChatGPTが嘘をつくのは、性格が悪いからでも、あなたを騙そうとしているからでもありません。あれは「知識を調べる道具」ではなく、「それっぽい文章の続きを作る道具」だからです。</strong> そして<u>「わかりません」と答えないのは、そう答えると損をするような育て方をされてきたから</u>です。これはOpenAI自身が2025年に論文で認めています。</p>
+<p>この記事では、AIを使ったことがほとんどない方に向けて、専門用語を使わずに次のことをお話しします。</p>
+<ul>
+<li>ChatGPTの「嘘」は、そもそも嘘とどう違うのか</li>
+<li>なぜ「知りません」と言わずに、堂々と作り話をするのか</li>
+<li>嘘が生まれる4つのパターンと、実際に起きた事件</li>
+<li>信用していい質問と、絶対に信用してはいけない質問の見分け方</li>
+<li>嘘を減らす、今日から使える質問のコツ3つ</li>
+</ul>
+<p>読み終わるころには、「ChatGPTは怖い」でも「ChatGPTは万能」でもない、ちょうどいい距離感がつかめるはずです。</p>
+<h2 id="chatgpt">ChatGPTは「調べている」のではなく「続きを作っている」</h2>
+<p>まずここが一番大事なところです。<strong>ChatGPTは、質問されたときに辞書やデータベースを調べに行っているわけではありません。</strong> 「この言葉のあとには、どんな言葉が続くと自然か」を、ものすごい精度で予測しているだけです。</p>
+<p>たとえば「日本の首都は」と入力されたら、その続きとして「東京です」が来るのが圧倒的に自然なので、そう出力します。結果として正解になりますが、<strong>ChatGPTは「東京が首都だと知っている」のではなく「東京と続けるのが自然だと判断している」</strong> のです。この違いが、すべての原因です。</p>
+<h3 id="_1">だから「もっともらしい嘘」だけが生まれる</h3>
+<p>自然な続きを作る道具なので、出てくる文章は<u>必ず「もっともらしい形」をしています</u>。ここが厄介なところです。</p>
+<p>人間が嘘をつくときは、目が泳いだり、言い方が曖昧になったり、どこかにサインが出ます。しかしChatGPTには、そのサインが一切ありません。正解を答えているときと、完全な作り話をしているときで、<strong>文章の自信のありようがまったく同じ</strong>なのです。</p>
+<blockquote>
+<p>人間の嘘は「隠そうとする」から不自然になります。ChatGPTの嘘は「隠そうとしていない」ので、どこまでも自然なままです。これが、多くの人が引っかかる理由です。</p>
+</blockquote>
+<h3 id="_2">「ハルシネーション」という言葉の意味</h3>
+<p>この現象には名前がついています。<strong>ハルシネーション</strong>（＝AIが事実でないことを、事実のように答えてしまう現象のこと）です。日本語では「幻覚」と訳されますが、要するに<u>「AIが自信満々にデタラメを言う現象」</u>と覚えておけば十分です。</p>
+<p>専門家がわざわざ「嘘」ではなく「ハルシネーション」と呼び分けるのには理由があります。<strong>嘘とは「本当のことを知っていて、あえて違うことを言う」行為</strong>です。ChatGPTはそもそも本当のことを「知って」いないので、厳密には嘘をついていない。ただ、受け取る側からすれば結果は同じです。だからこの記事では、あえて「嘘」という言葉のまま話を進めます。</p>
+<p><span class="point">ポイント：ChatGPTは検索エンジンの仲間ではなく、「文章を作る機械」の仲間です。この一点を勘違いしたまま使うと、必ず痛い目を見ます。</span></p>
+<p>では、なぜ知らないなら「知りません」と言ってくれないのでしょうか。ここにこそ、驚くほど人間くさい理由があります。</p>
+<div class="cta-mid"><h4>AI導入、自己流で進めて大丈夫ですか？</h4><p>情報漏えい・社内ルール・法規制のリスクを整理し、全社で“使える状態”まで伴走します。まずは無料相談で、御社の状況に合わせた最初の一歩をお伝えします。</p><a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="/assets/logos/line.svg" alt="LINE"/>公式LINEで無料相談する</a><a class="sub-cta" href="/lp.html">相談はまだ早い方へ：まず3分AI活用力診断 →</a></div><h2 id="_3">なぜ「わかりません」と言わないのか</h2>
+<p>答えは拍子抜けするほど単純です。<strong>「わかりません」と答えると、テストの点数が下がるように育てられてきたから</strong>です。</p>
+<p>これは私の推測ではありません。OpenAI（ChatGPTを作っている会社）とジョージア工科大学の研究チームが、2025年9月に公開した論文「Why Language Models Hallucinate（言語モデルはなぜ幻覚を起こすのか）」で示した見解です。</p>
+<h3 id="ai">AIは「白紙で出すより、当てずっぽうで書く」受験生</h3>
+<p>論文の冒頭には、こんな趣旨のたとえが出てきます。<u>難しい試験問題に直面した学生が、わからないと認める代わりに推測で答えてしまうのと同じことが、AIにも起きている</u>——と。</p>
+<p>考えてみれば当たり前の話です。4択問題で、わからないときに白紙で出せば0点が確定します。適当に選べば25%の確率で当たります。<strong>「わからない」に部分点がつかないルールのもとでは、当てずっぽうこそが最適な戦略</strong>になってしまうのです。</p>
+<p>AIの実力を測るテスト（ベンチマークと呼ばれます）の多くが、まさにこのルールでした。正解なら1点、不正解なら0点、「わかりません」も同じく0点。この採点方式でランキングが決まるので、<strong>AIを作る側は「とりあえず何か答えるAI」を作るほうが有利になる</strong>。論文はこの構造そのものが問題だと指摘しています。</p>
+<h3 id="ai_1">実際、「答えないAI」は損をしていた</h3>
+<p>同じ研究では、実際のAIモデルを比べた結果も示されています。<strong>わからないときに素直に棄権するモデルと、必ず何か答えるモデルを比べると、後者のほうが正答率はわずかに高い。ただし誤答率は約3倍に跳ね上がっていた</strong>（2025年9月時点、OpenAI公表の分析）。</p>
+<p>つまりこういうことです。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>必ず何か答えるAI</th>
+<th>わからないと言うAI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>正答率</td>
+<td>少しだけ高い</td>
+<td>少しだけ低い</td>
+</tr>
+<tr>
+<td>間違いの多さ</td>
+<td><strong>約3倍</strong></td>
+<td>少ない</td>
+</tr>
+<tr>
+<td>従来のテストの点数</td>
+<td>高い</td>
+<td>低い</td>
+</tr>
+<tr>
+<td>実務での使いやすさ</td>
+<td>低い（毎回検算が必要）</td>
+<td>高い</td>
+</tr>
+</tbody>
+</table>
+<p>まぐれ当たりの分だけ点数は上がるけれど、外れも激増する。それでも従来の採点方式では「点数の高いほう」が優秀とされてきました。</p>
+<p>論文が提案している解決策も、実にシンプルです。<strong>間違った答えにはより重いペナルティを課し、「わかりません」と正直に言った場合には部分点を与えるようにテストの採点方法を変えるべきだ</strong>、というもの。AIそのものを直すのではなく、AIを評価する物差しのほうを直そう、という提言です。</p>
+<h3 id="_4">だから「有料版なら正確」ではない</h3>
+<p>ここでよくある誤解を潰しておきます。「無料版だから嘘をつくんでしょう、課金すれば正確になるのでは？」という質問です。</p>
+<p>答えは<strong>ノー</strong>です。有料版で使える高性能なモデルは、確かに正答率が上がり、嘘の頻度も下がります。しかし<u>仕組みそのものは同じなので、ゼロにはなりません</u>。むしろ性能が上がるほど文章が上手くなり、<strong>嘘がより見抜きにくくなる</strong>という厄介な側面すらあります。</p>
+<blockquote>
+<p>「賢くなる」と「正直になる」は別の話です。ChatGPTは年々賢くなっていますが、それは「デタラメの精度が上がっている」ことも意味します。</p>
+</blockquote>
+<p>では、その嘘は具体的にどんな形で現れるのでしょうか。</p>
+<p><img alt="AIの回答を書類と照らし合わせて確認する様子" src="/assets/blog-img/chatgpt-uso/body-1.jpg" /></p>
+<h2 id="chatgpt4">ChatGPTの嘘が生まれる4つのパターン</h2>
+<p>嘘の出方には、はっきりした型があります。<strong>この4つを知っておくだけで、危険信号にかなり気づけるようになります。</strong></p>
+<table>
+<thead>
+<tr>
+<th>パターン</th>
+<th>どんな嘘か</th>
+<th>危険度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①でっち上げ</td>
+<td>存在しない本・法律・判例・論文を作り出す</td>
+<td><strong>非常に高い</strong></td>
+</tr>
+<tr>
+<td>②時間のズレ</td>
+<td>古い情報を、今の情報として答える</td>
+<td>高い</td>
+</tr>
+<tr>
+<td>③細部のズレ</td>
+<td>数字や固有名詞だけが微妙に違う</td>
+<td><strong>非常に高い</strong></td>
+</tr>
+<tr>
+<td>④迎合</td>
+<td>あなたの言い分に合わせて話を作る</td>
+<td>中〜高</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1">①存在しないものを、堂々とでっち上げる</h3>
+<p>一番有名で、一番危険なパターンです。実際に事件になっています。</p>
+<p>2023年、アメリカ・ニューヨークの連邦裁判所で、ある弁護士がChatGPTを使って作成した書類を提出しました。ところがそこに引用されていた判例が、<strong>実在しないものだった</strong>のです。存在しない裁判、間違った裁判官の名前、実在しない航空会社が関わっているかのような記述。担当した弁護士は制裁を受け、<strong>5,000ドルの罰金</strong>が科されました（2023年6月）。</p>
+<p>背筋が寒くなるのは、この弁護士がChatGPTに「これらの判例は本物ですか？」と確認していたことです。ChatGPTの答えは、<u>「はい、すべて事実です」</u>でした。</p>
+<p><strong>これが「続きを作る道具」の本質です。</strong> 「本物ですか？」と聞かれたら、「はい」と続けるのが自然な流れなので、そう答える。事実確認をしているわけではないのです。</p>
+<h3 id="2">②古い情報を、今の情報として答える</h3>
+<p>ChatGPTには、学習した情報の締め切り日があります。それ以降に起きたことは知りません。ところが<strong>「知らない」とは言わずに、締め切り時点の古い情報を、さも現在の話のように答えてしまう</strong>ことがあります。</p>
+<p>料金プラン、法律の改正、サービスの仕様、会社の担当者。この手の「変わるもの」を聞くときは特に注意が必要です。なお最近のChatGPTはWeb検索機能を持っていますが、<u>検索する場合としない場合があり、どちらで答えたかは画面をよく見ないとわかりません</u>。</p>
+<h3 id="3">③数字や固有名詞だけが、微妙にズレる</h3>
+<p>個人的に最も怖いと思っているのがこれです。<strong>全体の話の流れは完全に正しいのに、金額や年号、人名だけが少しだけ違う。</strong></p>
+<p>「〇〇制度の補助率は3分の2、上限450万円です」——制度は実在し、話の筋も合っている。でも上限額だけが違う。全体が正しく見えるぶん、疑う気持ちが働きません。丸ごとのデタラメより、こういう「9割正しい答え」のほうが実害が出やすいのです。</p>
+<h3 id="4">④あなたの言い分に、話を合わせてくる</h3>
+<p>「これって〇〇ですよね？」と決めつけて質問すると、ChatGPTはその前提に乗ってきます。間違った前提でも、それに合う説明を作ってしまう。<strong>質問の仕方そのものが、嘘を誘発している</strong>ケースです。</p>
+<p>さらに「本当に？間違ってない？」と強く問い詰めると、正しい答えだったのに<strong>あっさり撤回して間違った答えに変える</strong>こともあります。事実に基づいているのではなく、その場の会話の流れに沿っているだけだからです。</p>
+<p><span class="point">ポイント：ChatGPTに「本当ですか？」と聞いても、事実確認にはなりません。確認は必ずChatGPTの外で行ってください。</span></p>
+<p>パターンがわかったところで、次は実践編です。どんな質問なら安心して使えるのでしょうか。</p>
+<h2 id="_5">信用していい場面・してはいけない場面</h2>
+<p>見分け方には、たった一つの基準があります。<strong>「その答えが正しいかどうか、自分で確かめられるか」</strong> です。</p>
+<p>確かめられるなら使ってよい。確かめられないなら使ってはいけない。それだけです。</p>
+<table>
+<thead>
+<tr>
+<th>用途</th>
+<th>信用度</th>
+<th>理由</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>文章の下書き・言い換え</td>
+<td><strong>高い</strong></td>
+<td>読めば良し悪しが自分で判断できる</td>
+</tr>
+<tr>
+<td>要約・要点整理（材料を渡した場合）</td>
+<td><strong>高い</strong></td>
+<td>元の文と見比べられる</td>
+</tr>
+<tr>
+<td>アイデア出し・壁打ち</td>
+<td>高い</td>
+<td>正解が存在しないので嘘になりようがない</td>
+</tr>
+<tr>
+<td>翻訳</td>
+<td>中〜高</td>
+<td>ニュアンスのズレは残る</td>
+</tr>
+<tr>
+<td>メールや文章の添削</td>
+<td>高い</td>
+<td>結果を自分の目で確認できる</td>
+</tr>
+<tr>
+<td>一般常識の確認</td>
+<td>中</td>
+<td>有名な話ほど正確、マイナーなほど危険</td>
+</tr>
+<tr>
+<td>法律・制度・税金</td>
+<td><strong>低い</strong></td>
+<td>でっち上げの温床。必ず一次情報で確認</td>
+</tr>
+<tr>
+<td>具体的な数字・統計</td>
+<td><strong>低い</strong></td>
+<td>③のズレが起きやすい</td>
+</tr>
+<tr>
+<td>人名・会社の実績・経歴</td>
+<td><strong>非常に低い</strong></td>
+<td>平気で作り話をする</td>
+</tr>
+<tr>
+<td>医療・健康の判断</td>
+<td><strong>使わない</strong></td>
+<td>取り返しがつかない</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1_1">「答えが1つに決まる質問」ほど危ない、という逆説</h3>
+<p>多くの人が逆に考えています。「創作させるのは不安だけど、事実を聞くだけなら安全だろう」と。<strong>実際は真逆です。</strong></p>
+<p>アイデア出しや文章の言い換えには「正解」がありません。だから嘘が生まれる余地もない。一方、「この制度の上限額は？」のように答えが1つに決まる質問は、<strong>外れたら明確に間違い</strong>です。しかもChatGPTは、その1つを「知っている」わけではなく「それっぽく続けている」だけ。</p>
+<p><u>ChatGPTが本当に得意なのは、正解のない仕事です。</u> 正解のある仕事を任せるときこそ、人間の検算が要ります。</p>
+<h3 id="_6">特に危ないのは「自分の専門外」の質問</h3>
+<p>これは実務でも繰り返し目にしてきたことですが、<strong>自分が詳しい分野なら、ChatGPTの嘘には意外とすぐ気づきます。</strong> 「あれ、それは違うぞ」という違和感が働くからです。</p>
+<p>危険なのは、詳しくない分野。知らないからこそ聞いているわけで、返ってきた答えの真偽を判断する材料が手元にありません。<strong>知らないことを聞くときこそ、ChatGPTは最も危険になる</strong>——この逆説を頭に入れておいてください。</p>
+<p>では最後に、嘘そのものを減らす方法をお伝えします。</p>
+<h2 id="3_1">嘘を減らす質問のコツ3つ</h2>
+<p>完全にゼロにはできません。しかし、<strong>質問のしかたを変えるだけで、嘘の頻度は目に見えて減ります。</strong></p>
+<h3 id="1_2">コツ1：「わからないときは、わからないと書いて」と先に伝える</h3>
+<p>一番簡単で、一番効きます。質問の最後にこの一文を足すだけです。</p>
+<blockquote>
+<p>確実でない情報は書かないでください。わからない場合は「わかりません」と正直に書いてください。推測で答える場合は「推測ですが」と明記してください。</p>
+</blockquote>
+<p>「わからないと答えると損をする」ように育てられていると書きました。だったら、<strong>こちらから「わからないと答えていい」と許可を出せばいい</strong>わけです。これだけで、平然とでっち上げてくる確率がぐっと下がります。</p>
+<h3 id="2_1">コツ2：材料を自分で渡す</h3>
+<p><strong>ChatGPTの記憶に頼らせるのをやめて、こちらから資料を貼り付ける。</strong> これが最強の対策です。</p>
+<p>「〇〇制度について教えて」ではなく、公式サイトの説明文をコピーして貼り付け、「この文章の要点を3つに整理して」と頼む。こうすると、ChatGPTの仕事は「思い出す」ではなく「目の前の文章を整理する」に変わります。<u>手元にある材料を加工させるぶんには、嘘の入る余地がほとんどありません。</u></p>
+<p>PDFやファイルを読み込ませられる機能があるなら、それを使うのも同じ効果があります。</p>
+<h3 id="3_2">コツ3：出典を聞く。ただし、出典も疑う</h3>
+<p>「その情報の出典を教えてください」と聞くのは有効です。ただし<strong>大きな落とし穴があります。出典そのものをでっち上げることがある</strong>のです。</p>
+<p>存在しない本のタイトル、実在しないURL、それらしい論文名。冒頭の弁護士の事件がまさにこれでした。ですから、<strong>出典を聞いたら、その出典を自分で検索して実在を確認する</strong>までがセットです。手間に思えますが、これをやるかやらないかで信頼性はまるで変わります。</p>
+<h3 id="_7">ビフォー・アフターで見る</h3>
+<p>同じことを聞くにも、これだけ違います。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>危ない聞き方</th>
+<th>安全な聞き方</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>例</td>
+<td>「補助金の上限額を教えて」</td>
+<td>「この公募要領（貼り付け）から、上限額と補助率を抜き出して」</td>
+</tr>
+<tr>
+<td>例</td>
+<td>「これって〇〇ですよね？」</td>
+<td>「〇〇だと考えていますが、この理解は正しいですか。違う場合は指摘してください」</td>
+</tr>
+<tr>
+<td>例</td>
+<td>「〇〇社の実績を教えて」</td>
+<td>「〇〇社の公式サイトの文章（貼り付け）を要約して」</td>
+</tr>
+</tbody>
+</table>
+<p>私たちがAI導入のご支援に入る際も、社内ルールの一番最初に置くのは「事実確認が必要な用途では、必ず材料を渡す・出典を検算する」という運用の型づくりです。ツールを配るより、こうした使い方の型を先に決めるほうが、事故はずっと減ります。もっと基礎から知りたい方は、<a href="/index_rebuild.html#service">AI伴走支援の詳細</a>もご覧ください。</p>
+<h2 id="qa">よくある勘違いQ&amp;A</h2>
+<p>最後に、この話をすると必ず出てくる疑問にまとめてお答えします。</p>
+<h3 id="q">Q. 最近、前より嘘が増えた気がするのですが</h3>
+<p><strong>A. 実際に増えているというより、あなたの使い方が深くなった可能性が高いです。</strong> 簡単な質問から、専門的で細かい質問へと移ると、当然デタラメに当たる確率は上がります。ただしモデルの更新で得意分野が変わることは実際にあるので、体感が完全な気のせいとも言い切れません。</p>
+<h3 id="q_1">Q. 「嘘をつかないで」と強く言えば直りますか</h3>
+<p><strong>A. 一時的には効きますが、根本的には直りません。</strong> コツ1のように「わからないと言っていい」と許可を出すほうが、責めるより効果があります。感情的に問い詰めると、むしろ④の迎合を招いて正しい答えまで撤回されることがあります。</p>
+<h3 id="q-ai">Q. 他のAIなら嘘をつかないのですか</h3>
+<p><strong>A. どのAIも同じ仕組みなので、程度の差はあれ同様に起こります。</strong> GeminiもClaudeもCopilotも例外ではありません。Web検索と組み合わせるタイプは出典が確認しやすいぶん検算はしやすいですが、「検索結果の読み違え」という別の間違いが起きます。<strong>「このAIなら安全」は存在しない</strong>と考えてください。</p>
+<h3 id="q_2">Q. 嘘をつくなら、使わないほうがいいのでは？</h3>
+<p><strong>A. それは「電卓は打ち間違えるから使わない」と言うのに近い話です。</strong> 適した仕事に使えば圧倒的に速い。向かない仕事に使うと事故る。それだけのことです。この記事の信用度の表を、手元のメモに置いておくくらいの気持ちで十分です。</p>
+<h3 id="q_3">Q. 有料版にすれば安心して任せられますか</h3>
+<p><strong>A. 精度は上がりますが、検算が不要になるわけではありません。</strong> むしろ文章が上手くなるぶん、嘘に気づきにくくなる面があります。<u>「賢いAIほど、上手に間違える」</u>と覚えておいてください。</p>
+<h2 id="_8">まとめ</h2>
+<p>長くなったので、大事なところだけ3つに絞ります。</p>
+<ol>
+<li><strong>ChatGPTは調べているのではなく、それっぽい続きを作っている。</strong> だから正解のときとデタラメのときで、文章の自信のありようが同じです。</li>
+<li><strong>「わからない」と言わないのは、そう答えると損をする育て方をされてきたから。</strong> OpenAI自身が2025年9月の論文でそう認め、テストの採点方法を変えるべきだと提言しています。</li>
+<li><strong>判断基準は「自分で検算できるか」の一点。</strong> 正解のない仕事（下書き・整理・アイデア出し）は得意、正解のある仕事（数字・制度・人名）は要検算です。</li>
+</ol>
+<p>そして今日からできる一番簡単な一手は、質問の最後に「<strong>わからない場合は、わからないと書いてください</strong>」と付け足すこと。たった一行で、体感が変わります。</p>
+<p>ChatGPTは、疑いながら使えばとても優秀な相棒です。信じ切って使うと、いつか足をすくわれます。ちょうどいい距離感は、「よく知らない分野にやたら詳しそうに話す、話し上手な知人」くらいだと思ってください。</p>
+<p>自社での使い方やルールづくりで迷っている方は、お気軽にご相談ください。</p>
+    </div>
+    <div style="margin-top:28px"><span class="chip" style="background:var(--gold-soft);color:#8a6d1f;margin-right:6px">#ChatGPT</span><span class="chip" style="background:var(--gold-soft);color:#8a6d1f;margin-right:6px">#初心者</span><span class="chip" style="background:var(--gold-soft);color:#8a6d1f;margin-right:6px">#ハルシネーション</span><span class="chip" style="background:var(--gold-soft);color:#8a6d1f;margin-right:6px">#使い方</span></div>
+    
+
+    <!-- ===== 記事末CTA（自動） ===== -->
+    <div class="a-cta">
+      <div class="cta-line-box">
+        <div class="lead">AI導入の不安、ひとりで抱えていませんか？</div>
+        <p>「何から始めればいいか分からない」段階こそ相談どき。御社の状況に合わせた最初の一歩を、無料でお伝えします。</p>
+        <a class="btn" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="/assets/logos/line.svg" alt="LINE"/>公式LINEで無料相談する</a>
+        <a class="cta-sub" href="/lp.html">相談はまだ早い…という方は、まず「3分AI活用力診断」で自社の状態を診断 →</a>
+      </div>
+      <div class="cta-3">
+        <a href="/index_rebuild.html"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9.5 21v-6h5v6"/></svg></span><span class="t">トップページへ</span><span class="d">MUKIAIのサービス全体を見る</span></a>
+        <a href="/index_rebuild.html#about"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg></span><span class="t">私たちについて</span><span class="d">株式会社MUKIAIの想い・実績を知る</span></a>
+        <a href="/claude-code.html"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="m7.5 9 3 3-3 3"/><path d="M12.5 15h4"/></svg></span><span class="t">Claude Code実装支援</span><span class="d">全社AI自動化の導入支援</span></a>
+      </div>
+    </div>
+
+    <!-- 執筆者 -->
+    <div class="author-box">
+      <img src="/assets/photos/profile-keisuke.jpg" alt="栗田 啓介" onerror="this.style.visibility='hidden'"/>
+      <div>
+        <div class="nm">株式会社MUKIAI／ 栗田 啓介</div>
+        <div class="bio">「AI導入の不安を、先回りして取り除く」をミッションに、セキュリティに強いAI伴走支援を提供。情報漏えい・社内ルール・法規制のリスクを整理しながら、全社で“使える状態”まで伴走します。<a href="/index_rebuild.html#about">会社概要を見る →</a></div>
+      </div>
+    </div>
+
+    <section class="related"><h3>あわせて読みたい</h3><div class="rel-grid"><a class="post-card" href="/blog/beauty-salon-generative-ai/">
+  <div class="post-thumb"><img src="/assets/blog-img/beauty-salon-generative-ai/cover.jpg" alt="美容室の生成AI活用｜口コミ返信・予約・集客の使い方と費用・補助金" loading="lazy"/><span class="ph-cat">業種別AI</span></div>
+  <div class="post-body">
+    <h2>美容室の生成AI活用｜口コミ返信・予約・集客の使い方と費用・補助金</h2>
+    <p class="ex">美容室・サロンの生成AI活用を経営者向けに解説。口コミ返信やSNS投稿、予約対応の自動化でできること、月3,000円から始める費用の3段階、お客様情報のリスク、2026年に使える補助金まで実務レベルで紹介します。</p>
+    <div class="pm"><time datetime="2026-07-19">2026年7月19日</time>・約16分</div>
+  </div>
+</a><a class="post-card" href="/blog/chatgpt-kojinjoho/">
+  <div class="post-thumb"><img src="/assets/blog-img/chatgpt-kojinjoho/cover.jpg" alt="ChatGPTに個人情報を入れてしまった…危険？今すぐやるべき2つのこと" loading="lazy"/><span class="ph-cat">AI超入門</span></div>
+  <div class="post-body">
+    <h2>ChatGPTに個人情報を入れてしまった…危険？今すぐやるべき2つのこと</h2>
+    <p class="ex">ChatGPTに名前や住所、会社名を入力してしまった人向けに超初心者向けで解説。すぐには漏れない理由と、それでも放置してはいけない3つの理由、3分でできる履歴削除と学習オフの手順、入れてはいけない情報リストまで紹介します。</p>
+    <div class="pm"><time datetime="2026-07-18">2026年7月18日</time>・約12分</div>
+  </div>
+</a><a class="post-card" href="/blog/chatgpt-kaisha-bareru/">
+  <div class="post-thumb"><img src="/assets/blog-img/chatgpt-kaisha-bareru/cover.jpg" alt="ChatGPTを使うと会社にバレる？バレる仕組みと今日からできる対策" loading="lazy"/><span class="ph-cat">AI超入門</span></div>
+  <div class="post-body">
+    <h2>ChatGPTを使うと会社にバレる？バレる仕組みと今日からできる対策</h2>
+    <p class="ex">会社に内緒でChatGPTを使うとバレるのか、超初心者向けに徹底解説。バレる経路は実は3つだけ。会社PCの操作ログ・文章のAIっぽさ・情報漏えいの仕組みと、学習オフ設定の手順、上司にそのまま送れる許可の取り方まで紹介します。</p>
+    <div class="pm"><time datetime="2026-07-16">2026年7月16日</time>・約12分</div>
+  </div>
+</a></div></section>
+  </article>
+
+  <aside class="rail">
+    <div class="toc-card"><div class="toc-ttl">目次</div><ul class="toc-list"><li class="lv2"><a href="#chatgpt">ChatGPTは「調べている」のではなく「続きを作っている」</a></li><li class="lv3"><a href="#_1">だから「もっともらしい嘘」だけが生まれる</a></li><li class="lv3"><a href="#_2">「ハルシネーション」という言葉の意味</a></li><li class="lv2"><a href="#_3">なぜ「わかりません」と言わないのか</a></li><li class="lv3"><a href="#ai">AIは「白紙で出すより、当てずっぽうで書く」受験生</a></li><li class="lv3"><a href="#ai_1">実際、「答えないAI」は損をしていた</a></li><li class="lv3"><a href="#_4">だから「有料版なら正確」ではない</a></li><li class="lv2"><a href="#chatgpt4">ChatGPTの嘘が生まれる4つのパターン</a></li><li class="lv3"><a href="#1">①存在しないものを、堂々とでっち上げる</a></li><li class="lv3"><a href="#2">②古い情報を、今の情報として答える</a></li><li class="lv3"><a href="#3">③数字や固有名詞だけが、微妙にズレる</a></li><li class="lv3"><a href="#4">④あなたの言い分に、話を合わせてくる</a></li><li class="lv2"><a href="#_5">信用していい場面・してはいけない場面</a></li><li class="lv3"><a href="#1_1">「答えが1つに決まる質問」ほど危ない、という逆説</a></li><li class="lv3"><a href="#_6">特に危ないのは「自分の専門外」の質問</a></li><li class="lv2"><a href="#3_1">嘘を減らす質問のコツ3つ</a></li><li class="lv3"><a href="#1_2">コツ1：「わからないときは、わからないと書いて」と先に伝える</a></li><li class="lv3"><a href="#2_1">コツ2：材料を自分で渡す</a></li><li class="lv3"><a href="#3_2">コツ3：出典を聞く。ただし、出典も疑う</a></li><li class="lv3"><a href="#_7">ビフォー・アフターで見る</a></li><li class="lv2"><a href="#qa">よくある勘違いQ&amp;amp;A</a></li><li class="lv3"><a href="#q">Q. 最近、前より嘘が増えた気がするのですが</a></li><li class="lv3"><a href="#q_1">Q. 「嘘をつかないで」と強く言えば直りますか</a></li><li class="lv3"><a href="#q-ai">Q. 他のAIなら嘘をつかないのですか</a></li><li class="lv3"><a href="#q_2">Q. 嘘をつくなら、使わないほうがいいのでは？</a></li><li class="lv3"><a href="#q_3">Q. 有料版にすれば安心して任せられますか</a></li><li class="lv2"><a href="#_8">まとめ</a></li></ul></div>
+    <div class="line-card">
+      <div class="t">まずは無料相談</div>
+      <div class="d">AI導入の最初の一歩を、御社に合わせてご提案します。</div>
+      <a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="/assets/logos/line.svg" alt="LINE"/>公式LINE</a>
+    </div>
+  </aside>
+</div></div></main>
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img class="foot-logo" src="/assets/mukiai-logo-white.png" alt="株式会社MUKIAI"/>
+        <p>株式会社MUKIAI｜AI導入の不安を、先回りして取り除く。セキュリティに強いAI伴走支援。</p>
+      </div>
+      <div class="foot-nav">
+        <div class="col"><h5>サービス</h5>
+          <a href="/index_rebuild.html#service">AI伴走支援</a><a href="/claude-code.html">Claude Code実装支援</a><a href="/index_rebuild.html#pricing">料金</a><a href="/blog/">ブログ</a><a href="/lp.html">3分AI活用力診断</a>
+        </div>
+        <div class="col"><h5>会社情報</h5>
+          <a href="/index_rebuild.html#about">会社概要</a><a href="/index_rebuild.html#ceo">代表者</a><a href="/index_rebuild.html#privacy">プライバシーポリシー</a><a href="/tokushoho.html">特定商取引法に基づく表記</a>
+        </div>
+        <div class="col"><h5>お問い合わせ</h5>
+          <a href="https://lin.ee/8upkUmI" target="_blank" rel="noopener">公式LINEで無料相談</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 株式会社MUKIAI</span><span>AI導入の不安を、先回りして取り除く。</span></div>
+  </div>
+</footer>
+<script src="/assets/blog.js"></script>
+</body>
+</html>
