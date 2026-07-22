@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<script defer src="/assets/ga.js"></script>
+<script defer src="/assets/js/analytics.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AIで書いた文章はなぜバレる？見抜かれる5つのクセと直し方｜株式会社MUKIAI</title>
+<meta name="description" content="AIで書いた文章がバレる理由を超初心者向けに解説。見抜かれる5つのクセを実例つきで紹介し、検出ツールの本当の精度、AIっぽさを消す4ステップ、隠すべき場面と隠さなくていい場面まで正直にお伝えします。"/>
+<link rel="canonical" href="https://shirubeai.com/blog/ai-bunsho-bareru/"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="AIで書いた文章はなぜバレる？見抜かれる5つのクセと直し方｜株式会社MUKIAI"/>
+<meta property="og:description" content="AIで書いた文章がバレる理由を超初心者向けに解説。見抜かれる5つのクセを実例つきで紹介し、検出ツールの本当の精度、AIっぽさを消す4ステップ、隠すべき場面と隠さなくていい場面まで正直にお伝えします。"/>
+<meta property="og:url" content="https://shirubeai.com/blog/ai-bunsho-bareru/"/>
+<meta property="og:image" content="https://shirubeai.com/assets/blog-img/ai-bunsho-bareru/cover.jpg"/>
+<meta property="og:site_name" content="株式会社MUKIAI"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="AIで書いた文章はなぜバレる？見抜かれる5つのクセと直し方｜株式会社MUKIAI"/>
+<meta name="twitter:description" content="AIで書いた文章がバレる理由を超初心者向けに解説。見抜かれる5つのクセを実例つきで紹介し、検出ツールの本当の精度、AIっぽさを消す4ステップ、隠すべき場面と隠さなくていい場面まで正直にお伝えします。"/>
+<meta name="twitter:image" content="https://shirubeai.com/assets/blog-img/ai-bunsho-bareru/cover.jpg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@500;600;700;900&display=swap" rel="stylesheet"/>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+<link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png"/>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+<link rel="icon" href="/favicon.ico" sizes="any"/>
+<link rel="stylesheet" href="/assets/blog.css?v=3"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "AIで書いた文章はなぜバレる？見抜かれる5つのクセと直し方", "description": "AIで書いた文章がバレる理由を超初心者向けに解説。見抜かれる5つのクセを実例つきで紹介し、検出ツールの本当の精度、AIっぽさを消す4ステップ、隠すべき場面と隠さなくていい場面まで正直にお伝えします。", "image": ["https://shirubeai.com/assets/blog-img/ai-bunsho-bareru/cover.jpg"], "datePublished": "2026-07-22T09:00:00+09:00", "dateModified": "2026-07-22T09:00:00+09:00", "author": {"@type": "Organization", "name": "株式会社MUKIAI", "url": "https://shirubeai.com"}, "publisher": {"@type": "Organization", "name": "株式会社MUKIAI", "logo": {"@type": "ImageObject", "url": "https://shirubeai.com/assets/mukiai-logo.png"}}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://shirubeai.com/blog/ai-bunsho-bareru/"}, "inLanguage": "ja", "keywords": "ChatGPT, 初心者, 文章作成, AI検出"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://shirubeai.com/"}, {"@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://shirubeai.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "AIで書いた文章はなぜバレる？見抜かれる5つのクセと直し方", "item": "https://shirubeai.com/blog/ai-bunsho-bareru/"}]}</script>
+</head>
+<body><div class="progress" id="progress"></div>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="/index_rebuild.html" aria-label="株式会社MUKIAI ホーム"><img class="brand-logo" src="/assets/mukiai-logo-transparent.png" alt="株式会社MUKIAI"/></a>
+    <nav class="menu">
+      <a class="link" href="/index_rebuild.html#service">サービス</a>
+      <a class="link link-cc" href="/claude-code.html">Claude Code実装支援</a>
+      <a class="link" href="/index_rebuild.html#pricing">料金</a>
+      <a class="link current" href="/blog/">ブログ</a>
+      <a class="link" href="/index_rebuild.html#about">会社概要</a>
+      <a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="/assets/logos/line.svg" alt="LINE"/>無料相談</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="メニュー"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/index_rebuild.html#service">サービス</a>
+  <a href="/claude-code.html" style="color:var(--teal)">Claude Code実装支援 →</a>
+  <a href="/index_rebuild.html#pricing">料金</a>
+  <a href="/blog/">ブログ</a>
+  <a href="/index_rebuild.html#about">会社概要</a>
+  <a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="/assets/logos/line.svg" alt="LINE"/>公式LINEで無料相談</a>
+</div>
+<div class="wrap">
+  <div class="crumb"><a href="/index_rebuild.html">ホーム</a><span>›</span><a href="/blog/">ブログ</a><span>›</span>AI超入門</div>
+</div>
+<main class="article"><div class="wrap"><div class="article-grid">
+  <article class="article-main">
+    <div class="a-head">
+      <span class="chip">AI超入門</span>
+      <h1 class="a-title">AIで書いた文章はなぜバレる？見抜かれる5つのクセと直し方</h1>
+      <div class="a-meta">
+        <span class="who"><img src="/assets/photos/profile-keisuke.jpg" alt="栗田 啓介" onerror="this.style.display='none'"/>株式会社MUKIAI</span>
+        <span class="dot"></span><time datetime="2026-07-22">2026年7月22日</time>
+        <span class="dot"></span><span>約14分で読めます</span>
+      </div>
+    </div>
+    <div class="a-cover"><img src="/assets/blog-img/ai-bunsho-bareru/cover.jpg" alt="AIで書いた文章はなぜバレる？見抜かれる5つのクセと直し方" loading="eager"/></div>
+    <nav class="toc-inline"><div class="toc-ttl">目次</div><ul class="toc-list"><li class="lv2"><a href="#_1">まず結論：バレるのは「内容」ではなく「文章のクセ」</a></li><li class="lv3"><a href="#ai">人はAIを「見抜いて」いない。違和感を覚えているだけ</a></li><li class="lv3"><a href="#_2">判定ツールで「断定」されるケースは意外と少ない</a></li><li class="lv2"><a href="#ai5">AIで書いた文章が見抜かれる5つのクセ</a></li><li class="lv3"><a href="#1">クセ1：あたりさわりのない「万能フレーズ」が多い</a></li><li class="lv3"><a href="#2">クセ2：構成が整いすぎている</a></li><li class="lv3"><a href="#3">クセ3：具体が一つも入っていない</a></li><li class="lv3"><a href="#4">クセ4：温度がない（言い淀みも脱線もない）</a></li><li class="lv3"><a href="#5">クセ5：見た目のクセ（太字・絵文字・記号）</a></li><li class="lv2"><a href="#ai_1">AI検出ツールはどこまで当たるのか</a></li><li class="lv3"><a href="#openai">OpenAI自身が「精度が低い」と撤退している</a></li><li class="lv3"><a href="#_3">無実の人が疑われるほうが、実は深刻</a></li><li class="lv3"><a href="#20267">2026年7月時点の実力と、結果の正しい受け取り方</a></li><li class="lv2"><a href="#ai4">「AIっぽさ」を消す4ステップの直し方</a></li><li class="lv3"><a href="#11">手順1：自分だけが知っている具体を1つ足す</a></li><li class="lv3"><a href="#2_1">手順2：整いすぎた形を、あえて崩す</a></li><li class="lv3"><a href="#3_1">手順3：声に出して読み、自分が言わない言い回しを潰す</a></li><li class="lv3"><a href="#4_1">手順4：頼み方そのものを変える（コピペで使えます）</a></li><li class="lv2"><a href="#_4">そもそも隠す必要はあるのか</a></li><li class="lv3"><a href="#_5">隠さなくていい場面</a></li><li class="lv3"><a href="#_6">注意が必要な場面</a></li><li class="lv3"><a href="#_7">「隠す」より「使ったうえで自分の言葉にする」が最も安全</a></li><li class="lv2"><a href="#_8">よくある質問</a></li><li class="lv3"><a href="#q">Q. 少し書き換えれば、検出ツールは回避できますか</a></li><li class="lv3"><a href="#q-ai">Q. 有料版のAIを使えば、自然でバレませんか</a></li><li class="lv3"><a href="#q_1">Q. 日本語と英語で、バレやすさは違いますか</a></li><li class="lv3"><a href="#q-ai_1">Q. 自分で書いたのにAIだと疑われました。どう証明すればいいですか</a></li><li class="lv2"><a href="#_9">まとめ</a></li></ul></nav>
+    <div class="prose">
+<p>AIに書いてもらった文章を送ったら、「これ、AIで書いた？」と言われた。自分ではうまく書けたと思っていたのに、なぜか一発で見抜かれた——。</p>
+<p>先に結論を言います。<strong>AI文章がバレるのは、書いてある内容が間違っているからではありません。バレているのは「クセ」です。</strong> 具体的には5つあり、そのほとんどは<u>数分の手直しで消せる</u>ものです。</p>
+<p>そしてもう一つ、多くの人が誤解していることがあります。<strong>あなたを「AIだ」と見抜いているのは、判定ツールではなく、たいてい生身の人間の勘です。</strong> 判定ツールの精度は、あなたが思っているよりずっと当てになりません。実際、ChatGPTを作っているOpenAI自身が、自社の判定ツールを「精度が低い」という理由で取り下げています。</p>
+<p>この記事では、AIをまだ使い慣れていない方に向けて、専門用語を使わずに次のことをお話しします。</p>
+<ul>
+<li>なぜ読んだ人は「AIっぽい」と感じるのか、その正体</li>
+<li>見抜かれる5つのクセと、それぞれの直し方（ビフォーアフターつき）</li>
+<li>AI検出ツールは実際どこまで当たるのか（無実の人が疑われる問題も含めて）</li>
+<li>AIっぽさを消す4ステップ</li>
+<li>そもそも隠すべき場面と、隠さなくていい場面</li>
+</ul>
+<p>読み終わるころには、「バレないように怯えながら使う」のではなく、<strong>堂々と使って自分の文章に仕上げる</strong>やり方が身についているはずです。</p>
+<h2 id="_1">まず結論：バレるのは「内容」ではなく「文章のクセ」</h2>
+<p>多くの人が勘違いしているのですが、読み手は<u>あなたの文章の中身を検証してAIだと判断しているわけではありません</u>。読んだ瞬間の<strong>手ざわり</strong>で判断しています。</p>
+<p>たとえるなら、他人が書いた年賀状の宛名を見て「これ、印刷だな」と一瞬で分かる感覚に近いものです。文字が読めないわけでも、内容がおかしいわけでもない。ただ、線がきれいすぎるのです。</p>
+<h3 id="ai">人はAIを「見抜いて」いない。違和感を覚えているだけ</h3>
+<p>「これAIでしょ」と言ってくる人も、実は明確な根拠を持っていないことがほとんどです。彼らが感じ取っているのは、たった一つ。<strong>「この人が普段書く文章と、なんか違う」</strong>という差分です。</p>
+<p>だからこそ、対策の方向も見えてきます。AIっぽさを消すというより、<strong>あなたっぽさを足す</strong>ほうが早いのです。</p>
+<blockquote>
+<p>よくある失敗は、「もっと難しい言葉に変えれば人間っぽくなるだろう」と考えることです。逆効果です。難しい言葉ほどAIは得意なので、AIっぽさはむしろ強まります。</p>
+</blockquote>
+<h3 id="_2">判定ツールで「断定」されるケースは意外と少ない</h3>
+<p>学校や取引先が判定ツールにかけている、と心配する方もいます。もちろんゼロではありませんが、<strong>日常のやりとりでバレる経路の大半は人間の直感</strong>です。ツールの話は後半でくわしく扱いますが、先に一言だけ言っておくと、<u>ツールの判定は「証拠」として使えるほどの精度がありません</u>。</p>
+<p><span class="point">ポイント：AI文章は「内容」ではなく「クセ」でバレる。だから対策は、正しさを足すことではなく、あなたらしさを足すことです。</span></p>
+<p>では、その「クセ」とは具体的に何なのか。ここからが本題です。</p>
+<p><img alt="AIっぽい文章を赤ペンで直す" src="/assets/blog-img/ai-bunsho-bareru/body-1.jpg" /></p>
+<div class="cta-mid"><h4>AI導入、自己流で進めて大丈夫ですか？</h4><p>情報漏えい・社内ルール・法規制のリスクを整理し、全社で“使える状態”まで伴走します。まずは無料相談で、御社の状況に合わせた最初の一歩をお伝えします。</p><a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="/assets/logos/line.svg" alt="LINE"/>公式LINEで無料相談する</a><a class="sub-cta" href="/lp.html">相談はまだ早い方へ：まず3分AI活用力診断 →</a></div><h2 id="ai5">AIで書いた文章が見抜かれる5つのクセ</h2>
+<p>ここが本記事の核心です。AIが書いた日本語には、驚くほど共通した特徴が5つあります。逆に言えば、<strong>この5つさえ潰せば、ほとんど見抜かれません。</strong></p>
+<h3 id="1">クセ1：あたりさわりのない「万能フレーズ」が多い</h3>
+<p>一番わかりやすいのがこれです。AIは、どんなテーマでも使える便利な言い回しを好みます。</p>
+<p>代表的なのは次のような表現です。</p>
+<ul>
+<li>「〜という点が挙げられます」</li>
+<li>「〜が重要です」「〜が求められています」</li>
+<li>「近年、〜が注目されています」</li>
+<li>「〜と言えるでしょう」</li>
+<li>「まずは小さく始めることが大切です」</li>
+</ul>
+<p>どれも間違っていません。ただ、<strong>中身が何もない</strong>のです。読み手は「で、結局どうなの？」という物足りなさを覚え、そこでAIの気配を感じ取ります。</p>
+<p><strong>ビフォー（AIそのまま）</strong></p>
+<blockquote>
+<p>業務効率化においては、まず現状の課題を可視化することが重要です。そのうえで、適切なツールを選定していくことが求められます。</p>
+</blockquote>
+<p><strong>アフター（人間の手を入れた例）</strong></p>
+<blockquote>
+<p>まず、うちで一番時間を食っているのは月末の請求書づくりでした。3人で丸2日かかっています。だからツール選びより先に、この2日を測るところから始めました。</p>
+</blockquote>
+<p>言っていることはほぼ同じです。しかし後者は、<strong>誰かが実際に経験した匂い</strong>がします。これが決定的な差になります。</p>
+<h3 id="2">クセ2：構成が整いすぎている</h3>
+<p>AIは、頼まれてもいないのに「3つのポイント」を挙げます。そして必ず、きれいに最後をまとめます。</p>
+<ul>
+<li>理由を挙げるとき、判で押したように3つ</li>
+<li>各項目の文の長さがほぼ同じ</li>
+<li>「メリットとデメリット」のように、必ず対で語る</li>
+<li>どの段落も「つまり〜です」で締まる</li>
+</ul>
+<p>人間はここまで整いません。<strong>言いたいことが2つしかない日もあれば、1つの項目だけ異様に熱く語ってしまう日もある</strong>のが自然です。整いすぎた構成は、それ自体が指紋になります。</p>
+<p><strong>ビフォー</strong>：メリットは3つあります。①コスト削減 ②時間短縮 ③品質向上
+<strong>アフター</strong>：正直、効果があったのは時間短縮だけです。コストはほぼ変わりませんでした。</p>
+<h3 id="3">クセ3：具体が一つも入っていない</h3>
+<p>これは<em>最も強力な見抜かれポイント</em>です。AIは、あなたの会社の名前も、先月の数字も、上司に怒られた話も知りません。だから書けません。</p>
+<p>結果として、AI文章には次のものが決まって欠けています。</p>
+<ul>
+<li>固有名詞（社名、商品名、地名、人の名前）</li>
+<li>具体的な数字（金額、時間、件数、割合）</li>
+<li>日付や時期（「先週の火曜」「去年の年末」）</li>
+<li>失敗談、うまくいかなかった話</li>
+</ul>
+<p><u>逆に言えば、これらを一つ入れるだけで「AIっぽさ」は劇的に下がります。</u>AIには絶対に書けない情報だからです。</p>
+<h3 id="4">クセ4：温度がない（言い淀みも脱線もない）</h3>
+<p>人間の文章には、書いている人の体温が残ります。少し言い過ぎたり、途中で「まあ、これは好みの問題ですが」と保険をかけたり、関係ない話に脱線したりします。</p>
+<p>AIの文章は最初から最後まで<strong>同じ温度で、同じ丁寧さ</strong>です。淀みがありません。落ち着いて読める代わりに、誰の顔も浮かんできません。</p>
+<blockquote>
+<p>極端な話、AI文章は「うますぎる新人が書いた完璧な報告書」です。ミスがないのに、誰が書いたのか分からない。人はそこに違和感を覚えます。</p>
+</blockquote>
+<h3 id="5">クセ5：見た目のクセ（太字・絵文字・記号）</h3>
+<p>内容以前に、<strong>見た目でバレている</strong>ことも多いです。よくあるのはこの4つです。</p>
+<ol>
+<li>太字が多すぎる。1段落に何度も強調が入る</li>
+<li>絵文字が見出しの頭に規則正しく並んでいる</li>
+<li>「—」（長いダッシュ）が頻繁に出てくる。日本語ではあまり使わない記号です</li>
+<li>箇条書きの粒がそろいすぎている。全項目が同じ文字数、同じ語尾</li>
+</ol>
+<p>チャット画面からコピーして貼ると、AI特有の記号や書式がそのまま残ります。<strong>送る前に一度、書式なしのメモ帳に貼り直すだけでも印象が変わります。</strong></p>
+<h4 id="5_1">5つのクセ 早見表</h4>
+<table>
+<thead>
+<tr>
+<th>クセ</th>
+<th>出る症状</th>
+<th>直し方</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 万能フレーズ</td>
+<td>「重要です」「求められています」</td>
+<td>具体的な行動と数字に置き換える</td>
+</tr>
+<tr>
+<td>2 整いすぎ</td>
+<td>必ず3つ、必ずまとめる</td>
+<td>2つに減らす、まとめを1つ削る</td>
+</tr>
+<tr>
+<td>3 具体ゼロ</td>
+<td>固有名詞・数字・日付がない</td>
+<td>自分だけが知る事実を1つ足す</td>
+</tr>
+<tr>
+<td>4 温度がない</td>
+<td>全文が同じ丁寧さ</td>
+<td>本音や迷いを1文入れる</td>
+</tr>
+<tr>
+<td>5 見た目</td>
+<td>太字・絵文字・記号の多用</td>
+<td>装飾を半分に減らす</td>
+</tr>
+</tbody>
+</table>
+<p><span class="point">ポイント：5つのうち、最も効くのは「クセ3（具体を足す）」です。時間がないときは、これだけでもやってください。</span></p>
+<p>ここまでは人間の目の話でした。では、機械の判定はどうなのでしょうか。ここに大きな落とし穴があります。</p>
+<h2 id="ai_1">AI検出ツールはどこまで当たるのか</h2>
+<p>結論から言います。<strong>2026年7月時点で、AI検出ツールの判定を「証拠」として使うことはできません。</strong> これは私の意見ではなく、開発元自身の判断と、大学の研究が示している事実です。</p>
+<h3 id="openai">OpenAI自身が「精度が低い」と撤退している</h3>
+<p>ChatGPTを開発するOpenAIは、2023年1月にAI文章の判定ツールを公開しました。しかし<strong>同年7月20日、「正解率が低い」という理由で提供を終了しています。</strong></p>
+<p>そのときOpenAIが公表した数字が、なかなか衝撃的です（いずれも2023年7月時点の公式発表による）。</p>
+<ul>
+<li>AIが書いた文章のうち、正しく「AI製らしい」と判定できたのは<strong>26%だけ</strong></li>
+<li>一方で、<strong>人間が書いた文章の9%を、誤ってAI製と判定</strong>していた</li>
+<li>1,000文字未満の短い文章では、特に信頼できなかった</li>
+</ul>
+<p>作った本人が「これは使い物にならない」と引っ込めた、ということです。</p>
+<h3 id="_3">無実の人が疑われるほうが、実は深刻</h3>
+<p>さらに深刻なのが誤判定の問題です。米スタンフォード大学の研究チームが2023年に発表した調査では、<strong>7種類の検出ツールが、英語を母語としない学生の英作文の平均61.22%を「AIが書いた」と誤判定</strong>しました。91本の作文のうち89本（97.8%）が、少なくとも1つのツールでAI判定を受けています。</p>
+<p>原因は仕組みにあります。当時の検出ツールの多くは、<u>「言葉の選び方がどれくらい平凡か」</u>を手がかりにしていました。外国語として英語を書く人は、無理をせず素直な単語と構文を選びます。それが機械には「機械っぽい」と見えてしまったわけです。</p>
+<p>つまり、<strong>素直で読みやすい文章を書く人ほど、AI扱いされやすい</strong>という理不尽が起きています。</p>
+<h3 id="20267">2026年7月時点の実力と、結果の正しい受け取り方</h3>
+<p>では今はどうか。2026年7月時点の各種比較検証によると、主要ツールの実用精度はおおむね<strong>70〜90%</strong>とされています。たとえば代表的なツールであるGPTZeroは、2026年5月のあるテストで、AIが書いた文章10本のうち9本を正しく検出した一方、<strong>人間が書いた文章10本のうち2本をAI製と誤判定</strong>しています。</p>
+<p>さらに日本語には固有の弱点があります。敬語や漢字かな交じりの扱いが難しく、<strong>日本語の判定は英語より誤検知が多い傾向</strong>が指摘されています。</p>
+<table>
+<thead>
+<tr>
+<th>論点</th>
+<th>実態（2026年7月時点）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>主要ツールの精度</td>
+<td>おおむね70〜90%。100%はない</td>
+</tr>
+<tr>
+<td>誤判定</td>
+<td>人間の文章をAIと判定することが普通に起きる</td>
+</tr>
+<tr>
+<td>日本語</td>
+<td>英語より苦手。誤検知が出やすい</td>
+</tr>
+<tr>
+<td>使い方</td>
+<td>参考の目安。単独で結論を出してはいけない</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>判定ツールの結果は、健康診断の「要再検査」に近いものです。次に調べるきっかけにはなりますが、それ自体が診断ではありません。</p>
+</blockquote>
+<p><span class="point">ポイント：検出ツールは「絶対にバレない」も「必ずバレる」もどちらも間違い。当たることもあるし、無実の人を疑うこともある、その程度の道具です。</span></p>
+<p>精度が当てにならないなら、なおさら大事なのは中身です。次は具体的な直し方を見ていきます。</p>
+<p><img alt="文章を書き直す作業" src="/assets/blog-img/ai-bunsho-bareru/body-2.jpg" /></p>
+<h2 id="ai4">「AIっぽさ」を消す4ステップの直し方</h2>
+<p>ここまでのクセを踏まえた、実際の手順です。<strong>慣れれば1本あたり5分程度</strong>で終わります。</p>
+<h3 id="11">手順1：自分だけが知っている具体を1つ足す</h3>
+<p>まずこれをやってください。効果が一番大きいステップです。</p>
+<p>足すものは何でもかまいません。</p>
+<ul>
+<li>実際の数字（「3人で2日」「先月は12件」）</li>
+<li>固有名詞（部署名、商品名、取引先の業種）</li>
+<li>時期（「4月の繁忙期に」）</li>
+<li>うまくいかなかった話（「最初の1か月は誰も使いませんでした」）</li>
+</ul>
+<p><strong>AIはあなたの現場を知りません。だから、現場の情報が1つ入るだけで、その文章はあなたのものになります。</strong></p>
+<h3 id="2_1">手順2：整いすぎた形を、あえて崩す</h3>
+<p>AIが出した構成を、少しだけ壊します。</p>
+<ol>
+<li>「3つあります」を「2つあります」に減らす（本当に言いたいものだけ残す）</li>
+<li>見出しを1つ削る、または順番を入れ替える</li>
+<li>全部の段落を「つまり〜です」で締めるのをやめる</li>
+<li>1か所だけ、極端に短い一文を入れる</li>
+</ol>
+<p>たとえば「以上の理由から、導入を検討する価値は十分にあると言えるでしょう」を、「要するに、やる価値はあります。」に変えるだけでも印象が変わります。</p>
+<h3 id="3_1">手順3：声に出して読み、自分が言わない言い回しを潰す</h3>
+<p>これは地味ですが、効きます。<strong>声に出して読んで、少しでも気恥ずかしい部分</strong>が、あなたらしくない部分です。</p>
+<p>普段「〜が挙げられます」と口で言わない人が、文章でだけそう書けば、読み手には違和感として伝わります。自分の口から自然に出る言い方に置き換えてください。</p>
+<h3 id="4_1">手順4：頼み方そのものを変える（コピペで使えます）</h3>
+<p>そもそも、AIへの頼み方を変えれば、出てくる文章のクセも減らせます。次の文を、いつもの指示の後ろに貼るだけです。</p>
+<blockquote>
+<p>次のルールで書いてください。
+・「重要です」「求められています」など、内容のない一般論は使わない
+・「3つあります」のような整った形にしない。言うべきことだけを書く
+・太字と絵文字は使わない。長いダッシュ記号も使わない
+・書けない具体（数字・固有名詞）は、勝手に作らず【ここに数字】と空欄にする</p>
+</blockquote>
+<p>最後の一行が特に大事です。<u>AIは知らない数字を勝手に作ってしまう</u>ため、空欄にさせて自分で埋めるほうが、正確さの面でも安全です。</p>
+<p><span class="point">ポイント：手順1（具体を足す）と手順4（頼み方を変える）の2つだけでも、AIっぽさは半分以下になります。</span></p>
+<p>ここまでは「見抜かれないための技術」でした。ただ、その前に一度考えたほうがいいことがあります。</p>
+<h2 id="_4">そもそも隠す必要はあるのか</h2>
+<p>正直に言います。<strong>多くの場面で、隠す必要はありません。</strong> むしろ隠そうとするほうが、リスクが高いこともあります。</p>
+<h3 id="_5">隠さなくていい場面</h3>
+<p>次のようなものは、AIを使ったこと自体が問題になりません。仕上げに自分の手が入っていれば十分です。</p>
+<ul>
+<li>社内資料や議事録の下書き</li>
+<li>メールやチャットの叩き台</li>
+<li>企画のアイデア出し</li>
+<li>長い資料の要約</li>
+</ul>
+<p>道具を使って早く仕上げただけで、電卓を使ったことを隠さないのと同じです。</p>
+<h3 id="_6">注意が必要な場面</h3>
+<p>一方で、<strong>「あなた自身が書いたこと」に意味がある文章</strong>では、扱いが変わります。</p>
+<table>
+<thead>
+<tr>
+<th>場面</th>
+<th>注意点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>学校の課題・レポート</td>
+<td>学校ごとにルールが違う。必ず先に確認する</td>
+</tr>
+<tr>
+<td>応募書類・志望動機</td>
+<td>自分の言葉であることが評価対象。丸写しは危険</td>
+</tr>
+<tr>
+<td>署名記事・寄稿</td>
+<td>媒体の規約でAI利用の申告を求める場合がある</td>
+</tr>
+<tr>
+<td>投稿サイト・公募</td>
+<td>規約でAI生成物を禁止していることがある</td>
+</tr>
+</tbody>
+</table>
+<p>ここで大事なのは、<u>バレるかどうかではなく、ルール違反かどうか</u>です。ルール上禁止されている場所では、うまく隠せたとしても、後から発覚したときの損害のほうがはるかに大きくなります。</p>
+<h3 id="_7">「隠す」より「使ったうえで自分の言葉にする」が最も安全</h3>
+<p>一番おすすめしたいのは、<strong>AIに下書きさせて、自分の言葉に直したうえで、堂々と出す</strong>という使い方です。この形なら、クセも自然に消えますし、内容にも責任を持てます。</p>
+<p>会社として使う場合は、個人が隠れて使うより、「どこまで使ってよいか」を先に決めておくほうが安全です。私たちが企業のAI導入をお手伝いするときも、まず<strong>「この業務は下書きまでAI可、最終確認は人間」</strong>といった線引きを1枚の紙にまとめるところから始めています。ルールがないと、社員はかえって隠れて使うようになるからです。もう少し体系的に整えたい方は、<a href="/index_rebuild.html#service">AI伴走支援の詳細</a>もご覧ください。</p>
+<p><span class="point">ポイント：隠す技術より、「使っていい範囲」を決めるほうが本質的です。堂々と使えるなら、バレる心配自体がなくなります。</span></p>
+<p>最後に、よく聞かれる質問にまとめてお答えします。</p>
+<h2 id="_8">よくある質問</h2>
+<h3 id="q">Q. 少し書き換えれば、検出ツールは回避できますか</h3>
+<p><strong>ある程度は下がります。</strong> ただし、これを目的にするのはおすすめしません。前述のとおりツールの精度自体が70〜90%程度で、判定は日によっても文章によってもぶれます。<strong>「回避できた」と思っても、それは運の要素が大きい</strong>のが実情です。回避テクニックより、具体を足して自分の文章にするほうが、結果的に確実です。</p>
+<h3 id="q-ai">Q. 有料版のAIを使えば、自然でバレませんか</h3>
+<p>有料版のほうが文章は自然になりますが、<strong>5つのクセ自体は消えません。</strong> 特に「クセ3：具体が入っていない」は、どれだけ高性能なAIでも解決できません。AIはあなたの会社の先月の数字を知らないからです。ここは値段では埋まらない部分です。</p>
+<h3 id="q_1">Q. 日本語と英語で、バレやすさは違いますか</h3>
+<p>違います。<strong>判定ツールに関しては、日本語のほうが誤判定が多い傾向</strong>があります。つまり、AIで書いた日本語が見逃されることもあれば、自分で書いた日本語がAI扱いされることもあるということです。一方で、人間の目に対しては、日本語のほうが敬語や言い回しの不自然さが目立ちやすい面もあります。</p>
+<h3 id="q-ai_1">Q. 自分で書いたのにAIだと疑われました。どう証明すればいいですか</h3>
+<p>つらい状況ですが、有効な方法があります。<strong>執筆の過程を残しておくこと</strong>です。</p>
+<ul>
+<li>下書きや修正履歴が残る形で書く（クラウド上の文書ツールなど）</li>
+<li>メモや構想段階の走り書きを残しておく</li>
+<li>途中経過の日時が分かる形で保存しておく</li>
+</ul>
+<p>そのうえで、前述のスタンフォードの研究結果（<strong>素直な文章ほど誤判定されやすい</strong>という事実）を示して説明するのも一つの手です。判定ツールの結果は証拠にならない、というのは研究で裏づけられた話です。</p>
+<h2 id="_9">まとめ</h2>
+<p>長くなったので、要点を3つに絞ります。</p>
+<ol>
+<li><strong>バレているのは内容ではなくクセ</strong>。万能フレーズ、整いすぎた構成、具体の欠如、温度のなさ、装飾の多さ——この5つです</li>
+<li><strong>検出ツールは当てにならない</strong>。OpenAI自身が精度26%で撤退し（2023年7月時点）、素直な文章を書く人ほど誤って疑われる問題も起きています</li>
+<li><strong>最も効く対策は「自分だけが知っている具体を1つ足す」</strong>。数字、固有名詞、失敗談。AIには絶対に書けない部分が、あなたの文章の証明になります</li>
+</ol>
+<p>AIで文章を書くこと自体は、まったく悪いことではありません。問題になるのは、<strong>AIが書いたままの、誰の顔も見えない文章を、自分の言葉として出してしまうこと</strong>です。最後のひと手間を惜しまなければ、AIは静かに助けてくれる、とても優秀な下書き係になります。</p>
+<p>自社の場合はどこまでAIを使わせてよいのか、どう線引きすればいいのか——迷われている方は、お気軽にご相談ください。</p>
+    </div>
+    <div style="margin-top:28px"><span class="chip" style="background:var(--gold-soft);color:#8a6d1f;margin-right:6px">#ChatGPT</span><span class="chip" style="background:var(--gold-soft);color:#8a6d1f;margin-right:6px">#初心者</span><span class="chip" style="background:var(--gold-soft);color:#8a6d1f;margin-right:6px">#文章作成</span><span class="chip" style="background:var(--gold-soft);color:#8a6d1f;margin-right:6px">#AI検出</span></div>
+    
+
+    <!-- ===== 記事末CTA（自動） ===== -->
+    <div class="a-cta">
+      <div class="cta-line-box">
+        <div class="lead">AI導入の不安、ひとりで抱えていませんか？</div>
+        <p>「何から始めればいいか分からない」段階こそ相談どき。御社の状況に合わせた最初の一歩を、無料でお伝えします。</p>
+        <a class="btn" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="/assets/logos/line.svg" alt="LINE"/>公式LINEで無料相談する</a>
+        <a class="cta-sub" href="/lp.html">相談はまだ早い…という方は、まず「3分AI活用力診断」で自社の状態を診断 →</a>
+      </div>
+      <div class="cta-3">
+        <a href="/index_rebuild.html"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9.5 21v-6h5v6"/></svg></span><span class="t">トップページへ</span><span class="d">MUKIAIのサービス全体を見る</span></a>
+        <a href="/index_rebuild.html#about"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg></span><span class="t">私たちについて</span><span class="d">株式会社MUKIAIの想い・実績を知る</span></a>
+        <a href="/claude-code.html"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="m7.5 9 3 3-3 3"/><path d="M12.5 15h4"/></svg></span><span class="t">Claude Code実装支援</span><span class="d">全社AI自動化の導入支援</span></a>
+      </div>
+    </div>
+
+    <!-- 執筆者 -->
+    <div class="author-box">
+      <img src="/assets/photos/profile-keisuke.jpg" alt="栗田 啓介" onerror="this.style.visibility='hidden'"/>
+      <div>
+        <div class="nm">株式会社MUKIAI／ 栗田 啓介</div>
+        <div class="bio">「AI導入の不安を、先回りして取り除く」をミッションに、セキュリティに強いAI伴走支援を提供。情報漏えい・社内ルール・法規制のリスクを整理しながら、全社で“使える状態”まで伴走します。<a href="/index_rebuild.html#about">会社概要を見る →</a></div>
+      </div>
+    </div>
+
+    <section class="related"><h3>あわせて読みたい</h3><div class="rel-grid"><a class="post-card" href="/blog/ai-roi-cost-effectiveness/">
+  <div class="post-thumb"><img src="/assets/blog-img/ai-roi-cost-effectiveness/cover.jpg" alt="AI導入の費用対効果｜ROIの計算式と中小企業の回収目安【2026年】" loading="lazy"/><span class="ph-cat">AI活用</span></div>
+  <div class="post-body">
+    <h2>AI導入の費用対効果｜ROIの計算式と中小企業の回収目安【2026年】</h2>
+    <p class="ex">AI導入の費用対効果を経営者向けに解説。ROIの計算式、時間削減を金額に直す方法、社員10名・30名のシミュレーション、回収期間の目安、効果が出ない会社の共通点まで2026年7月時点の実数で紹介します。</p>
+    <div class="pm"><time datetime="2026-07-21">2026年7月21日</time>・約13分</div>
+  </div>
+</a><a class="post-card" href="/blog/beauty-salon-generative-ai/">
+  <div class="post-thumb"><img src="/assets/blog-img/beauty-salon-generative-ai/cover.jpg" alt="美容室の生成AI活用｜口コミ返信・予約・集客の使い方と費用・補助金" loading="lazy"/><span class="ph-cat">業種別AI</span></div>
+  <div class="post-body">
+    <h2>美容室の生成AI活用｜口コミ返信・予約・集客の使い方と費用・補助金</h2>
+    <p class="ex">美容室・サロンの生成AI活用を経営者向けに解説。口コミ返信やSNS投稿、予約対応の自動化でできること、月3,000円から始める費用の3段階、お客様情報のリスク、2026年に使える補助金まで実務レベルで紹介します。</p>
+    <div class="pm"><time datetime="2026-07-19">2026年7月19日</time>・約16分</div>
+  </div>
+</a><a class="post-card" href="/blog/chatgpt-uso/">
+  <div class="post-thumb"><img src="/assets/blog-img/chatgpt-uso/cover.jpg" alt="ChatGPTはなぜ堂々と嘘をつく？「わかりません」と言わない理由" loading="lazy"/><span class="ph-cat">AI超入門</span></div>
+  <div class="post-body">
+    <h2>ChatGPTはなぜ堂々と嘘をつく？「わかりません」と言わない理由</h2>
+    <p class="ex">ChatGPTがデタラメを自信満々に答える理由を、専門用語なしで解説。嘘が生まれる4つのパターン、信用していい質問・危ない質問の見分け方、嘘を減らす質問のコツ3つを実例つきで紹介します。</p>
+    <div class="pm"><time datetime="2026-07-19">2026年7月19日</time>・約14分</div>
+  </div>
+</a></div></section>
+  </article>
+
+  <aside class="rail">
+    <div class="toc-card"><div class="toc-ttl">目次</div><ul class="toc-list"><li class="lv2"><a href="#_1">まず結論：バレるのは「内容」ではなく「文章のクセ」</a></li><li class="lv3"><a href="#ai">人はAIを「見抜いて」いない。違和感を覚えているだけ</a></li><li class="lv3"><a href="#_2">判定ツールで「断定」されるケースは意外と少ない</a></li><li class="lv2"><a href="#ai5">AIで書いた文章が見抜かれる5つのクセ</a></li><li class="lv3"><a href="#1">クセ1：あたりさわりのない「万能フレーズ」が多い</a></li><li class="lv3"><a href="#2">クセ2：構成が整いすぎている</a></li><li class="lv3"><a href="#3">クセ3：具体が一つも入っていない</a></li><li class="lv3"><a href="#4">クセ4：温度がない（言い淀みも脱線もない）</a></li><li class="lv3"><a href="#5">クセ5：見た目のクセ（太字・絵文字・記号）</a></li><li class="lv2"><a href="#ai_1">AI検出ツールはどこまで当たるのか</a></li><li class="lv3"><a href="#openai">OpenAI自身が「精度が低い」と撤退している</a></li><li class="lv3"><a href="#_3">無実の人が疑われるほうが、実は深刻</a></li><li class="lv3"><a href="#20267">2026年7月時点の実力と、結果の正しい受け取り方</a></li><li class="lv2"><a href="#ai4">「AIっぽさ」を消す4ステップの直し方</a></li><li class="lv3"><a href="#11">手順1：自分だけが知っている具体を1つ足す</a></li><li class="lv3"><a href="#2_1">手順2：整いすぎた形を、あえて崩す</a></li><li class="lv3"><a href="#3_1">手順3：声に出して読み、自分が言わない言い回しを潰す</a></li><li class="lv3"><a href="#4_1">手順4：頼み方そのものを変える（コピペで使えます）</a></li><li class="lv2"><a href="#_4">そもそも隠す必要はあるのか</a></li><li class="lv3"><a href="#_5">隠さなくていい場面</a></li><li class="lv3"><a href="#_6">注意が必要な場面</a></li><li class="lv3"><a href="#_7">「隠す」より「使ったうえで自分の言葉にする」が最も安全</a></li><li class="lv2"><a href="#_8">よくある質問</a></li><li class="lv3"><a href="#q">Q. 少し書き換えれば、検出ツールは回避できますか</a></li><li class="lv3"><a href="#q-ai">Q. 有料版のAIを使えば、自然でバレませんか</a></li><li class="lv3"><a href="#q_1">Q. 日本語と英語で、バレやすさは違いますか</a></li><li class="lv3"><a href="#q-ai_1">Q. 自分で書いたのにAIだと疑われました。どう証明すればいいですか</a></li><li class="lv2"><a href="#_9">まとめ</a></li></ul></div>
+    <div class="line-card">
+      <div class="t">まずは無料相談</div>
+      <div class="d">AI導入の最初の一歩を、御社に合わせてご提案します。</div>
+      <a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="/assets/logos/line.svg" alt="LINE"/>公式LINE</a>
+    </div>
+  </aside>
+</div></div></main>
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img class="foot-logo" src="/assets/mukiai-logo-white.png" alt="株式会社MUKIAI"/>
+        <p>株式会社MUKIAI｜AI導入の不安を、先回りして取り除く。セキュリティに強いAI伴走支援。</p>
+      </div>
+      <div class="foot-nav">
+        <div class="col"><h5>サービス</h5>
+          <a href="/index_rebuild.html#service">AI伴走支援</a><a href="/claude-code.html">Claude Code実装支援</a><a href="/index_rebuild.html#pricing">料金</a><a href="/blog/">ブログ</a><a href="/lp.html">3分AI活用力診断</a>
+        </div>
+        <div class="col"><h5>会社情報</h5>
+          <a href="/index_rebuild.html#about">会社概要</a><a href="/index_rebuild.html#ceo">代表者</a><a href="/index_rebuild.html#privacy">プライバシーポリシー</a><a href="/tokushoho.html">特定商取引法に基づく表記</a>
+        </div>
+        <div class="col"><h5>お問い合わせ</h5>
+          <a href="https://lin.ee/8upkUmI" target="_blank" rel="noopener">公式LINEで無料相談</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 株式会社MUKIAI</span><span>AI導入の不安を、先回りして取り除く。</span></div>
+  </div>
+</footer>
+<script src="/assets/blog.js"></script>
+</body>
+</html>
