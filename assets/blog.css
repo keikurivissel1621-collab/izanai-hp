@@ -81,12 +81,18 @@ img{max-width:100%;display:block}
 .a-cover{margin:24px 0 6px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:16/9;background:linear-gradient(135deg,var(--navy),var(--teal))}
 .a-cover img{width:100%;height:100%;object-fit:cover}
 
-/* 目次（モバイル：本文上のカード） */
+/* 目次（モバイル：本文上のカード。<details>でデフォルト折りたたみ） */
 .toc-inline{background:var(--card);border:1px solid var(--line);border-radius:14px;
-  padding:18px 20px;margin:24px 0 30px}
-.toc-inline .toc-ttl{font-size:13px;font-weight:900;color:var(--navy);letter-spacing:.06em;
-  margin-bottom:10px;display:flex;align-items:center;gap:8px}
-.toc-inline .toc-ttl::before{content:"";width:14px;height:2px;background:var(--gold)}
+  margin:24px 0 30px;overflow:hidden}
+.toc-inline .toc-ttl{list-style:none;cursor:pointer;font-size:13px;font-weight:900;color:var(--navy);
+  letter-spacing:.06em;padding:14px 20px;min-height:44px;display:flex;align-items:center;gap:8px;
+  -webkit-tap-highlight-color:transparent;user-select:none}
+.toc-inline .toc-ttl::-webkit-details-marker{display:none}
+.toc-inline .toc-ttl::before{content:"";width:14px;height:2px;background:var(--gold);flex:none}
+.toc-inline .toc-ttl::after{content:"▼";margin-left:auto;font-size:10px;color:var(--teal);transition:transform .2s}
+.toc-inline[open] .toc-ttl::after{content:"▲"}
+.toc-inline[open] .toc-ttl{border-bottom:1px solid var(--line)}
+.toc-inline .toc-list{padding:10px 20px 16px}
 .toc-list{list-style:none}
 .toc-list a{display:block;color:var(--muted);font-size:13.5px;padding:5px 0;line-height:1.6;border-left:2px solid transparent;padding-left:12px;margin-left:-12px;transition:.2s}
 .toc-list a:hover{color:var(--teal)}

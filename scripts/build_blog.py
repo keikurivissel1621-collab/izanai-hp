@@ -120,12 +120,12 @@ def build_toc(tokens):
                 if c["level"] == 3:
                     items.append((3, c["id"], c["name"]))
     if not items:
-        return ""
+        return "", 0
     li = []
     for lv, _id, name in items:
         cls = "lv3" if lv == 3 else "lv2"
         li.append(f'<li class="{cls}"><a href="#{_id}">{html.escape(name)}</a></li>')
-    return '<ul class="toc-list">' + "".join(li) + "</ul>"
+    return '<ul class="toc-list">' + "".join(li) + "</ul>", len(items)
 
 # ============ 中間CTA挿入（2つ目のH2直前） ============
 MID_CTA = (
@@ -225,7 +225,7 @@ def head(title, desc, canonical, ogimg, og_type="article", extra=""):
 <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png"/>
 <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
 <link rel="icon" href="/favicon.ico" sizes="any"/>
-<link rel="stylesheet" href="/assets/blog.css?v=3"/>
+<link rel="stylesheet" href="/assets/blog.css?v=4"/>
 {extra}
 </head>
 <body>'''
@@ -340,7 +340,7 @@ def load_articles():
 def render_article(a, others):
     canonical = f"{SITE}/blog/{a['slug']}/"
     ogimg = a["thumb"] or DEFAULT_OG
-    toc_html = build_toc(a["toc"])
+    toc_html, toc_count = build_toc(a["toc"])
     body_html = inject_mid(a["body_html"])
 
     # cover
@@ -349,8 +349,8 @@ def render_article(a, others):
     else:
         cover = ""
 
-    # 目次（インライン＝モバイル）
-    toc_inline = (f'<nav class="toc-inline"><div class="toc-ttl">目次</div>{toc_html}</nav>'
+    # 目次（インライン＝モバイル／デフォルト折りたたみ。SEO：リンクはHTMLソースに常時出力）
+    toc_inline = (f'<details class="toc-inline"><summary class="toc-ttl">目次（{toc_count}項目）</summary>{toc_html}</details>'
                   if toc_html else "")
     # 右レール（PC）
     rail_toc = (f'<div class="toc-card"><div class="toc-ttl">目次</div>{toc_html}</div>'
