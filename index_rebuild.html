@@ -120,62 +120,101 @@ header.scrolled{box-shadow:0 8px 24px -14px rgba(15,39,66,.28);padding:10px 0}
 .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
 .burger span{width:26px;height:2.5px;background:var(--navy);border-radius:2px;transition:.3s}
 
-/* ---------- hero ---------- */
-.hero{position:relative;overflow:hidden;background:#faf8f3;padding-top:88px}
-/* 文字入り画像をそのまま全幅表示（どの幅でも全文字・CTAが見える） */
-.hero-media{position:relative;line-height:0;font-size:0}
-.hero .heroimg{width:100%;height:auto;display:block}
-/* 画像内CTA上に重ねる発光ホットスポット（クリックでLINE） */
-.hero-hotspot{position:absolute;left:2.5%;top:81%;width:43%;height:11%;border-radius:10px;z-index:3;display:block;box-shadow:0 0 0 0 rgba(43,138,148,.5);animation:hotspotGlow 2.6s var(--ease) infinite}
-@keyframes hotspotGlow{0%,100%{box-shadow:0 0 0 0 rgba(43,138,148,.45)}50%{box-shadow:0 0 0 12px rgba(43,138,148,0)}}
-/* 画像未配置時のみ表示するフォールバック */
-.hero-fallback{display:none}
-.hero-fallback.show{display:flex;align-items:center;min-height:min(80vh,720px);position:relative;background:linear-gradient(110deg,#eaf1f3 0%,#dfeaee 35%,#cdb98f 100%)}
-.hero-fallback.show::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34%;background:linear-gradient(180deg,transparent,rgba(250,248,243,.28));pointer-events:none}
-.hero-fallback .wrap{position:relative;z-index:2;width:100%}
-/* 画像直下の常時サブCTA帯（LP導線確保） */
-.hero-subcta{background:var(--bg-2);border-bottom:1px solid var(--line);padding:24px 0}
-.hero-subcta .wrap{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;align-items:center}
-.hero-subcta a.lp{font-size:18px;font-weight:700;color:var(--teal);display:inline-flex;align-items:center;gap:8px;transition:.2s}
-.hero-subcta a.lp:hover{color:var(--navy)}
-.hero-subcta .btn-line{padding:17px 36px;font-size:17px}
-.hero-subcta .btn-line .linelogo{width:24px;height:24px}
-.hero-copy{max-width:600px}
-.hero-tag{
-  display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.72);
-  backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.7);
-  color:var(--navy);font-weight:700;font-size:13px;letter-spacing:.08em;
-  padding:8px 16px;border-radius:999px;box-shadow:var(--shadow-sm);margin-bottom:22px;
+/* ---------- hero（テキストファースト：コピーは画像に焼き込まずHTMLで出す） ---------- */
+.hero{
+  position:relative;overflow:hidden;
+  padding-top:84px;padding-bottom:clamp(26px,4vw,60px);
+  background:linear-gradient(110deg,#eaf1f3 0%,#dfeaee 35%,#cdb98f 100%);
 }
-.hero-tag .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(43,138,148,.2)}
+.hero::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:34%;
+  background:linear-gradient(180deg,transparent,rgba(250,248,243,.28));pointer-events:none;z-index:1;
+}
+/* ---- 背景動画レイヤー（PC専用） ----
+   ・モバイルは display:none かつ JS が src を入れないため、動画は一切ダウンロードされない
+   ・PCでもマスクで「右側だけ」に減衰表示し、コピーが載る左半分は既存グラデーションのまま＝
+     どのフレームでも本文のコントラストが変化しない */
+.hero-media{
+  position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;
+  display:none;
+}
+.hero-media video{width:100%;height:100%;object-fit:cover;object-position:50% 46%;display:block}
+.hero-media::after{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(180deg,rgba(250,248,243,.34) 0%,rgba(250,248,243,0) 30%,rgba(250,248,243,.30) 76%,rgba(250,248,243,.78) 100%),
+    linear-gradient(100deg,rgba(224,235,238,.65) 0%,rgba(224,235,238,0) 44%,rgba(200,162,74,.10) 100%);
+}
+.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr;align-items:center}
+.hero-copy{max-width:640px}
+.hero-eyebrow{
+  display:inline-block;font-size:clamp(10.5px,3.1vw,13px);font-weight:700;letter-spacing:.03em;
+  color:#12454d;background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.92);
+  padding:6px 13px;border-radius:999px;line-height:1.5;margin-bottom:14px;
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  box-shadow:0 1px 0 rgba(255,255,255,.7) inset,0 6px 18px -12px rgba(15,39,66,.5);
+}
 .hero h1{
   font-family:"Noto Serif JP",serif;font-weight:900;color:var(--navy);
-  font-size:clamp(34px,6.4vw,68px);line-height:1.18;letter-spacing:.01em;
-  text-shadow:0 2px 24px rgba(255,255,255,.55);
+  font-size:clamp(22px,7vw,40px);line-height:1.34;letter-spacing:.004em;
 }
-.hero h1 .accent{color:var(--teal-2);position:relative}
-.hero p.sub{
-  margin-top:24px;font-size:clamp(16px,2.2vw,20px);font-weight:500;color:#22384c;
-  max-width:480px;text-shadow:0 1px 14px rgba(255,255,255,.6);
+.hero .hero-sub{
+  margin-top:14px;font-size:clamp(13.5px,3.6vw,17px);line-height:1.8;
+  font-weight:500;color:#20364a;max-width:33em;
 }
-.hero-cta-row{margin-top:34px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
-/* glowing in-image CTA chip */
-.hero-chip{
-  display:inline-flex;align-items:center;gap:10px;
-  font-family:"Noto Sans JP";font-weight:700;font-size:clamp(15px,1.8vw,18px);color:#fff;
-  background:linear-gradient(120deg,var(--teal),var(--teal-2));
-  padding:15px 28px;border-radius:14px;position:relative;
-  box-shadow:0 0 0 0 rgba(43,138,148,.55),0 18px 40px -14px rgba(31,111,120,.7);
-  animation:chipGlow 2.6s var(--ease) infinite;
+.hero-cta{margin-top:20px;display:flex;flex-direction:column;gap:10px;max-width:430px}
+.hero-cta .btn{
+  width:100%;min-height:52px;font-size:clamp(14.5px,3.9vw,17px);
+  padding:13px 20px;white-space:normal;text-align:center;line-height:1.4;
 }
-.hero-chip::before{content:"🛡";font-size:18px}
-@keyframes chipGlow{
-  0%,100%{box-shadow:0 0 0 0 rgba(43,138,148,.5),0 18px 40px -14px rgba(31,111,120,.7)}
-  50%{box-shadow:0 0 0 12px rgba(43,138,148,0),0 22px 50px -14px rgba(31,111,120,.85)}
+.btn-hero-primary{
+  color:#fff;background:linear-gradient(120deg,#1f6f78,#267c85);
+  box-shadow:0 14px 30px -14px rgba(31,111,120,.8);
 }
-.hero-scroll{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:2;color:var(--navy);font-size:11px;letter-spacing:.2em;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:.7}
-.hero-scroll .bar{width:1.5px;height:34px;background:linear-gradient(var(--navy),transparent);animation:scrollbar 1.8s infinite}
-@keyframes scrollbar{0%{transform:scaleY(.2);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}50.1%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(.2);transform-origin:bottom}}
+.btn-hero-primary:hover{transform:translateY(-2px)}
+.btn-hero-line{
+  color:#0f2742;background:rgba(255,255,255,.97);border:1.5px solid var(--teal-2);
+  box-shadow:var(--shadow-sm);
+}
+.btn-hero-line:hover{transform:translateY(-2px);border-color:var(--teal)}
+.hero-trust{margin-top:13px;font-size:12px;line-height:1.65;color:#2c4256;max-width:34em}
+.hero-next{
+  display:inline-flex;align-items:center;margin-top:16px;
+  font-size:13px;font-weight:700;color:#124f58;
+  border-bottom:1px solid rgba(18,79,88,.42);padding-bottom:2px;
+}
+.hero-next:hover{color:var(--navy);border-bottom-color:var(--navy)}
+@media(min-width:981px){
+  .hero{padding-top:128px;padding-bottom:64px;min-height:min(84vh,660px);display:flex;align-items:center}
+  .hero-inner{width:100%;grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);gap:44px}
+  .hero-copy{max-width:none;padding-right:8px}
+  /* 2カラム時はコピー幅が狭くなるため、h1が3行に折れないよう段階的に調整 */
+  .hero h1{font-size:35px;line-height:1.29;letter-spacing:-.008em}
+  .hero .hero-sub{margin-top:16px;max-width:24em}
+  /* 動画は「右半分にだけ」立ち上がる。左＝可読域には一切かからない */
+  .hero-media{
+    display:block;
+    -webkit-mask-image:linear-gradient(100deg,rgba(0,0,0,0) 0%,rgba(0,0,0,0) 51%,rgba(0,0,0,.16) 58%,rgba(0,0,0,.60) 69%,rgba(0,0,0,.92) 83%,#000 100%);
+            mask-image:linear-gradient(100deg,rgba(0,0,0,0) 0%,rgba(0,0,0,0) 51%,rgba(0,0,0,.16) 58%,rgba(0,0,0,.60) 69%,rgba(0,0,0,.92) 83%,#000 100%);
+  }
+  /* CTAは横並び。視線の流れ（見出し→一文→行動）を1画面で完結させる */
+  .hero-cta{flex-direction:row;flex-wrap:wrap;align-items:stretch;max-width:none;gap:12px;margin-top:26px}
+  .hero-cta .btn{width:auto;flex:0 0 auto;padding:14px 24px;white-space:nowrap}
+  .hero-trust{margin-top:22px;padding-top:14px;border-top:1px solid rgba(15,39,66,.12);max-width:30em}
+  .hero-next{margin-top:18px}
+}
+@media(min-width:1200px){
+  .hero h1{font-size:40px}
+  .hero .hero-sub{font-size:17px}
+}
+/* 極小幅（iPhone SE系）：2行目「誰も使っていない会社へ。」が3行目に溢れないよう固定 */
+@media(max-width:360px){
+  .hero h1{font-size:20px}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero *{animation:none!important;transition:none!important}
+  .btn-hero-primary:hover,.btn-hero-line:hover{transform:none}
+}
 
 /* ---------- ticker / marquee ---------- */
 .ticker{background:var(--navy);color:#fff;padding:18px 0;overflow:hidden;white-space:nowrap}
@@ -456,7 +495,7 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:60px 0 30p
   header{padding:9px 0}
   .menu .btn{padding:9px 15px;font-size:13px}
   .burger{padding:4px}
-  .hero{padding-top:60px}
+  .hero{padding-top:62px}
   .hero-copy{max-width:100%}
   .logos img{height:58px}
   .logos .track{gap:40px}
@@ -464,7 +503,7 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:60px 0 30p
   .steps{grid-template-columns:1fr}
   .menu{gap:10px}
   .brand .brand-logo{height:26px}
-  .hero-subcta .wrap{flex-direction:column;gap:12px}
+  .hero .wrap{padding:0 18px}
 }
 /* mobile slide-down menu */
 .mobile-menu{display:none;position:fixed;top:0;left:0;right:0;z-index:59;background:var(--bg);box-shadow:var(--shadow-lg);padding:90px 24px 30px;transform:translateY(-110%);transition:transform .4s var(--ease)}
@@ -565,51 +604,25 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:60px 0 30p
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
-  <!-- 文字入りヒーロー画像（assets/rebuild/hero.png）。未配置時は下のフォールバックを自動表示 -->
-  <div class="hero-media" id="heroMedia">
-    <img class="heroimg" src="assets/rebuild/hero.jpg" alt="AI導入の不安を、先回りして取り除く。セキュリティに強いAI伴走支援" fetchpriority="high"
-      onerror="document.getElementById('heroFallback').classList.add('show');var m=document.getElementById('heroMedia');if(m)m.remove();"/>
-    <!-- 画像内CTA「セキュリティに強いAI伴走支援」の位置に重ねる発光クリック領域 -->
-    <a class="hero-hotspot" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener" aria-label="セキュリティに強いAI伴走支援｜公式LINEで無料相談"></a>
+  <!-- 背景動画：src/posterはJSがPC(981px以上)でのみ注入する＝モバイルは通信ゼロ -->
+  <div class="hero-media" aria-hidden="true">
+    <video id="heroVideo" muted loop playsinline preload="none" tabindex="-1"
+           data-src="assets/videos/hero.mp4" data-poster="assets/videos/hero-poster.jpg"></video>
   </div>
-  <!-- フォールバック（画像が無いときだけ表示） -->
-  <div class="hero-fallback" id="heroFallback">
-    <div class="wrap">
-      <div class="hero-copy">
-        <span class="hero-tag"><span class="dot"></span>セキュリティに強いAI伴走支援</span>
-        <h1>AI導入の不安を、<br><span class="accent">先回り</span>して<br>取り除く。</h1>
-        <p class="sub">情報漏えい・社内ルール・法規制。<br>リスクを整理しながら、全社で“使える状態”まで伴走します。</p>
-        <div class="hero-cta-row">
-          <a class="hero-chip" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener">セキュリティに強いAI伴走支援</a>
-          <a class="btn btn-ghost" href="lp.html">3分AI活用力診断 →</a>
-        </div>
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <span class="hero-eyebrow">株式会社MUKIAI ｜ 従業員5〜100名の中小企業専門</span>
+      <h1>AI研修をやったのに、<br class="hero-br">誰も使っていない会社へ。</h1>
+      <p class="hero-sub">ツールを配って終わりにしません。社内ルールの整備から現場の定着まで、5〜100名の会社に伴走します。</p>
+      <div class="hero-cta">
+        <a class="btn btn-hero-primary" href="/lp.html">無料・3分「AI活用力診断」</a>
+        <a class="btn btn-hero-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="assets/logos/line.svg" alt=""/>公式LINEで無料相談</a>
       </div>
+      <p class="hero-trust">初回相談 無料 ／ 無理な営業なし ／ 経産省・総務省「AI事業者ガイドライン」を踏まえた設計</p>
+      <a class="hero-next" href="#anxiety">「使われない」の正体を見る ↓</a>
     </div>
   </div>
 </section>
-<!-- サブCTA帯（LP導線を常時確保） -->
-<div class="hero-subcta">
-  <div class="wrap">
-    <a class="lp" href="lp.html">▶ 無料・3分「AI活用力診断」タイプ判定つき</a>
-    <a class="btn btn-line" href="https://lin.ee/8upkUmI" target="_blank" rel="noopener"><img class="linelogo" src="assets/logos/line.svg" alt="LINE"/>公式LINEで無料相談</a>
-  </div>
-</div>
-
-<!-- ============ SERVICE TICKER ============ -->
-<div class="ticker" aria-hidden="true">
-  <div class="track">
-    <span class="item">AI利用診断</span><span class="item">ガイドライン策定</span><span class="item">個人情報リスク整理</span><span class="item">社員研修</span><span class="item">部門別AI活用設計</span><span class="item">全社定着支援</span>
-    <span class="item">AI利用診断</span><span class="item">ガイドライン策定</span><span class="item">個人情報リスク整理</span><span class="item">社員研修</span><span class="item">部門別AI活用設計</span><span class="item">全社定着支援</span>
-  </div>
-</div>
-
-<!-- ============ TOOL LOGOS ============ -->
-<div class="logos">
-  <p class="cap">AIが接続可能なサービス</p>
-  <div class="mask">
-    <div class="track" id="logoTrack"></div>
-  </div>
-</div>
 
 <!-- ============ ANXIETY ============ -->
 <section class="anxiety pad" id="anxiety">
@@ -641,6 +654,22 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:60px 0 30p
     </div>
   </div>
 </section>
+
+<!-- ============ SERVICE TICKER ============ -->
+<div class="ticker" aria-hidden="true">
+  <div class="track">
+    <span class="item">AI利用診断</span><span class="item">ガイドライン策定</span><span class="item">個人情報リスク整理</span><span class="item">社員研修</span><span class="item">部門別AI活用設計</span><span class="item">全社定着支援</span>
+    <span class="item">AI利用診断</span><span class="item">ガイドライン策定</span><span class="item">個人情報リスク整理</span><span class="item">社員研修</span><span class="item">部門別AI活用設計</span><span class="item">全社定着支援</span>
+  </div>
+</div>
+
+<!-- ============ TOOL LOGOS ============ -->
+<div class="logos">
+  <p class="cap">AIが接続可能なサービス</p>
+  <div class="mask">
+    <div class="track" id="logoTrack"></div>
+  </div>
+</div>
 
 <!-- ============ SERVICE ============ -->
 <section class="service pad" id="service">
@@ -944,7 +973,7 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:60px 0 30p
     <div class="offerbox reveal">
       <ul class="offerlist">
         <li><span class="ck"></span><span><b>初回相談 無料</b><em>御社の状況をヒアリングし、何から始めるべきかを整理します。</em></span></li>
-        <li><span class="ck"></span><span><b>3分AIリスク診断 無料</b><em>20問で自社のAIセキュリティ健全度を、その場で数値化。</em></span></li>
+        <li><span class="ck"></span><span><b>3分AI活用力診断 無料</b><em>12問で自社のAI活用力を4軸で、その場で数値化。</em></span></li>
         <li><span class="ck"></span><span><b>AIガイドラインMVP（たたき台）無料</b><em>診断結果をもとに、まず決めるべきルールの方向性を1枚で。</em></span></li>
         <li><span class="ck"></span><span><b>無理な営業は一切なし</b><em>合わなければ断ってOK。情報収集だけのご利用も歓迎です。</em></span></li>
       </ul>
@@ -1113,6 +1142,24 @@ const fillTrack=(el,arr)=>{ if(!el)return; const h=()=>arr.map(n=>`<img src="ass
 const _half=Math.ceil(CLIENTS.length/2);
 fillTrack(document.getElementById('clientsTrackA'),CLIENTS.slice(0,_half));
 fillTrack(document.getElementById('clientsTrackB'),CLIENTS.slice(_half));
+
+/* ヒーロー背景動画：PC(981px以上)でのみ読み込む。
+   直帰率対策として (1)モバイルは1バイトも取得しない (2)LCP(h1)を奪わないようアイドル後に開始
+   (3)prefers-reduced-motion時はポスター静止画のみ表示し再生しない */
+(function(){
+  var v=document.getElementById('heroVideo'); if(!v) return;
+  var wide=matchMedia('(min-width:981px)'), still=matchMedia('(prefers-reduced-motion:reduce)');
+  function boot(){
+    if(v.dataset.on||!wide.matches) return;
+    v.dataset.on='1';
+    v.poster=v.dataset.poster;          // 動画読込前でも即座に絵が出る
+    if(still.matches) return;           // 動きを避ける設定：静止画で止める
+    v.src=v.dataset.src; v.load();
+    var p=v.play(); if(p&&p.catch) p.catch(function(){});
+  }
+  if('requestIdleCallback' in window) requestIdleCallback(boot,{timeout:2000}); else setTimeout(boot,900);
+  if(wide.addEventListener) wide.addEventListener('change',boot); else if(wide.addListener) wide.addListener(boot);
+})();
 
 // contact form -> open LINE
 function toLine(e){
